@@ -1,0 +1,576 @@
+\documentclass[10pt, twoside, a4paper, openright]{report}
+
+%packages-----------------------------------------------------------------------
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{array}
+%\usepackage{times}
+%\usepackage{charter}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{verbatim}
+\usepackage{pdfpages}
+\usepackage[unicode]{hyperref}
+\hypersetup{
+	colorlinks=true, %Colours links instead of ugly boxes
+	urlcolor=blue, %Colour for external hyperlinks
+	linkcolor=blue, %Colour of internal links
+	citecolor=blue %Colour of citations
+}
+\usepackage[small, bf]{caption}
+\usepackage{enumerate}
+\usepackage{epstopdf}
+\usepackage{epsfig}
+\usepackage{setspace}
+\usepackage{esdiff}
+\usepackage{enumitem}
+\usepackage[inner=4.0cm, outer=3.0cm]{geometry}
+\usepackage{emptypage}
+\usepackage{caption}
+%\usepackage{subcaption}
+\usepackage{listings}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{lipsum}
+\usepackage{mathabx}
+\usepackage{floatrow}
+\usepackage{courier}
+\usepackage{cite}
+\def\citepunct{; \penalty\citepunctpenalty}
+\usepackage[position=top]{subfig}
+
+%cite----------
+
+
+
+%fancystyles--------------------------------------------------------------------
+
+\usepackage{fancyhdr}
+
+\fancypagestyle{myfancy}{
+
+\fancyhead[LE]{\nouppercase{\leftmark}}
+\fancyhead[LO]{}
+\fancyhead[CO]{}
+\fancyhead[CE]{}
+\fancyhead[RE]{}
+\fancyhead[RO]{\nouppercase{\rightmark}}
+
+\fancyfoot[LE]{\thepage}
+\fancyfoot[LO]{}
+\fancyfoot[CO]{}
+\fancyfoot[CE]{}
+\fancyfoot[RE]{}
+\fancyfoot[RO]{\thepage}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.0pt}
+}
+
+\fancypagestyle{plain}{
+
+\fancyhead[LE]{}
+\fancyhead[LO]{}
+\fancyhead[CO]{}
+\fancyhead[CE]{}
+\fancyhead[RE]{}
+\fancyhead[RO]{}
+
+\fancyfoot[LE]{\thepage}
+\fancyfoot[LO]{}
+\fancyfoot[CO]{}
+\fancyfoot[CE]{}
+\fancyfoot[RE]{}
+\fancyfoot[RO]{\thepage}
+
+\renewcommand{\headrulewidth}{0.0pt}
+\renewcommand{\footrulewidth}{0.0pt}
+}
+
+%tikz---------------------------------------------------------------------------
+
+\usepackage{tikz}
+\usetikzlibrary{shapes, arrows}
+
+%url----------------------------------------------------------------------------
+
+\usepackage{url}
+\DeclareUrlCommand\url{\def\UrlLeft{<}\def\UrlRight{>} \urlstyle{tt}}
+
+%color--------------------------------------------------------------------------
+
+\definecolor{darkred}{rgb}{0.6,0,0}
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+\definecolor{darkblue}{rgb}{0,0,0.6}
+\definecolor{darkgrey}{rgb}{0.3,0.3,0.3}
+\definecolor{grey}{rgb}{0.6,0.6,0.6}
+\definecolor{lightgrey}{rgb}{0.95,0.95,0.95}
+\definecolor{lightred}{rgb}{0.99,0.85,0.85}
+\definecolor{violet}{rgb}{0.65,0.45,0.75}
+
+%listings-----------------------------------------------------------------------
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{light}{rgb}{0.96, 0.96, 0.96}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstdefinestyle{CXX} {
+	language=C++,
+	backgroundcolor=\color{light},
+	basicstyle=\scriptsize\ttfamily,
+	breakatwhitespace=false,
+	breaklines=true,
+	captionpos=t,
+	%commentstyle=\color{mygreen},
+	deletekeywords={},
+	escapeinside={\%*}{*)},
+	extendedchars=true,
+	frame=single,
+	keepspaces=true,
+	keywordstyle=\color{blue},
+	otherkeywords={},
+	numbers=left,
+	numbersep=5pt,
+	numberstyle=\tiny\color{mygray},
+	rulecolor=\color{black},
+	showspaces=false,
+	showstringspaces=false, 
+	showtabs=false,
+	stepnumber=1,
+	stringstyle=\color{mymauve},
+	tabsize=3,
+	title=\lstname   
+}
+
+\lstdefinestyle{FORTRAN} {
+	language=[90]Fortran,
+	backgroundcolor=\color{light},
+	basicstyle=\scriptsize\ttfamily,
+	keywordstyle=\color{blue},
+	%commentstyle=\color{mygreen},
+	breakatwhitespace=false,
+	breaklines=true,
+	captionpos=t,
+	deletekeywords={},
+	escapeinside={\%*}{*)},
+	extendedchars=true,
+	frame=single,
+	keepspaces=true,
+	otherkeywords={},
+	numbers=left,
+	numbersep=5pt,
+	numberstyle=\tiny\color{mygray},
+	rulecolor=\color{black},
+	showspaces=false,
+	showstringspaces=false, 
+	showtabs=false,
+	stepnumber=1,
+	stringstyle=\color{mymauve},
+	tabsize=3,
+	title=\lstname 
+}
+
+%settings-----------------------------------------------------------------------
+
+\setlength{\parindent}{15pt}
+\setlength{\parskip}{0pt}
+\renewcommand{\baselinestretch}{1.0}
+\pagenumbering{arabic}
+\frenchspacing
+
+\DeclareFontFamily{U}{mathx}{\hyphenchar\font45}
+\DeclareFontShape{U}{mathx}{m}{n}{<-> mathx10}{}
+\DeclareSymbolFont{mathx}{U}{mathx}{m}{n}
+\DeclareMathAccent{\widebar}{0}{mathx}{"73}
+
+%commands----------------------------------------------------------------------
+
+\newcommand{\ctu}{Czech Technical University in Prague}
+\newcommand{\fnspe}{Faculty of Nuclear Sciences and Physical Engineering}
+\newcommand{\dpe}{Department of Physical Electronics}
+\newcommand{\branch}{Computational Physics}
+\newcommand{\projecttitle}{Laser-driven sources of~electrons and~x-rays in~underdense plasma: theory and~simulation}
+\newcommand{\projecttitlecz}{Laserem řízené zdroje elektronů a~rentgenového záření v~podkritickém plazmatu: teorie a~simulace}
+\newcommand{\valenta}{Ing. Petr Valenta}
+\newcommand{\klimo}{doc. Ing. Ondřej Klimo, Ph.D.}
+\newcommand{\bulanov}{prof. Sergei Vladimirovich Bulanov}
+\newcommand{\academicyear}{2021/2022}
+\newcommand{\keywords}{}
+\newcommand{\keywordscz}{}
+
+%macros-------------------------------------------------------------------------
+
+\newcommand{\nucl}[3]{
+\ensuremath{
+\phantom{
+\ensuremath{^{#1}_{#2}}}
+\llap{\ensuremath{^{\rule{0pt}{0pt}#1}}}
+\llap{\ensuremath{_{\rule{0pt}{7pt}#2}}}
+\mbox{#3}}}
+
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\abs}[1]{\lvert#1\rvert}
+
+\renewcommand{\vec}[1]{\mathbf{#1}}
+
+\newcommand{\rot}[1]{\nabla \times #1}
+\newcommand{\grad}[1]{\nabla #1}
+\renewcommand{\div}[1]{\nabla \cdot #1}
+\newcommand{\laplace}[1]{\Delta #1}
+\newcommand{\dalembert}[1]{\Box #1}
+
+\newcommand{\e}[0]{\mathrm{e}}
+\renewcommand{\i}[0]{\mathrm{i}}
+\renewcommand{\d}[0]{\mathrm{d}}
+
+%changecountering---------------------------------------------------------------
+
+\usepackage{chngcntr}
+%\counterwithout{equation}{chapter}
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
+
+%document-----------------------------------------------------------------------
+
+\begin{document}
+
+\pagestyle{empty}
+
+%1------------------------------------------------------------------------------
+
+\mbox{}
+\newpage
+
+\begin{titlepage}
+
+\begin{center}
+{\Large \bf \ctu}\\[4mm]
+{\Large \bf \fnspe}\\[4mm]
+{\Large \bf \dpe}\\[16mm]
+\epsfysize=45mm \epsffile{img/logo/ctu.pdf}\\[12mm]
+\begin{spacing}{2.0}
+%{\noindent\rule{\textwidth}{2pt}}
+{\LARGE \bf \projecttitle} \\
+%{\noindent\rule{\textwidth}{2pt}}
+\end{spacing}
+{\Large (dissertation)} \\
+\vfill
+\end{center}
+
+\begin{center}
+\begin{tabular}{rl}
+author: & \valenta \\[1mm]
+supervisor: & \klimo \\[1mm]
+supervisor specialist: & \bulanov \\[1mm]
+academic year: & \academicyear \\[1mm]
+\end{tabular}
+\end{center}
+
+\end{titlepage}
+
+%2------------------------------------------------------------------------------
+
+\newpage
+\mbox{}
+
+%3------------------------------------------------------------------------------
+
+%\newpage
+%\includepdf[pages=1]{dat/guidelines.pdf}
+
+%4------------------------------------------------------------------------------
+
+%\newpage
+%\includepdf[pages=2]{dat/guidelines.pdf}
+
+%5------------------------------------------------------------------------------
+
+%\newpage
+%\null
+%\vfill
+%{\bf \noindent Prohlášení/Declaration} \\[5mm]
+%Prohlašuji, že jsem předloženou práci vypracoval samostatně a že jsem uvedl veškerou
+%použitou literaturu.\\[2mm]
+%I hereby declare that I carried out this work independently, and only with the cited sources, literature and other professional sources.\\
+%\vspace{5mm}V Praze dne/In Prague on .............................\hfill
+%\begin{tabular}{c}
+%........................................\\
+%\valenta
+%\end{tabular}
+
+%6------------------------------------------------------------------------------
+
+%\newpage
+%\thispagestyle{empty}
+%\mbox{}
+
+%7------------------------------------------------------------------------------
+
+%\newpage
+%\begin{flushleft}
+%	\renewcommand{\arraystretch}{1.3}
+%	\begin{tabular}{r p{12cm}}
+%		Název práce:
+%		~ & \bf \projecttitlecz \\
+%		Autor:
+%		~ & \valenta \\
+%		Druh práce:
+%		~ & Diplomová práce \\
+%		Studijní program:
+%		~ & (N3913) Aplikace přírodních věd \\
+%		Obor:
+%		~ & (3901T065) Informatická fyzika \\
+%		Vedoucí práce:
+%		~ & \klimo \newline Katedra fyzikální elektroniky, Fakulta jaderná a fyzikálně inženýrská, České vysoké učení technické v Praze \\
+%		Konzultant:
+%		~ & \bulanov \newline Projekt ELI-Beamlines, Fyzikální ústav Akademie věd České republiky, v. v. i. \\
+%	\end{tabular}
+%\end{flushleft}
+
+%\begin{center}
+%\textbf{Abstrakt}\\
+%\end{center}
+
+%Úzká fokusace s využitím plazmové optiky může vést ke zvýšení intenzity a zlepšení časového i prostorového kontrastu laserových svazků. Vzhledem k tomu, že pro popis těchto impulsů neplatí paraxiální aproximace, je zapotřebí použít vhodnější model. V rámci této práce byly do částicového kódu implementovány a důkladně otestovány nové okrajové podmínky pro výpočet časového vývoje laserového impulsu na hranici simulační obasti v souladu s Maxwellovými rovnicemi. Upravený kód byl použit pro simulace laserových svazků zaostřených do velmi malého ohniska. Výsledky simulací byly analyzovány z hlediska vlivu velikosti ohniska na průběh interakce laserových svazků s pevnými terči. Ukazuje se, že trajektorie horkých elektronů a absorpční procesy během interakce jsou silně ovlivněny příčnou složkou ponderomotorické síly, která je velmi vysoká v případě ohniska menšího než je vlnová délka laseru. V tomoto případě ostře narůstá účinnost absorpce laserové energie v plazmatu, distribuční funkce energie elektronů jsou kvalitativně rozdílné a teplota horkých elektronů se výrazně zvyšuje. \\
+
+%\noindent Klíčová slova: \keywordscz
+
+
+%8------------------------------------------------------------------------------
+
+\newpage
+\begin{flushleft}
+	\renewcommand{\arraystretch}{1.3}
+	\begin{tabular}{r p{8cm}}
+		Title:
+		~ & \bf \projecttitle \\
+		Author:
+		~ & \valenta$ ^{1, 2} $ \\
+		Supervisor:
+		~ & \klimo$ ^{1, 2} $ \\
+		Supervisor specialist:
+		~ & \bulanov$ ^{2, 3} $ \\
+	\end{tabular}
+\end{flushleft}
+
+\noindent $^{1} $Faculty of Nuclear Sciences and Physical Engineering, Czech Technical University in Prague, Břehová 7, 115 19 Prague, Czech Republic \\[2mm]
+\noindent $^{2} $ELI Beamlines, Institute of Physics, Czech Academy of Sciences, Za Radnicí 835, 252 41 Dolní Břežany, Czech Republic \\[2mm]
+\noindent $^{3} $Kansai Photon Science Institute, National Institutes for Quantum and Radiological Science and Technology, 8-1-7 Umemidai, Kizugawa, Kyoto 619-0215, Japan \\[2mm]
+
+\begin{center}
+	\bf Abstract \\
+\end{center}
+
+We explore novel regimes of laser-plasma interaction accessible by new generation laser systems. The scientific focus is mainly devoted to enhancement of laser-generated sources of accelerated electrons and coherent short-wavelength radiation based on plasma waves driven by intense laser pulses. First we describe mechanisms for obtaining electron beams based on laser wakefield acceleration technique. We analyze the properties of the wakefield in regimes dominated by the effects of dispersion and carrier envelope phase. Discussed range of parameters is relevant for electron acceleration at high repetition rate. Second we investigate the concept of relativistic mirrors in laser plasmas. We describe the recoil effects on reflection from relativistic mirrors which is crucial for maximizing the energy of reflected radiation. We find the threshold for incident pulse energy above which the relativistic mirrors undergo significant back reaction. We also analyze the generation of coherent hard electromagnetic radiation by the reflection from the electron density singularities.\\
+
+\noindent Keywords: laser-plasma interaction, laser wakefield acceleration, relativistic mirrors, short-wavelength radiation \keywords
+
+%9------------------------------------------------------------------------------
+
+\tableofcontents
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+\thispagestyle{empty}
+
+%-------------------------------------------------------------------------------
+
+\pagestyle{myfancy}
+
+\chapter*{Introduction\markboth{Introduction}{Introduction}}
+\addcontentsline{toc}{chapter}{Introduction}
+%\input{dat/introduction.tex}
+
+\section{Aims and motivation / objectives of the thesis / problem statement}
+%\input{dat/1-0.tex}
+
+\section{Originality and contributions / role of author}
+%\input{dat/1-0.tex}
+
+\section{Related work / previous results / state-of-the-art}
+%\input{dat/1-0.tex}
+
+\section{Outline of the thesis / structure}
+%\input{dat/1-0.tex}
+
+%-------------------------------------------------------------------------------
+
+\chapter{Basic physics of laser-underdense plasma interaction}
+%\input{dat/1-0.tex}
+
+\section{Equations of EM field}
+%\input{dat/1-0.tex}
+
+\section{EM waves in vacuum}
+%\input{dat/1-0.tex}
+
+\section{Gaussian beam optics}
+%\input{dat/1-0.tex}
+
+\section{Interaction with single electrons, ponderomotive force}
+\input{src/interaction_with_single_electron.tex}
+
+\section{Langmuir waves, wave breaking, catastrophe theory}
+%\input{dat/1-0.tex}
+
+\section{Self-focusing, self-guiding, self-phase modulation, self-amplitude modulation}
+%\input{dat/1-0.tex}
+
+%-------------------------------------------------------------------------------
+
+\chapter{Laser-wakefield acceleration of electrons}
+%\input{dat/1-0.tex}
+
+\section{Electron interaction with Langmuir wave}
+\input{src/electron_interaction_with_langmuir_wave.tex}
+
+\section{Electron injection mechanisms}
+%\input{dat/1-0.tex}
+
+\subsection{Injection by breaking plasma wave}
+%\input{dat/1-0.tex}
+
+\subsubsection{Homogeneous plasma}
+%\input{dat/1-0.tex}
+
+\subsubsection{Inhomogeneous plasma}
+%\input{dat/1-0.tex}
+
+\subsection{Optical injection}
+%\input{dat/1-0.tex}
+
+\subsection{Ionization injection}
+%\input{dat/1-0.tex}
+
+\section{Regimes of LWFA}
+%\input{dat/1-0.tex}
+
+\subsection{Self-modulated regime}
+
+\subsection{Blow-out regime}
+
+\section{Limitations of LWFA}
+%\input{dat/1-0.tex}
+
+\subsection{Electron dephasing length}
+
+\subsection{Pump depletion length}
+
+\subsection{Beam loading}
+
+\section{Applications of accelerated electrons}
+%\input{dat/1-0.tex}
+
+%-------------------------------------------------------------------------------
+
+\chapter{Relativistic mirrors}
+%\input{dat/1-0.tex}
+
+\section{Lorentz transform, Doppler effect}
+%\input{dat/1-0.tex}
+
+\subsection{Uniformly moving mirror}
+%\input{dat/1-0.tex}
+
+\subsection{Accelerated mirror}
+%\input{dat/1-0.tex}
+
+\subsection{Oscillating mirror}
+%\input{dat/1-0.tex}
+
+\section{Physical realization of relativistic mirrors in underdense plasma}
+%\input{dat/1-0.tex}
+
+\subsection{Langmuir wave}
+%\input{dat/1-0.tex}
+
+\subsection{Bow wave}
+%\input{dat/1-0.tex}
+
+%-------------------------------------------------------------------------------
+
+\chapter{Computational modeling of laser-plasma interaction}
+%\input{dat/1-0.tex}
+
+\section{Particle-in-cell method}
+%\input{dat/1-0.tex}
+
+%-------------------------------------------------------------------------------
+
+\chapter{Original results}
+%\input{dat/1-0.tex}
+
+\section{On the electromagnetic-electron rings}
+%\input{dat/1-0.tex}
+
+\section{On the laser-wakefield polarity reversal}
+%\input{dat/1-0.tex}
+
+\section{On the recoil effects of relativistic mirrors}
+%\input{dat/1-0.tex}
+
+\section{On the relativistic flying forcibly oscillating mirror}
+%\input{dat/1-0.tex}
+
+%-------------------------------------------------------------------------------
+
+\chapter*{Conclusion and forthcoming work\markboth{Conclusion and forthcoming work}{Conclusion and forthcoming work}}
+\addcontentsline{toc}{chapter}{Conclusion and forthcoming work}
+%\input{dat/conclusion.tex}
+
+%\newpage
+%\pagestyle{plain}
+%\null
+%\vfill
+%{\bf \noindent Acknowledgments} \\
+
+%I wish express my gratitude to both, my supervisor \klimo and consultant \bulanov for constant support and guidance, as well as for providing invaluable advice and direction.\\
+
+%Access to computing and storage facilities owned by parties and projects contributing to the National Grid Infrastructure MetaCentrum, provided under the programme "Projects of Large Infrastructure for Research, Development, and Innovations" (LM2010005), is greatly appreciated.\\
+
+%Access to the CERIT-SC computing and storage facilities provided under the programme Center CERIT Scientific Cloud, part of the Operational Program Research and Development for Innovations (reg. no. CZ.1.05/3.2.00/08.0144) is greatly  appreciated.\\
+
+%This work was supported by the project ELI: Extreme Light Infrastructure (reg. no. CZ.02.1.01/0.0/0.0/15\_008/0000162) from European Regional Development.\\
+
+%The development of the EPOCH code was funded in part by the UK EPSRC grants EP/G054950/1, EP/G056803/1, EP/G055165/1 and EP/M022463/1.\\
+%\begin{flushright}
+%\valenta
+%\end{flushright}
+
+%-------------------------------------------------------------------------------
+
+%\newpage
+%\addcontentsline{toc}{chapter}{Bibliography}
+%\bibliographystyle{my-apalike}
+%\bibliography{bib/references_updated}
+
+%-------------------------------------------------------------------------------
+
+\part*{Appendices}
+\addcontentsline{toc}{chapter}{Appendices}
+
+\appendix
+
+\chapter{Selected publications}
+%\input{dat/appendix_a.tex}
+
+\section{Paper 1}
+
+\section{Paper 2}
+
+\section{Paper 3}
+
+\section{Paper 4}
+
+%\chapter{Code listings}
+%\input{dat/appendix_b.tex}
+
+%\chapter{CD content}
+%\input{dat/appendix_c.tex}
+
+\end{document}
