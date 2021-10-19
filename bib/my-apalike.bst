@@ -216,6 +216,13 @@ FUNCTION {emphasize}
   if$
 }
 
+FUNCTION {bold}
+{ duplicate$ empty$
+    {pop$ "" }
+    { "{\bfseries " swap$ * "}" * }
+  if$
+}
+
 INTEGERS { nameptr namesleft numnames }
 
 FUNCTION {format.names}
@@ -406,7 +413,7 @@ FUNCTION {format.vol.num.pages}
 { volume field.or.null
   number empty$
     'skip$
-    { "(" number * ")" * *
+    { bold "(" number * ")" * *
       volume empty$
         { "there's a number but no volume in " cite$ * warning$ }
         'skip$
