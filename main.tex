@@ -210,7 +210,7 @@
 \newcommand{\projecttitlecz}{Laserem řízené zdroje elektronů a~rentgenového záření v~podkritickém plazmatu: teorie a~simulace}
 \newcommand{\valenta}{Ing. Petr Valenta}
 \newcommand{\klimo}{doc. Ing. Ondřej Klimo, Ph.D.}
-\newcommand{\bulanov}{prof. Sergei Vladimirovich Bulanov}
+\newcommand{\bulanov}{Prof. Sergei Vladimirovich Bulanov}
 %\newcommand{\year}{2022}
 \newcommand{\keywords}{}
 \newcommand{\keywordscz}{}
@@ -385,9 +385,9 @@
 \chapter*{Abstract \markboth{Abstract}{Abstract}}
 \addcontentsline{toc}{chapter}{Abstract}
 
-We explore novel regimes of laser-plasma interaction accessible by new generation laser systems. The scientific focus is mainly devoted to enhancement of laser-generated sources of accelerated electrons and coherent short-wavelength radiation based on plasma waves driven by intense laser pulses. First we describe mechanisms for obtaining electron beams based on laser wakefield acceleration technique. We analyze the properties of the wakefield in regimes dominated by the effects of dispersion and carrier envelope phase. Discussed range of parameters is relevant for electron acceleration at high repetition rate. Second we investigate the concept of relativistic mirrors in laser plasmas. We describe the recoil effects on reflection from relativistic mirrors which is crucial for maximizing the energy of reflected radiation. We find the threshold for incident pulse energy above which the relativistic mirrors undergo significant back reaction. We also analyze the generation of coherent hard electromagnetic radiation by the reflection from the electron density singularities.\\
+%We explore novel regimes of laser-plasma interaction accessible by new generation laser systems. The scientific focus is mainly devoted to enhancement of laser-generated sources of accelerated electrons and coherent short-wavelength radiation based on plasma waves driven by intense laser pulses. First we describe mechanisms for obtaining electron beams based on laser wakefield acceleration technique. We analyze the properties of the wakefield in regimes dominated by the effects of dispersion and carrier envelope phase. Discussed range of parameters is relevant for electron acceleration at high repetition rate. Second we investigate the concept of relativistic mirrors in laser plasmas. We describe the recoil effects on reflection from relativistic mirrors which is crucial for maximizing the energy of reflected radiation. We find the threshold for incident pulse energy above which the relativistic mirrors undergo significant back reaction. We also analyze the generation of coherent hard electromagnetic radiation by the reflection from the electron density singularities.\\
 
-{\noindent \bf Keywords:} laser-plasma interaction, laser wakefield acceleration, relativistic mirrors, short-wavelength radiation \keywords
+{\noindent \bf Keywords:} laser-plasma interaction, laser-wakefield acceleration, relativistic mirrors, particle-in-cell simulation \keywords
 
 \newpage
 \thispagestyle{empty}
@@ -407,7 +407,7 @@ We explore novel regimes of laser-plasma interaction accessible by new generatio
 
 brief introduction (CPA, Mourou, etc.)
 
-\section{Aims and motivation}
+\section{Aims and motivation \label{sec:aims_and_motivation}}
 %\input{dat/1-0.tex}
 
 objectives of the thesis / problem statement / related work / previous results / state-of-the-art
@@ -415,23 +415,25 @@ objectives of the thesis / problem statement / related work / previous results /
 \section{Author's role and contributions}
 %\input{dat/1-0.tex}
 
-The author has been involved into the High Field Initiative (HiFI) project funded by European Regional Development Fund (ERDF) since the beginning of the author's postgraduate studies. The author's responsibilities within this project have been to investigate and develop novel schemes of sources of electron beams and short-wavelength radiation based on the laser-plasma interaction. The author studies these topics using analytical modeling and large-scale computer simulations.
+%The leader of the project, prof. S. V. Bulanov, has became also the supervisor specialist of my dissertation. I have been employed at ELI Beamlines. 
 
-The author was contributing to all the aspects of the scientific work.
+%, which significantly extended already available resources provided by the ECLIPSE cluster of the ELI Beamlines, were also used by other members of the HIFI team.
 
-originality
+My doctoral training has been supervised jointly by Dr. O. Klimo and Prof. S. V. Bulanov; it took place at the Department of Physical Electronics, Faculty of Nuclear Sciences and Physical Engineering, Czech Technical University in Prague and at the ELI Beamlines, Institute of Physics, Czech Academy of Sciences. Since the beginning of my postgraduate studies, I have been involved in the European Regional Development Fund project High Field Initiative led by Prof. S. V. Bulanov. My responsibilities within this project have been to develop and investigate novel schemes for physical realization of sources of electron beams and short-wavelength radiation based on the laser-plasma interaction, as closer described in Sec.~\ref{sec:aims_and_motivation}. I have studied these topics predominantly using analytical modeling and large-scale computer simulations.
 
-HIFI, IT4I, Japan, Taiwan, Memorandum of Understanding with Japan.
+During my postgraduate studies, I have had a chance to take part in all the aspects of scientific work. I have been involved in the process of formulation and specification of research topics, I have received a systematic high-level training in analytical and numerical modeling of wide range of linear and nonlinear phenomena, I have been trained in development and optimization of various scientific software designed for large-scale numerical simulations, I have learned how to setup and execute the simulations on computer clusters, how to efficiently analyze and interpret Terabyte-scale data generated by the simulation codes, and how to produce clear and at the same time visually appealing figures. Last but not least, I have learned how to write research manuscripts properly, and how to communicate with editors and referees until the final publication of the obtained results in scientific journal.
 
-The most important author's contributions 
+I have also gained an experience with grant applications. First, I successfully applied for the computational resources of the IT4Innovations National Supercomputing Center in Ostrava, Czech Republic. I have been a principal investigator or co-investigator of 6 projects, which received in total more than 4 millions core-hours within the open access grant competitions. As it turned out, these resources were important not only for me, but also for the operation of the whole scientific team of the High Field Initiative. Second, I received a funding from Czech Academy of Sciences intended for short-term cooperation activities with leading research institutions in South and East Asia. I used these funds for two short and intense research internships in 2018 and 2019. 
 
-Due to their high potential for both fundamental science and practical applications, all the findings deserve further attention. The possible directions for future research are outlined in Conclusion.
+My first internship took place at the Leung Center for Cosmology and Particle Astrophysics, National Taiwan University in Taipei, Taiwan. There I was working under the supervision of Prof. P. Chen, director of the institute, on the research related to relativistic mirrors. I have been involved in an ongoing project called AnaBHEL (Analog Black Hole Evaporation via Lasers), which aims at resolving the question, whether Hawking evaporation violates unitarity, and therefore results in the loss of information. The laboratory investigation of the Hawking effect is planned to be in this case realized using relativistic plasma mirrors that can be accelerated drastically and stopped abruptly by impinging high-power laser pulses on plasma targets with a density gradient. This is analogous to the late time evolution of black hole Hawking evaporation. Apart from the scientific aspects, I have learned about the specifications, roadmap, and organizational structure of the project and met researchers and students associated to it.
 
-The main contributions can be summarized as follows. Regarding the sources of electrons
+My second internship took place at the Kansai Photon Science Institute, National Institutes for Quantum and Radiological Science and Technology in Kyoto, Japan. There I was working under the supervision of Dr. T. Kawachi, director of the institute, and Dr. T. Z. Esirkepov, senior principal researcher, on the development of a novel scheme for physical realization of relativistic flying mirrors based on the density singularities in laser plasmas. Further details about this research are provided in Chapter~\ref{chap:authors_original_results}.
 
-The author's work also resulted in a number of publications; The reader can find the complete list of author's publications (as of the day of submission of this dissertation) in Appendix~\ref{chap:authors_publications}. In total, the author has authored or co-authored 17 publications during the author's postgraduate studies (6 publications in peer-reviewed journals, 8 publications in conference proceedings, and 3 book chapters), in 6 of which the author serves as a corresponding author. According to the Web of Science [cite], the author's publications (as of the day of submission of this dissertation) have been cited 7 times (5 times excluding self-citations) and the author's h-index is 2.
+I have also played an important role in many other activities related to my postgraduate education. To name a few, I organized short-term visits and seminars of Prof. P. Chen and Dr. T. Kawachi at the ELI Beamlines, I was involved in preparation of Memorandum of Understanding between the Institute of Physics and the Kansai Photon Science Institute which was signed by directors of both institutes, Dr. M. Prouza and Dr. T. Kawachi, in 2020, I was giving tutorials for the undergraduate courses \q{Numerical methods} and \q{Principles of plasma physics} at the Czech Technical University in Prague, I have been a member of several academic communities, namely \q{SPIE CTU in Prague Student Chapter,} \q{Prague EPS Young Minds Section,} and \q{SIAM Student Chapter Prague,} where I was actively engaged in popularization of science and organization of regular meetings and seminars. All of these activities were extremely beneficial in terms of gaining new knowledge and experience, efficient sharing of research findings and ideas, tightening of collaborations, and networking with fellow students and scientists.
 
-The core of this thesis is based on the following 4 papers.
+The systematic efforts and involvement in highly stimulating environment have naturally resulted in a number of original scientific results. Regarding the laser-driven sources of electrons, the most important results achieved are the description of coupled electromagnetic and electron rings originating from the laser-wakefield acceleration and the discovery of polarity reversal of wakefields excited by ultrashort laser pulses in near-critical density plasmas. Regarding the laser-driven sources of short-wavelength radiation, the most important results achieved are the description of the recoil effects od relativistic mirrors and the invention of novel scheme for physical realization of relativistic mirrors based on the density singularities in laser plasmas. Further details about the achieved results as well as a closer description of the author's role and contributions are provided in Chapter~\ref{chap:authors_original_results}.
+
+The research and achieved results are described in a number of publications; The reader can find the complete list of my publications (as of the day of submission of this dissertation) in Appendix~\ref{chap:authors_publications}. In total, I have authored or co-authored 17 publications (6 publications in peer-reviewed journals, 8 publications in conference proceedings, and 3 book chapters), in 6 of which I serve as a corresponding author. According to the Web of Science, the publications (as of the day of submission of this dissertation) have been cited 7 times (5 times excluding self-citations) and my h-index is 2. The core of this doctoral thesis is based on the following 4 selected publications:
 \begin{enumerate}[label=\Roman*.]
 	\item \label{paper_1}
 	
@@ -442,16 +444,24 @@ The core of this thesis is based on the following 4 papers.
 	\item \label{paper_4} Mu, J., Esirkepov, T. Z., Valenta, P., Gu, Y., Jeong, T. M., Pirozhkov, A. S., Koga, J. K., Kando, M., Korn, G., and Bulanov, S. V. (2020). \link{http://dx.doi.org/10.1103/PhysRevE.102.053202}{Relativistic flying forcibly oscillating reflective diffraction grating}. \textit{Physical Review E}, \textbf{102}(5):053202.
 	
 \end{enumerate}
-These papers, which will be referred to in text by their Roman numerals, to a large extent consist of the original results obtained by the author.
+These publications will be referred to in text by their Roman numerals.
+
+%These papers, which will be referred to in text by their Roman numerals, to a large extent consist of the original results obtained by the author.
 
 %The original results obtained by the author are to a large extent described in the following four papers, which will be referred to in the text by their Roman numerals:
 
-A summary of each selected paper as well as a detailed description of the author's role and contributions is provided in Chapter~\ref{chap:authors_original_results}. Full texts of all the selected publications are enclosed with permission in Appendix~\ref{chap:selected_publications}.
-
-Furthermore, the results obtained have been presented by the author at ... numerous international scientific conferences and workshops. Some of the ... The quality of the presentation has been appreciated by the scientific community awarding two prizes for the best poster presentation (EPS 2018, ELI Summer School 2021).
+The results obtained have been also presented at a number of international scientific conferences, workshops, and seminars. Some of my most important oral and poster communications of research related to Refs.~\ref{paper_1} - \ref{paper_4} are mentioned in Chapter~\ref{chap:authors_original_results}. The quality of the research and the presentations themselves has been appreciated by the scientific community by awarding two prizes for the best poster presentation at the \q{45$ ^{\mathrm{th}} $ EPS Conference on Plasma Physics,}, and at the \q{ELI Summer School 2021.} Since the beginning of 2020,  the communications and promotions of our research results have been heavily affected by the COVID-19 pandemics. Some conferences were either postponed or completely canceled, the others went eventually remote.
 
 \section{Outline of the thesis}
 %\input{dat/1-0.tex}
+
+In Chapter~\ref{label}
+
+A summary of each selected paper as well as a detailed description of the author's role and contributions is provided in Chapter~\ref{chap:authors_original_results}. Full texts of all the selected publications are enclosed with permission in Appendix~\ref{chap:selected_publications}.
+
+Due to their high potential for both fundamental science and practical applications, all the findings deserve further attention. The possible directions for future research are outlined in Conclusion.
+
+
 
 structure
 
@@ -658,6 +668,11 @@ Besides Ref.~\ref{paper_4}, a portion of this work has been also published in Re
 
 \chapter*{Acknowledgements \markboth{Acknowledgements}{Acknowledgements}}
 \addcontentsline{toc}{chapter}{Acknowledgements}
+
+LeCosPa: Yen-Ling Lee, Mia Wang, Yung-Kun Liu, Yuan Fang, Pisin Chen 
+KPSI: Satoshi Orimo, Timur Esirkepov, James Koga, Alexander Pirozhkov, Masaki Kando, Tetsuya Kawachi
+HIFI: Prokopis Hadjisolomou, Tae-Moon Jeong, David Kolenaty, 
+Office: Elizaveta Pulnova, 
 
 %-------------------------------------------------------------------------------
 
