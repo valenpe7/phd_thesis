@@ -1,4 +1,4 @@
-\documentclass[10pt, twoside, a4paper, openright]{report}
+\documentclass[10pt, a4paper, twoside, openright]{report}
 
 %packages-----------------------------------------------------------------------
 
@@ -247,6 +247,29 @@
 \counterwithout{figure}{chapter}
 \counterwithout{table}{chapter}
 
+% quotes
+
+\usepackage[newcentury, nogrey]{quotchap}
+%\renewcommand*{\sectfont}{\sffamily\fontseries{mc}\selectfont}
+\makeatletter
+\renewcommand*{\sectfont}{\bfseries}
+\let\size@chapter\Huge
+\renewcommand*{\chapnumfont}{%
+	\usefont{T1}{\@defaultcnfont}{b}{n}\fontsize{130}{100}\selectfont% Default: 100/130
+	\color{chaptergrey}%
+}
+\makeatother
+\definecolor{chaptergrey}{rgb}{0.95, 0.95, 0.95}
+
+\makeatletter
+\newenvironment{chapquote}[2][2em]
+{\setlength{\@tempdima}{#1}%
+	\def\chapquote@author{#2}%
+	\parshape 1 \@tempdima \dimexpr\textwidth-2\@tempdima\relax%
+	\itshape}
+{\par\normalfont\hfill--\ \chapquote@author\hspace*{\@tempdima}\par\bigskip}
+\makeatother
+
 %document-----------------------------------------------------------------------
 
 \begin{document}
@@ -295,19 +318,22 @@
 \begin{description}
 	\item[supervisor:]\ \\
 	\klimo \\
+	\dpe, \\
 	\fnspe, \\ 
 	\ctu, \\
-	Břehová 7, 115 19 Prague, \\
+	Trojanova 13, 120 00 Praha, \\
+	%Břehová 7, 115 19 Prague, \\
 	Czech Republic
 \end{description}
 
 \begin{description}
 	\item[supervisor specialist:]\ \\
 	\bulanov \\
+	ELI Beamlines Centre, \\
 	Institute of Physics, \\
 	Czech Academy of Sciences, \\
-	Na Slovance 1999/2, 182 21 Prague, \\
-	%Za Radnicí 835, 252 41 Dolní Břežany, \\
+	%Na Slovance 1999/2, 182 21 Prague, \\
+	Za Radnicí 835, 252 41 Dolní Břežany, \\
 	Czech Republic
 \end{description}
 \vglue 1cm
@@ -401,11 +427,22 @@
 
 %-------------------------------------------------------------------------------
 
+\begin{savequote}[0.5\linewidth]
+	\q{Everything should be made as simple as possible, but no simpler.}
+	\qauthor{-- Albert Einstein (1879 -- 1955)}
+\end{savequote}
+
 \chapter{Introduction}
 %\addcontentsline{toc}{chapter}{Introduction}
 %\input{dat/introduction.tex}
 
-In this Chapter, we first present a brief overview of history and the latest technological achievements of laser - our main instrument. Then, we , we also what role the author play. Finally, we outline how the structure of this doctoral thesis is organized.
+%\begin{chapquote}{Aristotle (384 BC - 322 BC)}
+%\q{We are what we repeatedly do. Excellence, then, is not an act, but a habit.}
+%\end{chapquote}
+
+\noindent \textsl{In this chapter, we first introduce the reader with a very coarse review of historical milestones and some of the most important achievements of laser - our main instrument. Then, we define the objectives of our research and put them in the context of current worldwide efforts in the corresponding fields. Also, we specify what exactly has been accomplished by the author and how it advances the scientific knowledge. Finally, we outline how the structure of this doctoral thesis is organized.}
+
+% the work that has been already done and 
 
 \section{Methods and state-of-the-art}
 
@@ -421,7 +458,7 @@ Rather than power, however, it is often desired to reach the highest laser inten
 
 Another very active research direction is to make the high-power laser pulses as short as possible. In the systems based on the chirped pulse amplification, the output pulse durations are inherently limited by the gain bandwidths of the amplifying media (e.g., the bandwidth of titanium-doped sapphire spans over $ \approx 75 \ \mathrm{nm} $, the obtainable bandwidth is further reduced by gain narrowing associated with amplification over several orders of magnitude \cite{Hotz1965}, and thus restricting the pulse durations to $ \approx 35 \ \mathrm{fs} $). Currently, there are two methods capable to tackle this issue: the optical parametric chirped pulse amplification \cite{Dubietis1992}, which extends the chirped pulse amplification technique by using the optical parametric amplifiers (i.e., amplifiers based on parametric nonlinear interactions \cite{Giordmaine1965, Baumgartner1979}), and the post-compression of laser pulses via self-phase modulation in hollow-core fibers \cite{Nisoli1996}. The former method has recently demonstrated the generation of $ 5 \ \mathrm{PW} $, $ 18.6 \ \mathrm{fs} $ \cite{Zeng2017} or $ 16 \ \mathrm{TW} $, $ 4.5 \ \mathrm{fs} $ \cite{Rivas2017} laser pulses, the latter one sub-$ 4 \ \mathrm{fs} $ pulses (corresponding to almost a single optical cycle) with a peak power exceeding $ 1 \ \mathrm{TW} $ \cite{Ouille2020, Nagy2020}.
 
-Ultimately, in order to use the high peak power lasers for competitive real-world applications (some of them are discussed in Sec.~\ref{sec:aims_and_motivation}), they essentially need to operate continuously with high efficiencies and deliver pulses with high average powers and repetition rates. In this context, the traditional flash lamps pumping the initial energy into lasers are being progressively replaced by laser diodes \cite{Byer1988}, which dramatically improve the wall-plug efficiency of the laser, stability, output beam quality, and lowers the requirements for cooling system. At the state-of-the-art, $ \mathrm{TW} $- and $ \mathrm{PW} $-class laser systems, respectively, are able to operate at $ 1 \ \mathrm{kHz} $ \cite{Budriunas2017, Toth2020} and $ 10 \ \mathrm{Hz} $ \cite{Haefner2017} repetition rates.
+Ultimately, in order to use the high peak power lasers for competitive real-world applications (some of them are discussed in Sec.~\ref{sec:aims_and_motivation}), they essentially need to operate continuously with high efficiencies and deliver pulses with high average powers and repetition rates. In this context, the traditional flash lamps pumping the initial energy into lasers are being progressively replaced by laser diodes \cite{Byer1988}, which dramatically improve the wall-plug efficiency of the laser, stability, output beam quality, and lowers the requirements for cooling system. At the state-of-the-art, $ \mathrm{TW} $- and $ \mathrm{PW} $-class laser systems, respectively, are able to operate at $ 1 \ \mathrm{kHz} $ \cite{Budriunas2017, Toth2020} and $ 10 \ \mathrm{Hz} $ \cite{Haefner2017, Osvay2019} repetition rates.
 
 
 \section{Aims and motivation \label{sec:aims_and_motivation}}
@@ -433,75 +470,15 @@ The laser-wakefield acceleration, which was proposed in 1979 \cite{Tajima1979}, 
 
 Over the last few decades, the quality of accelerated electron beams has rapidly evolved mainly due to the advances in technology and better understanding of the underlying physical processes. First high-quality quasi-monoenergetic electron beams were produced in 2004 \cite{Faure2004, Geddes2004, Mangles2004} operating the laser-wakefield acceleration experiments in the blowout (or bubble) regime \cite{Pukhov2002, Lu2006, Lu2007}, in which the wakefield takes the form of an ion cavity surrounded by thin electron walls. Today, the laser-wakefield acceleration has demonstrated (although not simultaneously) the capability to produce electron beams in the multi-$ \mathrm{GeV} $ energy range with a relative energy spread of a few percent \cite{Kim2013, Leemans2014, Gonsalves2019}, a few $ \mathrm{fs} $ duration \cite{Tilborg2006, Ohkubo2007, Debus2010, Lundh2011}, and hundreds of $ \mathrm{pC} $ of charge \cite{Couperus2017}. These achievements make the concept of laser-wakefield acceleration increasingly attractive for a wide range of multi-disciplinary experiments and applications (e.g. radiography \cite{Glinec2005}, radiotherapy \cite{Malka2010, DesRosiers2000}, radiolysis \cite{Malka2010, Gauduel2010}).
 
-The relativistic flying mirrors, ...
+The relativistic flying mirrors are objects that reflect incoming radiation while moving at relativistic velocity \cite{Einstein1905}. An electromagnetic wave incident on a relativistic mirror undergoes energy and frequency changes due to the double Doppler effect. In a co-propagating configuration in the laboratory frame of reference, the reflected wave is stretched, its amplitude is lowered, and its frequency is downshifted. In contrast, in a counter-propagating configuration, the reflected wave is compressed and amplified and its frequency is upshifted. Relativistic mirrors can be realized by irradiating plasma targets with intense laser pulses (see Ref. \citenum{Bulanov2013} for a review and the literature cited therein). They appear in laser plasmas as thin dense electron (or electron-ion) shells accelerated to relativistic velocities. 
+
+%The theory of light reflection from such an object propagating in vacuum at arbitrary (subluminal) velocity was first formulated in 1905. Since then, relativistic mirrors have been studied in many different contexts because of their great potential for both fundamental science and practical applications. 
+
+Various schemes that lead to the generation of relativistic mirrors have been described in theoretical and experimental studies (e.g., double-sided mirrors \cite{Kulagin2007a, Esirkepov2009, Wu2010, Kiefer2013, Ma2014}, oscillating mirrors \cite{Bulanov1994, Lichters1996, Naumova2004, Wheeler2012, Vincenti2019}, sliding mirrors \cite{Pirozhkov2006}, flying mirrors realized with strongly nonlinear Langmuir waves \cite{Bulanov2003, Kando2007, Pirozhkov2007, Kando2009}) and, hence, have already proven the feasibility of this concept. Relativistic mirrors in plasmas are nowadays actively studied as a unique tool for fundamental research (e.g., light intensification toward the Schwinger limit \cite{Bulanov2003}, investigation of photon–photon and Delbrück scattering \cite{Koga2012, Koga2018}, analog black hole to investigate Hawking radiation and the information loss paradox \cite{Chen2017, Chen2020}) and for many practical applications in diverse fields; depending on whether the configuration is co-propagating or counter-propagating in the laboratory frame of reference, relativistic mirrors might be used either for the acceleration of ions (e.g., for hadron therapy \cite{Bulanov2002}) or for producing coherent high-brightness radiation with wavelengths ranging from x-rays to gamma-rays (e.g., for molecular imaging \cite{Neutze2000} and attosecond spectroscopy \cite{Krausz2009}).
 
 The first goal of our work is to develop a theory for less explored regimes of the laser-wakefield acceleration of electrons. We focus on the evolution of high-power laser pulse in plasma and its effect on the resulting parameters of the accelerated electron beams in the regime of strong interaction between the driver pulse and the electron density spikes of the co-propagating Langmuir wave. Also, we investigate the peculiarities of the laser-wakefield acceleration in the regime of ultrashort laser pulses and near-critical density plasmas, which is of high interest for the acceleration driven by high-repetition-rate laser systems. Our second goal is to extend the theory for the interaction of laser and counter-propagating relativistic mirror in the regime of strong incident electromagnetic wave, where the recoil effects cannot be neglected, and to search for novel or innovative schemes for physical realization of relativistic flying mirrors in underdense plasmas.
 
 The work presented in this doctoral thesis is conducted on an exclusively theoretical level. Each of the research topics is first approached by simple (but not trivial) analytical model, which is then confronted with large-scale numerical simulations. Being in a close contact with experimental teams, however, the initial formulations and specifications of the topics to be studied, as well as the achieved results, have always been a subject of long mutual discussions. All the conditions and parameters used in this work are thus tightly connected to capabilities of experimental devices (either existing or under construction). Overall, the aim of our theoretical work is not only to provide a general description of investigated physical processes, but also to help with explanation and interpretation of achieved experimental results, as well as to predict those to be carried out in future.
-
-
-
-
-As a first goal of our work, we
-
-In this chapter, we aim at closer description of several innovative laser-based schemes for producing accelerated electron beams in plasmas. 
-
-novel schemes
-
-for quite a broad range of laser-plasma parameters,  
-
-we reveal that, when the laser pulse parameters are not ideally matched to the parameters plasma, intense ring-shaped laser filaments arise. These electromagnetic ring-shaped structures become a source of high-energy electron rings.
-
-One of the most promising concepts is the laser plasma acceleration, where the particles are accelerated by strong electromagnetic fields generated by laser pulses in plasma. 
-
-In particular, laser driven acceleration of electrons has made quite an impressive progress from 1979, when it was proposed [8], to 2020 when 7.8-GeV beam was accelerated by a PW-class laser in the plasma channel [9, 10] (see also [11, 12]). 
-
-Laser-wakefield acceleration is a promising concept for the acceleration 
-
-This pawes a way towards a new generation of compact electron accelerators.
-
-%In order to reach this regime, the laser pulse must have transverse and longitudinal size comparable with the plasma wavelength and its intensity must be sufficiently high to expel all the electrons from the vicinity of the propagation axis. 
-
-
-objectives of the thesis / problem statement / related work / previous results / state-of-the-art
-
-When the concept of a single-cycle laser is combined with the tight-focusing technique then the $ \lambda^3 $ regime is obtained, where for a certain laser power one can use minimal energy to achieve required intensity.
-
-The $ \lambda^3 $-pulses offer potential unique capabilities for atomic and molecular physics (Brabec and Krausz 2000), electron laser
-collision (Tamburini et al. 2014b) and relativistic nano photonics (Cardenas et al. 2019), where such pulses may open up the investigation of a qualitatively new regime.
-
-The work presented in this manuscript is above all theoretical and numerical. I have tried to develop
-simple analytical models whenever possible, and relied on the Particle-In-Cell (PIC) method otherwise.
-However, I have also closely collaborated throughout my thesis with the experimental teams working with
-two state-of-the-art laser facilities: the Salle Noire laser at LOA, that we have previously mentioned, and
-the UHI100 laser at CEA Saclay. The UHI100 laser delivers 24 fs pulses with a peak power of 20 TW on
-target and has been used in many seminal experiments concerning the interaction of ultrahigh intensity
-pulses with overdense plasmas [25, 26, 27, 24]. We will present in particular new experimental results
-obtained with each of these laser systems, which will be confronted to my numerical studies. 
-
-The purpose of the simulations shown in this present work are therefore not only to provide general results regarding
-the interaction of the plasma with a few-cycle or a radially polarized pulse, but also to serve as a tool for
-explaining or predicting novel experimental results.
-
-More generally, this thesis aims at providing a better understanding of the pathways and mechanisms
-of energy transfer to the plasma electrons in laser-solid target interactions. This is indeed a complex and
-fundamental question that has implications for ion acceleration [28], high harmonic generation [29] and
-inertial confinement fusion [30].
-
-
-
-have strong connection to 
-
-However, the topics 
-
-all these work has been carried out with close collaboration with experimental teams
-
-The  of the research topics has been always based on the close discussions with the experimental teams, their needs, interests, feasibility related to experimental possibilities 
-
-However, being in a close contact with experimental teams working 
-
- which are then compared 
-
 
 
 \section{Author's role and contributions}
@@ -511,21 +488,33 @@ However, being in a close contact with experimental teams working
 
 %, which significantly extended already available resources provided by the ECLIPSE cluster of the ELI Beamlines, were also used by other members of the HIFI team.
 
-My doctoral training has been supervised jointly by Dr. O. Klimo and Prof. S. V. Bulanov; it took place at the Department of Physical Electronics, Faculty of Nuclear Sciences and Physical Engineering, Czech Technical University in Prague and at the ELI Beamlines, Institute of Physics, Czech Academy of Sciences. Since the beginning of my postgraduate studies, I have been involved in the European Regional Development Fund project \q{High Field Initiative} (HiFI) led by Prof. S. V. Bulanov. My responsibilities within this project have been to develop and investigate novel schemes for physical realization of sources of electron beams and short-wavelength radiation based on the laser-plasma interaction, as closer described in Sec.~\ref{sec:aims_and_motivation}. I have studied these topics predominantly using analytical modeling and large-scale computer simulations.
+My doctoral training has been supervised jointly by Dr. O. Klimo and Prof. S. V. Bulanov; it took place at the Department of Physical Electronics, Faculty of Nuclear Sciences and Physical Engineering, Czech Technical University in Prague and at the ELI Beamlines Centre, Institute of Physics, Czech Academy of Sciences. Since the beginning of my postgraduate studies, I have been involved in the European Regional Development Fund project \q{High Field Initiative} (HiFI) led by Prof. S. V. Bulanov, which is oriented on research of new physical regimes accessible with next generation high-power laser systems. My research responsibilities within this project partially overlap with those considered in this doctoral thesis.
+
+%Next generation high power lasers, such as ELI-Beamlines 10 PW laser, access new physics regimes. The theory/simulation program will explore these regimes and give a solid theoretical base which will lead to the realization of completely new high field experiments.
+
+%My responsibilities within this project have been to develop and investigate novel schemes for physical realization of sources of electron beams and short-wavelength radiation based on the laser-plasma interaction, as closer described in Sec.~\ref{sec:aims_and_motivation}. I have studied these topics predominantly using analytical modeling and large-scale computer simulations.
+
+% My responsibilities within this project have been aligned 
 
 During my postgraduate studies, I have had a chance to take part in all the aspects of scientific work. I have been involved in the process of formulation and specification of research topics, I have received a systematic high-level training in analytical and numerical modeling of wide range of linear and nonlinear phenomena, I have been trained in development and optimization of various scientific software designed for large-scale numerical simulations, I have learned how to setup and execute the simulations on computer clusters, how to efficiently analyze and interpret $ \mathrm{TB} $-scale data generated by the simulation codes, and how to produce clear and at the same time visually appealing figures. Last but not least, I have learned how to write research manuscripts properly, and how to communicate with editors and referees until the final publication of the obtained results in scientific journal.
 
 I have also gained an experience with grant applications. First, I successfully applied for the computational resources of the IT4Innovations National Supercomputing Center in Ostrava, Czech Republic. I have been a principal investigator or co-investigator of 6 projects, which received in total more than 4 millions core-hours within the open access grant competitions. As it turned out, these resources were important not only for me, but also for the operation of the whole scientific team of HiFI. Second, I received a funding from the Czech Academy of Sciences intended for short-term cooperation activities with leading research institutions in South and East Asia. I used these funds for two short and intense research internships in 2018 and 2019. 
 
-My first internship took place at the Leung Center for Cosmology and Particle Astrophysics, National Taiwan University in Taipei, Taiwan. There, I was working under the supervision of Prof. P. Chen, director of the institute, on the research related to relativistic mirrors. I have been involved in an ongoing project called \q{Analog Black Hole Evaporation via Lasers} (AnaBHEL), which aims at resolving the question, whether Hawking evaporation violates unitarity, and therefore results in the loss of information. The laboratory investigation of the Hawking effect is planned to be in this case realized using relativistic plasma mirrors that can be accelerated drastically and stopped abruptly by impinging high-power laser pulses on plasma targets with a density gradient. This is analogous to the late time evolution of black hole Hawking evaporation. %Apart from the scientific aspects, I have learned about the specifications, roadmap, and organizational structure of the project and I had a chance to meet researchers and students associated with the project.
+My first internship took place at the Leung Center for Cosmology and Particle Astrophysics, National Taiwan University in Taipei, Taiwan. There, I was working under the supervision of Prof. P. Chen, director of the institute, on the research related to relativistic mirrors. I have been involved in an ongoing project called \q{Analog Black Hole Evaporation via Lasers} (AnaBHEL), which aims at resolving the question, whether Hawking evaporation violates unitarity, and therefore results in the loss of information. The laboratory investigation of the Hawking effect is planned to be in this case realized using relativistic mirrors in the form of Langmuir waves that can be accelerated drastically and stopped abruptly by impinging high-power laser pulses on plasma targets with a density gradient. This is analogous to the late time evolution of black hole Hawking evaporation. During this internship, I have made initial attempts to describe the recoil effects of relativistic mirrors.
 
-My second internship took place at the Kansai Photon Science Institute, National Institutes for Quantum and Radiological Science and Technology in Kyoto, Japan. There, I was working under the supervision of Dr. T. Kawachi, director of the institute, and Dr. T. Z. Esirkepov, senior principal researcher, on the development of a novel scheme for physical realization of relativistic flying mirrors based on the density singularities in laser plasmas. Further details about this research are provided in Sec.~\ref{sec:on_the_relativistic_flying_forcibly_oscillating_mirror}.
+%Apart from the scientific aspects, I have learned about the specifications, roadmap, and organizational structure of the project and I had a chance to meet researchers and students associated with the project.
+
+My second internship took place at the Kansai Photon Science Institute, National Institutes for Quantum and Radiological Science and Technology in Kyoto, Japan. There, I was working under the supervision of Dr. T. Kawachi, director of the institute, and Dr. T. Z. Esirkepov, senior principal researcher, also on the research related to relativistic mirrors. On the contrary to my previous internship, however, now the main research topic changed to the development of a novel scheme for physical realization of relativistic flying mirrors based on the density singularities in laser plasmas. 
+
+%Further details about this research are provided in Sec.~\ref{sec:on_the_relativistic_flying_forcibly_oscillating_mirror}.
 
 I have also played an important role in many other activities related to my postgraduate education. To name a few, I organized short-term visits and seminars of Prof. P. Chen and Dr. T. Kawachi at the ELI Beamlines, I was involved in preparation of Memorandum of Understanding between the Institute of Physics and the Kansai Photon Science Institute which was signed by directors of both institutes, Dr. M. Prouza and Dr. T. Kawachi, in 2020, I was giving tutorials for the undergraduate courses \q{Numerical methods} and \q{Principles of plasma physics} at the Czech Technical University in Prague, I have been a member of several academic communities, namely \q{SPIE CTU in Prague Student Chapter,} \q{Prague EPS Young Minds Section,} and \q{SIAM Student Chapter Prague,} where I was actively engaged in popularization of science and organization of regular meetings and seminars. All of these activities were extremely beneficial in terms of gaining new knowledge and experience, efficient sharing of research findings and ideas, tightening of collaborations, and networking with fellow students and scientists.
 
-The systematic efforts and involvement in highly stimulating environment have naturally resulted in a number of original scientific results. Regarding the laser-driven sources of electrons, the most important results achieved are the description of coupled electromagnetic and electron rings originating from the laser-wakefield acceleration and the discovery of polarity reversal of wakefields excited by ultrashort laser pulses in near-critical density plasmas. Regarding the laser-driven sources of short-wavelength radiation, the most important results I took considerable part in are the description of the recoil effects of relativistic mirrors and the invention of novel scheme for physical realization of relativistic mirrors based on the density singularities in laser plasmas. Further details about the achieved results as well as a closer description of the author's role and contributions are provided in Chapter~\ref{chap:authors_original_results}.
+The systematic efforts and involvement in highly stimulating environment have naturally resulted in a number of original scientific results. Regarding the laser-driven sources of electrons, the most important results achieved are the description of coupled electromagnetic and electron rings originating from the laser-wakefield acceleration and the discovery of polarity reversal of wakefields excited by ultrashort laser pulses in near-critical density plasmas. Regarding the laser-driven sources of short-wavelength radiation, the most important results I took considerable part in are the description of the recoil effects of relativistic mirrors and the invention of novel scheme for physical realization of relativistic mirrors based on the density singularities in laser plasmas. 
 
-The research projects I have been working on and the achieved results are to a large extent described in publications of mine and my co-authors; the reader can find the complete list of my publications (as of the day of submission of this dissertation) in Appendix~\ref{chap:authors_publications}. In total, I have authored or co-authored 20 publications (9 publications in peer-reviewed journals, 8 publications in conference proceedings, and 3 book chapters), in 7 of which I serve as a corresponding author. According to the Web of Science, the publications (as of the day of submission of this dissertation) have been cited 8 times (6 times excluding self-citations) and my h-index is 2. The core of this doctoral thesis is based on the following 4 selected publications:
+%Further details about the achieved results as well as a closer description of the author's role and contributions are provided in Chapter~\ref{chap:authors_original_results}.
+
+The research projects I have been working on and the achieved results are to a large extent described in publications of mine and my co-authors. In total, I have authored or co-authored 20 publications (9 publications in peer-reviewed journals, 8 publications in conference proceedings, and 3 book chapters), in 7 of which I serve as a corresponding author. According to the Web of Science, the publications (as of the day of submission of this dissertation) have been cited 8 times (6 times excluding self-citations) and my h-index is 2. The core of this doctoral thesis is based on the following four selected publications:
 \begin{enumerate}[label=\Roman*.]
 	\item \label{paper_1} Valenta, P., Grittani, G. M., Lazzarini, C. M., Klimo, O., and Bulanov, S. V. (2021). \link{http://dx.doi.org/}{On the electromagnetic-electron rings originating from the interaction of high-power short-pulse laser and underdense plasma}. \textit{Physics of Plasmas}, \textbf{28}(12):XXXXXX.
 	
@@ -547,196 +536,52 @@ The results obtained have been also presented at a number of international scien
 \section{Outline of the thesis}
 %\input{dat/1-0.tex}
 
-The structure of this doctoral thesis is organized as follows.
+The structure of this doctoral thesis is organized as follows: 
+
+\begin{description}
+	\item[Chapter~\ref{chap:theoretical_background}] presents the theory of physical process related to the research topics under consideration. We note that since this doctoral thesis is primarily oriented on the presentation of the author's original work, the content of this chapter is limited to rather concise compendium of formulas, describing only the most essential features. It includes ... 
+	
+	\item[Chapter~\ref{chap:authors_original_results}] contains closer details about the four selected papers (Refs.~\ref{paper_1} - \ref{paper_4}), their main contributions to the corresponding scientific fields, as well as a thorough description of the author's role. 
+	
+	\item[Chapter~\ref{chap:conclusion}] summarizes the content of this doctoral thesis and outlines possible directions for future research. 
+	
+	%Due to their high potential for both fundamental science and practical applications, all the findings certainly deserve further attention. The summary and possible directions for future research are outlined in Chap.~\ref{chap:conclusion}. 
+	
+	\item[Appendix~\ref{chap:authors_publications}] contains a complete list of the author's publications as of the day of submission of this doctoral thesis, including the publications in peer-reviewed journals, conference proceedings, and as book chapters.
+	
+	\item[Appendix~\ref{chap:selected_publications}] contains the full texts (reproduced with permission) of the four selected publications (Refs.~\ref{paper_1} - \ref{paper_4}).
+\end{description}
 
-In Chapter~\ref{label}
 
-A summary of each selected paper as well as a detailed description of the author's role and contributions is provided in Chapter~\ref{chap:authors_original_results}. Full texts of all the selected publications are enclosed with permission in Appendix~\ref{chap:selected_publications}.
-
-Due to their high potential for both fundamental science and practical applications, all the findings deserve further attention. The possible directions for future research are outlined in Conclusion.
-
-\section{Back-up}
-
-in order to follow up on the fundamental science and proof-of-principle applications
-
-Experiments
-using these facilities have therefore been limited
-to fundamental science and proof-of-principle applications.
-
-The highest average power PW laser system has been installed 
-
-The highest peak-power pulsed laser diode arrays in the world has been installed 
-
-HAPLS a record-breaking repetition rate of 10 Hz at
-
-highest average power, diode-pumped petawatt laser system 
-
-is designed to deliver PW pulses with energy of at least 30 J and durations <30 fs, at a repetition rate of 10 Hz
-
-stability of the laser.
-
-and, consequently, decreases the heat load
-
-making necessary a more powerful cooling system
-
-allows to 
-
-higher level of stability, up the possibility of active feedback control and optimization
-
-At high repetition rates, the lasers 
-
-In this context, 
-
-In this context, the traditional flash lamps pumping the initial energy into lasers are being progressively replaced by  diode laser pumping, 
-
-The price per watt of generated pump power is much lower for lamps than with laser diodes.
-
-The wall-plug efficiency of the laser is low – typically at most a few percent. Consequences of that are not only higher electricity consumption, but also a higher heat load, making necessary a more powerful cooling system, and strong thermal lensing, making it more difficult to achieve a good beam quality.
-
-devices with high repetition rates and intense pulses often need to be cooled quite aggressively
-
-With advances in laser diode power, high-efficiency gratings, and new broadband materials
-
-which are expensive, but could get cheaper with mass production.
-
-new technologies such as diode laser pumping progressively replacing traditional flash lamp technology, opening the way to efficient and stable operation of petawatt 
-
-The flash lamps that pump the initial energy into many lasers must be cooled for minutes or hours between shots, making it hard to carry out research that relies on plenty of data,
-
-
-
-Another option is to replace the flash tubes with diode lasers, which are expensive, but could get cheaper with mass production.
-
-
-the output energy from hollow fiber compressors is limited to a few mJ [6, 7] due to limited aperture of the capillaries. 
-
-pulse temporal contrast is an extremely important parameter that must be controlled in strong field experiments.
-carrier-envelope phase (CEP) stable
-
-Although in the early days the laser was named as \q{a bright solution looking for a problem}, it has since then developed/matured in one of the most important inventions of the last century. It is going to play a even more important role in this century.
-
-the laser, initially considered as a bright solution looking for a problem, can now properly be indicated as the bright solution of many problems in science and technology
-
-Applications of lasers have grown spectacularly and now involve many billions of dollars of sale per year
-
-research with petawatt lasers has been prolific in terms of results with a high potential for applications in several areas,
-
-including medicine, materials and environmental sciences. This applies, for example, to secondary radiation sources for phase-contrast X-ray imaging[48], for pulsed neutron imaging[49] or for developments of therapy using very high energy radiation[50, 51]
-
-
-
-
-
-
-
-
-
-%This issue is elegantly approached by the optical parametric chirped pulse amplification \cite{Dubietis1992} which extends the previously existing methods by using the optical parametric amplifiers (i.e., amplifiers based on parametric nonlinear interactions).
-
-
-
-applications of few-cycles: 
-1) many relativistic light–matter interactions such as the generation of intense isolated attosecond pulses from solid surfaces [New J. Phys. 8, 19 (2006)]
-2) observation and manipulation of electron dynamics in matter call for attosecond light pulses
-3) high energy density science, including particle acceleration and x-ray generation. 
-4) dramatic improvements in proton energy spread and maximum energy
-5) few-cycle laser pulses enable efficient generation of attosecond pulses via relativistic high harmonic generation [Phys. Rev. Lett. 92(6), 063902 (2004), Phys. Rev. Lett. 108(23), 235003 (2012)]
-6) In order to produce isolated attosecond pulses, the process must be driven by few-cycle laser pulses while controlling the waveform of the driving pulse via the carrier-envelope phase (CEP).
-
-amplifies bandwidths (corresponding to transform-limited pulse durations down to a few femtoseconds) and is not limited by gain narrowing
-
-extremely large bandwidth that can be pumped by large-scale laser systems
-
-Since the short pulses have very wide spectrum, 
-
-In a normal CPA system, one of the limitations in pulse duration comes from the gain narrowing. Because of their wide spectrum, short pulses can be amplified only by materials with a gain bandwidth greater than their spectrum.
-
-One of the approaches the optical parametric chirped-pulse amplification .
-
-Since the laser power increases by either increasing the energy or reducing the pulse duration, a single-cycle pulse was proposed (Mourou et al. 2002; Bulanov et al. 2006; Voronin, A. A. and Zheltikov, A. M. and Ditmire, T. and Rus, B. and Korn, G. 2013).
-
-Post-compression of the CPA systems leads to near-single-cycle pulses by self-phase modulation in hollow-core fibres, although the energy is in the millijoule level (Böhle et al. 2014; Ouillé et al. 2020).
-
-A second technique producing near-single-cycle pulses is the Optical Parametric CPA, by which a 4.5 fs, 16TW pulse is reported (Rivas et al. 2017).
-
-Reducing the pulse duration is the primary goal of ELI-ALPS, where a 17 fs, 2PW laser is under development (Osvay et al. 2019).
-
-by a parabola with f-number, a record intensity over $ \approx 10^{23} \ \mathrm{W / cm^{2}} $ has been recently reported by a $ 4 \ \mathrm{PW} $ laser .
-
-
-
-
-More than two decades ago, a theoretical estimation of the minimum focal spot diameter (Sales 1998) suggests a value of $ \lambda / 4 \pi^2 $, where $ \lambda $ is a laser wavelength.
-
-since the laser intensity is inversely proportional to the square of the focal spot size [19].
-
-points on emphasizing for a reduced focal spot.
-
-Current worldwide activities on PW laser systems and further envisions to attain > 100 PW lasers 
-
-A  progress in laser technology over several past decades have opened the door to ... 
-
-reached a significant milestone
-
-start building a 100-PW laser known as the Station of Extreme Light (SEL)
-
-dramatic rapid significant improvement of various laser parameters. 
-
-A tremendous progress in laser technology over several past decades the peak power of laser pulses increased from GW to PW dramatically. 
-
-Today, the CPA technique is incorporated in practically all the major laser systems around the world.
-
-far above the limit imposed by the need to prevent nonlinear effects and optical damage in the amplifiers and optical components.
-
-being stretched out temporally and spectrally, then amplified, and then compressed again.
-
-The invention of the chirped pulse amplification (CPA) technique (Strickland and Mourou 1985) in mid-80's allowed the rapid growth of the laser power beyond the terawatt ($ \mathrm{TW} $) level.
-
-Such pulses have capability to access unexplored physical regimes of laser-plasma interaction.
-
-In order to maximize the electromagnetic field intensity in the focal plane at a given laser power
-
-the concept of flying focus produced by a chromatic focusing of chirped laser pulses [] or by a relativistic flying parabolic mirror [] are investigated. 
-
-Experimental implementation of the tight-focusing scheme by a parabola with f-number, $ f/\# $, (the ratio of the focal length, $ f $, to the beam diameter, $ D $) of 0.6 claims focusing of a 45 TW laser to a $ \approx 0.8 \mu m $ focal spot diameter, leading to an intensity of $ \approx 10^{22} W / cm^2 $ (Bahk et al. 2004), where a similar intensity is achieved by focusing a 0.3PW using a parabola of fN = 1.3 (Pirozhkov et al. 2017).
-
-a record intensity of $ \approx 10^{23} \ \mathrm{W / cm^{2}} $ has been recently reported by a $ \approx 4 \ \mathrm{PW} $ laser (Yoon et al. 2021) with the CoReLS petawatt (PW) laser
-
-%tight focusing with a two-stage adaptive optical system and an f/1.1 ( f = 300 mm) off-axis parabolic mirror, we
-%obtained near diffraction-limited focusing with a spot size of 1.1 µm (FWHM)
-
-When using a conventional solid state optics, however, the diameter of a high energy laser beam has to be relatively large in order to keep the energy density on optical components below the damage threshold. Furthermore, additional care has to be taken to protect the optics from the target debris due to their short focal length [20]. The solid state optics are thus inherently inappropriate in this case. Nevertheless, it seems that many drawbacks might be in future overcome by using a plasma-based focusing optics. In addition, curved plasma mirrors may enhance the spatial and temporal contrast ratio of laser pulse which is crucial for many applications of laser-matter interaction [18].
-
-Although generation of the $ \lambda^3 $-pulses by optical means is challenging, this can also be realised by plasma-based techniques (Mourou et al. 2014; Tamburini et al. 2014a). Notably, the self-generation of such pulses has been observed in 3D simulations during the interaction of a laser pulse with a foil target (Tamburini et al. 2012)
-
-Strong interest in the problems of the interaction of extremely intense electromagnetic radiation with plasmas finds various broad-range applications in the development of new concepts of compact laser-based accelerators of electrons and ions (Bulanov et al. 2001, 2014; Mourou et al. 2006; Borghesi et al. 2006; Esarey et al. 2009; Daido et al. 2012; Macchi et al. 2013), high brightness x- and gamma-ray sources (see Teubner and Gibbon 2009; Corde et al. 2013; Bulanov et al. 2013), controlled nuclear fusion within the framework of the fast ignition concept (Tabak et al. 1994; Roth et al. 2001; Atzeni and Meyer-ter-Vehn, 2004).
-
-
-structure
 
 %-------------------------------------------------------------------------------
 
-\chapter{Theoretical background}
+\begin{savequote}[0.5\linewidth]
+	\q{There is nothing more practical than a good theory.}
+	\qauthor{-- Gustav Kirchhoff (1824 -- 1887)}
+\end{savequote}
+
+\chapter{Theoretical background \label{chap:theoretical_background}}
 
 \section{Physics of laser-underdense plasma interaction}
 %\input{dat/1-0.tex}
 
-\subsection{Equations of EM field}
+%\subsection{Equations of EM field}
 %\input{dat/1-0.tex}
 
-\subsection{EM waves in vacuum}
+%\subsection{EM waves in vacuum}
 %\input{dat/1-0.tex}
 
-\subsection{Gaussian beam optics}
+%\subsection{Gaussian beam optics}
 %\input{dat/1-0.tex}
 
-\subsection{Interaction with single electrons, ponderomotive force}
+%\subsection{Interaction with single electrons, ponderomotive force}
 %\input{src/interaction_with_single_electron.tex}
 
-\subsection{Langmuir waves, wave breaking, catastrophe theory}
+%\subsection{Langmuir waves, wave breaking, catastrophe theory}
 %\input{dat/1-0.tex}
 
-\subsection{Self-focusing, self-guiding, self-phase modulation, self-amplitude modulation}
+%\subsection{Self-focusing, self-guiding, self-phase modulation, self-amplitude modulation}
 %\input{dat/1-0.tex}
 
 %-------------------------------------------------------------------------------
@@ -744,44 +589,44 @@ structure
 \section{Laser-wakefield acceleration of electrons}
 %\input{dat/1-0.tex}
 
-\subsection{Electron interaction with Langmuir wave}
+%\subsection{Electron interaction with Langmuir wave}
 %\input{src/electron_interaction_with_langmuir_wave.tex}
 
-\subsection{Electron injection mechanisms}
+%\subsection{Electron injection mechanisms}
 %\input{dat/1-0.tex}
 
-\subsection{Injection by breaking plasma wave}
+%\subsection{Injection by breaking plasma wave}
 %\input{dat/1-0.tex}
 
-\subsubsection{Homogeneous plasma}
+%\subsubsection{Homogeneous plasma}
 %\input{dat/1-0.tex}
 
-\subsubsection{Inhomogeneous plasma}
+%\subsubsection{Inhomogeneous plasma}
 %\input{dat/1-0.tex}
 
-\subsection{Optical injection}
+%\subsection{Optical injection}
 %\input{dat/1-0.tex}
 
-\subsection{Ionization injection}
+%\subsection{Ionization injection}
 %\input{dat/1-0.tex}
 
-\subsection{Regimes of LWFA}
+%\subsection{Regimes of LWFA}
 %\input{dat/1-0.tex}
 
-\subsection{Self-modulated regime}
+%\subsection{Self-modulated regime}
 
-\subsection{Blow-out regime}
+%\subsection{Blow-out regime}
 
-\subsection{Limitations of LWFA}
+%\subsection{Limitations of LWFA}
 %\input{dat/1-0.tex}
 
-\subsection{Electron dephasing length}
+%\subsection{Electron dephasing length}
 
-\subsection{Pump depletion length}
+%\subsection{Pump depletion length}
 
-\subsection{Beam loading}
+%\subsection{Beam loading}
 
-\subsection{Applications of accelerated electrons}
+%\subsection{Applications of accelerated electrons}
 %\input{dat/1-0.tex}
 
 %-------------------------------------------------------------------------------
@@ -789,25 +634,25 @@ structure
 \section{Relativistic mirrors}
 %\input{dat/1-0.tex}
 
-\subsection{Lorentz transform, Doppler effect}
+%\subsection{Lorentz transform, Doppler effect}
 %\input{dat/1-0.tex}
 
-\subsection{Uniformly moving mirror}
+%\subsection{Uniformly moving mirror}
 %\input{dat/1-0.tex}
 
-\subsection{Accelerated mirror}
+%\subsection{Accelerated mirror}
 %\input{dat/1-0.tex}
 
-\subsection{Oscillating mirror}
+%\subsection{Oscillating mirror}
 %\input{dat/1-0.tex}
 
-\subsection{Physical realization of relativistic mirrors in underdense plasma}
+%\subsection{Physical realization of relativistic mirrors in underdense plasma}
 %\input{dat/1-0.tex}
 
-\subsection{Langmuir wave}
+%\subsection{Langmuir wave}
 %\input{dat/1-0.tex}
 
-\subsection{Bow wave}
+%\subsection{Bow wave}
 %\input{dat/1-0.tex}
 
 %-------------------------------------------------------------------------------
@@ -815,15 +660,20 @@ structure
 \section{Numerical methods}
 %\input{dat/1-0.tex}
 
-\subsection{Particle-in-cell algorithm}
+%\subsection{Particle-in-cell algorithm}
 %\input{dat/1-0.tex}
 
 %-------------------------------------------------------------------------------
 
+\begin{savequote}[0.5\linewidth]
+	\q{The science of today is the technology of tomorrow.}
+	\qauthor{-- Edward Teller (1908 -- 2003)}
+\end{savequote}
+
 \chapter{Author's original results \label{chap:authors_original_results}}
 %\input{dat/1-0.tex}
 
-In this chapter, the reader can find an overview of the main results achieved within the author's postgraduate studies; in total, we select four papers published in peer-reviewed journals, Refs.~\ref{paper_1} - \ref{paper_4}, which are fully (or from the most part) based on the author's original work. Below, we provide a brief summary of each selected paper as well as a detailed description of the author's role and contributions. Full texts of all the selected publications are enclosed with permission in Appendix~\ref{chap:selected_publications}.
+\textsl{In this chapter, the reader can find an overview of the main results achieved within the author's postgraduate studies; in total, we select four papers published in peer-reviewed journals, Refs.~\ref{paper_1} - \ref{paper_4}, which are fully (or from the most part) based on the author's original work. Below, we provide a brief summary of each selected paper as well as a detailed description of the author's role and contributions. Full texts of all the selected publications are enclosed with permission in Appendix~\ref{chap:selected_publications}.}
 
 \section{On the electromagnetic-electron rings \label{sec:on_the_electromagnetic-electron_rings}}
 %\input{dat/1-0.tex}
@@ -836,7 +686,7 @@ In addition to the applications mentioned above, the understanding of the physic
 
 The first part of the paper presents an analytical model based on geometric optics approximation which qualitatively illustrates the origin and the initial stage of the electromagnetic ring formation. We define the plasma density distribution within the Langmuir wave as well as the Hamiltonian for the photon interaction with the Langmuir wave; the trajectories of photons are then obtained by solving the Hamilton equations. The second part of the paper presents a three-dimensional particle-in-cell simulation, the results of which demonstrate the formation of the electromagnetic as well as electron ring. We discuss the mechanism of formation of the electromagnetic ring and the processes of electron injection into the accelerating phase of the secondary wakefield generated by the electromagnetic ring. Finally, the third part of the paper contains the results of a systematic multi-parametric simulation study for various plasma densities, laser intensities, and laser spot sizes revealing the relationships among the properties of the electromagnetic rings and the parameters of laser and plasma.
 
-The main results of the paper can be summarized as follows. We identify and describe a novel physical mechanism which leads to the formation of ring-shaped electromagnetic-electron structures, where the electromagnetic rings arise from the laser pulse defocusing induced by the excitation of Langmuir waves in underdense plasma, and the ring-shaped electron beams are formed and accelerated subsequently by the secondary toroidal wakefields generated by the electromagnetic rings. We further reveal that the electromagnetic rings are relatively robust nonlinear objects, whose properties can be controlled by tuning the parameters of laser and plasma. Within the studied parameter range, we find that up to $ \approx 70 \ \% $ of the total initial driver pulse energy can be carried off by the electromagnetic rings having the opening angles $ \approx 50 - 105 \ \mathrm{mrad} $. 
+The main results of the paper can be summarized as follows. We identify and describe a novel physical mechanism which leads to the formation of ring-shaped electromagnetic-electron structures, where the electromagnetic rings arise from the laser pulse defocusing induced by the excitation of Langmuir waves in underdense plasma, and the ring-shaped electron beams are formed and accelerated subsequently by the secondary toroidal wakefields generated by the electromagnetic rings. We further reveal that the electromagnetic rings are relatively robust nonlinear objects, whose properties can be controlled by tuning the parameters of laser and plasma. Within the studied parameter range, we find that up to $ \approx 70 \ \% $ of the total initial driver pulse energy can be carried off by the electromagnetic rings having the opening angles $ \approx 45 - 115 \ \mathrm{mrad} $. 
 
 Our research published in Ref.~\ref{paper_1} has been honored by the editors of Physics of Plasmas journal by selecting the article as \q{Featured} and additionally reported by Scilight, which showcases the most interesting research across the physical sciences published in AIP Publishing journals. Besides Ref.~\ref{paper_1}, a portion of this work has been also published in Ref.~[Valenta SPIE 2021] and presented by the author at \q{SPIE Optics+Optoelectronics 2021,} \q{OPTO2021 Symposium on Photon and Beam Science,} and \q{ELI Summer School 2021,} whereas the latter presentation has been awarded by the \q{Best poster prize.} The author contributed to all the aspects of the research, including the initial formulation of the scientific topic, development of the analytical model, setup and execution of the numerical simulations on computer clusters, and analysis and interpretation of the simulation data. Furthermore, based on the results obtained the author prepared figures, wrote the bulk of the manuscript text, and submitted the manuscript to the journal whereas serving as a corresponding author. Last, the author was communicating with editors and referees concerning the requested revisions of the manuscript until the final publication in the journal.
 
@@ -858,9 +708,9 @@ Besides Ref.~\ref{paper_2}, a portion of this work has been also published in Re
 \section{On the recoil effects of relativistic mirrors \label{sec:on_the_recoil_effects_of_relativistic_mirrors}}
 %\input{dat/1-0.tex}
 
-Third, we present the results of research devoted to the sources of coherent short-wavelength radiation based on the concept of relativistic flying mirrors in plasma, which have been published in Ref.~\ref{paper_3} (the reader can find the full text of the paper in Appendix~\ref{sec:paper_3}). Maximization of the energy of radiation reflected from the relativistic mirror requires a more intense incident electromagnetic wave. However, sufficiently strong incident light can significantly affect the motion of the relativistic mirror (i.e., its radiation pressure can stop or destroy the mirror). This work investigates (analytically and using numerical simulations) the recoil effects associated with the interaction of relativistic mirrors and strong counter-propagating electromagnetic waves as well as the corresponding changes in the properties of reflected radiation. 
+Third, we present the results of research devoted to the sources of coherent short-wavelength radiation based on the concept of relativistic flying mirrors in plasma, which have been published in Ref.~\ref{paper_3} (the reader can find the full text of the paper in Appendix~\ref{sec:paper_3}). Maximization of the energy of radiation reflected from the relativistic mirror requires a more intense incident electromagnetic wave. However, sufficiently strong incident light can significantly affect the motion of the relativistic mirror (i.e., its radiation pressure can stop or destroy the mirror). This work investigates (analytically and using numerical simulations) the recoil effects associated with the interaction of relativistic mirrors and strong counter-propagating electromagnetic waves as well as the corresponding changes in the properties of reflected radiation. The considered topic is important for the question of the feasibility of relativistic mirrors for various purposes.
 
-The considered topic is important for the question of the feasibility of relativistic mirrors for various purposes. Relativistic mirrors in plasmas are nowadays actively studied as a unique tool for fundamental research (e.g., light intensification toward the Schwinger limit \cite{Bulanov2003}, investigation of photon–photon and Delbrück scattering \cite{Koga2012, Koga2018}, analog black hole to investigate Hawking radiation and the information loss paradox \cite{Chen2017, Chen2020}) and for many practical applications in diverse fields; depending on whether the configuration is co-propagating or counter-propagating in the laboratory frame of reference, relativistic mirrors might be used either for the acceleration of ions (e.g., for hadron therapy \cite{Bulanov2002}) or for producing coherent high-brightness radiation with wavelengths ranging from x-ray to gamma-ray (e.g., for molecular imaging \cite{Neutze2000} and attosecond spectroscopy \cite{Krausz2009}).
+%Relativistic mirrors in plasmas are nowadays actively studied as a unique tool for fundamental research (e.g., light intensification toward the Schwinger limit \cite{Bulanov2003}, investigation of photon–photon and Delbrück scattering \cite{Koga2012, Koga2018}, analog black hole to investigate Hawking radiation and the information loss paradox \cite{Chen2017, Chen2020}) and for many practical applications in diverse fields; depending on whether the configuration is co-propagating or counter-propagating in the laboratory frame of reference, relativistic mirrors might be used either for the acceleration of ions (e.g., for hadron therapy \cite{Bulanov2002}) or for producing coherent high-brightness radiation with wavelengths ranging from x-ray to gamma-ray (e.g., for molecular imaging \cite{Neutze2000} and attosecond spectroscopy \cite{Krausz2009}).
 
 In the first part of the paper we exploit the conservation of momentum and energy before and after the interaction of relativistic flying mirror with counter-propagating electromagnetic wave to develop an analytical model describing the factors of amplification and frequency upshift of the relativistic mirror beyond the approximation of a weak incident electromagnetic wave. Furthermore, we define a threshold for the fluence of the incident electromagnetic wave which characterizes the recoil importance in this interaction. In the second part of the paper, we consider a relativistic flying mirror in the form of strongly nonlinear Langmuir wave and estimate the threshold derived before for this particular case of physical realization of relativistic mirror. Finally, in the third part of the paper we investigate the applicability of our model by one-dimensional particle-in-cell simulations and numerically obtain the properties of interest, such as reflection coefficient of the Langmuir wave and factors of the electric field amplification and the frequency upshift of the incident laser pulse.
 
@@ -882,7 +732,7 @@ In the first part of the paper we describe the physical mechanisms underlying th
 
 The main results of the paper can be summarized as follows. We propose a novel scheme for physical realization of relativistic mirrors based on the density singularities in laser plasmas - a relativistic flying forcibly oscillating mirror. The proposed scheme uses the electron density singularity at the joining area of the laser wake and bow waves to reflect the counter-propagating source pulse. Since in this regime the surface of the mirror is modulated and oscillates due to the presence of the strong electromagnetic field of the driving laser pulse, it acts as a reflective diffraction grating and generates boosted high-order harmonics of very high brightness. Compared with the boosted high-order harmonics produced by a high-density plasma slab and a thin electron layer \cite{Kulagin2007, Esirkepov2009, Wu2010}, the regime under consideration has the properties of a relativistic flying mirror \cite{Bulanov2003}, relativistic oscillating mirror \cite{Bulanov1994, Naumova2004}, and it inherits the properties of the laser driven oscillating electron spikes \cite{Pirozhkov2014, Pirozhkov2017}. 
 
-Besides Ref.~\ref{paper_4}, a portion of this work has been also published in Refs.~\citenum{Esirkepov2020}[Mu SPIE 2019, Mu Phys. Wave. Phen. 2019] and presented by the author at \q{SPIE Optics \& Photonics International Congress 2019,} \q{KPSI Scientific Seminar,} and \q{2$ ^{\mathrm{nd}} $ Users' Conference of IT4Innovations.} The author contributed mainly to the setup and execution of numerical simulations on computer clusters and subsequent analysis and interpretation of the simulation data. Based on the results obtained the author prepared figures and wrote the bulk of the manuscript text corresponding to the part dealing with the numerical simulations. Last, the author also contributed concerning the requested revisions of the manuscript until the final publication in the journal.
+Besides Ref.~\ref{paper_4}, a portion of this work has been also published in Refs.~\citenum{Esirkepov2020}[Mu SPIE 2019, Mu Phys. Wave. Phen. 2019] and presented by the author at \q{SPIE Optics \& Photonics International Congress 2019,} \q{KPSI Scientific Seminar,} and \q{2$ ^{\mathrm{nd}} $ Users' Conference of IT4Innovations.} The author contributed mainly to the setup and execution of three-dimensional numerical simulations on computer clusters and subsequent analysis and interpretation of the simulation data. Based on the results obtained the author prepared figures and wrote the bulk of the manuscript text corresponding to the part dealing with the numerical simulations. Last, the author also contributed concerning the requested revisions of the manuscript until the final publication in the journal.
 
 
 
@@ -890,13 +740,27 @@ Besides Ref.~\ref{paper_4}, a portion of this work has been also published in Re
 
 %-------------------------------------------------------------------------------
 
-\chapter{Conclusion}
+\begin{savequote}[0.5\linewidth]
+	\q{The best is the enemy of the good.}
+	\qauthor{-- Voltaire (1694 -- 1778)}
+\end{savequote}
+
+\chapter{Conclusion \label{chap:conclusion}}
 %\addcontentsline{toc}{chapter}{Conclusion and forthcoming work}
 %\input{dat/conclusion.tex}
 
 \section{Summary}
 
 \section{Perspectives}
+
+%Although in the early days the laser was named as \q{a bright solution looking for a problem}, it has since then developed/matured in one of the most important inventions of the last century. It is going to play a even more important role in this century.
+
+%the laser, initially considered as a bright solution looking for a problem, can now properly be indicated as the bright solution of many problems in science and technology
+
+%Applications of lasers have grown spectacularly and now involve many billions of dollars of sale per year
+
+%research with petawatt lasers has been prolific in terms of results with a high potential for applications in several areas,
+
 
 %\newpage
 %\pagestyle{plain}
@@ -943,7 +807,7 @@ Besides Ref.~\ref{paper_4}, a portion of this work has been also published in Re
 
 \chapter{List of author's publications \label{chap:authors_publications}}
 
-Below, the reader can find the full list of publications (as of the day of submission of this dissertation) in peer-reviewed journals, conference proceedings, and as book chapters authored or co-authored by the author during the author's postgraduate studies. The publications are listed in chronological order.
+\textsl{Below, the reader can find the full list of publications (as of the day of submission of this dissertation) in peer-reviewed journals, conference proceedings, and as book chapters authored or co-authored by the author during the author's postgraduate studies. The publications are listed in chronological order.}
 
 \section{Publications in peer-reviewed journals \label{sec:peer_reviewed_journals}}
 
