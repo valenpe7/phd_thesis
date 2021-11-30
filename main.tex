@@ -697,11 +697,14 @@ First, we present the model of relativistic flying flat mirror which gives us th
 
 \subsection{Relativistic flying flat mirror}
 
-Let us consider ideally reflecting mirror (i.e., the reflection coefficient of the mirror is equal to unity) moving along the $ +z $-axis at a constant velocity $ v = \beta c $. The electric field of the counter-propagating (i.e., moving along the $ -z $-axis) electromagnetic wave packet linearly polarized along the $ x $-axis is expressed in the stationary frame of reference, $ S_1 $, as follows
+Let us consider ideal relativistic flying flat mirror (i.e., the reflection coefficient of the mirror is equal to unity) moving along the $ +z $-axis at a constant velocity $ v = \beta c $. The electric field of the counter-propagating (i.e., moving along the $ -z $-axis) electromagnetic wave packet linearly polarized along the $ x $-axis is expressed in the stationary frame of reference, $ S_1 $, as follows
 \begin{equation}\label{eq:incident_lab_frame_1}
-\vec{E}_i \left(x, y, z; t \right) = \vec{\hat{x}} \, E_0 \left(x, y \right) \exp \left[ - \frac{1}{\tau^2} \left(t + \frac{z}{c}\right)^2 \right] \exp \left[ i \omega \left(t + \frac{z}{c}\right) \right],
+\begin{split}
+\vec{E}_i \left(x, y, z; t \right) &= \vec{e}_x \int_{-\infty}^{+\infty} \tilde{E}_0 \left(x, y \right) \exp \left[ -\frac{\left( \omega - \omega_0 \right)^2}{2 \Delta \omega^2} \right] \exp \left[ i \omega \left(t + \frac{z}{c}\right) \right] d \omega \\
+&= \vec{e}_x \, E_0 \left(x, y \right) \exp \left[ - \frac{1}{2 \tau^2} \left(t + \frac{z}{c}\right)^2 \right] \exp \left[ i \omega_0 \left(t + \frac{z}{c}\right) \right],
+\end{split}
 \end{equation}
-where $ E_0 \left(x, y \right) $ is the peak amplitude of the electric field, $ \tau $ is the wave packet duration (note that the full-width-at-half-maximum duration can be obtained as $ \tau_{\mathrm{FWHM}} = 2 \sqrt{\ln 2} \tau $), and $ \omega $ is the center angular frequency of the wave packet. 
+where $ \omega $, $ \omega_0 $, and $ \Delta \omega $ are, respectively, the angular frequency, center angular frequency, and the spectral bandwidth of the wave packet, $ \tilde{E}_0 \left(x, y \right) $ and $ E_0 \left(x, y \right) = \sqrt{2 \pi} \Delta \omega \tilde{E}_0 \left(x, y \right) $ are the electric field amplitudes in the spectral and time domains, respectively, and $ \tau = 1 / \Delta \omega $ is the wave packet duration (note that the full-width-at-half-maximum duration can be obtained as $ \tau_{\mathrm{FWHM}} = 2 \sqrt{2 \ln 2} \tau $).
 
 %, where $ c $ denotes the velocity of light in vacuum
 %The hat symbol refers to the unit vector.
@@ -712,20 +715,20 @@ x^{\prime} = x, \quad y^{\prime} = y, \quad z^{\prime} = \frac{z - \beta c t}{\s
 \end{equation}
 The components of electric field transform as
 \begin{equation}\label{eq:lorentz_transform_fields}
-\vec{E}^{\prime}_{i, \parallel} = \vec{E}_{i, \parallel}, \quad \vec{E}^{\prime}_{i, \bot} = \frac{\vec{E}_{i, \bot} + \beta c \, \vec{\hat{z}} \times \vec{B}_{i}}{\sqrt{1 - \beta^2}},
+\vec{E}^{\prime}_{i, \parallel} = \vec{E}_{i, \parallel}, \quad \vec{E}^{\prime}_{i, \bot} = \frac{\vec{E}_{i, \bot} + \beta c \, \vec{e}_z \times \vec{B}_{i}}{\sqrt{1 - \beta^2}},
 \end{equation}
-where subscripts $ \parallel $ and $ \bot $ denote the field polarization components parallel and perpendicular to the direction of mirror motion and $ \vec{B}_{i} = \vec{\hat{z}} / c \times \vec{E}_i $ is the magnetic field of the incident wave packet in $ S_1 $. Note that the origin of $ M $ is located at $ \left( 0, 0, z_0 \right) $. In $ M $, the electric field of the incident wave packet, Eq.~(\ref{eq:incident_lab_frame_1}), takes the following form,
+where subscripts $ \parallel $ and $ \bot $ denote the field polarization components parallel and perpendicular to the direction of mirror motion and $ \vec{B}_{i} = -\vec{e}_z / c \times \vec{E}_i $ is the magnetic field of the incident wave packet in $ S_1 $. Note that the origin of $ M $ is located at $ \left( 0, 0, z_0 \right) $. In $ M $, the electric field of the incident wave packet, Eq.~(\ref{eq:incident_lab_frame_1}) takes the following form,
 \begin{equation}\label{eq:incident_boost_frame}
-\vec{E}^{\prime}_i \left(x^{\prime}, y^{\prime}, z^{\prime}; t^{\prime} \right) = \vec{\hat{x}}^{\prime} \, E^{\prime}_0 \left(x^{\prime}, y^{\prime} \right) \exp \left[ - \frac{1}{\tau^{\prime 2}} \left(t^{\prime} + \frac{z^{\prime}}{c}\right)^2 \right] \exp \left[ i \omega^{\prime} \left(t^{\prime} + \frac{z^{\prime}}{c}\right) \right],
+\vec{E}^{\prime}_i \left(x^{\prime}, y^{\prime}, z^{\prime}; t^{\prime} \right) = \vec{e}_x^{\prime} E^{\prime}_0 \left(x^{\prime}, y^{\prime} \right) \exp \left[ - \frac{1}{2 \tau^{\prime 2}} \left(t^{\prime} + \frac{z^{\prime}}{c}\right)^2 \right] \exp \left[ i \omega_0^{\prime} \left(t^{\prime} + \frac{z^{\prime}}{c}\right) \right],
 \end{equation}
 where
 \begin{equation}\label{eq:coeff_boost}
-E^{\prime}_0 \left(x^{\prime}, y^{\prime} \right) = \sqrt{\frac{1 + \beta}{1 - \beta}} E_0 \left(x, y \right), \quad \tau^{\prime} = \sqrt{\frac{1 - \beta}{1 + \beta}} \tau, \quad \omega^{\prime} = \sqrt{\frac{1 + \beta}{1 - \beta}} \omega.
+E^{\prime}_0 \left(x^{\prime}, y^{\prime} \right) = \sqrt{\frac{1 + \beta}{1 - \beta}} E_0 \left(x, y \right), \quad \tau^{\prime} = \sqrt{\frac{1 - \beta}{1 + \beta}} \tau, \quad \omega_0^{\prime} = \sqrt{\frac{1 + \beta}{1 - \beta}} \omega_0.
 \end{equation}
 
 As the incident wave packet experiences specular reflection from the mirror, its propagation direction reverses. The electric field of the reflected wave packet in $ M $ is thus given by
 \begin{equation}\label{eq:reflected_boost_frame}
-\vec{E}^{\prime}_r \left(x^{\prime}, y^{\prime}, z^{\prime}; t^{\prime} \right) = \vec{\hat{x}}^{\prime} \, E^{\prime}_0 \left(x^{\prime}, y^{\prime} \right) \exp \left[ - \frac{1}{{\tau^{\prime 2}}} \left(t^{\prime} - \frac{z^{\prime}}{c}\right)^2 \right] \exp \left[ i \omega^{\prime} \left(t^{\prime} - \frac{z^{\prime}}{c}\right) \right].
+\vec{E}^{\prime}_r \left(x^{\prime}, y^{\prime}, z^{\prime}; t^{\prime} \right) = \vec{e}_x^{\prime} E^{\prime}_0 \left(x^{\prime}, y^{\prime} \right) \exp \left[ - \frac{1}{2\tau^{\prime 2}} \left(t^{\prime} - \frac{z^{\prime}}{c}\right)^2 \right] \exp \left[ i \omega_0^{\prime} \left(t^{\prime} - \frac{z^{\prime}}{c}\right) \right].
 \end{equation}
 Now we find the electric field of the reflected wave packet, Eq.~(\ref{eq:reflected_boost_frame}), in another stationary reference frame, $ S_2 $, the origin of which coincides with the origin of $ M $, through the inverse Lorentz transformation. The inverse Lorentz transformation of coordinates is given by
 \begin{equation}\label{eq:inverse_lorentz_transform_coords}
@@ -733,81 +736,98 @@ x^{\prime \prime} = x^{\prime}, \quad y^{\prime \prime} = y^{\prime}, \quad z^{\
 \end{equation}
 The components of electric field transform as
 \begin{equation}\label{eq:inverse_lorentz_transform_fields}
-	\vec{E}^{\prime \prime}_{r, \parallel} = \vec{E}^{\prime}_{r, \parallel}, \quad \vec{E}^{\prime \prime}_{r, \bot} = \frac{\vec{E}^{\prime}_{r, \bot} - \beta c \, \vec{\hat{z}} \times \vec{B}^{\prime}_{r}}{\sqrt{1 - \beta^2}},
+	\vec{E}^{\prime \prime}_{r, \parallel} = \vec{E}^{\prime}_{r, \parallel}, \quad \vec{E}^{\prime \prime}_{r, \bot} = \frac{\vec{E}^{\prime}_{r, \bot} - \beta c \, \vec{e}_z \times \vec{B}^{\prime}_{r}}{\sqrt{1 - \beta^2}},
 \end{equation}
-where $ \vec{B}^{\prime}_{r} = -\vec{\hat{z}} / c \times \vec{E}^{\prime}_r $ is the magnetic field of the reflected wave packet in $ M $. In $ S_2 $, the electric field of the reflected wave packet reads as
+where $ \vec{B}^{\prime}_{r} = \vec{e}_z / c \times \vec{E}^{\prime}_r $ is the magnetic field of the reflected wave packet in $ M $. In $ S_2 $, the electric field of the reflected wave packet reads as
 \begin{equation}\label{eq:reflected_lab_frame_1}
-\vec{E}^{\prime \prime}_r \left(x^{\prime \prime}, y^{\prime \prime}, z^{\prime \prime}; t^{\prime \prime} \right) = \vec{\hat{x}}^{\prime \prime} \, E^{\prime \prime}_0 \left(x^{\prime \prime}, y^{\prime \prime} \right) \exp \left[ - \frac{1}{\tau^{\prime \prime 2}} \left(t^{\prime \prime} - \frac{z^{\prime \prime}}{c}\right)^2 \right] \exp \left[ i \omega^{\prime \prime} \left(t^{\prime \prime} - \frac{z^{\prime \prime}}{c}\right) \right],
+\vec{E}^{\prime \prime}_r \left(x^{\prime \prime}, y^{\prime \prime}, z^{\prime \prime}; t^{\prime \prime} \right) = \vec{e}_x^{\prime \prime} E^{\prime \prime}_0 \left(x^{\prime \prime}, y^{\prime \prime} \right) \exp \left[ - \frac{1}{2 \tau^{\prime \prime 2}} \left(t^{\prime \prime} - \frac{z^{\prime \prime}}{c}\right)^2 \right] \exp \left[ i \omega_0^{\prime \prime} \left(t^{\prime \prime} - \frac{z^{\prime \prime}}{c}\right) \right],
 \end{equation}
 where
 \begin{equation}\label{eq:coeff_lab}
-E^{\prime \prime}_0 \left(x^{\prime \prime}, y^{\prime \prime} \right) = \sqrt{\frac{1 + \beta}{1 - \beta}} E^{\prime}_0 \left(x^{\prime}, y^{\prime} \right), \quad \tau^{\prime \prime} = \sqrt{\frac{1 - \beta}{1 + \beta}} \tau^{\prime}, \quad \omega^{\prime \prime} = \sqrt{\frac{1 + \beta}{1 - \beta}} \omega^{\prime}.
+E^{\prime \prime}_0 \left(x^{\prime \prime}, y^{\prime \prime} \right) = \sqrt{\frac{1 + \beta}{1 - \beta}} E^{\prime}_0 \left(x^{\prime}, y^{\prime} \right), \quad \tau^{\prime \prime} = \sqrt{\frac{1 - \beta}{1 + \beta}} \tau^{\prime}, \quad \omega_0^{\prime \prime} = \sqrt{\frac{1 + \beta}{1 - \beta}} \omega_0^{\prime}.
 \end{equation}
 
 Finally, since $ x^{\prime \prime} = x $, $ y^{\prime \prime} = y $, $ z^{\prime \prime} = z - z_0 $, and $ t^{\prime \prime} = t $,
 we may express the electric field of the reflected wave, Eq.~(\ref{eq:reflected_lab_frame_1}), in the original stationary reference frame, $ S_1 $, as
 \begin{equation}\label{eq:reflected_lab_frame_2}
 \begin{split}
-\vec{E}^{\prime \prime}_r \left(x, y, z; t \right) = & \ \vec{\hat{x}} \, \frac{1 + \beta}{1 - \beta} E_0 \left(x, y \right) \exp \left[ - \left(\frac{1 + \beta}{1 - \beta}\right)^2 \frac{1}{\tau^2} \left(t - \frac{z - z_0}{c}\right)^2 \right] \\ 
-& \times \exp \left[ i \frac{1 + \beta}{1 - \beta} \omega \left(t - \frac{z - z_0}{c}\right) \right].
+\vec{E}^{\prime \prime}_r \left(x, y, z; t \right) = & \ \vec{e}_x \frac{1 + \beta}{1 - \beta} E_0 \left(x, y \right) \exp \left[ - \left(\frac{1 + \beta}{1 - \beta}\right)^2 \frac{1}{2 \tau^2} \left(t - \frac{z - z_0}{c}\right)^2 \right] \\ 
+& \times \exp \left[ i \frac{1 + \beta}{1 - \beta} \omega_0 \left(t - \frac{z - z_0}{c}\right) \right].
 \end{split}
 \end{equation}
-For a Gaussian beam of width $ w_0 $, $ E_0 \left( x, y \right) = E_0 \exp \left[-\left( x^2 + y^2 \right) / w_0^2 \right] $, and thus the total energy and peak intensity of the reflected pulse is given by 
+For a Gaussian beam of width $ w_0 $, $ E_0 \left( x, y \right) = E_0 \exp \left[-\left( x^2 + y^2 \right) / 2 w_0^2 \right] $, and thus the total energy and peak intensity of the reflected pulse is given by 
 \begin{equation}\label{eq:energy_and_intensity}
-\mathcal{E}^{\prime \prime}_r = \left(\frac{1 + \beta}{1 - \beta}\right) \sqrt{\frac{\pi^3}{2}} \epsilon_0 c \tau w_0^2 E_0^2 , \quad I^{\prime \prime}_r = \left(\frac{1 + \beta}{1 - \beta}\right)^2 \frac{\epsilon_0 c}{2} E_0^2.
+\mathcal{E}^{\prime \prime}_r = \left(\frac{1 + \beta}{1 - \beta}\right) \sqrt{\frac{\pi^3}{4}} \epsilon_0 c \tau w_0^2 E_0^2 , \quad I^{\prime \prime}_r = \left(\frac{1 + \beta}{1 - \beta}\right)^2 \frac{\epsilon_0 c}{2} E_0^2.
 \end{equation}
 Note that the factor $ \left(1 + \beta \right) / \left(1 - \beta \right) $ can be rewritten in terms of the Lorentz factor of the mirror, $ \gamma = 1 / \sqrt{1 - \beta^2} $, as follows
 \begin{equation}\label{eq:factor}
 \frac{1 + \beta}{1 - \beta} = \frac{\gamma + \sqrt{\gamma^2 - 1}}{\gamma - \sqrt{\gamma^2 - 1}} \approx 4 \gamma^2 \ \mathrm{for} \ \gamma \gg 1.
 \end{equation}
 
-The above derivation shows that the reflected wave packet possesses several striking features: its electric field is amplified by the factor $ \approx 4 \gamma^2 $, its duration is compressed by $ \approx 4 \gamma^2 $, and its angular frequency is upshifted by $ \approx 4 \gamma^2 $. Furthermore, its energy and intensity are enhanced by $ \approx 4 \gamma^2 $ and $ \approx 16 \gamma^4 $, respectively. Assuming a laser pulse with parameters corresponding to a typical $ \mathrm{PW} $-class titanium-doped sapphire system, i.e., $ 0.8 \ \mathrm{\mu m} $ wavelength, $ 30 \ \mathrm{fs} $ duration, and $ 10^{20} \ \mathrm{W / cm^2} $ peak intensity, being reflected from ideal relativistic flying flat mirror with $ \gamma = 10 $, one obtains a pulse with wavelength of $ 2 \ \mathrm{nm} $, duration of $ 75 \ \mathrm{as} $, and the peak intensity of $ 1.6 \times 10^{25} \ \mathrm{W / cm^2} $.
+The above derivation shows that the reflected wave packet possesses several striking features: its electric field is amplified by the factor $ \approx 4 \gamma^2 $, its duration is compressed by $ \approx 4 \gamma^2 $, and its angular frequency is upshifted by $ \approx 4 \gamma^2 $. Furthermore, its energy and intensity are enhanced by $ \approx 4 \gamma^2 $ and $ \approx 16 \gamma^4 $, respectively. Assuming a laser pulse with parameters corresponding to a typical $ \mathrm{PW} $-class titanium-doped sapphire system, i.e., $ 0.8 \ \mathrm{\mu m} $ wavelength, $ 30 \ \mathrm{fs} $ duration, and $ 10^{20} \ \mathrm{W / cm^2} $ peak intensity, being reflected from ideal relativistic flying flat mirror with $ \gamma = 10 $, one obtains a pulse of wavelength $ 2 \ \mathrm{nm} $, duration $ 75 \ \mathrm{as} $, and the peak intensity $ 1.6 \times 10^{25} \ \mathrm{W / cm^2} $.
 
 \subsection{Relativistic flying parabolic mirror}
 
-The general mathematical expressions for the spatiotemporal field distribution of the RLF with the radial polarization are obtained as,
+Let us now consider ideal relativistic flying parabolic mirror (i.e., the reflection coefficient equal to unity, no wavefront aberration). The distribution of electromagnetic wave packet reflected from the mirror can be again obtained by finding the distribution in the moving frame and then performing the transformation back to the stationary frame. As shown in [], the nominal focal length of the parabolic mirror in the moving frame is $ \gamma $ times shorter than in the stationary frame. This alters the situation to the $ 4 \pi $-spherical focusing scheme.
 
-\begin{equation}\label{key}
+in spherical coordinates $ \rho = \sqrt{x^2 + y^2 + z^2} $ (radial coordinate), $ \theta = \arccos \left( z / \sqrt{x^2 + y^2 + z^2} \right)$ (polar coordinate), and $ \phi = \arctan \left( y / x \right)$ (azimuthal coordinate).
+
+for the radially polarized beam (field distribution of the azimuthally polarized beam at focus can be obtained by exchanging the expressions for the electric and magnetic fields of the radially polarized beam).
+
+The general mathematical expressions for the spatiotemporal distribution of electric and magnetic fields of the radially polarized beam in the focal region of mirror in the stationary frame of reference is given by
+%\begin{equation}\label{key}
+\begin{subequations}
+\begin{eqnarray}
 \begin{split}
-\vec{E}^{\prime \prime}_{r} = & \ \gamma \frac{1 + \beta}{1 - \beta} \sqrt{\frac{3 \pi}{\epsilon_0 c}} \frac{\pi \omega w_e \sqrt{I_0}}{4c} \\[2mm]
+& \vec{E}^{\prime \prime}_{f} \left(\rho, \theta, \phi; t \right) = \gamma \frac{1 + \beta}{1 - \beta} \sqrt{\frac{3 \pi^5}{8}} \frac{w_e}{\lambda_0} E_0 \\[2mm]
 & \times
 \begin{bmatrix}
-	\left\lbrace -j_0 \left( \omega^{\prime} R / c \right) \sin \left(\omega^{\prime} T \right) \Upsilon_1 + \beta j_1 \left( \omega^{\prime} R / c \right) \cos \left(\omega^{\prime} T \right) \Upsilon_2 \right\rbrace \cos \phi \\[1mm]
-	\left\lbrace -j_0 \left( \omega^{\prime} R / c \right) \sin \left(\omega^{\prime} T \right) \Upsilon_1 + \beta j_1 \left( \omega^{\prime} R / c \right) \cos \left(\omega^{\prime} T \right) \Upsilon_2 \right\rbrace \sin \phi \\[1mm]
-	\left( 1 / \gamma \right) j_0 \left( \omega^{\prime} R / c \right) \sin \left(\omega^{\prime} T \right) \Upsilon_2
-\end{bmatrix}
-\end{split}
-\end{equation}
-
-\begin{equation}\label{key}
-	\begin{split}
-		\vec{B}^{\prime \prime}_{r} = & \ \frac{\gamma}{c} \frac{1 + \beta}{1 - \beta} \sqrt{\frac{3 \pi}{\epsilon_0 c}} \frac{\pi \omega w_e \sqrt{I_0}}{4c} \\[2mm]
-		& \times
-		\begin{bmatrix}
-			\left\lbrace -j_1 \left( \omega^{\prime} R / c \right) \cos \left(\omega^{\prime} T \right) \Upsilon_2 + \beta j_0 \left( \omega^{\prime} R / c \right) \sin \left(\omega^{\prime} T \right) \Upsilon_1 \right\rbrace \sin \phi \\[1mm]
-			\left\lbrace j_1 \left( \omega^{\prime} R / c \right) \cos \left(\omega^{\prime} T \right) \Upsilon_2 - \beta j_0 \left( \omega^{\prime} R / c \right) \sin \left(\omega^{\prime} T \right) \Upsilon_1 \right\rbrace \cos \phi \\[1mm]
-			0
-		\end{bmatrix}
-	\end{split}
-\end{equation}
-
-\begin{equation}\label{key}
+	\left\lbrace -j_0 \left( \omega_0^{\prime} R / c \right) \sin \left(\omega_0^{\prime} T \right) \Upsilon_1 + \beta j_1 \left( \omega_0^{\prime} R / c \right) \cos \left(\omega_0^{\prime} T \right) \Upsilon_2 \right\rbrace \cos \phi \\[1mm]
+	\left\lbrace -j_0 \left( \omega_0^{\prime} R / c \right) \sin \left(\omega_0^{\prime} T \right) \Upsilon_1 + \beta j_1 \left( \omega_0^{\prime} R / c \right) \cos \left(\omega_0^{\prime} T \right) \Upsilon_2 \right\rbrace \sin \phi \\[1mm]
+	\left( 1 / \gamma \right) j_0 \left( \omega_0^{\prime} R / c \right) \sin \left(\omega_0^{\prime} T \right) \Upsilon_2
+\end{bmatrix},
+\end{split} \\[5mm]
 \begin{split}
-\Upsilon_1 = & \ \frac{1}{2} \left\lbrace \frac{\cos \theta + \beta}{1 + \beta \cos \theta} \exp \left[- \frac{\Delta \omega^{\prime 2}}{4} \left( T + \frac{R}{c} \right)^2 \right] \right. \\
+& \vec{B}^{\prime \prime}_{f} \left(\rho, \theta, \phi; t \right) = \gamma \frac{1 + \beta}{1 - \beta} \sqrt{\frac{3 \pi^5}{8}} \frac{w_e}{\lambda_0} \frac{E_0}{c} \\[2mm]
+& \times
+\begin{bmatrix}
+	\left\lbrace -j_1 \left( \omega_0^{\prime} R / c \right) \cos \left(\omega_0^{\prime} T \right) \Upsilon_2 + \beta j_0 \left( \omega_0^{\prime} R / c \right) \sin \left(\omega_0^{\prime} T \right) \Upsilon_1 \right\rbrace \sin \phi \\[1mm]
+	\left\lbrace j_1 \left( \omega_0^{\prime} R / c \right) \cos \left(\omega_0^{\prime} T \right) \Upsilon_2 - \beta j_0 \left( \omega_0^{\prime} R / c \right) \sin \left(\omega_0^{\prime} T \right) \Upsilon_1 \right\rbrace \cos \phi \\[1mm]
+	0
+\end{bmatrix}.
+\end{split}
+\end{eqnarray}
+\end{subequations}
+Here $ w_e $ is the effective beam radius ($ w_e = w_0 \sqrt{2p + m + 1}$ for the $ p $-th radial, $ m $-th azimuthal Laguerre-Gaussian beam), $ \lambda_0 = 2 \pi c / \omega_0 $ is the beam wavelength, $ j_{n} \left( \cdot \right) $ is the $ n $-th order spherical Bessel function of the first kind, 
+\begin{subequations}
+\begin{eqnarray}
+\begin{split}
+\Upsilon_1 & \left(T, R \right) = \frac{1}{2} \left\lbrace \frac{\cos \theta + \beta}{1 + \beta \cos \theta} \exp \left[- \frac{\Delta \omega^{\prime 2}}{4} \left( T + \frac{R}{c} \right)^2 \right] \right. \\
 & + \left. \frac{\cos \theta - \beta}{1 - \beta \cos \theta} \exp \left[- \frac{\Delta \omega^{\prime 2}}{4} \left( T - \frac{R}{c} \right)^2 \right] \right\rbrace,
-\end{split}
-\end{equation}
-
-\begin{equation}\label{key}
+\end{split} \\[5mm]
 \begin{split}
-\Upsilon_2 = & \ \frac{1}{2} \left\lbrace \frac{\sin \theta}{\gamma \left( 1 - \beta \cos \theta \right) } \exp \left[- \frac{\Delta \omega^{\prime 2}}{4} \left( T - \frac{R}{c} \right)^2 \right] \right. \\
-& + \left. \frac{\sin \theta}{\gamma \left( 1 + \beta \cos \theta \right) } \exp \left[- \frac{\Delta \omega^{\prime 2}}{4} \left( T + \frac{R}{c} \right)^2 \right] \right\rbrace.
+\Upsilon_2 \left(T, R \right) & = \frac{1}{2} \left\lbrace \frac{\sin \theta}{\gamma \left( 1 - \beta \cos \theta \right) } \exp \left[- \frac{\Delta \omega^{\prime 2}}{4} \left( T - \frac{R}{c} \right)^2 \right] \right. \\
+ + & \left. \frac{\sin \theta}{\gamma \left( 1 + \beta \cos \theta \right) } \exp \left[- \frac{\Delta \omega^{\prime 2}}{4} \left( T + \frac{R}{c} \right)^2 \right] \right\rbrace
 \end{split}
+\end{eqnarray}
+\end{subequations}
+are the envelope functions, and
+\begin{equation}\label{key}
+T \left(t, \rho \right) = \frac{t - \left(\rho / c\right) \beta \cos \theta}{\gamma \left( 1 - \beta^2 \cos^2 \theta \right)}, \quad R \left(\rho, t \right) = \frac{\rho - c t \beta \cos \theta}{\gamma \left( 1 - \beta^2 \cos^2 \theta \right)}.
 \end{equation}
 
+
+The phase of the outgoing pulse in the stationary frame of reference is given by
 \begin{equation}\label{key}
-T \left(t, \rho \right) = \frac{t - \left(\rho / c\right) \beta \cos \theta}{\gamma \left( 1 - \beta^2 \cos^2 \theta \right)}, \quad R \left(\rho, t \right) = \frac{\rho - c t \beta \cos \theta}{\gamma \left( 1 - \beta^2 \cos^2 \theta \right)} 
+\omega_0^{\prime \prime} = \left( T - \frac{R}{c} \right) \omega_0^{\prime} = \frac{1 + \beta}{1 - \beta \cos \theta} \left( t - \frac{\rho}{c} \right) \omega_0
 \end{equation}
+
+
+The change in the nominal pulse duration of the outgoing laser pulse is determined by the argument of in Eqs. ()
+
+In the forward direction ($ \theta = 0 $), the nominal duration and the angular frequency of the outgoing laser pulse, respectively, are reduced and upshifted by a factor , which is consistent to the case of relativistic flying flat mirror.
+
+
 
 %-------------------------------------------------------------------------------
 
