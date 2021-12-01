@@ -697,7 +697,7 @@ First, we present the model of relativistic flying flat mirror which gives us th
 
 \subsection{Relativistic flying flat mirror}
 
-Let us consider ideal relativistic flying flat mirror (i.e., the reflection coefficient of the mirror is equal to unity) moving along the $ +z $-axis at a constant velocity $ v = \beta c $. The electric field of the counter-propagating (i.e., moving along the $ -z $-axis) electromagnetic wave packet linearly polarized along the $ x $-axis is expressed in the stationary frame of reference, $ S_1 $, as follows
+Let us consider an ideal relativistic flying flat mirror (i.e., the reflection coefficient of the mirror is equal to unity) moving along the $ +z $-axis at a constant velocity $ v = \beta c $. An electromagnetic wave packet linearly polarized along the $ x $-axis is counter-propagating to the mirror (i.e., moving along the $ -z $-axis). The electromagnetic wave packet consists of a superposition of monochromatic waves, thus its electric field can be expressed in a stationary frame of reference, $ S_1 $, using the Fourier transformation,
 \begin{equation}\label{eq:incident_lab_frame_1}
 \begin{split}
 \vec{E}_i \left(x, y, z; t \right) &= \vec{e}_x \int_{-\infty}^{+\infty} \tilde{E}_0 \left(x, y \right) \exp \left[ -\frac{\left( \omega - \omega_0 \right)^2}{2 \Delta \omega^2} \right] \exp \left[ i \omega \left(t + \frac{z}{c}\right) \right] d \omega \\
@@ -768,48 +768,73 @@ The above derivation shows that the reflected wave packet possesses several stri
 
 \subsection{Relativistic flying parabolic mirror}
 
-Let us now consider ideal relativistic flying parabolic mirror (i.e., the reflection coefficient equal to unity, no wavefront aberration). The distribution of electromagnetic wave packet reflected from the mirror can be again obtained by finding the distribution in the moving frame and then performing the transformation back to the stationary frame. As shown in [], the nominal focal length of the parabolic mirror in the moving frame is $ \gamma $ times shorter than in the stationary frame. This alters the situation to the $ 4 \pi $-spherical focusing scheme.
+%$ E_0 \left( \rho \right) $ can be thought of as the Laguerre-Gaussian function since the profiles of radially or azimuthally polarized beams can be expressed as the superposition of Laguerre-Gaussian modes (i.e., $ E_0 \sim \left(\rho / \rho_0 \right) \exp \left( - \rho^2 / 2 \rho_0^2 \right)$), 
 
-in spherical coordinates $ \rho = \sqrt{x^2 + y^2 + z^2} $ (radial coordinate), $ \theta = \arccos \left( z / \sqrt{x^2 + y^2 + z^2} \right)$ (polar coordinate), and $ \phi = \arctan \left( y / x \right)$ (azimuthal coordinate).
+Let us now consider an ideal relativistic flying parabolic mirror (i.e., the reflection coefficient equal to unity, no wavefront aberration). The spatiotemporal distribution of the electromagnetic wave packet reflected from the mirror can be again obtained by calculating the distribution in the moving frame of reference and then performing the transformation back to the stationary frame. It is important to note that the focal length of the parabolic mirror in the moving frame is $ \gamma $ times shorter than in the stationary frame; this alters the situation to the $ 4 \pi $-spherical focusing scheme, thus the distribution of the electromagnetic fields in the focal region of parabolic mirror in the moving frame has to be calculated under the conditions of $ 4 \pi $-spherical focusing.
 
-for the radially polarized beam (field distribution of the azimuthally polarized beam at focus can be obtained by exchanging the expressions for the electric and magnetic fields of the radially polarized beam).
+The $ 4 \pi $-spherical focusing scheme corresponds to an extreme case of either tight-focusing (where the $ f $-number approaches zero) or multiple beam focusing (where the number of beams approaches infinity). Therefore, it provides a theoretical limit to maximum attainable field strength at a given power. Under the conditions of $ 4 \pi $-spherical focusing, the field distributions are obtained by calculating the vector diffraction integrals. In what follows, we will assume that the electromagnetic wave packet incident on mirror is radially or azimuthally polarized (for this case the diffraction integrals can be calculated analytically). The electric field of the incident wave packet can be thus again described by Eq.~(\ref{eq:incident_lab_frame_1}), where $ E_0 \left(x, y \right) $ can be thought of as the Laguerre-Gaussian function, i.e., $ E_0 \sim \left( \rho / \rho_0 \right)\exp \left( - \rho^2 / 2 \rho_0^2 \right)$. Here we also introduce spherical coordinates $ \rho = \sqrt{x^2 + y^2 + z^2} $ (the radial coordinate), $ \theta = \arccos \left( z / \rho \right)$ (the polar coordinate), and $ \phi = \arctan \left( y / x \right)$ (the azimuthal coordinate).
 
-The general mathematical expressions for the spatiotemporal distribution of electric and magnetic fields of the radially polarized beam in the focal region of mirror in the stationary frame of reference is given by
-%\begin{equation}\label{key}
+The mathematical expressions shown below cover only the case of radially polarized wave packet (the field distributions of the azimuthally polarized wave packet can be easily obtained by exchanging the expressions for the electric and magnetic fields of the radially polarized wave packet). Radial polarization is also interesting in the sense that the field distribution at focus forms a compact spot producing the maximum intensity (in contrast to, e.g., linear polarization which generates multiple intensity peaks instead).
+
+In the moving frame of reference, the electric and magnetic fields of the $ 4 \pi $-spherical focused radially polarized beam are expressed as
 \begin{subequations}
-\begin{eqnarray}
-\begin{split}
-& \vec{E}^{\prime \prime}_{f} \left(\rho, \theta, \phi; t \right) = \gamma \frac{1 + \beta}{1 - \beta} \sqrt{\frac{3 \pi^5}{8}} \frac{w_e}{\lambda_0} E_0 \\[2mm]
-& \times
+\begin{equation}\label{key}
+\vec{E}^{\prime}_{f} \left( \rho^{\prime}, \theta^{\prime}; \omega \right) = \vec{e}_{\theta}^{\prime} \, i E_{0, f} \left( \omega^{\prime} \right) S_a \left( \rho^{\prime}, \theta^{\prime}; \omega^{\prime} \right) \exp \left(i \omega^{\prime} t^{\prime} \right),
+\end{equation}
+\begin{equation}\label{key}
+\vec{B}^{\prime}_{f} \left( \rho^{\prime}, \theta^{\prime}; \omega \right) = - \vec{e}_{\phi}^{\prime} \, B_{0, f} \left( \omega^{\prime} \right) S_b \left( \rho^{\prime}, \theta^{\prime}; \omega^{\prime} \right) \exp \left(i \omega^{\prime} t^{\prime} \right),
+\end{equation}
+\end{subequations}
+where $ E_{0, f} \left( \omega^{\prime} \right) $ and $ B_{0, f} \left( \omega^{\prime} \right) $ are the peak amplitudes of the electric and magnetic fields at focus at a certain frequency $ \omega^{\prime} $, and $ S_a \left( \omega^{\prime} \right) $ and $ S_b \left( \omega^{\prime} \right) $ are the spatial distribution functions defined as
+\begin{subequations}
+	\begin{equation}\label{key}
+S_a \left( \omega^{\prime} \right) = \sum_{k = 0}^{+\infty} \frac{4k + 1}{2^{3k}} j_{2k} \left( \frac{\omega^{\prime}}{c} \rho \right) P_{2k} \left( \cos \theta^{\prime} \right),
+	\end{equation}
+	\begin{equation}\label{key}
+S_b \left( \omega^{\prime} \right) = \frac{4}{\pi} j_1 \left( \frac{\omega^{\prime}}{c} \rho \right) P^1_1 \left( \cos \theta^{\prime} \right).
+	\end{equation}
+\end{subequations}
+Here $ j_{n} \left( \cdot \right) $ is the $ n $-th order spherical Bessel function of the first kind, and $ P_n \left( \cdot \right) $ and $ P^m_n \left( \cdot \right) $ are the Legendre and associated Legendre functions.
+
+The general expressions for the spatiotemporal distribution of electric and magnetic fields of the radially polarized beam in the focal region of mirror in the stationary frame of reference are given by
+\begin{subequations}
+\begin{equation}\label{key}
+\begin{aligned}
+\vec{E}^{\prime \prime}_{f} & \left(\rho, \theta, \phi; t \right) = \gamma \frac{1 + \beta}{1 - \beta} \sqrt{\frac{3 \pi^5}{8}} \frac{w_e}{\lambda_0} E_0 \\[2mm]
+\times &
 \begin{bmatrix}
 	\left\lbrace -j_0 \left( \omega_0^{\prime} R / c \right) \sin \left(\omega_0^{\prime} T \right) \Upsilon_1 + \beta j_1 \left( \omega_0^{\prime} R / c \right) \cos \left(\omega_0^{\prime} T \right) \Upsilon_2 \right\rbrace \cos \phi \\[1mm]
 	\left\lbrace -j_0 \left( \omega_0^{\prime} R / c \right) \sin \left(\omega_0^{\prime} T \right) \Upsilon_1 + \beta j_1 \left( \omega_0^{\prime} R / c \right) \cos \left(\omega_0^{\prime} T \right) \Upsilon_2 \right\rbrace \sin \phi \\[1mm]
 	\left( 1 / \gamma \right) j_0 \left( \omega_0^{\prime} R / c \right) \sin \left(\omega_0^{\prime} T \right) \Upsilon_2
 \end{bmatrix},
-\end{split} \\[5mm]
-\begin{split}
-& \vec{B}^{\prime \prime}_{f} \left(\rho, \theta, \phi; t \right) = \gamma \frac{1 + \beta}{1 - \beta} \sqrt{\frac{3 \pi^5}{8}} \frac{w_e}{\lambda_0} \frac{E_0}{c} \\[2mm]
-& \times
+\end{aligned}
+\end{equation}
+\begin{equation}\label{key}
+\begin{aligned}
+\vec{B}^{\prime \prime}_{f} & \left(\rho, \theta, \phi; t \right) = \gamma \frac{1 + \beta}{1 - \beta} \sqrt{\frac{3 \pi^5}{8}} \frac{w_e}{\lambda_0} \frac{E_0}{c} \\[2mm]
+\times & 
 \begin{bmatrix}
 	\left\lbrace -j_1 \left( \omega_0^{\prime} R / c \right) \cos \left(\omega_0^{\prime} T \right) \Upsilon_2 + \beta j_0 \left( \omega_0^{\prime} R / c \right) \sin \left(\omega_0^{\prime} T \right) \Upsilon_1 \right\rbrace \sin \phi \\[1mm]
 	\left\lbrace j_1 \left( \omega_0^{\prime} R / c \right) \cos \left(\omega_0^{\prime} T \right) \Upsilon_2 - \beta j_0 \left( \omega_0^{\prime} R / c \right) \sin \left(\omega_0^{\prime} T \right) \Upsilon_1 \right\rbrace \cos \phi \\[1mm]
 	0
 \end{bmatrix}.
-\end{split}
-\end{eqnarray}
+\end{aligned}
+\end{equation}
 \end{subequations}
-Here $ w_e $ is the effective beam radius ($ w_e = w_0 \sqrt{2p + m + 1}$ for the $ p $-th radial, $ m $-th azimuthal Laguerre-Gaussian beam), $ \lambda_0 = 2 \pi c / \omega_0 $ is the beam wavelength, $ j_{n} \left( \cdot \right) $ is the $ n $-th order spherical Bessel function of the first kind, 
+Here $ w_e $ is the effective beam radius ($ w_e = w_0 \sqrt{2p + m + 1}$ for the $ p $-th radial, $ m $-th azimuthal Laguerre-Gaussian beam), $ \lambda_0 = 2 \pi c / \omega_0 $ is the beam wavelength,
 \begin{subequations}
-\begin{eqnarray}
-\begin{split}
-\Upsilon_1 & \left(T, R \right) = \frac{1}{2} \left\lbrace \frac{\cos \theta + \beta}{1 + \beta \cos \theta} \exp \left[- \frac{\Delta \omega^{\prime 2}}{4} \left( T + \frac{R}{c} \right)^2 \right] \right. \\
-& + \left. \frac{\cos \theta - \beta}{1 - \beta \cos \theta} \exp \left[- \frac{\Delta \omega^{\prime 2}}{4} \left( T - \frac{R}{c} \right)^2 \right] \right\rbrace,
-\end{split} \\[5mm]
-\begin{split}
+\begin{equation}\label{key}
+\begin{aligned}
+\Upsilon_1 \left(T, R \right) & = \frac{1}{2} \left\lbrace \frac{\cos \theta + \beta}{1 + \beta \cos \theta} \exp \left[- \frac{\Delta \omega^{\prime 2}}{4} \left( T + \frac{R}{c} \right)^2 \right] \right. \\
++ & \left. \frac{\cos \theta - \beta}{1 - \beta \cos \theta} \exp \left[- \frac{\Delta \omega^{\prime 2}}{4} \left( T - \frac{R}{c} \right)^2 \right] \right\rbrace,
+\end{aligned}
+\end{equation}
+\begin{equation}\label{key}
+\begin{aligned}
 \Upsilon_2 \left(T, R \right) & = \frac{1}{2} \left\lbrace \frac{\sin \theta}{\gamma \left( 1 - \beta \cos \theta \right) } \exp \left[- \frac{\Delta \omega^{\prime 2}}{4} \left( T - \frac{R}{c} \right)^2 \right] \right. \\
- + & \left. \frac{\sin \theta}{\gamma \left( 1 + \beta \cos \theta \right) } \exp \left[- \frac{\Delta \omega^{\prime 2}}{4} \left( T + \frac{R}{c} \right)^2 \right] \right\rbrace
-\end{split}
-\end{eqnarray}
++ & \left. \frac{\sin \theta}{\gamma \left( 1 + \beta \cos \theta \right) } \exp \left[- \frac{\Delta \omega^{\prime 2}}{4} \left( T + \frac{R}{c} \right)^2 \right] \right\rbrace
+\end{aligned}
+\end{equation}
 \end{subequations}
 are the envelope functions, and
 \begin{equation}\label{key}
@@ -826,6 +851,10 @@ The phase of the outgoing pulse in the stationary frame of reference is given by
 The change in the nominal pulse duration of the outgoing laser pulse is determined by the argument of in Eqs. ()
 
 In the forward direction ($ \theta = 0 $), the nominal duration and the angular frequency of the outgoing laser pulse, respectively, are reduced and upshifted by a factor , which is consistent to the case of relativistic flying flat mirror.
+
+\subsection{Recoil effects}
+
+\subsection{Reflection coefficient}
 
 
 
@@ -1001,9 +1030,9 @@ Besides Ref.~\ref{paper_4}, a portion of this work has been also published in Re
 	
 	\item Hadjisolomou, P., Jeong, T. M., \underline{Valenta, P.}, Korn, G., and Bulanov, S. V. (2021). \link{http://dx.doi.org/10.1103/PhysRevE.104.015203}{Gamma-ray flash generation in irradiating a thin foil target by a single-cycle tightly focused extreme power laser pulse}. \textit{Physical Review E}, \textbf{104}(1):015203.
 	
-	\item \underline{Valenta, P.}, Grittani, G. M., Lazzarini, C. M., Klimo, O., and Bulanov, S. V. (2021). \link{http://dx.doi.org/}{On the electromagnetic-electron rings originating from the interaction of high-power short-pulse laser and underdense plasma}. \textit{Physics of Plasmas}, \textbf{28}(12):XXXXXX.
+	\item Jeong, T. M., Bulanov, S. V., \underline{Valenta, P.}, Korn, G., Esirkepov, T. Z., Koga, J. K., Pirozhkov, A. S., Kando, M., and Bulanov, S. S. (2021). \link{http://dx.doi.org/}{Relativistic-flying laser focus by a laser-produced parabolic plasma mirror}. \textit{Physical Review A}, \textbf{104}(6):053533.
 	
-	\item Jeong, T. M., Bulanov, S. V., \underline{Valenta, P.}, Korn, G., Esirkepov, T. Z., Koga, J. K., Pirozhkov, A. S., Kando, M., and Bulanov, S. S. (2021). \link{http://dx.doi.org/}{Relativistic-flying laser focus by a laser-produced parabolic plasma mirror}. \textit{Physical Review A}, \textbf{104}(6):XXXXXX.
+	\item \underline{Valenta, P.}, Grittani, G. M., Lazzarini, C. M., Klimo, O., and Bulanov, S. V. (2021). \link{http://dx.doi.org/}{On the electromagnetic-electron rings originating from the interaction of high-power short-pulse laser and underdense plasma}. \textit{Physics of Plasmas}, \textbf{28}(12):XXXXXX.
 	
 	\item Hadjisolomou, P., Jeong, T. M., \underline{Valenta, P.}, Kolenatý, D., Versaci, R., Olšovcová, V., Ridgers, C. P., and Bulanov, S. V. (2021). \link{http://dx.doi.org/}{Gamma-ray flash in the interaction of a tightly focused single-cycle ultraintense laser pulse with a solid target}. \textit{Journal of Plasma Physics}, \textbf{XXX}(X):XXXXXX.
 	
