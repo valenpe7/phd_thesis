@@ -764,12 +764,13 @@ For a Gaussian beam of width $ w_0 $, $ E_0 \left( x, y \right) = E_0 \exp \left
 \begin{equation}\label{eq:energy_and_intensity}
 \mathcal{E}^{\prime \prime}_r = \left(\frac{1 + \beta}{1 - \beta}\right) \sqrt{\frac{\pi^3}{4}} \epsilon_0 c \tau w_0^2 E_0^2 , \quad I^{\prime \prime}_r = \left(\frac{1 + \beta}{1 - \beta}\right)^2 \frac{\epsilon_0 c}{2} E_0^2.
 \end{equation}
-Note that the factor $ \left(1 + \beta \right) / \left(1 - \beta \right) $ can be rewritten in terms of the Lorentz factor of the mirror, $ \gamma = 1 / \sqrt{1 - \beta^2} $, as follows
+Note that the factor $ \left(1 + \beta \right) / \left(1 - \beta \right) $ can be rewritten in terms of the Lorentz factor of the mirror, $ \gamma = 1 / \sqrt{1 - \beta^2} $, as follows,
 \begin{equation}\label{eq:factor}
-\frac{1 + \beta}{1 - \beta} = \frac{\gamma + \sqrt{\gamma^2 - 1}}{\gamma - \sqrt{\gamma^2 - 1}} \approx 4 \gamma^2 \ \mathrm{for} \ \gamma \gg 1.
+\frac{1 + \beta}{1 - \beta} = \frac{\gamma + \sqrt{\gamma^2 - 1}}{\gamma - \sqrt{\gamma^2 - 1}} \approx 4 \gamma^2,
 \end{equation}
+where the last term is obtained using the identity $ \gamma + \sqrt{\gamma^2 - 1} = ( \gamma - \sqrt{\gamma^2 - 1} )^{-1} $ and $ \sqrt{\gamma^2 - 1} \approx \gamma $ and is valid in the relativistic limit, i.e., when $ \gamma \gg 1 $.
 
-The above derivation shows that the reflected wave packet in the stationary frame of reference possesses several remarkable features: in the relativistic limit, i.e., $ \gamma \gg 1 $, its electric field is amplified by the factor $ \approx 4 \gamma^2 $, its duration is compressed by $ \approx 4 \gamma^2 $, and its angular frequency is upshifted by $ \approx 4 \gamma^2 $. Furthermore, its energy and intensity are enhanced by $ \approx 4 \gamma^2 $ and $ \approx 16 \gamma^4 $, respectively. Assuming a laser pulse with parameters corresponding to a typical $ \mathrm{PW} $-class titanium-doped sapphire system, i.e., $ 0.8 \ \mathrm{\mu m} $ wavelength, $ 30 \ \mathrm{fs} $ duration, and $ 10^{18} \ \mathrm{W / cm^2} $ peak intensity, being reflected from ideal relativistic flying flat mirror with $ \gamma = 10 $, one obtains a pulse of wavelength $ 2 \ \mathrm{nm} $, duration $ 75 \ \mathrm{as} $, and the peak intensity $ 1.6 \times 10^{23} \ \mathrm{W / cm^2} $.
+The above derivation shows that the reflected wave packet in the stationary frame of reference possesses several remarkable features: in the relativistic limit, its electric field is amplified by the factor $ \approx 4 \gamma^2 $, its duration is compressed by $ \approx 4 \gamma^2 $, and its angular frequency is upshifted by $ \approx 4 \gamma^2 $. Furthermore, its energy and intensity are enhanced by $ \approx 4 \gamma^2 $ and $ \approx 16 \gamma^4 $, respectively. Assuming a laser pulse with parameters corresponding to a typical $ \mathrm{PW} $-class titanium-doped sapphire system, i.e., $ 0.8 \ \mathrm{\mu m} $ wavelength, $ 30 \ \mathrm{fs} $ duration, and $ 10^{18} \ \mathrm{W / cm^2} $ peak intensity, being reflected from ideal relativistic flying flat mirror with $ \gamma = 10 $, one obtains a pulse of wavelength $ 2 \ \mathrm{nm} $, duration $ 75 \ \mathrm{as} $, and the peak intensity $ 1.6 \times 10^{23} \ \mathrm{W / cm^2} $.
 
 \subsection{Relativistic flying parabolic mirror}
 
@@ -866,10 +867,49 @@ From Eqs.~(\ref{eq:reflected_e_lab_frame_parabolic}) and (\ref{eq:reflected_b_la
 
 \subsection{Recoil efects}
 
+derived in the approximation of a weak incident electromagnetic wave.
+
 The recoil effects of relativistic mirrors physically realized by the structures in laser plasmas have been recently investigated in one-dimensional \cite{bibid} and two-dimensional \cite{bibid} geometries.
 
+We consider the relativistic mirror in the form of an electron layer. We assume that all the electrons are characterized by the same momentum, the electromagnetic wave is monochromatic, and the reflection coefficient in terms of the photon number is equal to $ \mathcal{R}$. The conservation of momentum and energy before (unprimed quantities) and after (double-primed quantities) the interaction can be written as
+\begin{subequations}
+\begin{equation}\label{eq:conservation_of_momentum}
+\mathcal{N}_e p_e - \mathcal{N}_{\omega} p_{\omega} = \mathcal{N}_e p_e^{\prime \prime} + \mathcal{R} \mathcal{N}_{\omega} p_{\omega}^{\prime \prime} - \left( 1 - \mathcal{R} \right) \mathcal{N}_{\omega} p_{\omega},
+\end{equation}
+\begin{equation}\label{eq:conservation_of_energy}
+\mathcal{N}_e \mathcal{E}_e + \mathcal{N}_{\omega} \mathcal{E}_{\omega} = \mathcal{N}_e \mathcal{E}_e^{\prime \prime} + \mathcal{R} \mathcal{N}_{\omega} \mathcal{E}_{\omega}^{\prime \prime} + \left( 1 - \mathcal{R} \right) \mathcal{N}_{\omega}  \mathcal{E}_{\omega}.
+\end{equation}
+\end{subequations}
+Here $ \mathcal{N}_e $ and $ \mathcal{N}_{\omega} $ are the numbers of interacting electrons and photons, respectively. The electron and photon momenta and energies can be expressed as
+\begin{subequations}
+\begin{equation}\label{eq:electron_and_photon_momentum}
+p_e = m_e c \sqrt{\gamma^2 - 1}, \quad p_{\omega} = \hbar \omega_0 / c,
+\end{equation}
+\begin{equation}\label{eq:electron_and_photon_energy}
+\mathcal{E}_e = m_e c^2 \gamma, \quad \mathcal{E}_{\omega} = \hbar \omega_0.
+\end{equation}
+\end{subequations}
 
+\begin{equation}\label{eq:}
+\hbar \omega_0^{\prime \prime} = \hbar \omega_0 \frac{\mathcal{E}_e \left( \mathcal{E}_e + p_e c \right)}{\mathcal{N}_e \left( \mathcal{E}_e + p_e c \right) + 2 \mathcal{R} \mathcal{N}_{\omega} \hbar \omega_0} = \hbar \omega_0 \frac{\mathcal{N}_e m_e c^2 \left( \gamma + \sqrt{\gamma^2 - 1} \right)}{\mathcal{N}_e m_e c^2 \left( \gamma - \sqrt{\gamma^2 - 1} \right) + 2 \mathcal{R} \mathcal{N}_{\omega} \hbar \omega_0 }
+\end{equation}
 
+\begin{equation}\label{eq:}
+\omega_0^{\prime \prime} \approx 4 \gamma^2 \omega_0 \frac{\mathcal{N}_e m_e c^2 / 4 \gamma}{\mathcal{N}_e m_e c^2 / 4 \gamma + \mathcal{R} \mathcal{N}_{\omega} \hbar \omega_0} \approx 4 \gamma^2 \omega_0 \left( 1 - \frac{\mathcal{R} \mathcal{N}_{\omega} \hbar \omega_0}{\mathcal{N}_e m_e c^2 / 4 \gamma} \right)
+\end{equation}
+
+\begin{subequations}
+\begin{equation}\label{eq:}
+\frac{\omega_0^{\prime \prime}}{\omega_0} \approx 4 \gamma^2 \quad \mathrm{for} \quad \mathcal{R} \mathcal{N}_{\omega} \hbar \omega_0 \ll \frac{\mathcal{N}_e m_e c^2}{4 \gamma} 
+\end{equation}
+\begin{equation}\label{eq:}
+\frac{\omega_0^{\prime \prime}}{\omega_0} \approx \frac{\mathcal{N}_e m_e c^2 \gamma}{\mathcal{R} \mathcal{N}_{\omega} \hbar  \omega_0} \quad \mathrm{for} \quad \mathcal{R} \mathcal{N}_{\omega} \hbar \omega_0 \gg \frac{\mathcal{N}_e m_e c^2}{4 \gamma} 
+\end{equation}
+\end{subequations}
+
+\begin{equation}\label{key}
+	\mathcal{R} \mathcal{N}_{\omega} \hbar  \omega_0 = \varkappa \frac{\mathcal{N}_e m_e c^2}{4 \gamma} 
+\end{equation}
 
 %-------------------------------------------------------------------------------
 
