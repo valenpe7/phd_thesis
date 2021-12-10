@@ -15,6 +15,8 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
+\usepackage{upgreek}
+\usepackage{bm}
 \usepackage{verbatim}
 \usepackage{pdfpages}
 \usepackage[unicode, pdfpagelayout=TwoPageRight]{hyperref}
@@ -228,7 +230,7 @@
 \newcommand{\norm}[1]{\lVert#1\rVert}
 \newcommand{\abs}[1]{\lvert#1\rvert}
 
-\renewcommand{\vec}[1]{\mathbf{#1}}
+\renewcommand{\vec}[1]{\boldsymbol{\mathrm{#1}}}
 
 \newcommand{\rot}[1]{\nabla \times #1}
 \newcommand{\grad}[1]{\nabla #1}
@@ -551,7 +553,7 @@ The systematic efforts and involvement in highly stimulating environment have na
 
 The research projects I have been working on and the achieved results are to a large extent described in publications of mine and my co-authors. In total, I have authored or co-authored 20 publications (9 publications in peer-reviewed journals, 8 publications in conference proceedings, and 3 book chapters), in 7 of which I serve as a corresponding author. The core of this doctoral thesis is based on the following four selected publications:
 \begin{enumerate}[label=\Roman*.]
-	\item \label{paper_1} Valenta, P., Grittani, G. M., Lazzarini, C. M., Klimo, O., and Bulanov, S. V. (2021). \link{http://dx.doi.org/}{On the electromagnetic-electron rings originating from the interaction of high-power short-pulse laser and underdense plasma}. \textit{Physics of Plasmas}, \textbf{28}(12):XXXXXX.
+	\item \label{paper_1} Valenta, P., Grittani, G. M., Lazzarini, C. M., Klimo, O., and Bulanov, S. V. (2021). \link{http://dx.doi.org/10.1063/5.0065167}{On the electromagnetic-electron rings originating from the interaction of high-power short-pulse laser and underdense plasma}. \textit{Physics of Plasmas}, \textbf{28}(12):122104.
 	
 	\item \label{paper_2} Valenta, P., Esirkepov, T. Z., Koga, J. K., Nečas, A., Grittani, G. M., Lazzarini, C. M., Klimo, O., Korn, G., and Bulanov, S. V. (2020). \link{http://dx.doi.org/10.1103/PhysRevE.102.053216}{Polarity reversal of wakefields driven by ultrashort pulse laser}. \textit{Physical Review E}, \textbf{102}(5):053216.
 	
@@ -612,8 +614,152 @@ The structure of this doctoral thesis is organized as follows:
 %\subsection{Interaction with single electrons, ponderomotive force}
 %\input{src/interaction_with_single_electron.tex}
 
-%\subsection{Langmuir waves, wave breaking, catastrophe theory}
+\subsection{Basic laser and plasma parameters}
+
+\subsection{Finite-amplitude Langmuir waves}
 %\input{dat/1-0.tex}
+
+Langmuir waves are perhaps the most essential physical entities considered within this dissertation thesis. They play a key role in the concepts of laser-wakefield acceleration and relativistic flying mirrors, which are presented in the following sections (Secs.~ and ). Here we describe the propagation of finite-amplitude (i.e., the frequency of the wave depends on the amplitude) Langmuir and electromagnetic waves in cold collisionless plasma. The exact solution to this problem was first found in Ref.~\citenum{Akhiezer1956}.
+
+Starting with the Maxwell's equations and the hydrodynamic equations for the electron and ion fluid components, we may obtain the system of equations for coupled Langmuir (electrostatic) and electromagnetic waves in the following compact form \cite{Farina2001, Bulanov2013, Bulanov2020},
+\begin{subequations}\label{eq:coupled_em_and_langmuir_wave}
+\begin{equation}\label{eq:eq_for_vector_potential}
+\laplace{\vec{a}} - \diffp[2]{\vec{a}}{t} - \diffp{}{t} \grad{\varphi} = \vec{\upbeta}_e n_e - \vec{\upbeta}_i n_i,
+\end{equation}
+\begin{equation}\label{eq:eq_for_scalar_potential}
+\laplace{\varphi} = n_e - n_i,
+\end{equation}
+\begin{equation}\label{eq:eq_for_density}
+\diffp{n_{\alpha}}{t} + n_{\alpha} \grad{\vec{\upbeta}_{\alpha}} = 0,
+\end{equation}
+\begin{equation}\label{eq:eq_for_momentum}
+\diffp{\vec{P}_{\alpha}}{t} = - \grad{\left( \rho_{\alpha} \varphi + \gamma_{\alpha} \right)} + \vec{\upbeta}_{\alpha} \times \rot{\vec{P}_{\alpha}}.
+\end{equation}
+\end{subequations}
+
+In one-dimensional geometry (i.e., $ \partial / \partial x = \partial / \partial y = 0 $) the dependence of all quantities in Eqs.~(\ref{eq:coupled_em_and_langmuir_wave}) on the coordinate and time can be expressed via new variables $ \zeta = z - \beta_g t $ and $ \tau = t - \beta_g z $, where $ \beta_g $ is the group velocity of the electromagnetic wave (i.e., we search for the solution in the form of a plane wave traveling at constant velocity). For the sake of simplicity, we further assume that the electromagnetic wave is circularly polarized; the equations for the scalar, $ \varphi = \varphi \left( \zeta \right) $, and vector, $ a_x + i a_y = a \left( \zeta \right) \exp \left( i \omega \tau \right) $, potentials then read as
+\begin{equation}\label{eq:eq_for_scalar_potential_2}
+\diff[2]{\varphi}{\zeta} = \frac{\beta_g}{1 - \beta_g^2} \left(\frac{\psi_e}{R_e} - \frac{\psi_i}{R_i} \right),
+\end{equation}
+\begin{equation}\label{eq:eq_for_vector_potential_2}
+\diff[2]{a}{\zeta} + \omega^2 a = a \frac{\beta_g}{1 - \beta_g^2}  \left(\frac{\rho_e}{R_e} - \frac{\rho_i}{R_i} \right),
+\end{equation}
+where $ \omega $ is the angular frequency of the electromagnetic wave, $ \psi_{\alpha} = \mathit{\Gamma}_{\alpha} + \rho_{\alpha} \varphi $, and $ R_{\alpha} = \sqrt{\psi_{\alpha}^2 - \left(1 - \beta_g^2 \right) \left(1 + \rho_{\alpha}^2 a^2 \right)} $. The value of $ \mathit{\Gamma}_{\alpha} $ is determined by the boundary conditions; e.g., if the electromagnetic field amplitude is constant (i.e., $ a = a_0 $ and $ \varphi = 0 $) and the plasma is at rest (i.e., $ p_{\alpha} = 0 $) at infinity, then $ \mathit{\Gamma}_{\alpha} = \sqrt{1 + \rho_{\alpha}^2 a_0^2} $. The Lorentz factor and the number density of the electron and ion components can be expressed as functions of the potentials,
+\begin{equation}\label{key}
+\gamma_{\alpha} = \frac{\psi_{\alpha} - \beta_g R_{\alpha}}{1 - \beta_g^2},
+\end{equation}
+\begin{equation}\label{key}
+n_{\alpha} = \beta_g \frac{\psi_{\alpha} - \beta_g R_{\alpha}}{R_{\alpha} \left( 1 - \beta_g^2 \right)}.
+\end{equation}
+
+If we set the electromagnetic wave amplitude to zero (i.e., a $\left( \zeta \right) = a_0 = 0 $), Eq.~(\ref{eq:eq_for_scalar_potential_2}) describes free Langmuir waves. If we further neglect the effect of ions, Eq.~(\ref{eq:eq_for_scalar_potential_2}) gives us the dependence of the electron Lorentz factor, $ \gamma_e $, on the coordinate, $ \zeta $, (note that the coordinate is for the Langmuir wave redefined as $ \zeta = z - \beta_{ph} t $, where $ \beta_{ph} $ is the phase velocity of the Langmuir wave) in the implicit form as
+\begin{equation}\label{key}
+\frac{1}{\sqrt{2}} \zeta = \beta_{ph} \left[ \sqrt{\gamma_m + 1} \, E \left( \mathit{\Psi} \rvert \kappa \right) + \frac{1}{\sqrt{\gamma_m + 1}} \, F \left( \mathit{\Psi} \rvert \kappa \right) \right] - \sqrt{\gamma_m - \gamma_e},
+\end{equation}
+where 
+\begin{equation}\label{key}
+F \left( \mathit{\Psi} \rvert \kappa \right) = \int_{0}^{\mathit{\Psi}} \frac{1}{\sqrt{1 - \kappa \sin^2 \theta}} d \theta \quad \mathrm{and} \quad E \left( \mathit{\Psi} \rvert \kappa \right) = \int_{0}^{\mathit{\Psi}} \sqrt{1 - \kappa \sin^2 \theta} d \theta
+\end{equation}
+are the incomplete elliptic integrals of the first and second kinds \cite{Gradstein}, respectively, $ \mathit{\Psi} = \arcsin \sqrt{\left( \gamma_m - \gamma_e \right) / \left( \gamma_m - 1 \right)} $, $ \kappa = \left( \gamma_m - 1 \right) / \left( \gamma_m + 1 \right) $, and $ \gamma_m $ is the maximum value of $ \gamma_e $ in the Langmuir wave.
+
+
+
+the dependence of the electron Lorentz factor $ \gamma_e $ on the coordinate $ \zeta $ (here $ $)in the implicit form,
+
+The solution of Eq.~(\ref{eq:eq_for_scalar_potential_2}) can be found in the implicit form
+
+The longitudinal structure of the Langmuir is described by the following expression, 
+
+which gives the implicit dependence of the
+electron gamma-factor e on the longitudinal coordinate x and time t,
+
+For given function of $ a \left( \zeta \right) $
+
+
+In what follows we assume that the electromagnetic wave is circularly polarized, i.e., we search the solution in the form of $  $
+
+
+
+
+
+\begin{equation}\label{key}
+\zeta = z - \beta_g t, \quad \tau = t - \beta_g x,
+\end{equation}
+where $ \beta_g $ is the group velocity of the electromagnetic wave. In what follows we assume circularly polarized, i.e., the electromagnetic and electrostatic potentials can be written in the form of
+\begin{equation}\label{key}
+a_x + i a_y = a \left( \zeta \right) \exp \left( i \omega \tau \right) , \quad \varphi = \varphi \left( \zeta \right),
+\end{equation}
+
+
+The solution for the 
+For the sake of simplicity, in what follows we assume circularly polarized electromagnetic wave, that $ q_{\alpha} = e $ 
+
+all quantities depend on the  coordinate and time via the following new variables,
+
+
+
+
+
+
+
+Here, subscripts $ e $ and $ i $ refer to the electron and ion fluid components, subscript $ \alpha $ is either $ e $ or $ i $.
+
+$ \varphi $ and $ \vec{a} $ are the scalar and vector potentials, 
+
+$ \vec{P}_{\alpha} = \vec{p}_{\alpha} + \rho_{\alpha} \vec{a} $ is the canonical momentum, 
+
+$ \gamma_{\alpha} = \sqrt{1 + p_{\alpha}^2} $ is the Lorentz factor,
+
+$ \rho_{\alpha} = \left(q_{\alpha} / q_e \right) \left( m_{\alpha} / m_e \right) $ is parameter
+
+$ \vec{\upbeta}_{\alpha} = \vec{p}_{\alpha} / \gamma_{\alpha} $ is the velocity of fluid component
+
+$ n_{\alpha} $ is number density of fluid component
+
+The variables in system of Eqs.~() are dimensionless; length and time are normalized by $ c / \omega_{pe} $ and $ \omega_{pe} $, respectively, velocity and momentum are normalized by $ c $ and $ m_{\alpha} c $, respectively, the scalar and vector potentials are both normalized by $ m_e c^2 / e $, and density is normalized by $ n_0 $, where $ n_0 $ is the ...
+
+The Coulomb gauge is assumed (i.e., $ \div{\vec{a}} = 0 $).
+
+hydrodynamic equations for electron and ion fluids, Maxwell's equations
+
+We use the relativistic hydrodynamic approximation to describe both the electron and ion components, and assume the plasma to be cold with zero ion and electron temperature.
+
+Using as assumption an unbounded cold collisionless plasma described by Maxwell’s equations and by the hydrodynamic equations of an electron and ion fluids, allowed deriving the system of equations for coupled electromagnetic and plasma waves.
+
+For finite-amplitude waves, an exact solution describing wave propagation in cold collisionless plasmas was found in Ref. [72]. The use of the hydrodynamics approximation for describing the electron and ion component dynamics and Maxwell equations for a self-consistent electromagnetic field allowed deriving the system of equations for coupled electromagnetic and plasma waves.
+
+In the Coulomb gauge, the Maxwell’s equations for the vector and scalar potentials, $ \vec{a} $ and $ \varphi $, and the hydrodynamic equations (continuity and momentum balance) for the densities $ n_{\alpha} $ and the canonical momentum $ \vec{P}_{\alpha} $ of electrons and ions can be written in dimensionless form as
+
+system in the following compact form,
+
+in the one-dimensional geometry (i.e., $ \partial / \partial x = \partial / \partial y = 0 $) the solution 
+
+$ a_y + i a_z = a \left( \xi \right) \exp \left( i \omega t \right) $, $ \varphi = \varphi \left( \xi \right) $
+
+Finite-amplitude  They play a key role in the concepts of laser-wakefield acceleration of electrons and relativistic flying mirrors presented in the following sections (Secs.~ and )
+
+
+Finite amplitude (i.e., the frequency of the wave depends on the amplitude) Langmuir waves  constitute one of the most  
+
+Here we the properties of finite-amplitude Langmuir wave (i.e., the frequency of the wave depends on the amplitude) 
+
+The exact solution for the problem of the propagation of finite-amplitude Langmuir (electrostatic) and electromagnetic waves in collisionless plasma was first presented in Ref.~\citenum{Akhiezer1956}.
+
+Finite-amplitude Langmuir wave 
+
+Here we describe the 
+
+Because strongly nonlinear Langmuir waves play an important role in the concept of laser-wakefield acceleration of electrons and of the concept of relativistic flying mirrors, we discuss the nonlinear Langmuir waves below in more detail.
+
+The finite-amplitude (i.e., the frequency of the wave depends on the amplitude) was 
+
+For the description of Langmuir wave generated by the electromagnetic wave in plasma we begin with the Maxwell's equations and the hydrodynamic equations. Assuming that the plasma is cold and collisionless, we obtain the system of equations in the following compact form,
+
+We begin with the system of equations for coupled Langmuir and electromagnetic waves in the cold and collisionless plasma 
+
+\subsection{breaking of Langmuir waves}
+
+
 
 %\subsection{Self-focusing, self-guiding, self-phase modulation, self-amplitude modulation}
 %\input{dat/1-0.tex}
@@ -689,7 +835,7 @@ The structure of this doctoral thesis is organized as follows:
 %\subsection{Bow wave}
 %\input{dat/1-0.tex}
 
-In this section, we describe fundamental physical processes related to the interaction of electromagnetic waves with counter-propagating relativistic mirrors. We outline a possible physical realization as well as characteristics of the mirrors in underdense plasmas which are of great interest in the context of the development of coherent high-brightness radiation sources with wavelengths ranging from x-rays to gamma-rays. For a more comprehensive study about the relativistic mirrors in plasmas we refer the reader to review articles \citenum{Bulanov2013} and \citenum{Bulanov2016b}.
+In this section, we describe fundamental physical processes related to the interaction of electromagnetic waves with counter-propagating relativistic mirrors. We outline a possible physical realization as well as characteristics of the mirrors in underdense plasmas which are of great interest in the context of the development of coherent high-brightness radiation sources with wavelengths ranging from x-rays to gamma-rays. For a comprehensive study about the relativistic mirrors in plasmas we refer the reader to review articles \citenum{Bulanov2013} and \citenum{Bulanov2016b}.
 
 
 \subsection{Relativistic flying flat mirror\label{sec:rffm}}
@@ -772,9 +918,9 @@ The above derivation shows that the reflected wave packet in the stationary fram
 
 %$ E_0 \left( \rho \right) $ can be thought of as the Laguerre-Gaussian function since the profiles of radially or azimuthally polarized beams can be expressed as the superposition of Laguerre-Gaussian modes (i.e., $ E_0 \sim \left(\rho / \rho_0 \right) \exp \left( - \rho^2 / 2 \rho_0^2 \right)$), 
 
-Second, we present a model of relativistic flying parabolic mirror which, in addition to the flat mirror, describes the effect of focusing. The idea of using flying parabolic mirrors for the intensification of light has been first proposed in Ref.~\cite{Bulanov2003}, where the mirror is realized by high-density electron shells of strongly nonlinear Langmuir wave driven by intense laser in underdense plasma (note that the surface where the electron density is maximal naturally takes a shapes close to a paraboloid \cite{Bulanov1991, Bulanov1995, Matlis2006, Shadwick2002, Maksimchuk2008}).
+Second, we present a model of relativistic flying parabolic mirror which, in addition to the flat mirror, describes the effect of focusing. The idea of using flying parabolic mirrors for the intensification of light has been first proposed in Ref.~\citenum{Bulanov2003}, where the mirror is realized by high-density electron shells of strongly nonlinear Langmuir wave driven by intense laser in underdense plasma (note that the surface where the electron density is maximal naturally takes a shapes close to a paraboloid \cite{Bulanov1991, Bulanov1995, Matlis2006, Shadwick2002, Maksimchuk2008}).
 
-Let us consider an ideal relativistic flying parabolic mirror (i.e., the reflection coefficient equal to unity, no recoil effects, no wavefront aberration) moving along the $ +z $-axis at a constant velocity $ v = \beta c $. The spatiotemporal distribution of the electromagnetic wave packet reflected from the mirror can be again obtained by calculating first the distribution in the moving frame of reference and then performing the transformation back to the stationary frame. It is important to note that the focal length of the parabolic mirror in the moving frame is $ \gamma $ times shorter than in the stationary frame \cite{Bulanov2011, Jeong2021}; this alters the situation to the $ 4 \pi $-spherical focusing scheme \cite{Gonoskov2012, Jeong2020}, thus the distribution of the electromagnetic fields in the focal region of parabolic mirror in the moving frame has to be calculated under the conditions of $ 4 \pi $-spherical focusing.
+Let us consider an ideal relativistic flying parabolic mirror (i.e., the reflection coefficient equal to unity, no recoil effects, no wavefront aberration) moving along the $ +z $-axis at a constant velocity $ v = \beta c $. The spatiotemporal distribution of the electromagnetic wave packet reflected from the mirror can be again obtained by calculating first the distribution in the moving frame of reference and then performing the transformation back to the stationary frame. It is important to note that the focal length of the parabolic mirror in the moving frame is $ \gamma $ times shorter than in the stationary frame \cite{Bulanov2011, Jeong2021}; this alters the situation to the $ 4 \pi $-spherical focusing scheme \cite{Gonoskov2012, Jeong2020}. The distribution of the electromagnetic fields in the focal region of parabolic mirror in the moving frame has to be thus calculated under the conditions of $ 4 \pi $-spherical focusing.
 
 The $ 4 \pi $-spherical focusing scheme corresponds to an extreme case of either tight-focusing (where the $ f $-number approaches zero) or multiple beam focusing (where the number of beams approaches infinity). Therefore, it provides a theoretical limit to maximum attainable field strength at a given power \cite{Jeong2020}. Under the conditions of $ 4 \pi $-spherical focusing, the field distributions are obtained by calculating the vector diffraction integrals. In what follows, we assume that the electromagnetic wave packet incident on the mirror is radially or azimuthally polarized (for this case the diffraction integrals can be calculated analytically). The electric field of the incident wave packet can be thus again described by Eq.~(\ref{eq:incident_lab_frame_1}), where $ E_0 \left(x, y \right) $ can be thought of as the Laguerre-Gaussian function, i.e., $ E_0 \sim \left( \rho / \rho_0 \right)\exp \left( - \rho^2 / 2 \rho_0^2 \right)$. Here we also introduce spherical coordinates $ \rho = \sqrt{x^2 + y^2 + z^2} $ (the radial coordinate), $ \theta = \arccos \left( z / \rho \right)$ (the polar coordinate), and $ \phi = \arctan \left( y / x \right)$ (the azimuthal coordinate).
 
@@ -861,7 +1007,7 @@ From Eqs.~(\ref{eq:reflected_e_lab_frame_parabolic}) and (\ref{eq:reflected_b_la
 
 \subsection{Recoil efects}
 
-The calculations presented in previous sections (Secs.~\ref{sec:rffm} and \ref{sec:rfpm}) are valid only if the amplitude of the electromagnetic wave incident on relativistic mirror is sufficiently low. On the other hand, when the wave amplitude is high, the electromagnetic wave may significantly affect the mirror motion (i.e., the radiation pressure of the wave may slow down or even destroy the mirror). The knowledge of the onset of recoil effects associated with the interaction of the relativistic mirror and strong incident electromagnetic wave is thus crucial for maximizing the amplitude of the reflected wave.
+The calculations presented in previous sections (Secs.~\ref{sec:rffm} and \ref{sec:rfpm}) are valid only if the amplitude of the electromagnetic wave incident on the relativistic mirror is sufficiently low. On the other hand, when the amplitude is high, the electromagnetic wave may significantly affect the mirror motion (i.e., the radiation pressure of the wave may slow down or even destroy the mirror). The knowledge of the onset of recoil effects associated with the interaction of the relativistic mirror and strong incident electromagnetic wave is thus crucial for maximizing the amplitude of the reflected wave.
 
 The recoil effects of relativistic mirrors physically realized by the structures in laser plasmas have been recently investigated in one-dimensional [\ref{paper_3}] and two-dimensional \cite{Jeong2021} geometries. Here we present the one-dimensional description. Let us consider a relativistic mirror in the form of an electron layer interacting with a counter-propagating electromagnetic wave. We assume that all the electrons are characterized by the same momentum, the electromagnetic wave is monochromatic, and the reflection coefficient (in terms of photon number) is equal to $ \mathcal{R} $. The conservation of momentum and energy before (unprimed quantities) and after (double-primed quantities) the interaction can be written as
 \begin{subequations}\label{eq:conservation}
@@ -891,7 +1037,7 @@ In the relativistic limit, Eq.~(\ref{eq:recoil_1}) can be simplified as
 \begin{equation}\label{eq:recoil_2}
 \omega_0^{\prime \prime} \approx 4 \gamma^2 \omega_0 \frac{\mathcal{N}_e m_e c^2 / 4 \gamma}{\mathcal{N}_e m_e c^2 / 4 \gamma + \mathcal{R} \mathcal{N}_{\omega} \hbar \omega_0} \approx 4 \gamma^2 \omega_0 \left( 1 - \frac{\mathcal{R} \mathcal{N}_{\omega} \hbar \omega_0}{\mathcal{N}_e m_e c^2 / 4 \gamma} \right).
 \end{equation}
-The fraction in parentheses on the right-hand side of Eq.~(\ref{eq:recoil_2}) is the ratio between the energy of interacting photons (numerator) and the energy of electron layer (denominator) and represents the correction to the frequency shift of the reflected wave by the recoil effects. The resulting frequency shift is determined by the relationship between both terms,
+The fraction in parentheses on the right-hand side of Eq.~(\ref{eq:recoil_2}) is the ratio between the energy of interacting photons (numerator) and the energy of electron layer (denominator), and it represents the correction to the frequency shift of the reflected wave by the recoil effects. The resulting frequency shift is determined by the relationship between both terms,
 \begin{subequations}
 \begin{equation}\label{eq:recoil_limit_1}
 \frac{\omega_0^{\prime \prime}}{\omega_0} \approx 4 \gamma^2 \quad \mathrm{if} \quad \mathcal{R} \mathcal{N}_{\omega} \hbar \omega_0 \ll \frac{\mathcal{N}_e m_e c^2}{4 \gamma},
@@ -905,9 +1051,23 @@ The limit given by Eq.~(\ref{eq:recoil_limit_1}) corresponds to the approximatio
 \begin{equation}\label{eq:recoil_threshold}
 	\mathcal{R} \mathcal{N}_{\omega} \hbar  \omega_0 = \varkappa \frac{\mathcal{N}_e m_e c^2}{4 \gamma}.
 \end{equation}
-Here $ \varkappa < 1 $ is a small factor (much less energy than the kinetic energy of the mirror can affect the reflection process). Using particle-in-cell simulations it has been found that $ \kappa \approx 10^{-4} $ [\ref{paper_3}]. 
+Here $ \varkappa \ll 1 $, i.e., much less energy than the kinetic energy of the mirror can affect the reflection process. The value of $ \varkappa $ was estimated using particle-in-cell simulations to $ \approx 10^{-4} $ for the case of relativistic mirror realized with strongly nonlinear Langmuir wave [\ref{paper_3}].
 
 \subsection{Reflection coefficient}
+
+As mentioned in Sec.~\ref{sec:rfpm}, the relativistic flying mirror can be physically realized in underdense plasma by a strongly nonlinear Langmuir wave. Let us recall this scheme: an intese 
+
+An intense laser pulse propagating in underdense plasma generates a plasma wave in the wake behind it. The electron density in the wake wave is modulated, so that regions of concentration and rarefaction are formed. Electrons located near the density maximum move in the direction of the driver pulse, whereas electrons in the region of rarefaction move in the opposite direction. The corresponding density modulation velocity is the phase velocity of the wake wave; it is equal to the group velocity of the driver laser pulse. As is well known, the corresponding modulations of the longitudinal electric field underlie the laser wake-field accelerator concept.
+
+If a counter-propagating electromagnetic wave is irradiated onto the wake wave, it will be partially reflected back, most efficiently from the regions of concentration, where the reflected radiation frequency will be multiplied. In the case of a small amplitude wake wave, which implies that the density modulations are smooth, the reflectivity is exponentially small. However, much better reflectivity can be achieved with the increase of the wake wave amplitude, when the density profile in a region of concentration takes the shape of a spike. In this case, the electron maximum velocity becomes close to the wake wave phase velocity. If it exceeds the phase velocity, the electron kinetics becomes multiflow and thus the wake wave breaks. Exactly at the breaking threshold, when the electron maximum velocity and the phase velocity are equal, the density spike becomes a singularity.
+
+Finally, we 
+
+the reflectance of the mirror is dependent on the mirror model and is, in general, very low
+
+Here we 
+
+
 
 
 
@@ -1089,9 +1249,9 @@ Besides Ref.~\ref{paper_4}, a portion of this work has been also published in Re
 	
 	\item Hadjisolomou, P., Jeong, T. M., \underline{Valenta, P.}, Korn, G., and Bulanov, S. V. (2021). \link{http://dx.doi.org/10.1103/PhysRevE.104.015203}{Gamma-ray flash generation in irradiating a thin foil target by a single-cycle tightly focused extreme power laser pulse}. \textit{Physical Review E}, \textbf{104}(1):015203.
 	
-	\item Jeong, T. M., Bulanov, S. V., \underline{Valenta, P.}, Korn, G., Esirkepov, T. Z., Koga, J. K., Pirozhkov, A. S., Kando, M., and Bulanov, S. S. (2021). \link{http://dx.doi.org/}{Relativistic-flying laser focus by a laser-produced parabolic plasma mirror}. \textit{Physical Review A}, \textbf{104}(6):053533.
+	\item Jeong, T. M., Bulanov, S. V., \underline{Valenta, P.}, Korn, G., Esirkepov, T. Z., Koga, J. K., Pirozhkov, A. S., Kando, M., and Bulanov, S. S. (2021). \link{http://dx.doi.org/10.1103/PhysRevA.104.053533}{Relativistic-flying laser focus by a laser-produced parabolic plasma mirror}. \textit{Physical Review A}, \textbf{104}(6):053533.
 	
-	\item \underline{Valenta, P.}, Grittani, G. M., Lazzarini, C. M., Klimo, O., and Bulanov, S. V. (2021). \link{http://dx.doi.org/}{On the electromagnetic-electron rings originating from the interaction of high-power short-pulse laser and underdense plasma}. \textit{Physics of Plasmas}, \textbf{28}(12):XXXXXX.
+	\item \underline{Valenta, P.}, Grittani, G. M., Lazzarini, C. M., Klimo, O., and Bulanov, S. V. (2021). \link{http://dx.doi.org/10.1063/5.0065167}{On the electromagnetic-electron rings originating from the interaction of high-power short-pulse laser and underdense plasma}. \textit{Physics of Plasmas}, \textbf{28}(12):122104.
 	
 	\item Hadjisolomou, P., Jeong, T. M., \underline{Valenta, P.}, Kolenatý, D., Versaci, R., Olšovcová, V., Ridgers, C. P., and Bulanov, S. V. (2021). \link{http://dx.doi.org/}{Gamma-ray flash in the interaction of a tightly focused single-cycle ultraintense laser pulse with a solid target}. \textit{Journal of Plasma Physics}, \textbf{XXX}(X):XXXXXX.
 	
@@ -1141,7 +1301,7 @@ Besides Ref.~\ref{paper_4}, a portion of this work has been also published in Re
 \newpage
 \section{On the electromagnetic-electron rings originating from the interaction of high-power short-pulse laser and underdense plasma \label{sec:paper_1}}
 
-The following article is reproduced from Valenta, P., Grittani, G. M., Lazzarini, C. M., Klimo, O., and Bulanov, S. V. (2021). \link{http://dx.doi.org/}{On the electromagnetic-electron rings originating from the interaction of high-power short-pulse laser and underdense plasma}. \textit{Physics of Plasmas}, \textbf{28}(12):XXXXXX, with the permission of AIP Publishing. \\
+The following article is reproduced from Valenta, P., Grittani, G. M., Lazzarini, C. M., Klimo, O., and Bulanov, S. V. (2021). \link{http://dx.doi.org/10.1063/5.0065167}{On the electromagnetic-electron rings originating from the interaction of high-power short-pulse laser and underdense plasma}. \textit{Physics of Plasmas}, \textbf{28}(12):122104, with the permission of AIP Publishing. \\
 
 \noindent Copyright {\copyright} {2021} {American Institute of Physics}.
 
@@ -1150,7 +1310,7 @@ The following article is reproduced from Valenta, P., Grittani, G. M., Lazzarini
 \mbox{}
 
 %\newpage
-%\includepdf[pages=-]{misc/paper1.pdf}
+\includepdf[pages=2-]{misc/paper1.pdf}
 
 %\newpage
 %\mbox{}
