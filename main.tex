@@ -32,7 +32,7 @@
 \usepackage{epstopdf}
 \usepackage{epsfig}
 \usepackage{setspace}
-\usepackage{esdiff}
+\usepackage{diffcoeff}
 \usepackage{enumitem}
 \usepackage[inner=4.0cm, outer=3.0cm]{geometry}
 \usepackage{emptypage}
@@ -619,68 +619,123 @@ The structure of this doctoral thesis is organized as follows:
 \subsection{Finite-amplitude Langmuir waves}
 %\input{dat/1-0.tex}
 
-Langmuir waves are perhaps the most essential physical entities considered within this dissertation thesis. They play a key role in the concepts of laser-wakefield acceleration and relativistic flying mirrors, which are presented in the following sections (Secs.~ and ). Here we describe the propagation of finite-amplitude (i.e., the frequency of the wave depends on the amplitude) Langmuir and electromagnetic waves in cold collisionless plasma. The exact solution to this problem was first found in Ref.~\citenum{Akhiezer1956}.
+Langmuir waves are perhaps the most essential physical entities considered within this dissertation thesis. They play a key role in the concepts of laser-wakefield acceleration and relativistic flying mirrors, which are presented in the following sections (Secs.~\ref{sec:lwfa} and \ref{sec:rfm}). Here we describe the propagation of finite-amplitude (i.e., the frequency of the wave depends on the amplitude) Langmuir (electrostatic) and electromagnetic waves in cold collisionless plasma. The exact solution to this problem was first found in Ref.~\citenum{Akhiezer1956}.
 
-Starting with the Maxwell's equations and the hydrodynamic equations for the electron and ion fluid components, we may obtain the system of equations for coupled Langmuir (electrostatic) and electromagnetic waves in the following compact form \cite{Farina2001, Bulanov2013, Bulanov2021},
-\begin{subequations}\label{eq:coupled_em_and_langmuir_wave}
+Starting with the Maxwell's equations and the hydrodynamic equations for the electron and ion fluid components, we may obtain the system of equations for coupled Langmuir and electromagnetic waves in the following compact form \cite{Farina2001, Bulanov2013, Bulanov2021},
 \begin{equation}\label{eq:eq_for_vector_potential}
-\laplace{\vec{a}} - \diffp[2]{\vec{a}}{t} - \diffp{}{t} \grad{\varphi} = \vec{\upbeta}_e n_e - \vec{\upbeta}_i n_i,
+\laplace{\vec{a}} - \diffp[2]{\vec{a}}{t} - \diffp{}{t} \grad{\varphi} = n_e \vec{\upbeta}_e - n_i \vec{\upbeta}_i,
 \end{equation}
 \begin{equation}\label{eq:eq_for_scalar_potential}
 \laplace{\varphi} = n_e - n_i,
 \end{equation}
 \begin{equation}\label{eq:eq_for_density}
-\diffp{n_{\alpha}}{t} + n_{\alpha} \grad{\vec{\upbeta}_{\alpha}} = 0,
+\diffp{n_{\alpha}}{t} +  \div{ \left( n_{\alpha} \vec{\upbeta}_{\alpha} \right) } = 0,
 \end{equation}
 \begin{equation}\label{eq:eq_for_momentum}
-\diffp{\vec{P}_{\alpha}}{t} = - \grad{\left( \rho_{\alpha} \varphi + \gamma_{\alpha} \right)} + \vec{\upbeta}_{\alpha} \times \rot{\vec{P}_{\alpha}}.
+\diffp{\vec{P}_{\alpha}}{t} = - \grad{\left( \rho_{\alpha} \varphi + \gamma_{\alpha} \right)} + \vec{\upbeta}_{\alpha} \times \rot{\vec{P}_{\alpha}},
 \end{equation}
-\end{subequations}
-Here, subscripts $ e $ and $ i $ refer to the electron and ion fluid components, subscript $ \alpha $ is either $ e $ or $ i $. Here and below we use dimensionless variables; quantities having the units of length and time are normalized by $ c / \omega_{pe} $ and $ \omega_{pe} $, respectively, velocities are normalized by $ c $, momenta by $ m_{\alpha} c $, scalar and vector potentials are both normalized by $ m_e c^2 / e $, and the number densities are normalized by $ n_0 $, where $ n_0 $ is the electron density at the equilibrium state.
+where $ \varphi $ and $ \vec{a} $ are the scalar and vector potentials, respectively (the Coulomb gauge is assumed, i.e., $ \div{\vec{a}} = 0 $), $ \vec{\upbeta} $ is the velocity of the fluid component, and $ n $ is the number density of the fluid component; the electron and ion fluid components are denoted by subscripts $ e $ and $ i $, respectively, the subscript $ \alpha $ is either $ e $ or $ i $. The canonical momentum $ \vec{P}_{\alpha} $ and the Lorentz factor $ \gamma_{\alpha} $ are related to the kinetic momentum $ \vec{p}_{\alpha} = \gamma_{\alpha} \vec{\upbeta}_{\alpha} $ as $ \vec{P}_{\alpha} = \vec{p}_{\alpha} + \rho_{\alpha} \vec{a} $ and $ \gamma_{\alpha} = \sqrt{1 + \norm{\vec{p}_{\alpha}}^2} $, respectively, where $ \rho_{\alpha} = - \left( q_{\alpha} / e \right) \left( m_e / m_{\alpha} \right) $. Here and below we use dimensionless variables; quantities having the units of length and time are normalized by $ c / \omega_{pe} $ and $ \omega_{pe} $, respectively, velocities are normalized by $ c $, momenta by $ m_{\alpha} c $, scalar and vector potentials by $ m_e c^2 / e $ and $ m_e c / e $, respectively, and the number densities are normalized by $ n_0 $, where $ n_0 $ is the density of plasma components at the equilibrium state.
 
-In one-dimensional geometry (i.e., $ \partial / \partial x = \partial / \partial y = 0 $) the dependence of all quantities in Eqs.~(\ref{eq:coupled_em_and_langmuir_wave}) on the coordinate and time can be expressed via new variables $ \zeta = z - \beta_g t $ and $ \tau = t - \beta_g z $, where $ \beta_g $ is the group velocity of the electromagnetic wave (i.e., we search for the solution in the form of a plane wave traveling at constant velocity). For the sake of simplicity, we further assume that the electromagnetic wave is circularly polarized; the equations for the scalar, $ \varphi = \varphi \left( \zeta \right) $, and vector, $ a_x + i a_y = a \left( \zeta \right) \exp \left( i \omega \tau \right) $, potentials then read as \cite{Farina2001, Bulanov2013, Bulanov2021}
+In one-dimensional geometry (i.e., $ \partial / \partial x = \partial / \partial y = 0 $) the dependence of all quantities in Eqs.~(\ref{eq:eq_for_vector_potential}) -- (\ref{eq:eq_for_momentum}) on the coordinate and time can be expressed via new variables $ \zeta = z - \beta_{w} t $ and $ \tau = t - \beta_{w} z $, where $ \beta_{w} $ is the phase velocity of the Langmuir wave (i.e., we search for the solution in the form of a plane wave traveling at constant velocity). Note that $ \beta_w = \beta_g $, where $ \beta_g $ is the group velocity of the electromagnetic wave; the group velocity of the Langmuir wave is in cold plasma equal to zero. For the sake of simplicity, we further assume that the electromagnetic wave is circularly polarized; the equations for the scalar, $ \varphi = \varphi \left( \zeta \right) $, and vector, $ a_x + i a_y = a \left( \zeta \right) \exp \left( i \omega \tau \right) $, potentials then read as \cite{Farina2001, Bulanov2013, Bulanov2021}
 \begin{equation}\label{eq:eq_for_scalar_potential_2}
-\diff[2]{\varphi}{\zeta} = \frac{\beta_g}{1 - \beta_g^2} \left(\frac{\psi_e}{R_e} - \frac{\psi_i}{R_i} \right),
+\diff[2]{\varphi}{\zeta} = \frac{\beta_{w}}{1 - \beta_{w}^2} \left(\frac{\psi_e}{R_e} - \frac{\psi_i}{R_i} \right),
 \end{equation}
 \begin{equation}\label{eq:eq_for_vector_potential_2}
-\diff[2]{a}{\zeta} + \omega^2 a = a \frac{\beta_g}{1 - \beta_g^2}  \left(\frac{\rho_e}{R_e} - \frac{\rho_i}{R_i} \right),
+\diff[2]{a}{\zeta} + \omega^2 a = a \frac{\beta_{w}}{1 - \beta_{w}^2}  \left(\frac{\rho_e}{R_e} - \frac{\rho_i}{R_i} \right),
 \end{equation}
-where $ \omega $ is the angular frequency of the electromagnetic wave, $ \psi_{\alpha} = \mathit{\Gamma}_{\alpha} + \rho_{\alpha} \varphi $, and $ R_{\alpha} = \sqrt{\psi_{\alpha}^2 - \left(1 - \beta_g^2 \right) \left(1 + \rho_{\alpha}^2 a^2 \right)} $. The value of $ \mathit{\Gamma}_{\alpha} $ is determined by the boundary conditions; e.g., if the electromagnetic field amplitude is constant (i.e., $ a = a_0 $ and $ \varphi = 0 $) and the plasma is at rest (i.e., $ p_{\alpha} = 0 $) at infinity, then $ \mathit{\Gamma}_{\alpha} = \sqrt{1 + \rho_{\alpha}^2 a_0^2} $. The Lorentz factor and the number density of the electron and ion components can be expressed as functions of the potentials \cite{Farina2001, Bulanov2013, Bulanov2021},
+where $ \omega $ is the angular frequency of the electromagnetic wave, $ \psi_{\alpha} = \mathit{\Gamma}_{\alpha} + \rho_{\alpha} \varphi $, and $ R_{\alpha} = \sqrt{\psi_{\alpha}^2 - \left(1 - \beta_w^2 \right) \left(1 + \rho_{\alpha}^2 a^2 \right)} $. The value of $ \mathit{\Gamma}_{\alpha} $ is determined by the boundary conditions; e.g., if the electromagnetic field amplitude vanishes (i.e., $ a = 0 $ and $ \varphi = 0 $) and the plasma is at rest (i.e., $ \norm{\vec{p}_{\alpha}} = 0 $) at infinity, then $ \mathit{\Gamma}_{\alpha} = 1 $. The Lorentz factor and the number density of the electron and ion components can be expressed as functions of the potentials \cite{Farina2001, Bulanov2013, Bulanov2021},
 \begin{equation}\label{key}
-\gamma_{\alpha} = \frac{\psi_{\alpha} - \beta_g R_{\alpha}}{1 - \beta_g^2},
+%\gamma_{\alpha} = \frac{\psi_{\alpha} - \beta_g R_{\alpha}}{1 - \beta_g^2},
+\gamma_{\alpha} = \frac{R_{\alpha}}{1 - \beta_w^2} \left( \frac{\psi_{\alpha}}{R_{\alpha}} - \beta_w \right),
 \end{equation}
 \begin{equation}\label{key}
-n_{\alpha} = \beta_g \frac{\psi_{\alpha} - \beta_g R_{\alpha}}{R_{\alpha} \left( 1 - \beta_g^2 \right)}.
+%n_{\alpha} = \beta_g \frac{\psi_{\alpha} - \beta_g R_{\alpha}}{R_{\alpha} \left( 1 - \beta_g^2 \right)}.
+n_{\alpha} = \frac{\beta_w}{1 - \beta_w^2} \left( \frac{\psi_{\alpha}}{R_{\alpha}} - \beta_w \right).
 \end{equation}
+%if the electromagnetic field amplitude is constant (i.e., $ a = a_0 $ and $ \varphi = 0 $) and the plasma is at rest (i.e., $ \norm{\vec{p}_{\alpha}} = 0 $) at infinity, then $ \mathit{\Gamma}_{\alpha} = \sqrt{1 + \rho_{\alpha}^2 a_0^2} $. 
+In what follows we neglect the motion of ions, i.e., $ \rho_i = 0 $ (note that the ion motion affects the value of scalar potential in the Langmuir wave \cite{Bulanov2021}). 
 
-In what follows we neglect the motion of ions, i.e., $ \rho_i = 0 $ (note that the ion motion affects the value of scalar potential in the Langmuir wave \cite{Bulanov2021}). If we set the electromagnetic wave amplitude to zero, i.e., $ a = a_0 = 0 $, Eq.~(\ref{eq:eq_for_scalar_potential_2}) describes free Langmuir waves,
-\begin{equation}\label{eq:eq_for_scalar_potential_3}
-\diff[2]{\varphi}{\zeta} = \frac{\beta_g}{1 - \beta_g^2} \left( \frac{1 + \varphi}{\sqrt{\left( 1 + \varphi \right)^2 - 1 + \beta_g^2}} - \frac{1}{\beta_g} \right).
-\end{equation}
-By integrating Eq.~(\ref{eq:eq_for_scalar_potential_3}), we may obtain analytical dependence of the electron Lorentz factor, $ \gamma_e $, on the coordinate, $ \zeta $, (note that the coordinate is for the Langmuir wave redefined as $ \zeta = z - \beta_{ph} t $, where $ \beta_{ph} = \beta_g $ is the phase velocity of the Langmuir wave; the group velocity of the Langmuir wave is in cold plasma zero) in the implicit form as \cite{Bulanov2013}
-\begin{equation}\label{key}
-\zeta = \sqrt{2} \beta_{ph} \left[ \sqrt{\gamma_m + 1} \, E \left( \mathit{\Psi} \rvert \kappa \right) + \frac{1}{\sqrt{\gamma_m + 1}} \, F \left( \mathit{\Psi} \rvert \kappa \right) \right] - \sqrt{2 \left( \gamma_m - \gamma_e \right)},
-\end{equation}
-where 
-\begin{equation}\label{key}
-F \left( \mathit{\Psi} \rvert \kappa \right) = \int_{0}^{\mathit{\Psi}} \frac{1}{\sqrt{1 - \kappa \sin^2 \theta}} d \theta \quad \mathrm{and} \quad E \left( \mathit{\Psi} \rvert \kappa \right) = \int_{0}^{\mathit{\Psi}} \sqrt{1 - \kappa \sin^2 \theta} d \theta
-\end{equation}
-are the incomplete elliptic integrals of the first and second kinds \cite{Gradshteyn1980}, respectively, $ \mathit{\Psi} = \arcsin \sqrt{\left( \gamma_m - \gamma_e \right) / \left( \gamma_m - 1 \right)} $, $ \kappa = \left( \gamma_m - 1 \right) / \left( \gamma_m + 1 \right) $, and $ \gamma_m $ is the maximum value of $ \gamma_e $ in the Langmuir wave.
+%If we set the electromagnetic wave amplitude to zero, i.e., $ a = a_0 = 0 $, Eq.~(\ref{eq:eq_for_scalar_potential_2}) describes free Langmuir waves,
+%\begin{equation}\label{eq:eq_for_scalar_potential_3}
+%\diff[2]{\varphi}{\zeta} = \frac{\beta_g}{1 - \beta_g^2} \left( \frac{1 + \varphi}{\sqrt{\left( 1 + \varphi \right)^2 - 1 + \beta_g^2}} - \frac{1}{\beta_g} \right).
+%\end{equation}
+%By integrating Eq.~(\ref{eq:eq_for_scalar_potential_3}), we may obtain analytical dependence of the electron Lorentz factor, $ \gamma_e $, on the coordinate, $ \zeta $, (note that the coordinate is for the Langmuir wave redefined as $ \zeta = z - \beta_{ph} t $, where $ \beta_{ph} = \beta_g $ is the phase velocity of the Langmuir wave; the group velocity of the Langmuir wave is in cold plasma zero) in the implicit form as \cite{Bulanov2013}
+%\begin{equation}\label{key}
+%\zeta = \sqrt{2} \beta_{ph} \left[ \sqrt{\gamma_m + 1} \, E \left( \mathit{\Psi} \rvert \kappa \right) + \frac{1}{\sqrt{\gamma_m + 1}} \, F \left( \mathit{\Psi} \rvert \kappa \right) \right] - \sqrt{2 \left( \gamma_m - \gamma_e \right)},
+%\end{equation}
+%where 
+%\begin{equation}\label{key}
+%F \left( \mathit{\Psi} \rvert \kappa \right) = \int_{0}^{\mathit{\Psi}} \frac{1}{\sqrt{1 - \kappa \sin^2 \theta}} d \theta \quad \mathrm{and} \quad E \left( \mathit{\Psi} \rvert \kappa \right) = \int_{0}^{\mathit{\Psi}} \sqrt{1 - \kappa \sin^2 \theta} d \theta
+%\end{equation}
+%are the incomplete elliptic integrals of the first and second kinds \cite{Gradshteyn1980}, respectively, $ \mathit{\Psi} = \arcsin \sqrt{\left( \gamma_m - \gamma_e \right) / \left( \gamma_m - 1 \right)} $, $ \kappa = \left( \gamma_m - 1 \right) / \left( \gamma_m + 1 \right) $, and $ \gamma_m $ is the maximum value of $ \gamma_e $ in the Langmuir wave.
 
-Let us now consider the Langmuir wave generated by given non-evolving electromagnetic pulse. In this case, Eq.~(\ref{eq:eq_for_scalar_potential_2}) takes the following form \cite{Bulanov2016, Bulanov2021},
+Let us consider a Langmuir wave generated by given non-evolving electromagnetic pulse with piece-wise constant profile,  e.g., $ a = a_0 $ for $ \zeta \leq 0 $ and $ a = 0 $ for $ \zeta > 0 $. In this case, Eq.~(\ref{eq:eq_for_scalar_potential_2}) takes the following form \cite{Bulanov2016, Bulanov2021},
 \begin{equation}\label{eq:eq_for_scalar_potential_4}
-\diff[2]{\varphi}{\zeta} = \frac{\beta_g}{1 - \beta_g^2} \left( \frac{1 + \varphi}{\sqrt{\left( 1 + \varphi \right)^2 - \left( 1 - \beta_g^2 \right) \left( 1 + a^2 \left( \zeta \right) \right)}} - \frac{1}{\beta_g} \right).
+\diff[2]{\varphi}{\zeta} = \frac{\beta_w}{1 - \beta_w^2} \left( \frac{1 + \varphi}{\sqrt{\left( 1 + \varphi \right)^2 - \left( 1 - \beta_w^2 \right) \left( 1 + a^2 \right)}} - \frac{1}{\beta_w} \right).
 \end{equation}
-In the limit $ \beta_g = \beta_{ph} \rightarrow 1 $ (corresponding to the case of low-density plasma, when the front of the electromagnetic pulse propagates at velocity close to $ c $), Eq.~(\ref{eq:eq_for_scalar_potential_4}) simplifies to \cite{Bulanov1989, Berezhiani1990, Esarey2009, Bulanov2016, Bulanov2021}
+In the limit $ \beta_w = \beta_g \rightarrow 1 $ (corresponding to the case of low-density plasma, when the front of the electromagnetic pulse propagates at velocity close to $ c $), Eq.~(\ref{eq:eq_for_scalar_potential_4}) simplifies to \cite{Bulanov1989, Berezhiani1990, Esarey2009, Bulanov2016, Bulanov2021}
 \begin{equation}\label{eq:eq_for_scalar_potential_5}
 \diff[2]{\varphi}{\zeta} = \frac{1}{2} \left[ \frac{1 + a^2}{\left( 1 + \varphi \right)^2} - 1 \right].
 \end{equation}
-Analytical solution to Eq.~(\ref{eq:eq_for_scalar_potential_5}) can be found in the implicit form for square laser pulse profiles, e.g., $ a = a_0 $ for $ \zeta \leq 0 $ and $ a = 0 $ for $ \zeta > 0 $, as \cite{Bulanov1989, Berezhiani1990, Bulanov2016, Bulanov2021}
+Analytical solution to Eq.~(\ref{eq:eq_for_scalar_potential_5}) can be found in the implicit form as \cite{Bulanov1989, Berezhiani1990, Bulanov2016, Bulanov2021}
+\begin{equation}\label{eq:analytical_solution}
+\zeta = 2 \left[ \sqrt{\frac{\left( a^2 - \varphi \right) \left( 1 + \varphi \right)}{\varphi}} + E \left( \sin \frac{1}{\sqrt{\varphi}}, -a^2 \right) \right],
+\end{equation}
+where $ E \left( \cdot, \cdot \right) $ is the incomplete elliptic integral of the second kind \cite{Gradshteyn1980}. 
+
+By integrating Eq.~(\ref{eq:eq_for_scalar_potential_5}) with the boundary conditions $ \varphi \left( 0 \right) = \diff{\varphi}/{\zeta} \left( 0 \right) = 0 $ we get
+\begin{equation}\label{eq:integral}
+\left( \diff{\varphi}{\zeta} \right)^2 = \frac{\varphi \left( a^2 - \varphi \right)}{1 + \varphi}.
+\end{equation}
+From Eq.~(\ref{eq:integral}) one may obtain the optimal length of the driving electromagnetic pulse which maximizes the amplitude of the electric field, $ E = -\diff{\varphi}/{\zeta} $, within the Langmuir wave \cite{Bulanov2016, Bulanov2021},
+\begin{equation}\label{eq:optimal_length}
+l_{opt} = \int_{0}^{a^2} \sqrt{\frac{1 + \varphi}{\varphi \left( a^2 - \varphi \right)}} \dl \varphi = 2 E \left( -a^2 \right),
+\end{equation}
+where $ E \left( \cdot \right) $ is the complete elliptic integral of the second kind \cite{Gradshteyn1980}. In the limit of small-amplitude driving electromagnetic pulse (i.e., $ a \ll 1 $), we may approximate Eq.~(\ref{eq:optimal_length}) as
 \begin{equation}\label{key}
-\zeta = 2 \left[ \sqrt{\frac{\left( a^2 - \varphi \right) \left( 1 + \varphi \right)}{\varphi}} + E \left( \sin \frac{1}{\sqrt{\varphi}}, -a^2 \right) \right].
+l_{opt} = \pi + \frac{\pi}{4} a^2 - \frac{3 \pi}{64} a^4 + \dots ,
+\end{equation}
+and the wavelength of the Langmuir wave is $ \lambda_w = 4 l_{opt} $ (i.e., $ \lambda_w = 2 \pi c / \omega_{pe} $ in dimensional units). In the opposite limit of large-amplitude electromagnetic pulse (i.e., $ a \gg 1 $), one gets
+\begin{equation}\label{key}
+l_{opt} = 2a - \frac{1}{a} \ln a + \frac{1}{a} \left( \frac{1}{2} + 2 \ln 2 \right) - \dots ,
+\end{equation}
+and the Langmuir wave wavelength is $ \lambda_w = 2 l_{opt} $ (i.e., $ \lambda_w = 4 a c / \omega_{pe} $ in dimensional units). We see that $ \lambda_w $ is proportional to $ a $.
+
+The extrema of the scalar potential inside the electromagnetic pulse can be obtained from Eq.~(\ref{eq:integral}) using the condition $ \diff{\varphi}/{\zeta} = 0 $. We find that the minimum and maximum values of $ \varphi $ are, respectively, $ \varphi_{min} = 0 $ and $ \varphi_{max} = a^2 $. The extrema of the electric field inside the electromagnetic pulse can be found from Eq.~(\ref{eq:eq_for_scalar_potential_5}) using the condition $ \diff[2]{\varphi}/{\zeta} = 0 $. The minimum and maximum values of $ E $ are thus $ E_{min} = -\sqrt{1 + a^2} - 1 $ and $ E_{max} = \sqrt{1 + a^2} - 1 $, respectively. In order to examine the extrema of scalar potential and electric field left behind the driving electromagnetic pulse of the optimal length given by Eq.~(\ref{eq:optimal_length}), we integrate Eq.~(\ref{eq:eq_for_scalar_potential_5}) with $ a = 0 $ and use the boundary conditions $ \varphi \left( -l_{opt} \right) = a^2 $ and $ \diff{\varphi}/{\zeta} \left( -l_{opt} \right) = 0 $,
+\begin{equation}\label{eq:integral_2}
+\left( \diff{\varphi}{\zeta} \right)^2 = a^2 - \varphi - \frac{a^2 - \varphi}{\left(1 + a^2 \right) \left( 1 + \varphi \right)}.
+\end{equation}
+Using the same approach as above, we find from Eq.~(\ref{eq:integral_2}) that $ \varphi_{min} = -a^2 / \left( 1 + a^2 \right) $, $ \varphi_{max} = a^2 $, $ E_{min} = -a^2 / \sqrt{1 + a^2} $, and $ E_{max} = a^2 / \sqrt{1 + a^2} $. Note that the amplitude of the electric field inside the driving electromagnetic pulse is smaller than the amplitude of the electric field left behind.
+
+\subsection{Breaking of Langmuir waves}
+
+\begin{equation}\label{key}
+E_{AP} = \sqrt{2 \left( \gamma_w - 1 \right)}
 \end{equation}
 
+\begin{equation}\label{key}
+\diff*[2]{\left( \gamma_e - \beta_w p_e \right)}{\zeta} = \frac{p_e}{\beta_w \gamma_e - p_e}
+\end{equation}
 
+The Langmuir wave break occurs if the wave is excited with such a strong amplitude, v0, that v0 vph, out of the applicability of the approximation
+the breaking occurs also in inhomogeneous plasma, where due to the phase mixing effect 
+
+A nonlinear wake wave with substantially large amplitude, at which the Lorentz factor of electrons is greater than that of the wake wave breaks and forms cusps in the electron density distribution
+
+
+
+
+
+
+
+
+
+
+
+
+Let us find for which the electric field $ E = -\diff{\varphi}/{\zeta} $ of the Langmuir wave is maximal.
+
+formula for the optimal length of the driving electromagnetic pulse
 
 
 the dependence of the electron Lorentz factor $ \gamma_e $ on the coordinate $ \zeta $ (here $ $)in the implicit form,
@@ -737,7 +792,7 @@ $ n_{\alpha} $ is number density of fluid component
 
 The variables in system of Eqs.~() are dimensionless; length and time are normalized by $ c / \omega_{pe} $ and $ \omega_{pe} $, respectively, velocity and momentum are normalized by $ c $ and $ m_{\alpha} c $, respectively, the scalar and vector potentials are both normalized by $ m_e c^2 / e $, and density is normalized by $ n_0 $, where $ n_0 $ is the ...
 
-The Coulomb gauge is assumed (i.e., $ \div{\vec{a}} = 0 $).
+
 
 hydrodynamic equations for electron and ion fluids, Maxwell's equations
 
@@ -776,7 +831,7 @@ For the description of Langmuir wave generated by the electromagnetic wave in pl
 
 We begin with the system of equations for coupled Langmuir and electromagnetic waves in the cold and collisionless plasma 
 
-\subsection{breaking of Langmuir waves}
+
 
 
 
@@ -785,7 +840,7 @@ We begin with the system of equations for coupled Langmuir and electromagnetic w
 
 %-------------------------------------------------------------------------------
 
-\section{Laser-wakefield acceleration of electrons}
+\section{Laser-wakefield acceleration of electrons\label{sec:lwfa}}
 %\input{dat/1-0.tex}
 
 %\subsection{Electron interaction with Langmuir wave}
@@ -830,7 +885,7 @@ We begin with the system of equations for coupled Langmuir and electromagnetic w
 
 %-------------------------------------------------------------------------------
 
-\section{Relativistic mirrors in underdense plasmas}
+\section{Relativistic mirrors in underdense plasmas\label{sec:rfm}}
 %\input{dat/1-0.tex}
 
 %\subsection{Lorentz transform, Doppler effect}
