@@ -619,9 +619,9 @@ The structure of this doctoral thesis is organized as follows:
 \subsection{Finite-amplitude Langmuir waves}
 %\input{dat/1-0.tex}
 
-Langmuir waves are perhaps the most essential physical entities considered within this dissertation thesis. They play a key role in the concepts of laser-wakefield acceleration and relativistic flying mirrors, which are presented in the following sections (Secs.~\ref{sec:lwfa} and \ref{sec:rfm}). Here we describe the propagation of finite-amplitude (i.e., the frequency of the wave depends on the amplitude) Langmuir (electrostatic) and electromagnetic waves in cold collisionless plasma. The exact solution to this problem was first found in Ref.~\citenum{Akhiezer1956}.
+Langmuir waves are perhaps the most essential physical entities considered within this doctoral thesis. They play a key role in the concepts of laser-wakefield acceleration and relativistic flying mirrors, which are presented in the following sections (Secs.~\ref{sec:lwfa} and \ref{sec:rfm}). Here we describe the propagation of finite-amplitude (i.e., the frequency of the wave depends on the amplitude) electromagnetic and Langmuir (electrostatic) waves in cold collisionless plasma. The exact solution to this problem was first found in Ref.~\citenum{Akhiezer1956}.
 
-Starting with the Maxwell's equations and the hydrodynamic equations for the electron and ion fluid components, we may obtain the system of equations for coupled Langmuir and electromagnetic waves in the following compact form \cite{Farina2001, Bulanov2013, Bulanov2021},
+Starting with the Maxwell's equations and the hydrodynamic equations for the electron and ion fluid components, we may obtain the system of partial differential equations for coupled electromagnetic and Langmuir waves in the following compact form \cite{Farina2001, Bulanov2013, Bulanov2021},
 \begin{equation}\label{eq:eq_for_vector_potential}
 \laplace{\vec{a}} - \diffp[2]{\vec{a}}{t} - \diffp{}{t} \grad{\varphi} = n_e \vec{\upbeta}_e - n_i \vec{\upbeta}_i,
 \end{equation}
@@ -634,16 +634,16 @@ Starting with the Maxwell's equations and the hydrodynamic equations for the ele
 \begin{equation}\label{eq:eq_for_momentum}
 \diffp{\vec{P}_{\alpha}}{t} = - \grad{\left( \rho_{\alpha} \varphi + \gamma_{\alpha} \right)} + \vec{\upbeta}_{\alpha} \times \rot{\vec{P}_{\alpha}},
 \end{equation}
-where $ \varphi $ and $ \vec{a} $ are the scalar and vector potentials, respectively (the Coulomb gauge is assumed, i.e., $ \div{\vec{a}} = 0 $), $ \vec{\upbeta} $ is the velocity of the fluid component, and $ n $ is the number density of the fluid component; the electron and ion fluid components are denoted by subscripts $ e $ and $ i $, respectively, the subscript $ \alpha $ is either $ e $ or $ i $. The canonical momentum $ \vec{P}_{\alpha} $ and the Lorentz factor $ \gamma_{\alpha} $ are related to the kinetic momentum $ \vec{p}_{\alpha} = \gamma_{\alpha} \vec{\upbeta}_{\alpha} $ as $ \vec{P}_{\alpha} = \vec{p}_{\alpha} + \rho_{\alpha} \vec{a} $ and $ \gamma_{\alpha} = \sqrt{1 + \norm{\vec{p}_{\alpha}}^2} $, respectively, where $ \rho_{\alpha} = - \left( q_{\alpha} / e \right) \left( m_e / m_{\alpha} \right) $. Here and below we use dimensionless variables; quantities having the units of length and time are normalized by $ c / \omega_{pe} $ and $ \omega_{pe} $, respectively, velocities are normalized by $ c $, momenta by $ m_{\alpha} c $, scalar and vector potentials by $ m_e c^2 / e $ and $ m_e c / e $, respectively, and the number densities are normalized by $ n_0 $, where $ n_0 $ is the density of plasma components at the equilibrium state.
+where $ \varphi $ and $ \vec{a} $ are the scalar and vector potentials, respectively (the Coulomb gauge is assumed, i.e., $ \div{\vec{a}} = 0 $), $ \vec{\upbeta}_{\alpha} $ is the velocity of the fluid component, and $ n_{\alpha} $ is the number density of the fluid component; the electron and ion fluid components are denoted by subscripts $ e $ and $ i $, respectively, the subscript $ \alpha $ is either $ e $ or $ i $. The canonical momentum $ \vec{P}_{\alpha} $ and the Lorentz factor $ \gamma_{\alpha} $ are related to the kinetic momentum $ \vec{p}_{\alpha} = \gamma_{\alpha} \vec{\upbeta}_{\alpha} $ as $ \vec{P}_{\alpha} = \vec{p}_{\alpha} + \rho_{\alpha} \vec{a} $ and $ \gamma_{\alpha} = \sqrt{1 + \norm{\vec{p}_{\alpha}}^2} $, respectively, where $ \rho_{\alpha} = - \left( q_{\alpha} / e \right) \left( m_e / m_{\alpha} \right) $. Here and below we use dimensionless quantities; quantities having the units of length and time are normalized by $ c / \omega_{pe} $ and $ \omega_{pe} $, respectively, velocities are normalized by $ c $, momenta by $ m_{\alpha} c $, scalar and vector potentials by $ m_e c^2 / e $ and $ m_e c / e $, respectively, and the number densities are normalized by $ n_0 $, where $ n_0 $ is the density of plasma components at the equilibrium state.
 
-In one-dimensional geometry (i.e., $ \partial / \partial x = \partial / \partial y = 0 $) the dependence of all quantities in Eqs.~(\ref{eq:eq_for_vector_potential}) -- (\ref{eq:eq_for_momentum}) on the coordinate and time can be expressed via new variables $ \zeta = z - \beta_{w} t $ and $ \tau = t - \beta_{w} z $, where $ \beta_{w} $ is the phase velocity of the Langmuir wave (i.e., we search for the solution in the form of a plane wave traveling at constant velocity). Note that $ \beta_w = \beta_g $, where $ \beta_g $ is the group velocity of the electromagnetic wave; the group velocity of the Langmuir wave is in cold plasma equal to zero. For the sake of simplicity, we further assume that the electromagnetic wave is circularly polarized; the equations for the scalar, $ \varphi = \varphi \left( \zeta \right) $, and vector, $ a_x + i a_y = a \left( \zeta \right) \exp \left( i \omega \tau \right) $, potentials then read as \cite{Farina2001, Bulanov2013, Bulanov2021}
+In the one-dimensional geometry (i.e., $ \partial / \partial x = \partial / \partial y = 0 $) the dependence of all quantities in Eqs.~(\ref{eq:eq_for_vector_potential}) -- (\ref{eq:eq_for_momentum}) on the coordinate and time can be expressed via new variables $ \zeta = z - \beta_{w} t $ and $ \tau = t - \beta_{w} z $, where $ \beta_{w} $ is the phase velocity of the Langmuir wave (i.e., we search for the solution in the form of a plane wave traveling at constant velocity). Note that $ \beta_w = \beta_g $, where $ \beta_g $ is the group velocity of the electromagnetic wave; the group velocity of the Langmuir wave is in cold plasma equal to zero. For the sake of simplicity, we further assume that the electromagnetic wave is circularly polarized; the equations for the scalar, $ \varphi = \varphi \left( \zeta \right) $, and vector, $ a_x + i a_y = a \left( \zeta \right) \exp \left( i \omega \tau \right) $, potentials then read as \cite{Farina2001, Bulanov2013, Bulanov2021}
 \begin{equation}\label{eq:eq_for_scalar_potential_2}
 \diff[2]{\varphi}{\zeta} = \frac{\beta_{w}}{1 - \beta_{w}^2} \left(\frac{\psi_e}{R_e} - \frac{\psi_i}{R_i} \right),
 \end{equation}
 \begin{equation}\label{eq:eq_for_vector_potential_2}
 \diff[2]{a}{\zeta} + \omega^2 a = a \frac{\beta_{w}}{1 - \beta_{w}^2}  \left(\frac{\rho_e}{R_e} - \frac{\rho_i}{R_i} \right),
 \end{equation}
-where $ \omega $ is the angular frequency of the electromagnetic wave, $ \psi_{\alpha} = \mathit{\Gamma}_{\alpha} + \rho_{\alpha} \varphi $, and $ R_{\alpha} = \sqrt{\psi_{\alpha}^2 - \left(1 - \beta_w^2 \right) \left(1 + \rho_{\alpha}^2 a^2 \right)} $. The value of $ \mathit{\Gamma}_{\alpha} $ is determined by the boundary conditions; e.g., if the electromagnetic field amplitude vanishes (i.e., $ a = 0 $ and $ \varphi = 0 $) and the plasma is at rest (i.e., $ \norm{\vec{p}_{\alpha}} = 0 $) at infinity, then $ \mathit{\Gamma}_{\alpha} = 1 $. The Lorentz factor and the number density of the electron and ion components can be expressed as functions of the potentials \cite{Farina2001, Bulanov2013, Bulanov2021},
+where $ \omega $ is the angular frequency of the electromagnetic wave, $ \psi_{\alpha} = \mathit{\Gamma}_{\alpha} + \rho_{\alpha} \varphi $, and $ R_{\alpha} = \sqrt{\psi_{\alpha}^2 - \left(1 - \beta_w^2 \right) \left(1 + \rho_{\alpha}^2 a^2 \right)} $. The value of $ \mathit{\Gamma}_{\alpha} $ is determined by the boundary conditions; e.g., if the electromagnetic field amplitude vanishes (i.e., $ a = 0 $ and $ \varphi = 0 $) and the plasma is at rest (i.e., $ \norm{\vec{p}_{\alpha}} = 0 $) at infinity, then $ \mathit{\Gamma}_{\alpha} = 1 $. The Lorentz factors and the number densities of the electron and ion components can be expressed as functions of scalar and vector potentials \cite{Farina2001, Bulanov2013, Bulanov2021},
 \begin{equation}\label{key}
 %\gamma_{\alpha} = \frac{\psi_{\alpha} - \beta_g R_{\alpha}}{1 - \beta_g^2},
 \gamma_{\alpha} = \frac{R_{\alpha}}{1 - \beta_w^2} \left( \frac{\psi_{\alpha}}{R_{\alpha}} - \beta_w \right),
@@ -669,13 +669,13 @@ In what follows we neglect the motion of ions, i.e., $ \rho_i = 0 $ (note that t
 %\end{equation}
 %are the incomplete elliptic integrals of the first and second kinds \cite{Gradshteyn1980}, respectively, $ \mathit{\Psi} = \arcsin \sqrt{\left( \gamma_m - \gamma_e \right) / \left( \gamma_m - 1 \right)} $, $ \kappa = \left( \gamma_m - 1 \right) / \left( \gamma_m + 1 \right) $, and $ \gamma_m $ is the maximum value of $ \gamma_e $ in the Langmuir wave.
 
-Let us consider a Langmuir wave generated by given non-evolving electromagnetic pulse with piece-wise constant profile,  e.g., $ a = a_0 $ for $ \zeta \leq 0 $ and $ a = 0 $ for $ \zeta > 0 $. In this case, Eq.~(\ref{eq:eq_for_scalar_potential_2}) takes the following form \cite{Bulanov2016, Bulanov2021},
+Let us consider a Langmuir wave generated by given non-evolving electromagnetic pulse with piece-wise constant profile,  e.g., $ a = const. $ for $ \zeta \leq 0 $ and $ a = 0 $ for $ \zeta > 0 $. In this case, Eq.~(\ref{eq:eq_for_scalar_potential_2}) takes the following form \cite{Bulanov2016, Bulanov2021},
 \begin{equation}\label{eq:eq_for_scalar_potential_4}
 \diff[2]{\varphi}{\zeta} = \frac{\beta_w}{1 - \beta_w^2} \left( \frac{1 + \varphi}{\sqrt{\left( 1 + \varphi \right)^2 - \left( 1 - \beta_w^2 \right) \left( 1 + a^2 \right)}} - \frac{1}{\beta_w} \right).
 \end{equation}
 In the limit $ \beta_w = \beta_g \rightarrow 1 $ (corresponding to the case of low-density plasma, when the front of the electromagnetic pulse propagates at velocity close to $ c $), Eq.~(\ref{eq:eq_for_scalar_potential_4}) simplifies to \cite{Bulanov1989, Berezhiani1990, Esarey2009, Bulanov2016, Bulanov2021}
 \begin{equation}\label{eq:eq_for_scalar_potential_5}
-\diff[2]{\varphi}{\zeta} = \frac{1}{2} \left[ \frac{1 + a^2}{\left( 1 + \varphi \right)^2} - 1 \right].
+\diff[2]{\varphi}{\zeta} = \frac{1}{2} \left( \frac{1 + a^2}{\left( 1 + \varphi \right)^2} - 1 \right).
 \end{equation}
 Analytical solution to Eq.~(\ref{eq:eq_for_scalar_potential_5}) can be found in the implicit form as \cite{Bulanov1989, Berezhiani1990, Bulanov2016, Bulanov2021}
 \begin{equation}\label{eq:analytical_solution}
@@ -687,7 +687,7 @@ By integrating Eq.~(\ref{eq:eq_for_scalar_potential_5}) with the boundary condit
 \begin{equation}\label{eq:integral}
 \left( \diff{\varphi}{\zeta} \right)^2 = \frac{\varphi \left( a^2 - \varphi \right)}{1 + \varphi}.
 \end{equation}
-From Eq.~(\ref{eq:integral}) one may obtain the optimal length of the driving electromagnetic pulse which maximizes the amplitude of the electric field, $ E = -\diff{\varphi}/{\zeta} $, within the Langmuir wave \cite{Bulanov2016, Bulanov2021},
+From Eq.~(\ref{eq:integral}) one may find the optimal length of the driving electromagnetic pulse which maximizes the amplitude of the electric field, $ E = -\diff{\varphi}/{\zeta} $, within the Langmuir wave using the condition that $ E = 0 $ at the rear side of the pulse \cite{Bulanov2016, Bulanov2021},
 \begin{equation}\label{eq:optimal_length}
 l_{opt} = \int_{0}^{a^2} \sqrt{\frac{1 + \varphi}{\varphi \left( a^2 - \varphi \right)}} \dl \varphi = 2 E \left( -a^2 \right),
 \end{equation}
@@ -701,24 +701,64 @@ l_{opt} = 2a - \frac{1}{a} \ln a + \frac{1}{a} \left( \frac{1}{2} + 2 \ln 2 \rig
 \end{equation}
 and the Langmuir wave wavelength is $ \lambda_w = 2 l_{opt} $ (i.e., $ \lambda_w = 4 a c / \omega_{pe} $ in dimensional units). We see that $ \lambda_w $ is proportional to $ a $.
 
-The extrema of the scalar potential inside the electromagnetic pulse can be obtained from Eq.~(\ref{eq:integral}) using the condition $ \diff{\varphi}/{\zeta} = 0 $. We find that the minimum and maximum values of $ \varphi $ are, respectively, $ \varphi_{min} = 0 $ and $ \varphi_{max} = a^2 $. The extrema of the electric field inside the electromagnetic pulse can be found from Eq.~(\ref{eq:eq_for_scalar_potential_5}) using the condition $ \diff[2]{\varphi}/{\zeta} = 0 $. The minimum and maximum values of $ E $ are thus $ E_{min} = -\sqrt{1 + a^2} - 1 $ and $ E_{max} = \sqrt{1 + a^2} - 1 $, respectively. In order to examine the extrema of scalar potential and electric field left behind the driving electromagnetic pulse of the optimal length given by Eq.~(\ref{eq:optimal_length}), we integrate Eq.~(\ref{eq:eq_for_scalar_potential_5}) with $ a = 0 $ and use the boundary conditions $ \varphi \left( -l_{opt} \right) = a^2 $ and $ \diff{\varphi}/{\zeta} \left( -l_{opt} \right) = 0 $,
+The extrema of the scalar potential inside the electromagnetic pulse can be obtained from Eq.~(\ref{eq:integral}) using the condition $ \diff{\varphi}/{\zeta} = 0 $. We find that the minimum and maximum values of $ \varphi $ are, respectively, $ \varphi_{min} = 0 $ and $ \varphi_{max} = a^2 $. The extrema of the electric field inside the electromagnetic pulse can be found from Eq.~(\ref{eq:eq_for_scalar_potential_5}) using the condition $ \diff[2]{\varphi}/{\zeta} = 0 $. The minimum and maximum values of $ E $ are thus $ E_{min} = -\sqrt{1 + a^2} + 1 $ and $ E_{max} = \sqrt{1 + a^2} - 1 $, respectively. In order to examine the extrema of scalar potential and electric field left behind the driving electromagnetic pulse of the optimal length given by Eq.~(\ref{eq:optimal_length}), we integrate Eq.~(\ref{eq:eq_for_scalar_potential_5}) with $ a = 0 $ and use the boundary conditions $ \varphi \left( -l_{opt} \right) = a^2 $ and $ \diff{\varphi}/{\zeta} \left( -l_{opt} \right) = 0 $,
 \begin{equation}\label{eq:integral_2}
 \left( \diff{\varphi}{\zeta} \right)^2 = a^2 - \varphi - \frac{a^2 - \varphi}{\left(1 + a^2 \right) \left( 1 + \varphi \right)}.
 \end{equation}
 Using the same approach as above, we find from Eq.~(\ref{eq:integral_2}) that $ \varphi_{min} = -a^2 / \left( 1 + a^2 \right) $, $ \varphi_{max} = a^2 $, $ E_{min} = -a^2 / \sqrt{1 + a^2} $, and $ E_{max} = a^2 / \sqrt{1 + a^2} $. Note that the amplitude of the electric field inside the driving electromagnetic pulse is smaller than the amplitude of the electric field left behind.
 
+\begin{figure}[t]
+	\includegraphics[width=0.9\linewidth]{img/langmuir_wave.jpg}
+	\caption[]{\label{fig:} Dependence of scalar potential (black dashed line), electric field (blue), and electron density (solid black line) on the coordinate $ \zeta $ for the Langmuir wave generated by square electromagnetic pulse (red) with amplitude $ a = 2 $ and optimal length ($ l_{opt} = 5.27 $) given by Eq.~(\ref{eq:optimal_length}). The values of scalar potential and electric field in the wake left behind the driving electromagnetic pulse vary from $ -0.8 $ to $ 4 $ and from $ \approx -1.79 $ to $ \approx 1.79 $, respectively. The quantities are obtained numerically from Eq.~(\ref{eq:eq_for_scalar_potential_5}).
+	
+}
+\end{figure}
+
 \subsection{Breaking of Langmuir waves}
 
+The amplitude of the electric field in the Langmuir wave with a given value of $ \beta_w $ cannot be arbitrarily large. It has been found that if the electric field exceeds the Akhiezer-Polovin limit value of the field \cite{Akhiezer1956}, 
 \begin{equation}\label{key}
-E_{AP} = \sqrt{2 \left( \gamma_w - 1 \right)}
+E_{\mathrm{AP}} = \sqrt{2 \left( \gamma_w - 1 \right)},
 \end{equation}
+the Langmuir wave breaks. Here $ \gamma_w = 1 / \sqrt{1 - \beta_w^2} $ stands for the Lorentz factor of the Langmuir wave. 
 
+In this section we discuss the properties of Langmuir waves generated by a strong electromagnetic pulse as they approach the threshold of wave breaking. Eqs.~(\ref{eq:eq_for_scalar_potential}) - (\ref{eq:eq_for_momentum}) can be rewritten in a single ordinary differential equation for the longitudinal component of the electron momentum $ p_e $ \cite{Panchenko2008, Bulanov2013},
+\begin{equation}\label{eq:eq_for_long_momentum}
+\diff*[2]{\left( \gamma_e - \beta_w p_e \right)}{\zeta} = \frac{p_e}{\beta_w \gamma_e - p_e},
+\end{equation}
+where we assume that $ \gamma_e = \sqrt{1 + p_e^2 + a^2} $ (see also Sec.~\ref{label}). One can immediately see that Eq.~(\ref{eq:eq_for_long_momentum}) becomes singular when the denominator on the right-hand side vanishes, i.e., when the electron velocity, $ p_e / \gamma_e $, tends to the phase velocity of the Langmuir wave, $ \beta_{w} $. This singularity, which is also known as the gradient or cusp catastrophe, corresponds to the breaking of Langmuir wave.
+
+The structure of the breaking Langmuir wave can be 
+
+by solving Eq.~(\ref{eq:eq_for_density}) we can obtain the distribution of the electron density as
 \begin{equation}\label{key}
-\diff*[2]{\left( \gamma_e - \beta_w p_e \right)}{\zeta} = \frac{p_e}{\beta_w \gamma_e - p_e}
+n_e \left( \delta \zeta \right) = \frac{\beta_w}{\beta_w - \beta_e}
 \end{equation}
+Although for $ \delta \zeta \rightarrow 0 $ the electron density tends to infinity, the singularity is integrable. This means that in the breaking Langmuir wave there is a finite number of electrons \cite{Panchenko2008, Bulanov2013}.
 
-The Langmuir wave break occurs if the wave is excited with such a strong amplitude, v0, that v0 vph, out of the applicability of the approximation
-the breaking occurs also in inhomogeneous plasma, where due to the phase mixing effect 
+Singularities form naturally in the plasma flow with inhomogeneous velocity. There have been identified several kinds of singularities due to the breaking of finite-amplitude Langmuir waves depending on the closeness to the wave breaking threshold. It turned out that the dependence of the electron density on the coordinate can be in general expressed as $ n_e \left( \delta \zeta \right) \approx \delta \zeta^{-\alpha} $ with $ 1/2 \leq \alpha < 1 $ \cite{Panchenko2008}.
+
+In each case the singularity corresponds to the caustic in the plasma flow with inhomogeneous velocity.
+
+
+
+
+
+
+%The right-hand side of Eq. 50 becomes singular
+%when the denominator, mevph−p, tends to zero, i.e., when
+%the electron velocity v becomes equal to the phase velocity
+%of the wake wave, vph.
+
+
+
+denominator in the right-hand side vanishes.
+
+The singularity corresponds to the case where the electron velocity becomes equal to the wave phase velocity, which means wave breaking.
+
+Here we analyze the solutions of this equation in the vicinity of the singularity.
+
+The Langmuir wave break occurs if the wave is excited with such a strong amplitude, v0, that v0 vph, out of the applicability of the approximation. the breaking occurs also in inhomogeneous plasma, where due to the phase mixing effect 
 
 A nonlinear wake wave with substantially large amplitude, at which the Lorentz factor of electrons is greater than that of the wake wave breaks and forms cusps in the electron density distribution
 
@@ -1009,7 +1049,7 @@ In the moving frame of reference, the electric and magnetic fields of the $ 4 \p
 \vec{B}^{\prime}_{f} \left( \rho^{\prime}, \theta^{\prime}; \omega \right) = - \vec{e}_{\phi}^{\prime} \, B_{0, f} \left( \omega^{\prime} \right) S_b \left( \rho^{\prime}, \theta^{\prime}; \omega^{\prime} \right) \exp \left(i \omega^{\prime} t^{\prime} \right),
 \end{equation}
 \end{subequations}
-where $ E_{0, f} \left( \omega^{\prime} \right) $ and $ B_{0, f} \left( \omega^{\prime} \right) $ are the peak amplitudes of the electric and magnetic fields at focus at a certain frequency $ \omega^{\prime} $, and $ S_a \left( \omega^{\prime} \right) $ and $ S_b \left( \omega^{\prime} \right) $ are the spatial distribution functions defined as
+where $ E_{0, f} \left( \omega^{\prime} \right) $ and $ B_{0, f} \left( \omega^{\prime} \right) $ are the peak amplitudes of the electric and magnetic fields at focus at a certain frequency $ \omega^{\prime} $, and $ S_a \left( \omega^{\prime} \right) $ and $ S_b \left( \omega^{\prime} \right) $ are the spatial distribution functions defined as \cite{Jeong2020, Jeong2021}
 \begin{subequations}
 	\begin{equation}\label{key}
 S_a \left( \omega^{\prime} \right) = \sum_{k = 0}^{+\infty} \frac{4k + 1}{2^{3k}} j_{2k} \left( \frac{\omega^{\prime}}{c} \rho \right) P_{2k} \left( \cos \theta^{\prime} \right),
@@ -1018,7 +1058,7 @@ S_a \left( \omega^{\prime} \right) = \sum_{k = 0}^{+\infty} \frac{4k + 1}{2^{3k}
 S_b \left( \omega^{\prime} \right) = \frac{4}{\pi} j_1 \left( \frac{\omega^{\prime}}{c} \rho \right) P^1_1 \left( \cos \theta^{\prime} \right).
 	\end{equation}
 \end{subequations}
-Here $ j_{n} \left( \cdot \right) $ is the $ n $-th order spherical Bessel function of the first kind, and $ P_n \left( \cdot \right) $ and $ P^m_n \left( \cdot \right) $ are the Legendre and associated Legendre functions.
+Here $ j_{n} \left( \cdot \right) $ is the $ n $-th order spherical Bessel function of the first kind, and $ P_n \left( \cdot \right) $ and $ P^m_n \left( \cdot \right) $ are the Legendre and associated Legendre functions \cite{Gradshteyn1980}.
 
 The resultant expressions for the spatiotemporal distribution of electric and magnetic fields of the radially polarized wave packet in the focal region of the mirror in the stationary frame of reference are obtained through the inverse Lorentz transformation and a Fourier transformation in the frequency domain \cite{Jeong2021},
 \begin{subequations}
@@ -1083,7 +1123,7 @@ From Eqs.~(\ref{eq:reflected_e_lab_frame_parabolic}) and (\ref{eq:reflected_b_la
 
 The calculations presented in previous sections (Secs.~\ref{sec:rffm} and \ref{sec:rfpm}) are valid only if the amplitude of the electromagnetic wave incident on the relativistic mirror is sufficiently low. On the other hand, when the amplitude is high, the electromagnetic wave may significantly affect the mirror motion (i.e., the radiation pressure of the wave may slow down or even destroy the mirror). The knowledge of the onset of recoil effects associated with the interaction of the relativistic mirror and strong incident electromagnetic wave is thus crucial for maximizing the amplitude of the reflected wave.
 
-The recoil effects of relativistic mirrors physically realized by the structures in laser plasmas have been recently investigated in one-dimensional [\ref{paper_3}] and two-dimensional \cite{Jeong2021} geometries. Here we present the one-dimensional description. Let us consider a relativistic mirror in the form of an electron layer interacting with a counter-propagating electromagnetic wave. We assume that all the electrons are characterized by the same momentum, the electromagnetic wave is monochromatic, and the reflection coefficient (in terms of photon number) is equal to $ \mathcal{R} $. The conservation of momentum and energy before (unprimed quantities) and after (double-primed quantities) the interaction can be written as
+The recoil effects of relativistic mirrors physically realized by the structures in laser plasmas have been recently investigated in one-dimensional [\ref{paper_3}] and two-dimensional \cite{Jeong2021} geometries. Here we present the one-dimensional description. Let us consider a relativistic mirror in the form of an electron layer interacting with a counter-propagating electromagnetic wave. We assume that all the electrons are characterized by the same momentum, the electromagnetic wave is monochromatic, and the reflection coefficient (in terms of photon number) is equal to $ \mathcal{R} $. The conservation of momentum and energy before (unprimed quantities) and after (double-primed quantities) the interaction can be written as [\ref{paper_3}]
 \begin{subequations}\label{eq:conservation}
 \begin{equation}\label{eq:conservation_of_momentum}
 \mathcal{N}_e p_e - \mathcal{N}_{\omega} p_{\omega} = \mathcal{N}_e p_e^{\prime \prime} + \mathcal{R} \mathcal{N}_{\omega} p_{\omega}^{\prime \prime} - \left( 1 - \mathcal{R} \right) \mathcal{N}_{\omega} p_{\omega},
@@ -1103,7 +1143,7 @@ p_e = m_e c \sqrt{\gamma^2 - 1}, \quad p_{\omega} = \hbar \omega_0 / c,
 \end{subequations}
 where $ \hbar $ is the reduced Planck constant.
 
-By combining Eqs.~(\ref{eq:conservation}) and (\ref{eq:electron_and_photon_momentum_and_energy}), we obtain the following formula,
+By combining Eqs.~(\ref{eq:conservation}) and (\ref{eq:electron_and_photon_momentum_and_energy}), we obtain the following formula [\ref{paper_3}],
 \begin{equation}\label{eq:recoil_1}
 \hbar \omega_0^{\prime \prime} = \hbar \omega_0 \frac{\mathcal{E}_e \left( \mathcal{E}_e + p_e c \right)}{\mathcal{N}_e \left( \mathcal{E}_e + p_e c \right) + 2 \mathcal{R} \mathcal{N}_{\omega} \hbar \omega_0} = \hbar \omega_0 \frac{\mathcal{N}_e m_e c^2 \left( \gamma + \sqrt{\gamma^2 - 1} \right)}{\mathcal{N}_e m_e c^2 \left( \gamma - \sqrt{\gamma^2 - 1} \right) + 2 \mathcal{R} \mathcal{N}_{\omega} \hbar \omega_0}.
 \end{equation}
@@ -1111,7 +1151,7 @@ In the relativistic limit, Eq.~(\ref{eq:recoil_1}) can be simplified as
 \begin{equation}\label{eq:recoil_2}
 \omega_0^{\prime \prime} \approx 4 \gamma^2 \omega_0 \frac{\mathcal{N}_e m_e c^2 / 4 \gamma}{\mathcal{N}_e m_e c^2 / 4 \gamma + \mathcal{R} \mathcal{N}_{\omega} \hbar \omega_0} \approx 4 \gamma^2 \omega_0 \left( 1 - \frac{\mathcal{R} \mathcal{N}_{\omega} \hbar \omega_0}{\mathcal{N}_e m_e c^2 / 4 \gamma} \right).
 \end{equation}
-The fraction in parentheses on the right-hand side of Eq.~(\ref{eq:recoil_2}) is the ratio between the energy of interacting photons (numerator) and the energy of electron layer (denominator), and it represents the correction to the frequency shift of the reflected wave by the recoil effects. The resulting frequency shift is determined by the relationship between both terms,
+The fraction in parentheses on the right-hand side of Eq.~(\ref{eq:recoil_2}) is the ratio between the energy of interacting photons (numerator) and the energy of electron layer (denominator), and it represents the correction to the frequency shift of the reflected wave by the recoil effects. The resulting frequency shift is determined by the relationship between both terms [\ref{paper_3}],
 \begin{subequations}
 \begin{equation}\label{eq:recoil_limit_1}
 \frac{\omega_0^{\prime \prime}}{\omega_0} \approx 4 \gamma^2 \quad \mathrm{if} \quad \mathcal{R} \mathcal{N}_{\omega} \hbar \omega_0 \ll \frac{\mathcal{N}_e m_e c^2}{4 \gamma},
@@ -1121,7 +1161,7 @@ The fraction in parentheses on the right-hand side of Eq.~(\ref{eq:recoil_2}) is
 \end{equation}
 \end{subequations}
 
-The limit given by Eq.~(\ref{eq:recoil_limit_1}) corresponds to the approximation of a weak incident electromagnetic wave and produces the classical frequency upshift factor as derived in Secs.~\ref{sec:rffm} and \ref{sec:rfpm}. In the opposite limit given by Eq.~(\ref{eq:recoil_limit_2}), the incident electromagnetic wave significantly affects the motion of the mirror so that the frequency of the reflected wave is in fact downshifted, as in the case of receding mirror. We define the threshold characterizing the importance of recoil effects in this interaction as a midpoint between the limits given by Eqs.~(\ref{eq:recoil_limit_1}) and (\ref{eq:recoil_limit_2}), i.e., when the energy of the interacting photons is comparable to that of the electron layer,
+The limit given by Eq.~(\ref{eq:recoil_limit_1}) corresponds to the approximation of a weak incident electromagnetic wave and produces the classical frequency upshift factor as derived in Secs.~\ref{sec:rffm} and \ref{sec:rfpm}. In the opposite limit given by Eq.~(\ref{eq:recoil_limit_2}), the incident electromagnetic wave significantly affects the motion of the mirror so that the frequency of the reflected wave is in fact downshifted, as in the case of receding mirror. We define the threshold characterizing the importance of recoil effects in this interaction as a midpoint between the limits given by Eqs.~(\ref{eq:recoil_limit_1}) and (\ref{eq:recoil_limit_2}), i.e., when the energy of the interacting photons is comparable to that of the electron layer [\ref{paper_3}],
 \begin{equation}\label{eq:recoil_threshold}
 	\mathcal{R} \mathcal{N}_{\omega} \hbar  \omega_0 = \varkappa \frac{\mathcal{N}_e m_e c^2}{4 \gamma}.
 \end{equation}
