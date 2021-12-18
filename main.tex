@@ -208,8 +208,8 @@
 \newcommand{\fnspe}{Faculty of Nuclear Sciences and Physical Engineering}
 \newcommand{\dpe}{Department of Physical Electronics}
 \newcommand{\branch}{Computational Physics}
-\newcommand{\projecttitle}{Laser-driven sources of~electrons and~x-rays in~underdense plasma: theory and~simulation}
-\newcommand{\projecttitlecz}{Laserem řízené zdroje elektronů a~rentgenového záření v~podkritickém plazmatu: teorie a~simulace}
+\newcommand{\projecttitle}{Laser-driven sources of~electrons and~x-rays in~underdense plasma: Theory and~simulation}
+\newcommand{\projecttitlecz}{Laserem řízené zdroje elektronů a~rentgenového záření v~podkritickém plazmatu: Teorie a~simulace}
 \newcommand{\valenta}{Ing. Petr Valenta}
 \newcommand{\klimo}{doc. Ing. Ondřej Klimo, Ph.D.}
 \newcommand{\bulanov}{Prof. Sergei Vladimirovich Bulanov}
@@ -907,7 +907,7 @@ Note that the factor $ \left(1 + \beta_M \right) / \left(1 - \beta_M \right) $ c
 \begin{equation}\label{eq:factor}
 \frac{1 + \beta_M}{1 - \beta_M} = \frac{\gamma_M + \sqrt{\gamma_M^2 - 1}}{\gamma_M - \sqrt{\gamma_M^2 - 1}} \approx 4 \gamma_M^2,
 \end{equation}
-where the last term is obtained using the identity $ \gamma_M + \sqrt{\gamma_M^2 - 1} = ( \gamma_M - \sqrt{\gamma_M^2 - 1} )^{-1} $ and $ \sqrt{\gamma_M^2 - 1} \approx \gamma_M $ and is valid in the relativistic limit, i.e., when $ \gamma_M \gg 1 $.
+where the last term is obtained using the identities $ \gamma_M + \sqrt{\gamma_M^2 - 1} = ( \gamma_M - \sqrt{\gamma_M^2 - 1} )^{-1} $ and $ \sqrt{\gamma_M^2 - 1} \approx \gamma_M $ and is valid in the relativistic limit, i.e., when $ \gamma_M \gg 1 $.
 
 The above derivation shows that the reflected wave packet in the stationary frame of reference possesses several remarkable features: in the relativistic limit, its electric field is amplified by the factor $ \approx 4 \gamma_M^2 $, its duration is compressed by $ \approx 4 \gamma_M^2 $, and its angular frequency is upshifted by $ \approx 4 \gamma_M^2 $. Furthermore, its energy and intensity are enhanced by $ \approx 4 \gamma_M^2 $ and $ \approx 16 \gamma_M^4 $, respectively. Assuming a laser pulse with parameters corresponding to a typical $ \mathrm{PW} $-class titanium-doped sapphire system, i.e., $ 0.8 \ \mathrm{\mu m} $ wavelength, $ 30 \ \mathrm{fs} $ duration, and $ 10^{18} \ \mathrm{W / cm^2} $ peak intensity, being reflected from ideal relativistic flying flat mirror with $ \gamma_M = 10 $, one obtains a pulse of wavelength $ 2 \ \mathrm{nm} $, duration $ 75 \ \mathrm{as} $, and the peak intensity $ 1.6 \times 10^{23} \ \mathrm{W / cm^2} $.
 
@@ -915,7 +915,7 @@ The above derivation shows that the reflected wave packet in the stationary fram
 
 %$ E_0 \left( \rho \right) $ can be thought of as the Laguerre-Gaussian function since the profiles of radially or azimuthally polarized beams can be expressed as the superposition of Laguerre-Gaussian modes (i.e., $ E_0 \sim \left(\rho / \rho_0 \right) \exp \left( - \rho^2 / 2 \rho_0^2 \right)$), 
 
-Second, we present a model of relativistic flying parabolic mirror which, in addition to the flat mirror, describes the effect of focusing. The idea of using flying parabolic mirrors for the intensification of light has been first proposed in Ref.~\citenum{Bulanov2003}, where the mirror is realized by high-density electron shells of strongly nonlinear Langmuir wave driven by intense laser in underdense plasma (note that the surface where the electron density is maximal naturally takes a shapes close to a paraboloid \cite{Bulanov1991, Bulanov1995, Matlis2006, Shadwick2002, Maksimchuk2008}).
+Second, we present a model of relativistic flying parabolic mirror which, in addition to the flat mirror, describes the effect of focusing. The idea of using flying parabolic mirrors for the intensification of light has been first proposed in Ref.~\citenum{Bulanov2003}, where the mirror is realized by high-density electron shells of strongly nonlinear Langmuir wave driven by intense laser in underdense plasma (note that the surface where the electron density is maximal naturally takes a shape close to a paraboloid \cite{Bulanov1991, Bulanov1995, Matlis2006, Shadwick2002, Maksimchuk2008}).
 
 Let us consider an ideal relativistic flying parabolic mirror (i.e., the reflection coefficient equal to unity, no recoil effects, no wavefront aberration) moving along the $ +z $-axis at a constant velocity $ v_M = \beta_M c $. The spatiotemporal distribution of the electromagnetic wave packet reflected from the mirror can be again obtained by calculating first the distribution in the moving frame of reference and then performing the transformation back to the stationary frame. It is important to note that the focal length of the parabolic mirror in the moving frame is $ \gamma_M $ times shorter than in the stationary frame \cite{Bulanov2011, Jeong2021}; this alters the situation to the $ 4 \pi $-spherical focusing scheme \cite{Gonoskov2012, Jeong2020}. The distribution of the electromagnetic fields in the focal region of parabolic mirror in the moving frame has to be thus calculated under the conditions of $ 4 \pi $-spherical focusing.
 
@@ -994,23 +994,25 @@ The phase of the outgoing wave packet in the stationary frame of reference can b
 \end{equation}
 In the relativistic limit ($ \gamma_M \gg 1 $) and in the forward direction ($ \theta = 0 $), the angular frequency is upshifted by the factor $ \approx 4 \gamma_M^2 $, which is consistent to the case of relativistic flying flat mirror.
 
-The spectral bandwidth of the outgoing wave packet in the stationary frame of reference is determined by $ \Delta \omega^{\prime 2} \left( T - R / c \right)^2 / 4 = \left[ \left( 1 + \beta_M \right) / \left( 1 - \beta_M \cos \theta \right) \right]^2 \Delta \omega^2 \left( t - \rho / c \right)^2 / 4 $ in Eqs.~(\ref{eq:envelope_function_1}) or (\ref{eq:envelope_function_2}), thus the duration is given by
+The spectral bandwidth of the outgoing wave packet in the stationary frame of reference is determined by the term $ \Delta \omega^{\prime 2} \left( T - R / c \right)^2 / 4 = \left[ \left( 1 + \beta_M \right) / \left( 1 - \beta_M \cos \theta \right) \right]^2 \Delta \omega^2 \left( t - \rho / c \right)^2 / 4 $ in Eqs.~(\ref{eq:envelope_function_1}) or (\ref{eq:envelope_function_2}), thus the duration is given by
 \begin{equation}\label{key}
 	\tau^{\prime \prime} = \frac{1 - \beta_M \cos \theta}{1 + \beta_M} \tau.
 \end{equation}
 Again, in the relativistic limit and the forward direction, the duration is compressed by the factor $ \approx 4 \gamma_M^2 $, consistently to the case of relativistic flying flat mirror.
 
-From Eqs.~(\ref{eq:reflected_e_lab_frame_parabolic}) and (\ref{eq:reflected_b_lab_frame_parabolic}) it is also clear that the field strength and intensity of the reflected wave packet at focus of the relativistic flying parabolic mirror are in the relativistic limit enhanced by factors of $ \approx 4 \gamma_M^3 \sqrt{3 \pi^5 / 8} \left( w_e / \lambda_0 \right) $ and $ \approx 16 \gamma_M^6 \left( 3 \pi^5 / 8 \right) \left( w_e / \lambda_0 \right)^2 $, respectively; thus in comparison with the relativistic flying flat mirror, the focusing provides additional enhancements of the field strength and intensity of $ \approx \gamma_M \sqrt{3 \pi^5 / 8} \left( w_e / \lambda_0 \right) $ and $ \approx \gamma_M^3 \left( 3 \pi^5 / 8 \right) \left( w_e / \lambda_0 \right)^2 $, respectively. Assuming again a laser pulse of wavelength $ 1 \ \mathrm{\mu m} $, width $ 3 \ \mathrm{\mu m} $, and peak intensity $ 10^{18} \ \mathrm{W / cm^2} $ being reflected from an ideal relativistic flying parabolic mirror with $ \gamma_M = 10 $, one obtains an intensity of $ 5.5 \times 10^{27} \ \mathrm{W / cm^2} $ at focus.
+From Eqs.~(\ref{eq:reflected_e_lab_frame_parabolic}) and (\ref{eq:reflected_b_lab_frame_parabolic}) it is also clear that the field strength and intensity of the reflected wave packet at focus of the relativistic flying parabolic mirror are in the relativistic limit enhanced by factors of $ \approx 4 \gamma_M^3 \sqrt{3 \pi^5 / 8} \left( w_e / \lambda_0 \right) $ and $ \approx 16 \gamma_M^6 \left( 3 \pi^5 / 8 \right) \left( w_e / \lambda_0 \right)^2 $, respectively; thus in comparison with the relativistic flying flat mirror, the focusing provides additional enhancements of the field strength and intensity of $ \approx \gamma_M \sqrt{3 \pi^5 / 8} \left( w_e / \lambda_0 \right) $ and $ \approx \gamma_M^2 \left( 3 \pi^5 / 8 \right) \left( w_e / \lambda_0 \right)^2 $, respectively. Assuming again a laser pulse of wavelength $ 0.8 \ \mathrm{\mu m} $, effective radius $ 3 \ \mathrm{\mu m} $, and peak intensity $ 10^{18} \ \mathrm{W / cm^2} $ being reflected from an ideal relativistic flying parabolic mirror with $ \gamma_M = 10 $, one obtains an intensity of $ 2.6 \times 10^{28} \ \mathrm{W / cm^2} $ at focus.
 
 \subsection{Reflection coefficient}
 
-%As mentioned in Sec.~\ref{sec:rfpm}, the relativistic flying mirror can be physically realized in underdense plasma by a strongly nonlinear Langmuir wave. In this section we present an estimation of the reflection coefficient of such a relativistic mirror. 
+%As mentioned in Sec.~\ref{sec:rfpm}, the relativistic flying mirror can be physically realized in underdense plasma by a strongly nonlinear Langmuir wave. 
 
-Let us consider a relativistic flying mirror in the form of a Langmuir wave near the threshold of breaking, which moves along the $ +z $-axis at a constant phase velocity $ v_{M} = \beta_M c $. The counter-propagating electromagnetic wave incident on the mirror is characterized by the $ x $-component of the vector potential $ A_x \left( y, z; t \right) $; the interaction between the electromagnetic wave and the mirror is governed by the wave equation
+In reality the reflection coefficient of relativistic flying mirrors in plasmas is, in general, very far from unity and, therefore, constitutes an important factor that has to be taken into account. Here we present an estimation of the reflection coefficient for the mirror being physically realized with strongly nonlinear Langmuir wave in underdense plasma.
+
+Let us consider a Langmuir wave near the threshold of breaking, which moves along the $ +z $-axis at a constant phase velocity $ v_{M} = \beta_M c $. The counter-propagating electromagnetic wave incident on the mirror is characterized by the $ x $-component of the vector potential $ A_x \left( y, z; t \right) $; the interaction between the electromagnetic wave and the mirror is governed by the wave equation
 \begin{equation}\label{eq:refl_coeff_vector_potential}
 	\diffp[2]{A_x}{t} - c^2 \left( \diffp[2]{A_x}{y} + \diffp[2]{A_x}{z} \right) + \omega_{pe}^2 A_x = 0,
 \end{equation}
-where $ \omega_{pe} \left( \zeta \right) = \sqrt{e^2 n\left( \zeta \right) / \left( \varepsilon_0 m_e \gamma_e \right)} $ is the relativistic Langmuir frequency, $ \gamma_e $ is the electron Lorentz factor (note that $ \gamma_e = \gamma_M = 1 / \sqrt{1 - \beta_M^2} $ at the wave breaking coordinate $ \zeta_{br} $), $ n \left( \zeta \right) $ is the distribution of the electron density within the Langmuir wave, and $ \zeta = z - \beta_M c t $. 
+where $ \omega_{pe} \left( \zeta \right) = \sqrt{e^2 n\left( \zeta \right) / \left( \varepsilon_0 m_e \gamma_e \right)} $ is the relativistic Langmuir frequency, $ \gamma_e $ is the electron Lorentz factor (note that $ \gamma_e = \gamma_M $ at the wave breaking coordinate $ \zeta_{br} $), $ n \left( \zeta \right) $ is the distribution of the electron density within the Langmuir wave, and $ \zeta = z - \beta_M c t $. 
 
 %We assume the Langmuir wave at the wave-breaking threshold; the electron density can be thus generally described by
 %\begin{equation}\label{key}
@@ -1018,93 +1020,63 @@ where $ \omega_{pe} \left( \zeta \right) = \sqrt{e^2 n\left( \zeta \right) / \le
 %\end{equation}
 %where $ n_0 $ is the ambient plasma density, $ k_p $ is the plasma wavenumber, $ G_{\alpha} $ is a dimensionless constant, and $ 1/2 \leq \alpha < 1 $. 
 
-In the frame of reference moving with the mirror, the form of Eq.~(\ref{eq:refl_coeff_vector_potential}) can be found using the Lorentz transformation as
+The form of Eq.~(\ref{eq:refl_coeff_vector_potential}) in the frame of reference moving with the mirror can be found using the Lorentz transformation as
 \begin{equation}\label{eq:refl_coeff_vector_potential_2}
-\diffp[2]{a}{z^{\prime}} + \left( s^2 - \nu \right) a = 0.
+\frac{d^2 a}{d z^{\prime 2}}+ \left( s^2 - \nu \right) a = 0.
 \end{equation}
-Here $ a \left( y^{\prime}, z^{\prime}; t^{\prime} \right) $ is the vector potential normalized by $ m_e c / e $, $ s^2 = \left( \omega_0^{\prime} / c \right)^2 - k_y^{\prime 2} $, where $ k_y^{\prime} $ is the $ y $-component of the wave vector of the incident electromagnetic wave in the moving reference frame, and $ \nu \left( z^{\prime} \right) = \omega_{pe}^2\left( z^{\prime} \right) / c^2 $. We look for the solution of Eq.~(\ref{eq:refl_coeff_vector_potential_2}) in the form of
-\begin{equation}\label{key}
+Here $ a \left( z^{\prime} \right) $ is the vector potential normalized by $ m_e c / e $, $ s = \sqrt{ \left( \omega_0^{\prime} / c \right)^2 - k_y^{\prime 2}} $, and $ \nu \left( z^{\prime} \right) = \omega_{pe}^2\left( z^{\prime} \right) / c^2 $. We look for the solution of Eq.~(\ref{eq:refl_coeff_vector_potential_2}) in the form of
+%where $ k_y^{\prime} $ is the $ y $-component of the wave vector of the incident electromagnetic wave in the moving reference frame,
+\begin{equation}\label{eq:vector_potential_form}
 a = b_{-} \left( z^{\prime} \right) \exp \left( -i s z^{\prime} \right) + b_{+} \left( z^{\prime} \right) \exp \left( i s z^{\prime} \right),
 \end{equation}
-while imposing the following boundary conditions on the functions $ b_{-} \left( z^{\prime} \right) $ and $ b_{+} \left( z^{\prime} \right) $: In the limit $ z^{\prime} \rightarrow +\infty $, functions $ b_{-} \left( z^{\prime} \right) $ and $ b_{+} \left( z^{\prime} \right) $ represent the amplitudes of the incident and reflected electromagnetic waves, respectively, i.e, we set $ b_{-} \left( +\infty \right) = 1 $ and $ b_{+} \left( +\infty \right) = \rho $. In the opposite limit $ z^{\prime} \rightarrow -\infty $, $ b_{-} \left( z^{\prime} \right) $ and $ b_{+} \left( z^{\prime} \right) $ are the amplitudes of the transmitted and reflected waves, respectively, i.e, we set $ b_{-} \left( -\infty \right) = \tau $ and $ b_{+} \left( -\infty \right) = 0 $. We also require the following condition on the derivative of $ a $,
-\begin{equation}\label{key}
+and impose the following boundary conditions on the functions $ b_{-} \left( z^{\prime} \right) $ and $ b_{+} \left( z^{\prime} \right) $: In the limit $ z^{\prime} \rightarrow +\infty $, functions $ b_{-} \left( z^{\prime} \right) $ and $ b_{+} \left( z^{\prime} \right) $ represent the amplitudes of the incident and reflected electromagnetic waves, respectively, i.e, we set $ b_{-} \left( +\infty \right) = 1 $ and $ b_{+} \left( +\infty \right) = \rho $. In the opposite limit $ z^{\prime} \rightarrow -\infty $, $ b_{-} \left( z^{\prime} \right) $ is the amplitudes of the transmitted wave and $ b_{+} \left( z^{\prime} \right) $ vanishes, i.e, we set $ b_{-} \left( -\infty \right) = \tau $ and $ b_{+} \left( -\infty \right) = 0 $. We also require the following condition on the derivative of $ a $ to be satisfied,
+\begin{equation}\label{eq:boundary_condition_1}
 \diff{a}{z^{\prime}} = -i s b_{-} \exp \left( -i s z^{\prime} \right) + i s b_{+} \exp \left( i s z^{\prime} \right),
 \end{equation}
 which implies that
-\begin{equation}\label{key}
+\begin{equation}\label{eq:boundary_condition_2}
 \diff{b_{+}}{z^{\prime}} \exp \left( i s z^{\prime} \right) = -\diff{b_{-}}{z^{\prime}} \exp \left( -i s z^{\prime} \right).
 \end{equation}
-By plugging written in the compact form
-\begin{equation}\label{key}
+
+By plugging Eq.~(\ref{eq:vector_potential_form}) into Eq.~(\ref{eq:refl_coeff_vector_potential_2}) and taking into account the condition of Eq.~(\ref{eq:boundary_condition_2}), we may write a system of equations for the functions $ b_{-} $ and $  b_{+} $ in the following compact form,
+\begin{equation}\label{eq:refl_coeff_system}
 \diff*
 {\begin{bmatrix}
-	b_{+} \\
-	b_{-}
+	b_{-} \\
+	b_{+} 
 \end{bmatrix}}
 {z^{\prime}} = \frac{i \nu}{2 s} 
 \begin{bmatrix}
-	-1 & -\exp \left( -2 i s z^{\prime} \right) \\
-	\exp \left( 2 i s z^{\prime} \right) & 1
+	\exp \left( 2 i s z^{\prime} \right) & 1 \\
+	-1 & -\exp \left( -2 i s z^{\prime} \right)
 \end{bmatrix}
 {\begin{bmatrix}
-	b_{+} \\
-	b_{-}
+	b_{-} \\
+	b_{+}
 \end{bmatrix}}.
 \end{equation}
-
-Assuming that the amplitude of the reflected wave is much smaller than the amplitude of the incident wave (i.e., $ \rho \ll 1 $) we may find that
-\begin{equation}\label{key}
-	\rho = \frac{i}{2 s} \int_{-\infty}^{+\infty} \nu \exp \left( -2 i s z^{\prime} \right) \dl z^{\prime}
+Assuming that the amplitude of the reflected wave is much smaller than the amplitude of the incident wave (i.e., $ \rho \ll 1 $), the solution of the system of Eqs.~(\ref{eq:refl_coeff_system}) can be written as
+\begin{equation}\label{eq:eq_for_rho}
+	\rho = \frac{i}{2 s} \int_{-\infty}^{+\infty} \nu \left( z^{\prime} \right) \exp \left( -2 i s z^{\prime} \right) \dl z^{\prime}.
 \end{equation}
 
-We consider the Langmuir wave at the threshold of wave breaking for which the electron density distribution is given by Eq.~\ref{eq:eq_for_density_breaking} 
-
-%We assume $ a $ to be in the following form,
-%\begin{equation}\label{key}
-%a = a_0 \left( z^{\prime} \right) \exp \left[ i \left( k_y^{\prime} y^{\prime} - \omega_0^{\prime} t^{\prime} \right) \right].
-%\end{equation}
-
-
-It is the steepness of the cusps that affords the efficient reflection of a portion of the counterpropagating laser pulse. If the wake wave is far below the wave-breaking threshold, the reflection is exponentially small.
-
-%In a
-%strongly nonlinear wake wave, the electron density is modulated
-%n such a way that the electrons form relatively thin
-%layers moving with the velocity vph. A counterpropagating
-%laser pulse called “source” interacts with the plasma, perturbed
-%by the driver. Under certain conditions, the source is
-%partially reflected from the wake wave, which thereby plays
-%the role of a relativistic mirror. As the wake wave amplitude
-%approaches the threshold for wave breaking i.e., when the
-%electron velocity in the wave approaches its wave phase velocity
-%, the electric field profile in the wave steepens and,
-%correspondingly, the singularity is formed in the electron
-%density profile. It is important that the singularity affords
-%partial reflection of the signal with some reflection coefficient
-%R
-
-we consider
-the interaction of an electromagnetic wave, representing the
-signal, with a singularity of the electron density formed in a
-breaking Langmuir wave.
-
-
-
-Let us recall this scheme: an intese 
-
-An intense laser pulse propagating in underdense plasma generates a plasma wave in the wake behind it. The electron density in the wake wave is modulated, so that regions of concentration and rarefaction are formed. Electrons located near the density maximum move in the direction of the driver pulse, whereas electrons in the region of rarefaction move in the opposite direction. The corresponding density modulation velocity is the phase velocity of the wake wave; it is equal to the group velocity of the driver laser pulse. As is well known, the corresponding modulations of the longitudinal electric field underlie the laser wake-field accelerator concept.
-
-If a counter-propagating electromagnetic wave is irradiated onto the wake wave, it will be partially reflected back, most efficiently from the regions of concentration, where the reflected radiation frequency will be multiplied. In the case of a small amplitude wake wave, which implies that the density modulations are smooth, the reflectivity is exponentially small. However, much better reflectivity can be achieved with the increase of the wake wave amplitude, when the density profile in a region of concentration takes the shape of a spike. In this case, the electron maximum velocity becomes close to the wake wave phase velocity. If it exceeds the phase velocity, the electron kinetics becomes multiflow and thus the wake wave breaks. Exactly at the breaking threshold, when the electron maximum velocity and the phase velocity are equal, the density spike becomes a singularity.
-
-Finally, we 
-
-the reflectance of the mirror is dependent on the mirror model and is, in general, very low
-
-Here we 
+Since we consider a Langmuir wave at the threshold of wave breaking, we may use Eq.~(\ref{eq:eq_for_density_breaking}) to describe the distribution of the electron density. In the moving frame of reference, in which the Langmuir wave is at rest, this yields
+\begin{equation}\label{eq:eq_for_nu}
+\nu = \frac{\left( 2 / 9 \right)^{1/3} \left( 1 + a_{br}^2 \right)^{1/6} k_p^{4/3} \gamma_M^{2/3}}{\left( z^{\prime} \right)^{2/3}}.
+\end{equation} 
+After substituting Eq.~(\ref{eq:eq_for_nu}) into Eq.~(\ref{eq:eq_for_rho}) and calculating the integral we obtain
+\begin{equation}\label{eq:eq_for_rho_2}
+\rho = \frac{i 3^{1 / 2} \Gamma \left( 1 / 3 \right) \left( 2 / 9 \right)^{1/3} \left( 1 + a_{br}^2 \right)^{1/6} k_p^{4/3} \gamma_M^{2/3}}{\left( 2 s \right)^{4 / 3}},
+\end{equation}
+where $ \Gamma \left( \cdot \right) $ is the Euler gamma function \cite{Gradshteyn1980}. Finally, the reflection coefficient can be obtained as follows,
+\begin{equation}\label{eq:reflection_coefficient}
+\mathcal{R} = \norm{\rho}^2 = \frac{\Gamma^2 \left( 1 / 3 \right) \left( 1 + a_{br}^2 \right)^{1 / 3} k_p^{8/3} \gamma_M^{4/3}}{2^2 3^{1 / 3} s^{8 / 3}}.
+\end{equation}
+It is important to note that the formula for the reflection coefficient given by Eq.~(\ref{eq:reflection_coefficient}) is calculated in the moving frame of reference. In the stationary frame, it has to be interpreted as a reflection coefficient in terms of the photon number. 
 
 \subsection{Recoil efects}
 
-The calculations presented in Secs.~\ref{sec:rffm} and \ref{sec:rfpm} are valid only if the amplitude of the electromagnetic wave incident on the relativistic mirror is sufficiently low. When the amplitude is high, the electromagnetic wave may significantly affect the mirror motion (i.e., the radiation pressure of the wave may slow down or even destroy the mirror) even if the mirror reflection coefficient is small. The knowledge of the onset of recoil effects associated with the interaction of the relativistic mirror and strong incident electromagnetic wave is thus crucial for maximizing the amplitude of the reflected wave.
+Furthermore, the calculations presented above are valid only if the amplitude of the electromagnetic wave incident on the relativistic mirror is sufficiently low. When the amplitude is high, the electromagnetic wave may significantly affect the mirror motion (i.e., the radiation pressure of the wave may slow down or destroy the mirror) even if the mirror reflection coefficient is small. The knowledge of the onset of recoil effects associated with the interaction of the relativistic mirror and strong incident electromagnetic wave is thus crucial for maximizing the amplitude of the reflected wave.
 
 The recoil effects of relativistic mirrors physically realized by the structures in laser plasmas have been recently investigated in one-dimensional [\ref{paper_3}] and two-dimensional \cite{Jeong2021} geometries. Here we present the one-dimensional description. Let us consider a relativistic mirror in the form of an electron layer interacting with a counter-propagating electromagnetic wave. We assume that all the electrons are characterized by the same momentum, the electromagnetic wave is monochromatic with the angular frequency $ \omega_0 $, and the reflection coefficient (in terms of photon number) is equal to $ \mathcal{R} $. The conservation of momentum and energy before (unprimed quantities) and after (double-primed quantities) the interaction can be written as [\ref{paper_3}]
 \begin{subequations}\label{eq:conservation}
@@ -1115,7 +1087,10 @@ The recoil effects of relativistic mirrors physically realized by the structures
 \mathcal{N}_e \mathcal{E}_e + \mathcal{N}_{\omega} \mathcal{E}_{\omega} = \mathcal{N}_e \mathcal{E}_e^{\prime \prime} + \mathcal{R} \mathcal{N}_{\omega} \mathcal{E}_{\omega}^{\prime \prime} + \left( 1 - \mathcal{R} \right) \mathcal{N}_{\omega}  \mathcal{E}_{\omega}.
 \end{equation}
 \end{subequations}
-Here $ \mathcal{N} $, $ p $, and $ \mathcal{E} $ are the numbers, momenta, and energies of the interacting particles, respectively, and the subscripts $ e $ and $ \omega $ denote the electrons (representing the relativistic flying mirror) and photons (representing the incident electromagnetic wave), respectively. The electron and photon momenta can be expressed as $ p_e = m_e c \sqrt{\gamma_M^2 - 1} $ and $ p_{\omega} = \hbar \omega_0 / c $, respectively, and the electron and photon energies are $ \mathcal{E}_e = m_e c^2 \gamma_M $ and $ \mathcal{E}_{\omega} = \hbar \omega_0 $, respectively, where $ \hbar $ stands for the reduced Planck constant. The schematic of the analytical model is displayed in Fig.~\ref{fig:recoil_schematic}.
+Here $ \mathcal{N} $, $ p $, and $ \mathcal{E} $ are the numbers, momenta, and energies of the interacting particles, respectively, and the subscripts $ e $ and $ \omega $ denote the electrons (representing the relativistic flying mirror) and photons (representing the incident electromagnetic wave), respectively. The electron and photon momenta can be expressed as $ p_e = m_e c \sqrt{\gamma_M^2 - 1} $ and $ p_{\omega} = \hbar \omega_0 / c $, respectively, and the electron and photon energies are $ \mathcal{E}_e = m_e c^2 \gamma_M $ and $ \mathcal{E}_{\omega} = \hbar \omega_0 $, respectively, where $ \hbar $ stands for the reduced Planck constant. 
+
+%The schematic of the analytical model is displayed in Fig.~\ref{fig:recoil_schematic}.
+
 % energies can be expressed as
 %\begin{subequations}\label{eq:electron_and_photon_momentum_and_energy}
 %\begin{equation}\label{eq:electron_and_photon_momentum}
@@ -1126,6 +1101,11 @@ Here $ \mathcal{N} $, $ p $, and $ \mathcal{E} $ are the numbers, momenta, and e
 %\end{equation}
 %\end{subequations}
 %where $ \hbar $ is the reduced Planck constant.
+
+%\begin{figure}[t]
+%	\includegraphics[width=0.45\linewidth]{img/recoil_scheme.png}
+%	\caption[]{\label{fig:recoil_schematic} Schematic illustrating the analytical model of Eqs.~(\ref{eq:conservation}) (a) before and (b) after the interaction of incident electromagnetic wave with a counter-propagating relativistic mirror, which is represented by thin electron layer (red dots).}
+%\end{figure}
 
 By combining Eqs.~(\ref{eq:conservation}) we obtain the following formula [\ref{paper_3}],
 \begin{equation}\label{eq:recoil_1}
@@ -1145,11 +1125,6 @@ The fraction in parentheses on the right-hand side of Eq.~(\ref{eq:recoil_2}) is
 \end{equation}
 \end{subequations}
 
-\begin{figure}[t]
-	\includegraphics[width=0.45\linewidth]{img/recoil_scheme.png}
-	\caption[]{\label{fig:recoil_schematic} Schematic illustrating the analytical model of Eqs.~(\ref{eq:conservation}) (a) before and (b) after the interaction of incident electromagnetic wave with a counter-propagating relativistic mirror, which is represented by thin electron layer (red dots).}
-\end{figure}
-
 The limit given by Eq.~(\ref{eq:recoil_limit_1}) corresponds to the approximation of a weak incident electromagnetic wave and produces the classical frequency upshift factor as derived in Secs.~\ref{sec:rffm} and \ref{sec:rfpm}. In the opposite limit given by Eq.~(\ref{eq:recoil_limit_2}), the incident electromagnetic wave significantly affects the motion of the mirror so that the frequency of the reflected wave is in fact downshifted, as in the case of receding mirror. We define the threshold characterizing the importance of recoil effects in this interaction as a midpoint between the limits given by Eqs.~(\ref{eq:recoil_limit_1}) and (\ref{eq:recoil_limit_2}), i.e., when the energy of the interacting photons is comparable to that of the electron layer [\ref{paper_3}],
 \begin{equation}\label{eq:recoil_threshold}
 	\mathcal{R} \mathcal{N}_{\omega} \hbar  \omega_0 = \varkappa \frac{\mathcal{N}_e m_e c^2}{4 \gamma_M}.
@@ -1163,11 +1138,239 @@ Here $ \varkappa \ll 1 $, i.e., much less energy than the kinetic energy of the 
 \section{Particle-in-cell algorithm}
 %\input{dat/1-0.tex}
 
+%Laser-plasma interaction involves a collective behavior of particles and electromagnetic fields which is in general complex and strongly non-linear problem to solve. The investigation of such systems cannot be usually carried out only through the theoretical and experimental work. Since a large amount of simultaneous processes with many degrees of freedom may be present there, analytical modeling seems to be impractical. On the other hand, many of the significant details of laser-plasma interaction may be extremely difficult or even impossible to obtain experimentally. Hence, other tools and techniques are required for the further progress in this field of research \cite{jaroszynsky}.
+
+%Numerical simulations help researchers to develop models covering a wide range of physical scenarios as well as to investigate their properties. With the advent of powerful computational systems, numerical simulations now play an important role as an essential tool in developing theoretical models and understanding experimental results in various fields of modern science \cite{pang}. These so-called computer experiments are often faster and much cheaper than a single real experiment in laboratory \cite{gould}. In addition, one numerical code can solve a broad range of tasks only by modification of its initial and boundary conditions.
+
+%Nowadays, it is clear that detailed understanding of the physical mechanisms in the laser-plasma interaction can be achieved only through the combination of theory, experiment and simulation. Development of parallel algorithms that are able to provide sufficiently exact solutions in reasonable time, however, belongs to the most challenging fields of modern science.
+
+%The PIC method refers to a technique that has been used to solve a certain class of partial differential equations. The method has been proposed in the mid-fifties and it has early gained a great popularity in the field of plasma physics \cite{birdsall, hockney, Verboncoeur2005}. It is based on the kinetic approach, thus the evolution of the system is described in principle via the motion of the charged particles.
+
+%However, real systems are often extremely large in terms of the number of particles they contain. In order to make simulations computationally tractable, so-called macro-particles are used. The macro-particle is a finite-size computational particle representing a group of physical particles that are near each other in the phase space. Notice that it is allowed to rescale the number of particles, because the Lorentz force depends only on the charge to mass ratio, which is invariant to this transformation. Thus, the macro-particle will follow the same trajectory as the corresponding real particles would \cite{hockney}.
+
+%Although this approach significantly reduces the number of computational particles in simulation, the binary interactions for every pair in the system cannot be taken into account. The cost would scale quadratically as the number of particles increases and that makes the computational effort unmanageable in the case of larger systems. Fortunately, many of the phenomena occur in high-temperature plasmas where the collective behavior dominates and the collisional effects are very weak (see \ref{2.1.6}), thus one can neglect them. Otherwise, one has to exploit other techniques to estimate the collisional effects \cite{lapenta}.
+
+%In the collisionless plasma, the phase space particle distribution function  $ f_{s} \left(\vec{r}, \vec{v}, t\right) $ for a given species $ s $ is governed by the Vlasov equation (\ref{2.2.1}). The mathematical formulation of the PIC method is obtained by assuming that the distribution function $ f_{s} \left(\vec{r}, \vec{v}, t\right) $ is given by the sum of distribution functions for macro-particles $ f_{p, s} \left(\vec{r}, \vec{v}, t\right) $,
+
+\begin{figure}[t]
+	\centering
+	\tikzstyle{empty} = [rectangle, fill=white, text width=11em, text badly centered, node distance=4em]
+	\tikzstyle{block} = [rectangle, draw, thick, fill=white, text width=11em, text centered, rounded corners, minimum height=4.5em]
+	\tikzstyle{line} = [draw, -triangle 45]
+	\begin{tikzpicture}[node distance = 2cm, auto]
+		\node [block] (nahore) {Particle pusher\\[2mm] $ \vec{F}_p \rightarrow \left(\vec{x}, \vec{v}\,\right)_{p} $};	
+		\node [empty, below of=nahore, node distance=2cm] (uprostred) {};	
+		\node [block, right of=uprostred, node distance=4cm] (vpravo) {Particle weighting\\[2mm] $ \left(\vec{x}, \vec{v}\right)_{p} \rightarrow \left(\rho, \vec{J}\,\right)_{i, j, k} $ };
+		\node [block, left of=uprostred, node distance=4cm] (vlevo) {Field weighting \\[2mm] $ \left(\vec{E}, \vec{B}\,\right)_{i, j, k} \rightarrow \vec{F}_p $};	
+		\node [block, below of=uprostred, node distance=2cm] (dole) {Field solver\\[2mm] $ \left(\rho, \vec{J}\,\right)_{i, j, k} \rightarrow \left(\vec{E}, \vec{B}\,\right)_{i, j, k} $};	
+		\path [line] (dole) -| (vlevo);
+		\path [line] (vlevo) |- (nahore);
+		\path [line] (nahore) -| (vpravo);
+		\path [line] (vpravo) |- (dole);
+	\end{tikzpicture}
+	\caption[]{\label{fig:pic_cycle} Computational cycle of the particle-in-cell method.}
+\end{figure}
+
+The distribution function $ f_{s} \left(\vec{r}, \vec{v}, t\right) $ of particle species $ s $ is obtained by summing the distribution functions of each quasi-particle $ f_{p, s} \left(\vec{r}, \vec{v}, t\right) $,
+\begin{equation}
+	\label{3.1.1}
+	f_{s} =  \sum_{p} f_{p, s}.
+\end{equation}
+Here, we use the subscript $ p $ to denote quantities attributed to quasi-particles. The quasi-particle distribution function can be defined as 
+\begin{equation}
+	\label{3.1.2}
+	f_{p, s}\left(\vec{r}, \vec{v}, t \right) = w_{p} S_{r}\left(\vec{r} - \vec{r}_{p}\left(t\right) \right)  S_{v}\left(\vec{v} - \vec{v}_{p}\left( t\right) \right),
+\end{equation}
+where $ S_{r} \left(\vec{r} - \vec{r}_{p} \left(t\right) \right) $ and $ S_{v} \left(\vec{v} - \vec{v}_{p} \left(t\right) \right) $ are the shape functions for the spatial and velocity coordinates, respectively, and $ w_{p} $ is the weight of the quasi-particle (i.e., a number of physical particles which the quasi-particle represents).
+
+The shape functions cannot be chosen arbitrarily, they have to satisfy the following requirements: (i) the shape function is even, (ii) the integral of the shape function is equal to unity, and (iii) the support of the shape function is compact. While these restrictive conditions still offer a wide range of options, the standard PIC method is essentially determined by the choice of the shape function in the velocity coordinate as a Dirac delta function and in the spatial coordinate as a m-th order b-spline basis function $ b_{m} $. Note that the choice of the shape functions has strong impact on the stability and accuracy of the simulation \cite{birdsall}. Higher-order basis functions result in less numerical noise and reduce non-physical phenomena in simulations, obviously at the cost of increased computational time.
+
+Substituting the discretization \ref{3.1.1} into the Vlasov equation \ref{2.2.1} and taking into account the properties of shape functions mentioned above, one obtains the set of equations of motion for macro-particle $ p $ as the first moments,
+\begin{equation}
+	\label{3.1.5}
+	\diff{\vec{r}_{p}}{t} = \vec{v}_{p}, \qquad \diff{\vec{p}_{p}}{t} = \vec{F}_{p},
+\end{equation}
+where $ \vec{p}_{p} \left( t\right) $ is particle momentum and $ \vec{F}_p \left( t\right) $ represents a spatial average of the force acting on the macro-particle,
+\begin{equation}
+	\label{3.1.6}
+	\vec{F}_p = q_s \left(\vec{E}_p + \vec{v}_p \times \vec{B}_p \right).
+\end{equation}
+The fields at the macro-particle position $ \vec{E}_p \left( t\right) $ and $ \vec{B}_p \left( t\right) $ in \ref{3.1.6} are given by the spatial shape function, which implies some form of interpolation. This will be closer discussed in the fourth section of this chapter.
+
+The PIC method combines Lagrangian and Eulerian frame of reference \cite{Dawson1983}. It means that the macro-particles are tracked in a continuous phase space, whereas the electromagnetic fields are calculated only on stationary grid points. Therefore, it is necessary to perform the discretization of the spatial coordinates $ \vec{r} \rightarrow \vec{r}_{i j k} $ where $ (i,j,k) \in \mathbb{Z}^{3} $ are grid indices. It is also necessary to perform the discretization of the temporal coordinate $ t \rightarrow t^{\,n} $, where $ n \in \mathbb{N} $ is the time level index. The algorithm will be outlined for a three-dimensional equidistant rectangular grid, thus $ \vec{r}_{i j k} = \left(i \Delta x, j \Delta y, k \Delta z\right) $, where $ \Delta x, \Delta y, \Delta z $ are the spatial steps in each direction and $ t^{\,n} = n\Delta t $, where $ \Delta t $ is the time step. Each quantity $ A \left(\vec{r}_{i j k}, t^{\,n} \right) $ will be hereafter denoted as $ A_{ijk}^{\,n} $.
+
+The computational cycle of the PIC method is shown in the fig. \ref{3.1.4}. Individual steps are closer described in several following sections. The influence of the choice of the time and spatial step on the stability and accuracy of the PIC method will be demonstrated as well. An extensive study of PIC method can be found in \cite{birdsall, hockney}. The PIC code EPOCH \cite{bennett}, which has been used for the simulations within this work, is described in the last section of this chapter.
+
 \subsection{Particle pusher}
+
+As one could already see from \ref{3.1.5}, the motion of macro-particles in simulation is governed by the Newton's equations with spatially averaged Lorentz force. Since the particles can reach velocities near the velocity of light, it is necessary to perform relativistic generalization,
+\begin{equation}
+	\label{3.2.4.1}
+	\vec{u}_{p} = \gamma \, \vec{v}_{p}, \qquad \gamma = \sqrt{1 + \left( \frac{\vec{u}_{p}}{c}\right)^{2}}.
+\end{equation}
+Assume that the electric and magnetic fields are interpolated from the grid points to the particles at the time level $ t^{n} $. Then the equations of motion to be integrated are
+\begin{equation}
+	\label{3.2.4.2}
+	\diff[]{\vec{r}_{p}}{t} = \frac{\vec{u}_{p}}{\gamma}, \qquad \diff[]{\vec{u}_{p}}{t} = \frac{q_{s}}{m_{s}} \left(\vec{E}_{p} + \frac{\vec{u}_{p}}{\gamma} \times \vec{B}_{p} \right).
+\end{equation}
+To discretize the equations of motion \ref{3.2.4.2}, a time-centered leap-frog scheme is used. One obtains
+\begin{equation}
+	\label{3.2.4.4}
+	\frac{\vec{r}_{p}^{\:n+1} - \vec{r}_{p}^{\:n}}{\Delta t} = \frac{\vec{u}_{p}^{\:n + 1/2}}{\gamma^{\:n+1/2}},
+\end{equation}
+\begin{equation}
+	\label{3.2.4.5}
+	\frac{\vec{u}_{p}^{\:n+1/2} - \vec{u}_{p}^{\:n-1/2}}{\Delta t} = \frac{q_{s}}{m_{s}} \left( \vec{E}_{p}^{\:n} + \frac{\vec{u}_{p}^{\:n+1/2} + \vec{u}_{p}^{\:n-1/2}}{2 \gamma^{\:n}} \times \vec{B}_{p}^{\:n} \right).
+\end{equation}
+
+Although these equations appear to be very simple, the solution is one of the most time-consuming parts of the simulation, because they must be solved for every single macro-particle at each time step. Standard approach for particle pushing in plasma simulation PIC codes involves Boris method \cite{Boris1970, Qin2013}, which completely separates the effect of electric and magnetic fields \cite{birdsall}. Substitute
+\begin{equation}
+	\label{3.2.4.6}
+	\vec{u}_{p}^{\:n-1/2} = \vec{u}_{p}^{\:-} - \frac{q_{s} \vec{E}_{p}^{\:n}}{m_{s}} \frac{\Delta t}{2}, \qquad \vec{u}_{p}^{\:n+1/2} = \vec{u}_{p}^{\:+} + \frac{q_{s} \vec{E}_{p}^{\:n}}{m_{s}} \frac{\Delta t}{2}
+\end{equation}
+into the equation \ref{3.2.4.5}, then the electric field cancels entirely,
+\begin{equation}
+	\label{3.2.4.7}
+	\frac{\vec{u}_{p}^{\:+} - \vec{u}_{p}^{\:-}}{\Delta t} = \frac{q_{s}}{2 \gamma^{\:n} m_{s}} \left(\vec{u}_{p}^{\:+} + \vec{u}_{p}^{\:-}\right)\times \vec{B}_{p}^{\:n}. 
+\end{equation}
+The equation \ref{3.2.4.7} describes a rotation of the vector $ \vec{u}_{p}^{\:-} $ to $ \vec{u}_{p}^{\:+} $ in one simulation time step $ \Delta t $. The angle $ \theta $ between the vector $ \vec{u}_{p}^{\:-} $ and $ \vec{u}_{p}^{\:+} $ is expected to be $ \theta = \omega_{c} \Delta t $.
+
+To implement the Boris method, first add half the electric impulse $ \vec{E}_{p}^{\:n} $ to $ \vec{u}_{p}^{\:n-1/2} $, then perform the full rotation by the angle $ \theta $, and finally, add another half the electric impulse $ \vec{E}_{p}^{n} $. From the basic geometry Boris derived following steps to obtain $ \vec{u}_{p}^{\:n + 1/2} $. From the first of the equations \ref{3.2.4.6}, express the vector $ \vec{u}_{p}^{\:-} $,
+\begin{equation}
+	\vec{u}_{p}^{\:-} = \vec{u}_{p}^{\:n-1/2} +  \frac{q_{s} \vec{E}_{p}^{\:n}}{m_{s}} \frac{\Delta t}{2}
+\end{equation}
+and construct an auxiliary vector $ \vec{u}_{p}\!' $, which is simultaneously perpendicular to $ \left(\vec{u}_{p}^{\:+} - \vec{u}_{p}^{\:-} \right) $ and to $ \vec{B}_{p}^{\:n} $,
+\begin{equation}
+	\vec{u}_{p}\!' = \vec{u}_{p}^{\:-} + \vec{u}_{p}^{\:-} \times \vec{t}, \qquad \vec{t} = \frac{q_{s} \vec{B}_{p}^{\:n}}{\gamma^{\:n} m_{s}} \frac{\Delta t}{2}.
+\end{equation}
+
+The vector $ \vec{t} $ has to be logically parallel to $ \vec{B}_{p}^{n} $ with the length of $ \tan \left(\theta/2\right) \approx \theta/2 $ for small angles. Next, exploit the fact that the vector $ (\vec{u}_{p}\!' \times \vec{B}_{p}^{\:n}) $ is parallel to $ \left(\vec{u}_{p}^{\:+} - \vec{u}_{p}^{\:-} \right) $ and express the vector $ \vec{u}_{p}^{\:+} $,
+\begin{equation}
+	\vec{u}_{p}^{\:+} = \vec{u}_{p}^{\:-} + \vec{u}_{p}\!' \times \vec{s}, \qquad \vec{s} = \frac{2\vec{t}}{1 + t^2}.
+\end{equation}
+Here the vector $ \vec{s} $ is parallel to $ \vec{B}_{p}^{n} $ and its length has to fulfill the condition $ \norm{\vec{u}_{p}^{\:+}} = \norm{\vec{u}_{p}^{\:-}} $. The transition from $ \vec{u}_{p}^{\:-} $ to $ \vec{u}_{p}^{\:+} $ can be written more clearly using the matrix,
+\begin{equation}
+	\vec{u}_{p}^{\:+} = \mathbb{M} \: \vec{u}_{p}^{\:-},
+\end{equation}
+where \vspace{5mm}
+\begingroup
+\renewcommand*{\arraystretch}{1.8}
+\begin{equation}
+	\mathbb{M} = 
+	\begin{pmatrix}
+		1 - s_{2}t_{2} - s_{3}t_{3} & s_{2}t_{1} + s_{3} & s_{3}t_{1} - s_{2} \\
+		s_{1}t_{2} - s_{3} & 1 - s_{1}t_{1} - s_{3}t_{3} & s_{3}t_{2} + s_{1} \\
+		s_{1}t_{3} + s_{2} & s_{2}t_{3} - s_{1} & 1 - s_{1}t_{1} - s_{2}t_{2}
+	\end{pmatrix}.
+\end{equation}
+\endgroup
+Finally, substitute the vector $ \vec{u}_{p}^{\:+} $ into the second from the equations \ref{3.2.4.6},
+\begin{equation}
+	\vec{u}_{p}^{\:n+1/2} = \vec{u}_{p}^{\:+} + \frac{q_{s} \vec{E}_{p}^{\:n}}{m_{s}} \frac{\Delta t}{2}.
+\end{equation}
+The position of macro-particle is then advanced according to
+\begin{equation}
+	\vec{r}_{p}^{\:n+1} = \vec{r}_{p}^{\:n} + \frac{\vec{u}_{p}^{\:n + 1/2}}{\gamma^{\:n + 1/2}} \Delta t, \qquad \gamma^{\:n + 1/2} = \sqrt{1 + \left(\frac{\vec{u}_{p}^{\:n + 1/2}}{c}\right)^{2}}.
+\end{equation}
 
 \subsection{Field solver}
 
+As already mentioned, the behavior of the time varying electromagnetic field in free space is governed by the microscopic variant of the Maxwell's equations (\ref{1.1} - \ref{1.4}). A typical numerical technique to resolve the Maxwell's equations with respect to time is finite-difference time-domain method (FDTD) \cite{yee}, because it is probably the simplest technique in terms of the implementation.
+
+The vector components of the fields $ \vec{E}_{ijk}^{\,n} $ and $ \vec{B}_{ijk}^{\,n} $ are spatially staggered about rectangular cells of the computational grid,
+\begin{equation}
+	\label{3.1.1.4}
+	\vec{E}_{ijk}^{\,n} \rightarrow \left[\left(E_{x}\right)^{n}_{i,\: j + 1/2,\: k + 1/2}, \left(E_{y}\right)^{n}_{i + 1/2,\: j,\: k + 1/2}, \left(E_{z}\right)^{n}_{i + 1/2,\: j + 1/2,\: k} \right],
+\end{equation}
+\begin{equation}
+	\label{3.1.1.5}
+	\vec{B}_{ijk}^{\,n} \rightarrow \left[\left(B_{x}\right)^{n}_{i + 1/2,\: j,\: k}, \left(B_{y}\right)^{n}_{i,\: j + 1/2,\: k}, \left(B_{z}\right)^{n}_{i,\: j,\: k + 1/2} \right].
+\end{equation}
+This scheme, which has proven to be very robust, is now known as a Yee lattice \cite{yee}. The illustration of a standard Cartesian Yee cell used for FDTD is shown in the fig. \ref{3.1.1.14}. Components of the current density $ \vec{J}_{ijk}^{\:n} $ are defined in the same way as the components of $ \vec{E}_{ijk}^{\:n} $, charge density $ \rho_{ijk}^{\:n} $ is defined in the middle of the cell,
+\begin{equation}
+	\vec{J}_{ijk}^{\,n} \rightarrow \left[\left(J_{x}\right)^{n}_{i,\: j + 1/2,\: k + 1/2}, \left(J_{y}\right)^{n}_{i + 1/2,\: j,\: k + 1/2}, \left(J_{z}\right)^{n}_{i + 1/2,\: j + 1/2,\: k} \right],
+\end{equation}
+\begin{equation}
+	\rho_{ijk}^{\,n} \rightarrow \rho_{i + 1/2,\: j + 1/2,\: k + 1/2}^{\,n}.
+\end{equation}
+
+For marching in time, the leap-frog scheme is used. Therefore, discretized Maxwell's equations \ref{1.1} - \ref{1.4} have the following form,
+\begin{equation}
+	\label{3.1.1.6}
+	\nabla^{+} \cdot \vec{E}_{ijk}^{\,n} = \frac{\rho_{ijk}^{\,n}}{\varepsilon_0},
+\end{equation}
+\begin{equation}
+	\label{3.1.1.15}
+	\nabla^{-} \cdot \vec{B}_{ijk}^{\,n + 1/2} = 0,
+\end{equation}
+\begin{equation}
+	\label{3.1.1.16}
+	\frac{1}{c^{2}} \frac{\vec{E}_{ijk}^{\,n + 1} - \vec{E}_{ijk}^{\,n}}{\Delta t} = \nabla^{+} \times \vec{B}_{ijk}^{\,n + 1/2} - \mu_{0} \vec{J}_{ijk}^{\,n + 1/2},
+\end{equation}
+%\begin{figure}[t]
+%	\centering
+%	\includegraphics[width=0.4\paperwidth]{./img/yee/yee.pdf}
+%	\caption{Standard Cartesian Yee cell used for FDTD method}
+%	\label{3.1.1.14}
+%\end{figure}
+\begin{equation}
+	\label{3.1.1.7}
+	\frac{\vec{B}_{ijk}^{\,n + 1/2} - \vec{B}_{ijk}^{\,n - 1/2}}{\Delta t} = -\nabla^{-} \times \vec{E}_{ijk}^{\,n}.
+\end{equation}
+Notice that this scheme achieves the second-order accuracy in both, space and time. Discrete operators $ \left(\nabla^{+}\right) $ and $ \left(\nabla^{-}\right) $ used in \ref{3.1.1.6} - \ref{3.1.1.7} act on a scalar field $ f_{i j k} $ as follows \cite{esirkepov},
+\begin{equation}
+	\label{3.1.1.8}
+	\nabla^{+} f_{i j k} = \left(\frac{f_{i + 1,\: j,\: k} - f_{i,\: j,\: k}}{\Delta x}, \frac{f_{i,\: j + 1,\: k} - f_{i,\: j,\: k}}{\Delta y}, \frac{f_{i,\: j,\: k + 1} - f_{i,\: j,\: k}}{\Delta z} \right), 
+\end{equation}
+\begin{equation}
+	\label{3.1.1.9}
+	\nabla^{-} f_{i j k} = \left(\frac{f_{i,\: j,\: k} - f_{i - 1,\: j,\: k}}{\Delta x}, \frac{f_{i,\: j,\: k} - f_{i,\: j - 1,\: k}}{\Delta y}, \frac{f_{i,\: j,\: k} - f_{i,\: j,\: k - 1}}{\Delta z} \right).
+\end{equation}
+These operators have the following properties \cite{esirkepov},
+\begin{equation}
+	\label{3.1.1.10}
+	\nabla^{-} \cdot \nabla^{-} \times = \nabla^{+} \cdot \nabla^{+} \times = 0, \qquad \nabla^{-} \cdot \nabla^{+} = \nabla^{+} \cdot \nabla^{-} = \Delta^{\pm}.
+\end{equation}
+Symbol $ \Delta^{\pm} $ stands for the discrete Laplace operator in central differences \cite{esirkepov},
+\begin{equation}
+	\label{3.1.1.11}
+	\Delta^{\pm} f_{i, j, k} = \frac{f_{i - 1, j, k} - 2 f_{i, j, k} + f_{i + 1, j, k}}{\Delta x^{2}} + \frac{f_{i, j - 1, k} - 2 f_{i, j, k} + f_{i, j + 1, k}}{\Delta y^{2}} + \frac{f_{i, j, k - 1} - 2 f_{i, j, k} + f_{i, j, k + 1}}{\Delta z^{2}}.
+\end{equation}
+
+Before trying to find the solution of discretized Maxwell's equations \ref{3.1.1.6} - \ref{3.1.1.7}, one must realize that this system of equations is not independent. In the three-dimensional case, there are eight first-order differential equations, but only six unknown vector components. Acting on the equations \ref{3.1.1.16} and \ref{3.1.1.7} by operators $ \left(\nabla^{-}\cdot\right) $ and $ \left(\nabla^{+}\cdot\right) $, respectively, one obtains
+\begin{equation}
+	\label{3.1.1.12}
+	\frac{\nabla^{-} \cdot \vec{B}_{ijk}^{\,n + 1/2} - \nabla^{-} \cdot \vec{B}_{ijk}^{\,n - 1/2}}{\Delta t} = 0,
+\end{equation}
+\begin{equation}
+	\label{3.1.1.13}
+	\frac{\rho_{ijk}^{\,n + 1} - \rho_{ijk}^{\,n}}{\Delta t} + \nabla^{+} \cdot \vec{J}_{ijk}^{\,n + 1/2} = 0.
+\end{equation}
+It means that it is possible to solve only the equations \ref{3.1.1.16} and \ref{3.1.1.7}, while the divergence equations \ref{3.1.1.6}, \ref{3.1.1.15} can be considered as the initial conditions. Note that in this case, the continuity equation in the finite differences (\ref{3.1.1.13}) has to be fulfilled.
+
 \subsection{Particle and field weighting}
+
+In order to solve the Maxwell's equations, as shown in the previous section of this chapter, one has to know the source terms produced by the motion of the charged particles. In other words, it is necessary to assign charge and current densities from the continuous macro-particle positions to the discrete grid points. This simulation step is usually referred to as particle weighting and it involves some form of interpolation.
+
+According to the kinetic theory, charge density $ \rho\left(\vec{x}, t \right) $ and current density $ \vec{J}\left(\vec{x}, t \right) $ are given by the following integrals over the velocity space,
+\begin{equation}
+	\label{3.1.2.1}
+	\rho\left(\vec{x}, t \right) = \sum_s q_s \int f_s \left(\vec{x}, \vec{v}, t \right) \mathrm{d} \vec{v}, \qquad \vec{J}\left(\vec{x}, t \right) = \sum_s q_s \int f_s \left(\vec{x}, \vec{v}, t \right) \vec{v} \, \mathrm{d} \vec{v}.
+\end{equation}
+After discretization of \ref{3.1.2.1} using macro-particles and exploiting the properties of the shape functions, one gets immediately
+\begin{equation}
+	\label{3.1.2.2}
+	\rho_{ijk}^{\,n} = \sum_{p} q_p S_{r}\left(\vec{r}_{ijk} - \vec{r}_{p}^{\,n}\right), \qquad \vec{J}_{ijk}^{\,n} = \sum_{p} q_p \vec{v}_p^{\,n} S_{r}\left(\vec{r}_{ijk} - \vec{r}_{p}^{\,n}\right),
+\end{equation}
+where $ q_p = q_s w_p $. However, using the formulas \ref{3.1.2.2} for charge and current deposition in PIC codes may violate the discrete continuity equation (\ref{3.1.1.13}) and in turn cause errors in Gauss's law (\ref{3.1.1.6}). In this case, one would have to solve the Poisson's equation for the correction of the electric field at every simulation time step or use a numerical scheme that satisfies the continuity equation exactly. These schemes are referred to as a charge conservation methods \cite{Eastwood1991, Eastwood1996, villasenor, esirkepov, Morse1971, umeda}.
+
+Similarly, to advance macro-particle positions, as shown in the second section of this chapter, one has to know the force acting on them. Hence, it is necessary to assign electric and magnetic fields that are calculated at the discrete grid points to the continuous macro-particle positions. This simulation step is usually referred to as field weighting.
+
+By analogy to the particle weighting, one may exploit the shape functions to calculate the spatial averages of the electric and magnetic field components,
+\begin{equation}
+	\vec{E}_{p}^{\,n} = \sum_{ijk} \vec{E}_{ijk}^{\,n} S_{r}\left(\vec{r}_{ijk} - \vec{r}_{p}^{\,n}\right), \qquad \vec{B}_{p}^{\,n} = \sum_{ijk} \vec{B}_{ijk}^{\,n} S_{r}\left(\vec{r}_{ijk} - \vec{r}_{p}^{\,n}\right).
+\end{equation}
+Note that it is recommended to use the same weighting for both, particles and fields, in order to eliminate a self-force and ensure the conservation of momentum \cite{fehske}.
 
 %\subsection{Particle-in-cell algorithm}
 %\input{dat/1-0.tex}
