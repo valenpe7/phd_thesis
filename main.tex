@@ -15,6 +15,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
+\usepackage{mathtools}
 \usepackage{upgreek}
 \usepackage{bm}
 \usepackage{verbatim}
@@ -1144,13 +1145,55 @@ Here $ \varkappa \ll 1 $, i.e., much less energy than the kinetic energy of the 
 
 %Nowadays, it is clear that detailed understanding of the physical mechanisms in the laser-plasma interaction can be achieved only through the combination of theory, experiment and simulation. Development of parallel algorithms that are able to provide sufficiently exact solutions in reasonable time, however, belongs to the most challenging fields of modern science.
 
-%The PIC method refers to a technique that has been used to solve a certain class of partial differential equations. The method has been proposed in the mid-fifties and it has early gained a great popularity in the field of plasma physics \cite{birdsall, hockney, Verboncoeur2005}. It is based on the kinetic approach, thus the evolution of the system is described in principle via the motion of the charged particles.
+%Individual steps are closer described in several following sections. An extensive study of PIC method can be found in \cite{birdsall, hockney}.
 
-%However, real systems are often extremely large in terms of the number of particles they contain. In order to make simulations computationally tractable, so-called macro-particles are used. The macro-particle is a finite-size computational particle representing a group of physical particles that are near each other in the phase space. Notice that it is allowed to rescale the number of particles, because the Lorentz force depends only on the charge to mass ratio, which is invariant to this transformation. Thus, the macro-particle will follow the same trajectory as the corresponding real particles would \cite{hockney}.
+\subsection{General description}
 
-%Although this approach significantly reduces the number of computational particles in simulation, the binary interactions for every pair in the system cannot be taken into account. The cost would scale quadratically as the number of particles increases and that makes the computational effort unmanageable in the case of larger systems. Fortunately, many of the phenomena occur in high-temperature plasmas where the collective behavior dominates and the collisional effects are very weak (see \ref{2.1.6}), thus one can neglect them. Otherwise, one has to exploit other techniques to estimate the collisional effects \cite{lapenta}.
+In the particle-in-cell method, the evolution of a system is determined by the motion of individual particles. However, real systems are in general very large in terms of a number of particles they contain. The particle-in-cell method therefore uses a finite set of so-called quasi-particles, each representing a group of physical particles that are near each other in the phase space. A quasi-particle becomes a carrier of certain attributes, e.g., mass, charge, position in space, momentum, etc. As shown below, it is possible to rescale the number of particles in the system, since the Lorentz force acting on the particles depends only on the charge to mass ratio, which is invariant to this transformation. 
 
-%In the collisionless plasma, the phase space particle distribution function  $ f_{s} \left(\vec{r}, \vec{v}, t\right) $ for a given species $ s $ is governed by the Vlasov equation (\ref{2.2.1}). The mathematical formulation of the PIC method is obtained by assuming that the distribution function $ f_{s} \left(\vec{r}, \vec{v}, t\right) $ is given by the sum of distribution functions for macro-particles $ f_{p, s} \left(\vec{r}, \vec{v}, t\right) $,
+The particle-in-cell algorithm combines the Eulerian and Lagrangian approaches of the mathematical description. The electromagnetic fields are calculated on a fixed mesh (Eulerian frame), whereas the quasi-particles can move in a continuous phase space (Lagrangian frame). The algorithm is outlined below for three-dimensional Cartesian grid, therefore we may discretize the spatial coordinate as $ \vec{r} \rightarrow \vec{r}_{i j k} $, where $ (i, \ j, \ k) \in \mathbb{Z}^{3} $ are the grid indices. If $ \Delta x $, $ \Delta y $, and $ \Delta z $ are the spatial steps in each direction, then $ \vec{r}_{i j k} = \left( i \Delta x, \ j \Delta y, \ k \Delta z \right) $. The time is discretized as $ t \rightarrow t^{\,n} $, where $ n \in \mathbb{N} $ is the time level index. If $ \Delta t $ is the time step, then $ t^{\,n} = n \Delta t $. Each quantity $ A \left(\vec{r}_{i j k}, t^{\,n} \right) $ is hereafter denoted as $ A_{ijk}^{\,n} $.
+
+%In the case of three-dimensional geometry, the spatial coordinate is discretized as $ \vec{r} \rightarrow \vec{r}_{i j k} $, where $ (i, \ j, \ k) \in \mathbb{Z}^{3} $ are the grid indices. The time is discretized as $ t \rightarrow t^{\,n} $, where $ n \in \mathbb{N} $ is the time level index. The algorithm is outlined below for regular Cartesian grid, therefore $ \vec{r}_{i j k} = \left( i \Delta x, \ j \Delta y, \ k \Delta z \right) $, where $ \Delta x $, $ \Delta y $, and $ \Delta z $ are the spatial steps in each direction, and $ t^{\,n} = n \Delta t $, where $ \Delta t $ is the time step. Each quantity $ A \left(\vec{r}_{i j k}, t^{\,n} \right) $ is hereafter denoted as $ A_{ijk}^{\,n} $.
+
+In kinetic theory, each particle species $ s $ in the system is assigned a distribution function $ f_{s} \left( \vec{r}, \vec{p}, t \right) $, where $ \vec{r} $ and $ \vec{p} $ denote, respectively, the position and momentum of a phase-space element, and $ t $ is time. In the case of collisionless plasma, the evolution of $ f_{s} $ is governed by the Vlasov equation
+\begin{equation}\label{eq:vlasov_eq}
+	\left( \diffp[]{}{t} + \frac{\vec{p}}{m_s \gamma} \cdot \nabla + \vec{F}_L \cdot \frac{\partial}{\partial \vec{p}} \right) f_s = 0,
+\end{equation}
+where $ \vec{F}_L = q_s \left( \vec{E} + \vec{v} \times \vec{B} \right) $ is the Lorentz force that stems from the existence of collective electric, $ \vec{E} \left( \vec{r}, t \right) $, and magnetic, $ \vec{B} \left( \vec{r}, t \right) $, fields in plasma, $ \vec{v} = \vec{p} / \left( m_s \gamma \right) $, and $ \gamma = \sqrt{1 + \vec{p}^2 / \left( m_s^2 c^2 \right)} $.
+
+The particle-in-cell algorithm assumes that $ f_{s} $ is obtained by summing the distribution functions of each quasi-particle $ p $ of species $ s $ $ f_{p, s} \left( \vec{r}, \vec{p}, t \right) $,
+\begin{equation}\label{eq:dist_function}
+	f_{s} =  \sum_{p} f_{p, s}.
+\end{equation}
+Here and below we use the subscript $ p $ to denote the quantities attributed to quasi-particles or evaluated at the quasi-particle positions. The quasi-particle distribution function can be defined as 
+\begin{equation}\label{eq:quasi_particle_dist_function}
+	f_{p, s} \left( \vec{r}, \vec{p}, t \right) = w_{p} S^r \left[ \vec{r} - \vec{r}_{p} \left( t \right) \right] S^p \left[ \vec{p} - \vec{p}_{p} \left( t \right) \right],
+\end{equation}
+where $ S^r $ and $ S^p $ are the shape functions for the position and momentum variables, respectively, and $ w_{p} $ is the weight of the quasi-particle (i.e., a number of physical particles which the quasi-particle represents).
+
+The shape functions cannot be chosen arbitrarily, they have to satisfy the following requirements: (i) the shape function is symmetric, (ii) the integral of the shape function is equal to unity, and (iii) the support of the shape function is compact. A standard implementation of the particle-in-cell algorithm is based on the choice of $ S^r $ as the $ m $-th order B-spline function $ b_{m} $ and $ S^p $ as the Dirac $ \delta $-function. Note that smoother shape functions are used to reduce numerical noise and non-physical fluctuations in the simulations (at the cost of increased computational time).
+
+The equations of motion for quasi-particle $ p $ can be obtained by substituting Eq.~(\ref{eq:dist_function}) into Eq.(\ref{eq:vlasov_eq}) and taking into account the properties of shape functions mentioned above,
+%\begin{equation}\label{eq:quasi_particle_eq_of_motion}
+%	\diff{\vec{r}_{p}}{t} = \vec{v}_{p}, \qquad \diff{\vec{p}_{p}}{t} = \vec{F}_{p},
+%\end{equation}
+\begin{equation}\label{eq:quasi_particle_eq_of_motion_1}
+	\diff[]{\vec{r}_{p}}{t} = \frac{\vec{u}_{p}}{\gamma},
+\end{equation}
+\begin{equation}\label{eq:quasi_particle_eq_of_motion_2}
+	\diff[]{\vec{u}_{p}}{t} = \frac{q_{s}}{m_{s}} \left(\vec{E}_{p} + \frac{\vec{u}_{p}}{\gamma} \times \vec{B}_{p} \right),
+\end{equation}
+where $ \vec{u}_p = \vec{p}_p / m_s $.
+
+%$ \vec{p}_{p} \left( t \right) $ is the quasi-particle momentum and $ \vec{F}_p \left( t\right) $ represents a spatial average %of the force acting on the quasi-particle,
+%\begin{equation}\label{eq:quasi_particle_fields}
+%	\vec{F}_p = q_s \left(\vec{E}_p + \vec{v}_p \times \vec{B}_p \right).
+%\end{equation}
+%The values of electric and magnetic fields at the quasi-particle position, $ \vec{E}_p \left( t \right) $ and $ \vec{B}_p \left( t \right) $, in Eq.~(\ref{eq:quasi_particle_fields}) are calculated by interpolation from nearest grid points (the form of interpolation is determined by the spatial shape function as closer discussed in Sec.~).
+
+The whole computational cycle of the particle-in-cell method is shown in Fig.~\ref{fig:pic_cycle}. Having the information about the quasi-particle positions, $ \vec{r}_p $, and momenta, $ \vec{p}_p $, at a given time step, we calculate the charge, $ \rho_{ijk} $, and current, $ \vec{J}_{ijk} $, densities at each grid point (particle weighting). Then, the electric, $ \vec{E}_{i,j,k} $, and magnetic, $ \vec{B}_{ijk} $, fields at each grid point are advanced by solving the Maxwell's equations (field solver). After that, the new values of the electric and magnetic fields are interpolated back to quasi-particle positions (field weighting). Finally, we calculate the new quasi-particle positions and momenta by solving the equations of motion (particle pusher). The whole cycle repeats until the end of simulation.
+
+%The influence of the choice of the time and spatial step on the stability and accuracy of the PIC method will be demonstrated as well.  The PIC code EPOCH \cite{bennett}, which has been used for the simulations within this work, is described in the last section of this chapter.
 
 \begin{figure}[t]
 	\centering
@@ -1158,9 +1201,9 @@ Here $ \varkappa \ll 1 $, i.e., much less energy than the kinetic energy of the 
 	\tikzstyle{block} = [rectangle, draw, thick, fill=white, text width=11em, text centered, rounded corners, minimum height=4.5em]
 	\tikzstyle{line} = [draw, -triangle 45]
 	\begin{tikzpicture}[node distance = 2cm, auto]
-		\node [block] (nahore) {Particle pusher\\[2mm] $ \vec{F}_p \rightarrow \left(\vec{x}, \vec{v}\,\right)_{p} $};	
+		\node [block] (nahore) {Particle pusher\\[2mm] $ \vec{F}_p \rightarrow \left(\vec{x}, \vec{p}\,\right)_{p} $};	
 		\node [empty, below of=nahore, node distance=2cm] (uprostred) {};	
-		\node [block, right of=uprostred, node distance=4cm] (vpravo) {Particle weighting\\[2mm] $ \left(\vec{x}, \vec{v}\right)_{p} \rightarrow \left(\rho, \vec{J}\,\right)_{i, j, k} $ };
+		\node [block, right of=uprostred, node distance=4cm] (vpravo) {Particle weighting\\[2mm] $ \left(\vec{x}, \vec{p}\right)_{p} \rightarrow \left(\rho, \vec{J}\,\right)_{i, j, k} $ };
 		\node [block, left of=uprostred, node distance=4cm] (vlevo) {Field weighting \\[2mm] $ \left(\vec{E}, \vec{B}\,\right)_{i, j, k} \rightarrow \vec{F}_p $};	
 		\node [block, below of=uprostred, node distance=2cm] (dole) {Field solver\\[2mm] $ \left(\rho, \vec{J}\,\right)_{i, j, k} \rightarrow \left(\vec{E}, \vec{B}\,\right)_{i, j, k} $};	
 		\path [line] (dole) -| (vlevo);
@@ -1168,209 +1211,155 @@ Here $ \varkappa \ll 1 $, i.e., much less energy than the kinetic energy of the 
 		\path [line] (nahore) -| (vpravo);
 		\path [line] (vpravo) |- (dole);
 	\end{tikzpicture}
-	\caption[]{\label{fig:pic_cycle} Computational cycle of the particle-in-cell method.}
+	\caption[]{\label{fig:pic_cycle} Computational cycle of the particle-in-cell method. Taken from Ref.~}
 \end{figure}
-
-The distribution function $ f_{s} \left(\vec{r}, \vec{v}, t\right) $ of particle species $ s $ is obtained by summing the distribution functions of each quasi-particle $ f_{p, s} \left(\vec{r}, \vec{v}, t\right) $,
-\begin{equation}
-	\label{3.1.1}
-	f_{s} =  \sum_{p} f_{p, s}.
-\end{equation}
-Here, we use the subscript $ p $ to denote quantities attributed to quasi-particles. The quasi-particle distribution function can be defined as 
-\begin{equation}
-	\label{3.1.2}
-	f_{p, s}\left(\vec{r}, \vec{v}, t \right) = w_{p} S_{r}\left(\vec{r} - \vec{r}_{p}\left(t\right) \right)  S_{v}\left(\vec{v} - \vec{v}_{p}\left( t\right) \right),
-\end{equation}
-where $ S_{r} \left(\vec{r} - \vec{r}_{p} \left(t\right) \right) $ and $ S_{v} \left(\vec{v} - \vec{v}_{p} \left(t\right) \right) $ are the shape functions for the spatial and velocity coordinates, respectively, and $ w_{p} $ is the weight of the quasi-particle (i.e., a number of physical particles which the quasi-particle represents).
-
-The shape functions cannot be chosen arbitrarily, they have to satisfy the following requirements: (i) the shape function is even, (ii) the integral of the shape function is equal to unity, and (iii) the support of the shape function is compact. While these restrictive conditions still offer a wide range of options, the standard PIC method is essentially determined by the choice of the shape function in the velocity coordinate as a Dirac delta function and in the spatial coordinate as a m-th order b-spline basis function $ b_{m} $. Note that the choice of the shape functions has strong impact on the stability and accuracy of the simulation \cite{birdsall}. Higher-order basis functions result in less numerical noise and reduce non-physical phenomena in simulations, obviously at the cost of increased computational time.
-
-Substituting the discretization \ref{3.1.1} into the Vlasov equation \ref{2.2.1} and taking into account the properties of shape functions mentioned above, one obtains the set of equations of motion for macro-particle $ p $ as the first moments,
-\begin{equation}
-	\label{3.1.5}
-	\diff{\vec{r}_{p}}{t} = \vec{v}_{p}, \qquad \diff{\vec{p}_{p}}{t} = \vec{F}_{p},
-\end{equation}
-where $ \vec{p}_{p} \left( t\right) $ is particle momentum and $ \vec{F}_p \left( t\right) $ represents a spatial average of the force acting on the macro-particle,
-\begin{equation}
-	\label{3.1.6}
-	\vec{F}_p = q_s \left(\vec{E}_p + \vec{v}_p \times \vec{B}_p \right).
-\end{equation}
-The fields at the macro-particle position $ \vec{E}_p \left( t\right) $ and $ \vec{B}_p \left( t\right) $ in \ref{3.1.6} are given by the spatial shape function, which implies some form of interpolation. This will be closer discussed in the fourth section of this chapter.
-
-The PIC method combines Lagrangian and Eulerian frame of reference \cite{Dawson1983}. It means that the macro-particles are tracked in a continuous phase space, whereas the electromagnetic fields are calculated only on stationary grid points. Therefore, it is necessary to perform the discretization of the spatial coordinates $ \vec{r} \rightarrow \vec{r}_{i j k} $ where $ (i,j,k) \in \mathbb{Z}^{3} $ are grid indices. It is also necessary to perform the discretization of the temporal coordinate $ t \rightarrow t^{\,n} $, where $ n \in \mathbb{N} $ is the time level index. The algorithm will be outlined for a three-dimensional equidistant rectangular grid, thus $ \vec{r}_{i j k} = \left(i \Delta x, j \Delta y, k \Delta z\right) $, where $ \Delta x, \Delta y, \Delta z $ are the spatial steps in each direction and $ t^{\,n} = n\Delta t $, where $ \Delta t $ is the time step. Each quantity $ A \left(\vec{r}_{i j k}, t^{\,n} \right) $ will be hereafter denoted as $ A_{ijk}^{\,n} $.
-
-The computational cycle of the PIC method is shown in the fig. \ref{3.1.4}. Individual steps are closer described in several following sections. The influence of the choice of the time and spatial step on the stability and accuracy of the PIC method will be demonstrated as well. An extensive study of PIC method can be found in \cite{birdsall, hockney}. The PIC code EPOCH \cite{bennett}, which has been used for the simulations within this work, is described in the last section of this chapter.
 
 \subsection{Particle pusher}
 
-As one could already see from \ref{3.1.5}, the motion of macro-particles in simulation is governed by the Newton's equations with spatially averaged Lorentz force. Since the particles can reach velocities near the velocity of light, it is necessary to perform relativistic generalization,
-\begin{equation}
-	\label{3.2.4.1}
-	\vec{u}_{p} = \gamma \, \vec{v}_{p}, \qquad \gamma = \sqrt{1 + \left( \frac{\vec{u}_{p}}{c}\right)^{2}}.
-\end{equation}
-Assume that the electric and magnetic fields are interpolated from the grid points to the particles at the time level $ t^{n} $. Then the equations of motion to be integrated are
-\begin{equation}
-	\label{3.2.4.2}
-	\diff[]{\vec{r}_{p}}{t} = \frac{\vec{u}_{p}}{\gamma}, \qquad \diff[]{\vec{u}_{p}}{t} = \frac{q_{s}}{m_{s}} \left(\vec{E}_{p} + \frac{\vec{u}_{p}}{\gamma} \times \vec{B}_{p} \right).
-\end{equation}
-To discretize the equations of motion \ref{3.2.4.2}, a time-centered leap-frog scheme is used. One obtains
-\begin{equation}
-	\label{3.2.4.4}
+The motion of quasi-particles in the simulation, which is governed by Eqs.(\ref{eq:quasi_particle_eq_of_motion_1}) and (\ref{eq:quasi_particle_eq_of_motion_2}), can be solved numerically, e.g., using the leap-frog scheme \cite{Press2007},
+\begin{equation}\label{eq:particle_pusher_eq_1}
 	\frac{\vec{r}_{p}^{\:n+1} - \vec{r}_{p}^{\:n}}{\Delta t} = \frac{\vec{u}_{p}^{\:n + 1/2}}{\gamma^{\:n+1/2}},
 \end{equation}
-\begin{equation}
-	\label{3.2.4.5}
+\begin{equation}\label{eq:particle_pusher_eq_2}
 	\frac{\vec{u}_{p}^{\:n+1/2} - \vec{u}_{p}^{\:n-1/2}}{\Delta t} = \frac{q_{s}}{m_{s}} \left( \vec{E}_{p}^{\:n} + \frac{\vec{u}_{p}^{\:n+1/2} + \vec{u}_{p}^{\:n-1/2}}{2 \gamma^{\:n}} \times \vec{B}_{p}^{\:n} \right).
 \end{equation}
 
-Although these equations appear to be very simple, the solution is one of the most time-consuming parts of the simulation, because they must be solved for every single macro-particle at each time step. Standard approach for particle pushing in plasma simulation PIC codes involves Boris method \cite{Boris1970, Qin2013}, which completely separates the effect of electric and magnetic fields \cite{birdsall}. Substitute
-\begin{equation}
-	\label{3.2.4.6}
-	\vec{u}_{p}^{\:n-1/2} = \vec{u}_{p}^{\:-} - \frac{q_{s} \vec{E}_{p}^{\:n}}{m_{s}} \frac{\Delta t}{2}, \qquad \vec{u}_{p}^{\:n+1/2} = \vec{u}_{p}^{\:+} + \frac{q_{s} \vec{E}_{p}^{\:n}}{m_{s}} \frac{\Delta t}{2}
+The effect of the electric, $ \vec{E}_{p}^{\:n} $, and magnetic, $ \vec{B}_{p}^{\:n} $, fields on quasi-particles in Eq.~(\ref{eq:particle_pusher_eq_2}) can be efficiently separated by the Boris method \cite{Boris1970}: By plugging
+\begin{subequations}
+\begin{equation}\label{eq:boris_method_1}
+	\vec{u}_{p}^{\:n-1/2} = \vec{u}_{p}^{\:-} - \frac{q_{s} \vec{E}_{p}^{\:n}}{m_{s}} \frac{\Delta t}{2},
 \end{equation}
-into the equation \ref{3.2.4.5}, then the electric field cancels entirely,
-\begin{equation}
-	\label{3.2.4.7}
-	\frac{\vec{u}_{p}^{\:+} - \vec{u}_{p}^{\:-}}{\Delta t} = \frac{q_{s}}{2 \gamma^{\:n} m_{s}} \left(\vec{u}_{p}^{\:+} + \vec{u}_{p}^{\:-}\right)\times \vec{B}_{p}^{\:n}. 
+and
+\begin{equation}\label{eq:boris_method_2}
+	\vec{u}_{p}^{\:n+1/2} = \vec{u}_{p}^{\:+} + \frac{q_{s} \vec{E}_{p}^{\:n}}{m_{s}} \frac{\Delta t}{2}
 \end{equation}
-The equation \ref{3.2.4.7} describes a rotation of the vector $ \vec{u}_{p}^{\:-} $ to $ \vec{u}_{p}^{\:+} $ in one simulation time step $ \Delta t $. The angle $ \theta $ between the vector $ \vec{u}_{p}^{\:-} $ and $ \vec{u}_{p}^{\:+} $ is expected to be $ \theta = \omega_{c} \Delta t $.
+\end{subequations}
+into Eq.~(\ref{eq:particle_pusher_eq_2}), one obtains
+\begin{equation}\label{eq:boris_method_3}
+	\frac{\vec{u}_{p}^{\:+} - \vec{u}_{p}^{\:-}}{\Delta t} = \frac{q_{s}}{m_{s}} \frac{\left( \vec{u}_{p}^{\:+} + \vec{u}_{p}^{\:-} \right)}{2 \gamma^{\:n} } \times \vec{B}_{p}^{\:n}. 
+\end{equation}
+Eq.~(\ref{eq:boris_method_3}) describes pure rotation of the vector $ \vec{u}_{p}^{\:-} $ to $ \vec{u}_{p}^{\:+} $ during a single simulation time step $ \Delta t $, i.e., to obtain $ \vec{u}_{p}^{\:n+1/2} $, we may first add half of the electric impulse $ \vec{E}_{p}^{\:n} $ to $ \vec{u}_{p}^{\:n-1/2} $, then perform the full rotation according to Eq.~(\ref{eq:boris_method_3}), and finally add another half of the electric impulse $ \vec{E}_{p}^{n} $ to $ \vec{u}_{p}^{\:+} $.
 
-To implement the Boris method, first add half the electric impulse $ \vec{E}_{p}^{\:n} $ to $ \vec{u}_{p}^{\:n-1/2} $, then perform the full rotation by the angle $ \theta $, and finally, add another half the electric impulse $ \vec{E}_{p}^{n} $. From the basic geometry Boris derived following steps to obtain $ \vec{u}_{p}^{\:n + 1/2} $. From the first of the equations \ref{3.2.4.6}, express the vector $ \vec{u}_{p}^{\:-} $,
+The practical implementation of the algorithm can be summarized as follows: First, we express $ \vec{u}_{p}^{\:-} $ from Eq.~(\ref{eq:boris_method_1}) and construct an auxiliary vector $ \tilde{\vec{u}}_{p} $ which is simultaneously perpendicular to vectors $ \left(\vec{u}_{p}^{\:+} - \vec{u}_{p}^{\:-} \right) $ and $ \vec{B}_{p}^{\:n} $,
 \begin{equation}
-	\vec{u}_{p}^{\:-} = \vec{u}_{p}^{\:n-1/2} +  \frac{q_{s} \vec{E}_{p}^{\:n}}{m_{s}} \frac{\Delta t}{2}
+	\tilde{\vec{u}}_{p} = \vec{u}_{p}^{\:-} + \vec{u}_{p}^{\:-} \times \vec{t}, \qquad \vec{t} = \frac{q_s}{m_s} \frac{\vec{B}_p^{\:n}}{\gamma^{\:n}} \frac{\Delta t}{2}.
 \end{equation}
-and construct an auxiliary vector $ \vec{u}_{p}\!' $, which is simultaneously perpendicular to $ \left(\vec{u}_{p}^{\:+} - \vec{u}_{p}^{\:-} \right) $ and to $ \vec{B}_{p}^{\:n} $,
-\begin{equation}
-	\vec{u}_{p}\!' = \vec{u}_{p}^{\:-} + \vec{u}_{p}^{\:-} \times \vec{t}, \qquad \vec{t} = \frac{q_{s} \vec{B}_{p}^{\:n}}{\gamma^{\:n} m_{s}} \frac{\Delta t}{2}.
-\end{equation}
-
-The vector $ \vec{t} $ has to be logically parallel to $ \vec{B}_{p}^{n} $ with the length of $ \tan \left(\theta/2\right) \approx \theta/2 $ for small angles. Next, exploit the fact that the vector $ (\vec{u}_{p}\!' \times \vec{B}_{p}^{\:n}) $ is parallel to $ \left(\vec{u}_{p}^{\:+} - \vec{u}_{p}^{\:-} \right) $ and express the vector $ \vec{u}_{p}^{\:+} $,
+Using the fact that the vector $ (\tilde{\vec{u}}_{p} \times \vec{B}_{p}^{\:n}) $ is parallel to $ \left(\vec{u}_{p}^{\:+} - \vec{u}_{p}^{\:-} \right) $, we express $ \vec{u}_{p}^{\:+} $ as
 \begin{equation}
 	\vec{u}_{p}^{\:+} = \vec{u}_{p}^{\:-} + \vec{u}_{p}\!' \times \vec{s}, \qquad \vec{s} = \frac{2\vec{t}}{1 + t^2}.
 \end{equation}
-Here the vector $ \vec{s} $ is parallel to $ \vec{B}_{p}^{n} $ and its length has to fulfill the condition $ \norm{\vec{u}_{p}^{\:+}} = \norm{\vec{u}_{p}^{\:-}} $. The transition from $ \vec{u}_{p}^{\:-} $ to $ \vec{u}_{p}^{\:+} $ can be written more clearly using the matrix,
-\begin{equation}
-	\vec{u}_{p}^{\:+} = \mathbb{M} \: \vec{u}_{p}^{\:-},
-\end{equation}
-where \vspace{5mm}
-\begingroup
-\renewcommand*{\arraystretch}{1.8}
+Note that the transition from $ \vec{u}_{p}^{\:-} $ to $ \vec{u}_{p}^{\:+} $ can be written in a more compact form as $ \vec{u}_{p}^{\:+} = \mathbb{M} \: \vec{u}_{p}^{\:-} $, where
 \begin{equation}
 	\mathbb{M} = 
-	\begin{pmatrix}
+	\begin{bmatrix}
 		1 - s_{2}t_{2} - s_{3}t_{3} & s_{2}t_{1} + s_{3} & s_{3}t_{1} - s_{2} \\
 		s_{1}t_{2} - s_{3} & 1 - s_{1}t_{1} - s_{3}t_{3} & s_{3}t_{2} + s_{1} \\
 		s_{1}t_{3} + s_{2} & s_{2}t_{3} - s_{1} & 1 - s_{1}t_{1} - s_{2}t_{2}
-	\end{pmatrix}.
+	\end{bmatrix}.
 \end{equation}
-\endgroup
-Finally, substitute the vector $ \vec{u}_{p}^{\:+} $ into the second from the equations \ref{3.2.4.6},
-\begin{equation}
-	\vec{u}_{p}^{\:n+1/2} = \vec{u}_{p}^{\:+} + \frac{q_{s} \vec{E}_{p}^{\:n}}{m_{s}} \frac{\Delta t}{2}.
-\end{equation}
-The position of macro-particle is then advanced according to
-\begin{equation}
-	\vec{r}_{p}^{\:n+1} = \vec{r}_{p}^{\:n} + \frac{\vec{u}_{p}^{\:n + 1/2}}{\gamma^{\:n + 1/2}} \Delta t, \qquad \gamma^{\:n + 1/2} = \sqrt{1 + \left(\frac{\vec{u}_{p}^{\:n + 1/2}}{c}\right)^{2}}.
-\end{equation}
+Finally, we substitute the vector $ \vec{u}_{p}^{\:+} $ into Eq.~(\ref{eq:boris_method_2}) and calculate the new values of quasi-particle momenta, $ \vec{u}_{p}^{\:n+1/2} $, and positions, $ \vec{r}_{p}^{\:n+1} $.
 
 \subsection{Field solver}
 
-As already mentioned, the behavior of the time varying electromagnetic field in free space is governed by the microscopic variant of the Maxwell's equations (\ref{1.1} - \ref{1.4}). A typical numerical technique to resolve the Maxwell's equations with respect to time is finite-difference time-domain method (FDTD) \cite{yee}, because it is probably the simplest technique in terms of the implementation.
+The Maxwell's equations on the Cartesian grid are in the particle-in-cell algorithm usually solved using the finite-difference time-domain method \cite{Yee1966}. In this method, the vector components of the electric, $ \vec{E}_{ijk}^{\,n} $, and magnetic, $ \vec{B}_{ijk}^{\,n} $, fields are spatially staggered about the rectangular cells of the grid,
+\begin{equation}
+	\label{eq:staggered_E}
+	\vec{E}_{ijk}^{\,n} \coloneqq \left[\left(E_{x}\right)^{n}_{i,\: j + 1/2,\: k + 1/2}, \left(E_{y}\right)^{n}_{i + 1/2,\: j,\: k + 1/2}, \left(E_{z}\right)^{n}_{i + 1/2,\: j + 1/2,\: k} \right],
+\end{equation}
+\begin{equation}
+	\label{eq:staggered_B}
+	\vec{B}_{ijk}^{\,n} \coloneqq \left[\left(B_{x}\right)^{n}_{i + 1/2,\: j,\: k}, \left(B_{y}\right)^{n}_{i,\: j + 1/2,\: k}, \left(B_{z}\right)^{n}_{i,\: j,\: k + 1/2} \right].
+\end{equation}
+The components of the current density, $ \vec{J}_{ijk}^{\:n} $, are defined in the same way as the components of $ \vec{E}_{ijk}^{\:n} $ and the charge density, $ \rho_{ijk}^{\:n} $, is defined in the middle of the cell,
+\begin{equation}\label{eq:staggered_J}
+	\vec{J}_{ijk}^{\,n} \coloneqq \left[\left(J_{x}\right)^{n}_{i,\: j + 1/2,\: k + 1/2}, \left(J_{y}\right)^{n}_{i + 1/2,\: j,\: k + 1/2}, \left(J_{z}\right)^{n}_{i + 1/2,\: j + 1/2,\: k} \right],
+\end{equation}
+\begin{equation}\label{eq:staggered_rho}
+	\rho_{ijk}^{\,n} \coloneqq \rho_{i + 1/2,\: j + 1/2,\: k + 1/2}^{\,n}.
+\end{equation}
+The illustration of this scheme, also known as the Yee latice, is shown in Fig.~\ref{fig:yee_lattice}. 
 
-The vector components of the fields $ \vec{E}_{ijk}^{\,n} $ and $ \vec{B}_{ijk}^{\,n} $ are spatially staggered about rectangular cells of the computational grid,
-\begin{equation}
-	\label{3.1.1.4}
-	\vec{E}_{ijk}^{\,n} \rightarrow \left[\left(E_{x}\right)^{n}_{i,\: j + 1/2,\: k + 1/2}, \left(E_{y}\right)^{n}_{i + 1/2,\: j,\: k + 1/2}, \left(E_{z}\right)^{n}_{i + 1/2,\: j + 1/2,\: k} \right],
-\end{equation}
-\begin{equation}
-	\label{3.1.1.5}
-	\vec{B}_{ijk}^{\,n} \rightarrow \left[\left(B_{x}\right)^{n}_{i + 1/2,\: j,\: k}, \left(B_{y}\right)^{n}_{i,\: j + 1/2,\: k}, \left(B_{z}\right)^{n}_{i,\: j,\: k + 1/2} \right].
-\end{equation}
-This scheme, which has proven to be very robust, is now known as a Yee lattice \cite{yee}. The illustration of a standard Cartesian Yee cell used for FDTD is shown in the fig. \ref{3.1.1.14}. Components of the current density $ \vec{J}_{ijk}^{\:n} $ are defined in the same way as the components of $ \vec{E}_{ijk}^{\:n} $, charge density $ \rho_{ijk}^{\:n} $ is defined in the middle of the cell,
-\begin{equation}
-	\vec{J}_{ijk}^{\,n} \rightarrow \left[\left(J_{x}\right)^{n}_{i,\: j + 1/2,\: k + 1/2}, \left(J_{y}\right)^{n}_{i + 1/2,\: j,\: k + 1/2}, \left(J_{z}\right)^{n}_{i + 1/2,\: j + 1/2,\: k} \right],
-\end{equation}
-\begin{equation}
-	\rho_{ijk}^{\,n} \rightarrow \rho_{i + 1/2,\: j + 1/2,\: k + 1/2}^{\,n}.
-\end{equation}
+\begin{figure}[t]
+	\includegraphics[width=0.35\paperwidth]{./img/yee.pdf}
+	\caption[]{\label{fig:yee_lattice} Standard Cartesian Yee cell used in the finite-difference time-domain method. Taken from Ref.~}
+\end{figure}
 
-For marching in time, the leap-frog scheme is used. Therefore, discretized Maxwell's equations \ref{1.1} - \ref{1.4} have the following form,
-\begin{equation}
-	\label{3.1.1.6}
+The Maxwell's equations discretized using the leap-frog scheme \cite{Press2007} take the following form,
+\begin{equation}\label{eq:discrete_maxwell_1}
 	\nabla^{+} \cdot \vec{E}_{ijk}^{\,n} = \frac{\rho_{ijk}^{\,n}}{\varepsilon_0},
 \end{equation}
-\begin{equation}
-	\label{3.1.1.15}
+\begin{equation}\label{eq:discrete_maxwell_2}
 	\nabla^{-} \cdot \vec{B}_{ijk}^{\,n + 1/2} = 0,
 \end{equation}
-\begin{equation}
-	\label{3.1.1.16}
+\begin{equation}\label{eq:discrete_maxwell_3}
 	\frac{1}{c^{2}} \frac{\vec{E}_{ijk}^{\,n + 1} - \vec{E}_{ijk}^{\,n}}{\Delta t} = \nabla^{+} \times \vec{B}_{ijk}^{\,n + 1/2} - \mu_{0} \vec{J}_{ijk}^{\,n + 1/2},
 \end{equation}
-%\begin{figure}[t]
-%	\centering
-%	\includegraphics[width=0.4\paperwidth]{./img/yee/yee.pdf}
-%	\caption{Standard Cartesian Yee cell used for FDTD method}
-%	\label{3.1.1.14}
-%\end{figure}
-\begin{equation}
-	\label{3.1.1.7}
+\begin{equation}\label{eq:discrete_maxwell_4}
 	\frac{\vec{B}_{ijk}^{\,n + 1/2} - \vec{B}_{ijk}^{\,n - 1/2}}{\Delta t} = -\nabla^{-} \times \vec{E}_{ijk}^{\,n}.
 \end{equation}
-Notice that this scheme achieves the second-order accuracy in both, space and time. Discrete operators $ \left(\nabla^{+}\right) $ and $ \left(\nabla^{-}\right) $ used in \ref{3.1.1.6} - \ref{3.1.1.7} act on a scalar field $ f_{i j k} $ as follows \cite{esirkepov},
-\begin{equation}
-	\label{3.1.1.8}
+The operators $ \nabla^{+} $ and $ \nabla^{-} $ used in Eqs.~(\ref{eq:discrete_maxwell_1}) -- (\ref{eq:discrete_maxwell_4}) act on a scalar field $ f_{i j k} $ as follows \cite{Esirkepov2001},
+\begin{equation}\label{eq:nabla_plus}
 	\nabla^{+} f_{i j k} = \left(\frac{f_{i + 1,\: j,\: k} - f_{i,\: j,\: k}}{\Delta x}, \frac{f_{i,\: j + 1,\: k} - f_{i,\: j,\: k}}{\Delta y}, \frac{f_{i,\: j,\: k + 1} - f_{i,\: j,\: k}}{\Delta z} \right), 
 \end{equation}
-\begin{equation}
-	\label{3.1.1.9}
+\begin{equation}\label{eq:nabla_minus}
 	\nabla^{-} f_{i j k} = \left(\frac{f_{i,\: j,\: k} - f_{i - 1,\: j,\: k}}{\Delta x}, \frac{f_{i,\: j,\: k} - f_{i,\: j - 1,\: k}}{\Delta y}, \frac{f_{i,\: j,\: k} - f_{i,\: j,\: k - 1}}{\Delta z} \right).
 \end{equation}
-These operators have the following properties \cite{esirkepov},
-\begin{equation}
-	\label{3.1.1.10}
-	\nabla^{-} \cdot \nabla^{-} \times = \nabla^{+} \cdot \nabla^{+} \times = 0, \qquad \nabla^{-} \cdot \nabla^{+} = \nabla^{+} \cdot \nabla^{-} = \Delta^{\pm}.
+These operators have the following properties \cite{Esirkepov2001},
+\begin{equation}\label{eq:nabla_properties}
+	\nabla^{-} \cdot \nabla^{-} \times = \nabla^{+} \cdot \nabla^{+} \times = 0, \qquad \nabla^{-} \cdot \nabla^{+} = \nabla^{+} \cdot \nabla^{-} = \Delta^{\pm},
 \end{equation}
-Symbol $ \Delta^{\pm} $ stands for the discrete Laplace operator in central differences \cite{esirkepov},
-\begin{equation}
-	\label{3.1.1.11}
-	\Delta^{\pm} f_{i, j, k} = \frac{f_{i - 1, j, k} - 2 f_{i, j, k} + f_{i + 1, j, k}}{\Delta x^{2}} + \frac{f_{i, j - 1, k} - 2 f_{i, j, k} + f_{i, j + 1, k}}{\Delta y^{2}} + \frac{f_{i, j, k - 1} - 2 f_{i, j, k} + f_{i, j, k + 1}}{\Delta z^{2}}.
+where the symbol $ \Delta^{\pm} $ stands for the discrete Laplace operator \cite{Esirkepov2001},
+\begin{equation}\label{eq:discrete_laplace}
+	\begin{aligned}
+	& \quad \quad \quad \Delta^{\pm} f_{i, j, k} = \frac{f_{i - 1, j, k} - 2 f_{i, j, k} + f_{i + 1, j, k}}{\Delta x^{2}} \\[3mm]
+	+ & \frac{f_{i, j - 1, k} - 2 f_{i, j, k} + f_{i, j + 1, k}}{\Delta y^{2}} + \frac{f_{i, j, k - 1} - 2 f_{i, j, k} + f_{i, j, k + 1}}{\Delta z^{2}}.
+	\end{aligned}
 \end{equation}
 
-Before trying to find the solution of discretized Maxwell's equations \ref{3.1.1.6} - \ref{3.1.1.7}, one must realize that this system of equations is not independent. In the three-dimensional case, there are eight first-order differential equations, but only six unknown vector components. Acting on the equations \ref{3.1.1.16} and \ref{3.1.1.7} by operators $ \left(\nabla^{-}\cdot\right) $ and $ \left(\nabla^{+}\cdot\right) $, respectively, one obtains
-\begin{equation}
-	\label{3.1.1.12}
+It is important to realize that, in the three-dimensional case, the system of Eqs.~(\ref{eq:discrete_maxwell_1}) -- (\ref{eq:discrete_maxwell_4}) represents 8 first-order differential equations for 6 unknown vector components. Acting on Eqs.~(\ref{eq:discrete_maxwell_3}) and (\ref{eq:discrete_maxwell_4}) by the operators $ \left(\nabla^{-}\cdot\right) $ and $ \left(\nabla^{+}\cdot\right) $, respectively, one obtains
+\begin{equation}\label{eq:discrete_eq_for_B}
 	\frac{\nabla^{-} \cdot \vec{B}_{ijk}^{\,n + 1/2} - \nabla^{-} \cdot \vec{B}_{ijk}^{\,n - 1/2}}{\Delta t} = 0,
 \end{equation}
-\begin{equation}
-	\label{3.1.1.13}
+\begin{equation}\label{eq:discrete_continuity eq}
 	\frac{\rho_{ijk}^{\,n + 1} - \rho_{ijk}^{\,n}}{\Delta t} + \nabla^{+} \cdot \vec{J}_{ijk}^{\,n + 1/2} = 0.
 \end{equation}
-It means that it is possible to solve only the equations \ref{3.1.1.16} and \ref{3.1.1.7}, while the divergence equations \ref{3.1.1.6}, \ref{3.1.1.15} can be considered as the initial conditions. Note that in this case, the continuity equation in the finite differences (\ref{3.1.1.13}) has to be fulfilled.
+This means that to get a complete description of the new electric and magnetic fields it is sufficient to calculate only Eqs.~(\ref{eq:discrete_maxwell_3}) and (\ref{eq:discrete_maxwell_4}), while Eqs.~(\ref{eq:discrete_maxwell_1}) and (\ref{eq:discrete_maxwell_2}) can be considered as initial conditions. In such a case, however, the interpolation of charge and current densities on the grid has to satisfy Eq.~(\ref{eq:discrete_continuity eq}).
 
 \subsection{Particle and field weighting}
 
-In order to solve the Maxwell's equations, as shown in the previous section of this chapter, one has to know the source terms produced by the motion of the charged particles. In other words, it is necessary to assign charge and current densities from the continuous macro-particle positions to the discrete grid points. This simulation step is usually referred to as particle weighting and it involves some form of interpolation.
-
-According to the kinetic theory, charge density $ \rho\left(\vec{x}, t \right) $ and current density $ \vec{J}\left(\vec{x}, t \right) $ are given by the following integrals over the velocity space,
-\begin{equation}
-	\label{3.1.2.1}
-	\rho\left(\vec{x}, t \right) = \sum_s q_s \int f_s \left(\vec{x}, \vec{v}, t \right) \mathrm{d} \vec{v}, \qquad \vec{J}\left(\vec{x}, t \right) = \sum_s q_s \int f_s \left(\vec{x}, \vec{v}, t \right) \vec{v} \, \mathrm{d} \vec{v}.
+Let us begin with the deposition of the charge, $ \rho \left( \vec{r}, t \right) $, and current, $ \vec{J} \left( \vec{r}, t \right) $, densities from the quasi-particles to the grid points. According to the kinetic theory, $ \rho \left(\vec{r}, t \right) $ and $ \vec{J} \left( \vec{r}, t \right) $ can be obtained by the following integrals over the momentum space,
+\begin{equation}\label{eq:charge_density}
+	\rho \left(\vec{r}, t \right) = \sum_s q_s \int f_s \left(\vec{r}, \vec{p}, t \right) \dl \vec{p}, 
 \end{equation}
-After discretization of \ref{3.1.2.1} using macro-particles and exploiting the properties of the shape functions, one gets immediately
-\begin{equation}
-	\label{3.1.2.2}
-	\rho_{ijk}^{\,n} = \sum_{p} q_p S_{r}\left(\vec{r}_{ijk} - \vec{r}_{p}^{\,n}\right), \qquad \vec{J}_{ijk}^{\,n} = \sum_{p} q_p \vec{v}_p^{\,n} S_{r}\left(\vec{r}_{ijk} - \vec{r}_{p}^{\,n}\right),
+\begin{equation}\label{eq:current_density}
+	\vec{J} \left(\vec{r}, t \right) = \sum_s q_s \int f_s \left(\vec{r}, \vec{p}, t \right) \vec{v} \, \dl \vec{p}.
 \end{equation}
-where $ q_p = q_s w_p $. However, using the formulas \ref{3.1.2.2} for charge and current deposition in PIC codes may violate the discrete continuity equation (\ref{3.1.1.13}) and in turn cause errors in Gauss's law (\ref{3.1.1.6}). In this case, one would have to solve the Poisson's equation for the correction of the electric field at every simulation time step or use a numerical scheme that satisfies the continuity equation exactly. These schemes are referred to as a charge conservation methods \cite{Eastwood1991, Eastwood1996, villasenor, esirkepov, Morse1971, umeda}.
+After discretizing the expressions of Eqs.~(\ref{eq:charge_density}) and (\ref{eq:current_density}) with quasi-particles and using the properties of the shape functions, one gets
+\begin{equation}\label{eq:charge_density_discretized}
+	\rho_{ijk}^{\,n} = \sum_{p} q_p S^r \left( \vec{r}_{ijk} - \vec{r}_{p}^{\,n} \right),
+\end{equation}
+\begin{equation}\label{eq:current_density_discretized}
+	\vec{J}_{ijk}^{\,n} = \sum_{p} q_p \vec{v}_p^{\,n} S^r \left( \vec{r}_{ijk} - \vec{r}_{p}^{\,n} \right),
+\end{equation}
+where $ q_p = q_s w_p $. However, the simultaneous use of Eqs.~(\ref{eq:charge_density_discretized}) and (\ref{eq:current_density_discretized}) with arbitrary shape functions always violate Eq.~(\ref{eq:discrete_continuity eq}). To resolve this issue, one would have to calculate Eq.~(\ref{eq:discrete_maxwell_1}) for the correction of the electric field at every simulation time step or use more sophisticated methods that satisfy the continuity equation exactly. These schemes are referred to as the charge conservation methods \cite{Morse1971, Eastwood1991, Villasenor1992, Eastwood1996, Esirkepov2001, Umeda2003}.
 
-Similarly, to advance macro-particle positions, as shown in the second section of this chapter, one has to know the force acting on them. Hence, it is necessary to assign electric and magnetic fields that are calculated at the discrete grid points to the continuous macro-particle positions. This simulation step is usually referred to as field weighting.
+%Here we present the method of Ref.~\citenum{bibid} which is valid for arbitrary shape function.
+
+
+
+
+%In order to assign the electric and magnetic fields to the quasi-particle positions, we may s
 
 By analogy to the particle weighting, one may exploit the shape functions to calculate the spatial averages of the electric and magnetic field components,
-\begin{equation}
-	\vec{E}_{p}^{\,n} = \sum_{ijk} \vec{E}_{ijk}^{\,n} S_{r}\left(\vec{r}_{ijk} - \vec{r}_{p}^{\,n}\right), \qquad \vec{B}_{p}^{\,n} = \sum_{ijk} \vec{B}_{ijk}^{\,n} S_{r}\left(\vec{r}_{ijk} - \vec{r}_{p}^{\,n}\right).
+\begin{equation}\label{key}
+	\vec{E}_{p}^{\,n} = \sum_{ijk} \vec{E}_{ijk}^{\,n} S^r \left( \vec{r}_{ijk} - \vec{r}_{p}^{\,n} \right),
 \end{equation}
-Note that it is recommended to use the same weighting for both, particles and fields, in order to eliminate a self-force and ensure the conservation of momentum \cite{fehske}.
+\begin{equation}\label{key}
+	\vec{B}_{p}^{\,n} = \sum_{ijk} \vec{B}_{ijk}^{\,n} S^r \left( \vec{r}_{ijk} - \vec{r}_{p}^{\,n} \right).
+\end{equation}
+
+
+%Note that it is recommended to use the same weighting for both, particles and fields, in order to eliminate a self-force and ensure the conservation of momentum \cite{fehske}.
 
 %\subsection{Particle-in-cell algorithm}
 %\input{dat/1-0.tex}
@@ -1401,7 +1390,7 @@ The first part of the paper presents an analytical model based on geometric opti
 
 The main results of the paper can be summarized as follows. We identify and describe a novel physical mechanism which leads to the formation of ring-shaped electromagnetic-electron structures, where the electromagnetic rings arise from the laser pulse defocusing induced by the excitation of Langmuir waves in underdense plasma, and the ring-shaped electron beams are formed and accelerated subsequently by the secondary toroidal wakefields generated by the electromagnetic rings. We further reveal that the electromagnetic rings are relatively robust nonlinear objects, whose properties can be controlled by tuning the parameters of laser and plasma. Within the studied parameter range, we find that up to $ \approx 70 \ \% $ of the total initial driver pulse energy can be carried off by the electromagnetic rings having the opening angles $ \approx 45 - 115 \ \mathrm{mrad} $. 
 
-Our research published in Ref.~\ref{paper_1} has been honored by the editors of Physics of Plasmas journal by selecting the article as \q{Featured} and additionally reported by Scilight, which showcases the most interesting research across the physical sciences published in AIP Publishing journals. Besides Ref.~\ref{paper_1}, a portion of this work has been also published in Ref.~[Valenta SPIE 2021] and presented by the author at \q{SPIE Optics+Optoelectronics 2021,} \q{OPTO2021 Symposium on Photon and Beam Science,} and \q{ELI Summer School 2021,} whereas the latter presentation has been awarded by the \q{Best poster prize.} The author contributed to all the aspects of the research, including the initial formulation of the scientific topic, development of the analytical model, setup and execution of the numerical simulations on computer clusters, and analysis and interpretation of the simulation data. Furthermore, based on the results obtained the author prepared figures, wrote the bulk of the manuscript text, and submitted the manuscript to the journal whereas serving as a corresponding author. Last, the author was communicating with editors and referees concerning the requested revisions of the manuscript until the final publication in the journal.
+Our research published in Ref.~\ref{paper_1} has been promoted by the editors of Physics of Plasmas journal by selecting the article as \q{Featured} and additionally reported by Scilight, which showcases the most interesting research across the physical sciences published in AIP Publishing journals. Furthermore, Fig.~4 from Ref.~\ref{paper_1} has been selected as the cover image of the journal's December issue. Besides Ref.~\ref{paper_1}, a portion of this work has been also published in Ref.~[Valenta SPIE 2021] and presented by the author at \q{SPIE Optics+Optoelectronics 2021,} \q{OPTO2021 Symposium on Photon and Beam Science,} and \q{ELI Summer School 2021,} whereas the latter presentation has been awarded by the \q{Best poster prize.} The author contributed to all the aspects of the research, including the initial formulation of the scientific topic, development of the analytical model, setup and execution of the numerical simulations on computer clusters, and analysis and interpretation of the simulation data. Furthermore, based on the results obtained the author prepared figures, wrote the bulk of the manuscript text, and submitted the manuscript to the journal whereas serving as a corresponding author. Last, the author was communicating with editors and referees concerning the requested revisions of the manuscript until the final publication in the journal.
 
 \section{On the laser-wakefield polarity reversal\label{sec:on_the_laser-wakefield_polarity_reversal}}
 %\input{dat/1-0.tex}
@@ -1465,7 +1454,7 @@ Besides Ref.~\ref{paper_4}, a portion of this work has been also published in Re
 
 \section{Summary}
 
-\section{Perspectives}
+\section{Future research and perspectives}
 
 %Although in the early days the laser was named as \q{a bright solution looking for a problem}, it has since then developed/matured in one of the most important inventions of the last century. It is going to play a even more important role in this century.
 
