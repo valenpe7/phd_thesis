@@ -1169,7 +1169,7 @@ In kinetic theory, each particle species $ s $ in the system is assigned a distr
 \end{equation}
 where $ \vec{F}_L = q_s \left( \vec{E} + \vec{v} \times \vec{B} \right) $ is the Lorentz force that stems from the existence of collective electric, $ \vec{E} \left( \vec{r}, t \right) $, and magnetic, $ \vec{B} \left( \vec{r}, t \right) $, fields in plasma, $ \vec{v} = \vec{p} / \left( m_s \gamma \right) $, and $ \gamma = \sqrt{1 + \vec{p}^2 / \left( m_s^2 c^2 \right)} $.
 
-The particle-in-cell algorithm assumes that $ f_{s} $ is obtained by summing the distribution functions of each quasi-particle $ p $ of species $ s $ $ f_{p, s} \left( \vec{r}, \vec{p}, t \right) $,
+The particle-in-cell algorithm assumes that $ f_{s} $ is obtained by summing the distribution functions $ f_{p, s} \left( \vec{r}, \vec{p}, t \right) $ of each quasi-particle $ p $ of species $ s $,
 \begin{equation}\label{eq:dist_function}
 	f_{s} =  \sum_{p} f_{p, s}.
 \end{equation}
@@ -1218,7 +1218,7 @@ where $ \vec{u}_p = \vec{p}_p / m_s $.
 %\end{equation}
 %The values of electric and magnetic fields at the quasi-particle position, $ \vec{E}_p \left( t \right) $ and $ \vec{B}_p \left( t \right) $, in Eq.~(\ref{eq:quasi_particle_fields}) are calculated by interpolation from nearest grid points (the form of interpolation is determined by the spatial shape function as closer discussed in Sec.~).
 
-The core elements of the the particle-in-cell computational cycle is shown in Fig.~\ref{fig:pic_cycle}. Having the information about the quasi-particle positions, $ \vec{r}_p $, and momenta, $ \vec{p}_p $, at a given time step, we calculate the charge, $ \rho_{i, j, k} $, and current, $ \vec{J}_{i, j, k} $, densities at each grid point (particle weighting). Then, the electric, $ \vec{E}_{i,j,k} $, and magnetic, $ \vec{B}_{i, j, k} $, fields at each grid point are advanced by solving the Maxwell's equations (field solver). After that, the new values of the electric and magnetic fields are interpolated back to quasi-particle positions (field weighting). Finally, we calculate the new quasi-particle positions and momenta by solving the Newton-Lorentz equations of motion (particle pusher). The whole cycle repeats until the end of simulation. We note that additional operations are usually performed in between these fundamental steps (e.g., current filtering, application of external fields, diagnostics, etc.).
+The core elements of the the particle-in-cell computational cycle are shown in Fig.~\ref{fig:pic_cycle}. Having the information about the quasi-particle positions, $ \vec{r}_p $, and momenta, $ \vec{p}_p $, at a given time step, we calculate the charge, $ \rho_{i, j, k} $, and current, $ \vec{J}_{i, j, k} $, densities at each grid point (particle weighting). Then, the electric, $ \vec{E}_{i,j,k} $, and magnetic, $ \vec{B}_{i, j, k} $, fields at each grid point are advanced by solving the Maxwell's equations (field solver). After that, the new values of the electric and magnetic fields are interpolated back to the quasi-particle positions (field weighting). Finally, we calculate the new quasi-particle positions and momenta by solving the Newton-Lorentz equations of motion (particle pusher). The whole cycle repeats until the end of simulation. We note that additional operations are usually performed in between these fundamental steps (e.g., current filtering, application of external fields, diagnostics, etc.).
 
 %The influence of the choice of the time and spatial step on the stability and accuracy of the PIC method will be demonstrated as well.  The PIC code EPOCH \cite{bennett}, which has been used for the simulations within this work, is described in the last section of this chapter.
 
@@ -1235,7 +1235,7 @@ The motion of quasi-particles in the simulation, which is governed by Eqs.~(\ref
 The effect of the electric, $ \vec{E}_{p}^{\:n} $, and magnetic, $ \vec{B}_{p}^{\:n} $, fields on quasi-particles in Eq.~(\ref{eq:particle_pusher_eq_2}) can be efficiently separated by the Boris method \cite{Boris1970}: By plugging
 \begin{subequations}
 \begin{equation}\label{eq:boris_method_1}
-	\vec{u}_{p}^{\:n-1/2} = \vec{u}_{p}^{\:-} - \frac{q_{s} \vec{E}_{p}^{\:n}}{m_{s}} \frac{\Delta t}{2},
+	\vec{u}_{p}^{\:n-1/2} = \vec{u}_{p}^{\:-} - \frac{q_{s} \vec{E}_{p}^{\:n}}{m_{s}} \frac{\Delta t}{2}
 \end{equation}
 and
 \begin{equation}\label{eq:boris_method_2}
@@ -1302,10 +1302,10 @@ The standard finite-difference time-domain method uses centered finite differenc
 \end{equation}
 The operators $ \nabla^{+} $ and $ \nabla^{-} $ used in Eqs.~(\ref{eq:discrete_maxwell_1}) -- (\ref{eq:discrete_maxwell_4}) act on a scalar field $ f_{i j k} $ as follows \cite{Esirkepov2001},
 \begin{equation}\label{eq:nabla_plus}
-	\nabla^{+} f_{i, j, k} = \left(\frac{f_{i + 1,\: j,\: k} - f_{i,\: j,\: k}}{\Delta x}, \frac{f_{i,\: j + 1,\: k} - f_{i,\: j,\: k}}{\Delta y}, \frac{f_{i,\: j,\: k + 1} - f_{i,\: j,\: k}}{\Delta z} \right), 
+	\nabla^{+} f_{i, j, k} = \left[ \frac{f_{i + 1,\: j,\: k} - f_{i,\: j,\: k}}{\Delta x}, \frac{f_{i,\: j + 1,\: k} - f_{i,\: j,\: k}}{\Delta y}, \frac{f_{i,\: j,\: k + 1} - f_{i,\: j,\: k}}{\Delta z} \right], 
 \end{equation}
 \begin{equation}\label{eq:nabla_minus}
-	\nabla^{-} f_{i, j, k} = \left(\frac{f_{i,\: j,\: k} - f_{i - 1,\: j,\: k}}{\Delta x}, \frac{f_{i,\: j,\: k} - f_{i,\: j - 1,\: k}}{\Delta y}, \frac{f_{i,\: j,\: k} - f_{i,\: j,\: k - 1}}{\Delta z} \right).
+	\nabla^{-} f_{i, j, k} = \left[ \frac{f_{i,\: j,\: k} - f_{i - 1,\: j,\: k}}{\Delta x}, \frac{f_{i,\: j,\: k} - f_{i,\: j - 1,\: k}}{\Delta y}, \frac{f_{i,\: j,\: k} - f_{i,\: j,\: k - 1}}{\Delta z} \right].
 \end{equation}
 These operators have the following properties \cite{Esirkepov2001},
 \begin{equation}\label{eq:nabla_properties}
@@ -1333,19 +1333,28 @@ It is important to realize that, in the three-dimensional case, the system of Eq
 \end{equation}
 This means that, to get a complete description of the new electric and magnetic fields, it is sufficient to calculate only Eqs.~(\ref{eq:discrete_maxwell_3}) and (\ref{eq:discrete_maxwell_4}), while Eqs.~(\ref{eq:discrete_maxwell_1}) and (\ref{eq:discrete_maxwell_2}) can be considered as initial conditions. In such a case, however, the deposition of charge and current densities on the grid has to satisfy Eq.~(\ref{eq:discrete_continuity eq}).
 
-The standard finite-difference time-domain method introduces a numerical dispersion in vacuum \cite{Vay2011},
+The standard finite-difference time-domain method introduces a numerical dispersion in vacuum, the effect of which on the frequency $ \omega $ and wavevector $ \vec{k} = \left( k_x, k_y, k_z \right) $ of the electromagnetic wave can be described as follows \cite{Vay2011}, 
 \begin{equation}\label{eq:numerical_disp_eq}
-	\frac{1}{c^2 \Delta t^2} \sin^2 \left(\frac{\omega \Delta t}{2}\right) = \frac{1}{\Delta x^2} \sin^2 \left(\frac{k_x \Delta x}{2}\right) + \frac{1}{\Delta y^2} \sin^2 \left(\frac{k_y \Delta y}{2}\right) + \frac{1}{\Delta z^2} \sin^2 \left(\frac{k_z \Delta z}{2}\right),
+	\frac{1}{c^2 \Delta t^2} \sin^2 \left(\frac{\omega \Delta t}{2}\right) = \frac{1}{\Delta x^2} \sin^2 \left(\frac{k_x \Delta x}{2}\right) + \frac{1}{\Delta y^2} \sin^2 \left(\frac{k_y \Delta y}{2}\right) + \frac{1}{\Delta z^2} \sin^2 \left(\frac{k_z \Delta z}{2}\right).
 \end{equation}
-which causes the electromagnetic waves to propagate in vacuum at velocities lower than $ c $. Also, quasi-particles may travel faster than these waves and emit nonphysical Cherenkov radiation \cite{Godfrey1974}, which is detrimental particularly when modeling relativistic particle beams. In general, the effects induced by the numerical dispersion can be mitigated by the use of very high spatial resolution (at the cost of increased computational time). This is further complicated by the Courant--Friedrichs--Lewy condition \cite{Courant1928}, which ensures the numerical stability of the solver by preventing the quasi-particles to travel over a distance more than one grid cell in one time step,
+According to Eq.~(\ref{eq:numerical_disp_eq}), the electromagnetic waves may propagate in vacuum at velocities lower than $ c $. Also, quasi-particles may travel faster than the electromagnetic waves and emit nonphysical Cherenkov radiation \cite{Godfrey1974}, which is detrimental particularly when modeling relativistic particle beams. In general, the effects induced by the numerical dispersion can be mitigated by the use of a very high spatial resolution (at the cost of increased computational time). This is further complicated by the Courant--Friedrichs--Lewy condition \cite{Courant1928}, which ensures the numerical stability of the solver by preventing the electromagnetic waves to travel over a distance more than one grid cell in one time step,
 \begin{equation}\label{eq:cfl}
 	\frac{C}{c^{2} \Delta t^{2}} = \frac{1}{\Delta x^{2}} + \frac{1}{\Delta y^{2}} + \frac{1}{\Delta z^{2}},
 \end{equation}
-where the dimensionless number $ C \leq 1 $ is called the CFL number. For the alternatives to the standard finite-difference time-domain method, the reader can refer to, e.g., Refs.~\citenum{Cole1997, Liu1997, Pukhov1999, Cowan2013, Lehe2013, Vay2013, Vincenti2016}.
+where $ C \leq 1 $. For the alternatives to the standard finite-difference time-domain method, the reader can refer to, e.g., Refs.~\citenum{Cole1997, Liu1997, Pukhov1999, Cowan2013, Lehe2013, Vay2013, Vincenti2016}.
 
-\subsection{Particle and field weighting}
+\subsection{Field and particle weighting}
 
-Let us begin with the deposition of the charge, $ \rho \left( \vec{r}, t \right) $, and current, $ \vec{J} \left( \vec{r}, t \right) $, densities from the quasi-particles to the grid points. According to the kinetic theory, $ \rho \left(\vec{r}, t \right) $ and $ \vec{J} \left( \vec{r}, t \right) $ can be obtained by the following integrals over the momentum space,
+In order to obtain the spatial averages of the electric, $ \vec{E}_{p} $, and magnetic, $ \vec{B}_{p} $, field components acting on quasi-particles, we may exploit the shape functions as in the following expressions,
+\begin{equation}\label{key}
+	\vec{E}_{p} = \sum_{i, j, k} \vec{E}_{i, j, k} S^r \left( \vec{r}_{i, j, k} - \vec{r}_{p} \right),
+\end{equation}
+\begin{equation}\label{key}
+	\vec{B}_{p} = \sum_{i, j, k} \vec{B}_{i, j, k} S^r \left( \vec{r}_{i, j, k} - \vec{r}_{p} \right).
+\end{equation}
+This step represents the field weighting.
+
+A final step that is yet to be discussed is thus the particle weighting, i.e., the deposition of the charge, $ \rho \left( \vec{r}, t \right) $, and current, $ \vec{J} \left( \vec{r}, t \right) $, densities from the quasi-particles to the grid points. According to the kinetic theory, $ \rho \left(\vec{r}, t \right) $ and $ \vec{J} \left( \vec{r}, t \right) $ can be obtained by the following integrals over the momentum space,
 \begin{equation}\label{eq:charge_density}
 	\rho \left(\vec{r}, t \right) = \sum_s q_s \int f_s \left(\vec{r}, \vec{p}, t \right) \dl \vec{p}, 
 \end{equation}
@@ -1358,7 +1367,7 @@ After discretizing the expression of Eqs.~(\ref{eq:charge_density}) with quasi-p
 \end{equation}
 where $ q_p = q_s w_p $ is the charge of the quasi-particle.
 
-One could assign the current densities to the grid points by analogy to Eq.~(\ref{eq:charge_density_discretized}), but the discrete continuity equation [Eq.~(\ref{eq:discrete_continuity eq})] would be violated. To resolve this issue, one would have to calculate the Poisson equation [Eq.~(\ref{eq:discrete_maxwell_1})] for the correction of the electric field at every simulation time step or use more sophisticated methods, referred to as the charge conservation methods, that satisfy the continuity equation exactly (see, e.g., Refs.~\citenum{Morse1971, Eastwood1991, Villasenor1992, Eastwood1995, Esirkepov2001, Umeda2003}).
+One could assign the current densities to the grid points by the analogy to Eq.~(\ref{eq:charge_density_discretized}), but the discrete continuity equation [Eq.~(\ref{eq:discrete_continuity eq})] would be violated. To resolve this issue, one would have to calculate the Poisson equation [Eq.~(\ref{eq:discrete_maxwell_1})] for the correction of the electric field at every simulation time step or use more sophisticated methods (referred to as the charge conservation methods) that satisfy the continuity equation exactly (see, e.g., Refs.~\citenum{Morse1971, Eastwood1991, Villasenor1992, Eastwood1995, Esirkepov2001, Umeda2003}).
 
 Here we present the method of Esirkepov (see Ref.~\citenum{Esirkepov2001} for closer details), which is valid for an arbitrary shape function. Due to the linearity of Eq.~(\ref{eq:discrete_continuity eq}), the total current density deposited on the grid can be decomposed into the current densities associated with the motion of individual quasi-particles. Let us thus consider a single quasi-particle moving along a straight line from $ \vec{r}_p = \left( x_p, y_p, z_p \right) $ to $ \vec{r}_p + \vec{\delta r}_p $ over one time step, where $ \vec{\delta r}_p = \left( \delta x_p, \delta y_p, \delta z_p \right) $ is a three-dimensional shift of the quasi-particle. Further, we define a vector $ \vec{W} = \left( W_x, W_y, W_z \right) $ by the following equations,
 \begin{subequations}\label{eq:current_density_deposition_eqs}
@@ -1371,7 +1380,7 @@ Here we present the method of Esirkepov (see Ref.~\citenum{Esirkepov2001} for cl
 \begin{equation}\label{key}
 \left( J_z \right)_{i, j, k + 1}	= \left( J_z \right)_{i, j, k} - q_p \diff{z_p}{t} \left( W_z \right)_{i, j, k}.
 \end{equation}
-According to Eq.~(\ref{eq:discrete_continuity eq}) we can write
+According to Eq.~(\ref{eq:discrete_continuity eq}) we may write
 \begin{equation}\label{key}
 \left( W_x \right)_{i, j, k} + \left( W_y \right)_{i, j, k} + \left( W_z \right)_{i, j, k} = S^r \left( \vec{r}_{i, j, k} - \vec{r}_p - \vec{\delta r}_p \right) - S^r \left( \vec{r}_{i, j, k} - \vec{r}_p \right).
 \end{equation}
@@ -1413,14 +1422,6 @@ According to Ref.~\citenum{Esirkepov2001}, only one linear combination of the 8 
 \end{equation}
 \end{subequations}
 The expressions of Eqs.~(\ref{eq:current_density_deposition_lin_comb}) define the current density decomposition. The current density associated with the motion of a single quasi-particle is obtained by solving Eqs.~(\ref{eq:current_density_deposition_eqs}). We note that the charge conservation methods do not use the charge densities to advance the electromagnetic fields, they are usually projected on the grid only for diagnostics purposes.
-
-A final step that is yet to be discussed is the field weighting. In order to obtain the spatial averages of the electric and magnetic field components acting on quasi-particles, we may exploit the shape functions as in the following expressions,
-\begin{equation}\label{key}
-	\vec{E}_{p} = \sum_{i, j, k} \vec{E}_{i, j, k} S^r \left( \vec{r}_{i, j, k} - \vec{r}_{p} \right),
-\end{equation}
-\begin{equation}\label{key}
-	\vec{B}_{p} = \sum_{i, j, k} \vec{B}_{i, j, k} S^r \left( \vec{r}_{i, j, k} - \vec{r}_{p} \right).
-\end{equation}
 
 %\subsection{Particle-in-cell algorithm}
 %\input{dat/1-0.tex}
