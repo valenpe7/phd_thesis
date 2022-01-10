@@ -246,7 +246,7 @@
 %changecountering---------------------------------------------------------------
 
 \usepackage{chngcntr}
-%\counterwithout{equation}{chapter}
+\counterwithout{equation}{chapter}
 \counterwithout{figure}{chapter}
 \counterwithout{table}{chapter}
 
@@ -575,11 +575,11 @@ The results obtained have been also presented at a number of international scien
 The structure of this doctoral thesis is organized as follows: 
 
 \begin{description}
-	\item[Chapter~\ref{chap:theoretical_background}] presents the theory of physical process related to the research topics under consideration. We note that since this doctoral thesis is primarily oriented on the presentation of the author's original work, the content of this chapter is limited to rather concise compendium of formulas, describing only the most essential features. It includes ... 
+	\item[Chapter~\ref{chap:theoretical_background}] presents the theoretical background related to the research topics under consideration. It includes the fundamental theory of the interaction of intense laser pulses with underdense plasma, the laser-wakefield acceleration of electrons, the concept of relativistic flying mirrors in underdense plasmas, and the particle-in-cell method. We note that since this doctoral thesis is primarily oriented on the presentation of the author's original work, the content of this chapter is limited to rather concise compendium of formulas, describing only the most essential features. 
 	
 	\item[Chapter~\ref{chap:authors_original_results}] contains closer details about the four selected papers (Refs.~\ref{paper_1} -- \ref{paper_4}), their main contributions to the corresponding scientific fields, as well as a thorough description of the author's role. 
 	
-	\item[Chapter~\ref{chap:conclusion}] summarizes the content of this doctoral thesis and outlines possible directions for future research. 
+	\item[Chapter~\ref{chap:conclusion}] summarizes the content of this doctoral thesis as well as the most important results achieved by the author and outlines possible directions for future research. 
 	
 	%Due to their high potential for both fundamental science and practical applications, all the findings certainly deserve further attention. The summary and possible directions for future research are outlined in Chap.~\ref{chap:conclusion}. 
 	
@@ -587,8 +587,6 @@ The structure of this doctoral thesis is organized as follows:
 	
 	\item[Appendix~\ref{chap:selected_publications}] contains the full texts (reproduced with permission) of the four selected publications (Refs.~\ref{paper_1} -- \ref{paper_4}).
 \end{description}
-
-
 
 %-------------------------------------------------------------------------------
 
@@ -704,11 +702,11 @@ In the one-dimensional geometry (i.e., $ \partial / \partial x = \partial / \par
 \diff[2]{a}{\zeta} + \omega^2 a = a \frac{\beta_{w}}{1 - \beta_{w}^2}  \left(\frac{\rho_e}{R_e} - \frac{\rho_i}{R_i} \right),
 \end{equation}
 where $ \omega $ is the angular frequency of the electromagnetic wave, $ \psi_{\alpha} = \mathit{\Gamma}_{\alpha} + \rho_{\alpha} \varphi $, and $ R_{\alpha} = \sqrt{\psi_{\alpha}^2 - \left(1 - \beta_w^2 \right) \left(1 + \rho_{\alpha}^2 a^2 \right)} $. The value of $ \mathit{\Gamma}_{\alpha} $ is determined by the boundary conditions; e.g., if the electromagnetic field amplitude vanishes (i.e., $ a = 0 $ and $ \varphi = 0 $) and the plasma is at rest (i.e., $ \norm{\vec{p}_{\alpha}} = 0 $) at infinity, then $ \mathit{\Gamma}_{\alpha} = 1 $. The Lorentz factors and the number densities of the electron and ion components can be expressed as functions of scalar and vector potentials \cite{Farina2001, Bulanov2013, Bulanov2021},
-\begin{equation}\label{key}
+\begin{equation}\label{eq:gamma_factor_Langmuir_wave}
 %\gamma_{\alpha} = \frac{\psi_{\alpha} - \beta_g R_{\alpha}}{1 - \beta_g^2},
 \gamma_{\alpha} = \frac{R_{\alpha}}{1 - \beta_w^2} \left( \frac{\psi_{\alpha}}{R_{\alpha}} - \beta_w \right),
 \end{equation}
-\begin{equation}\label{key}
+\begin{equation}\label{eq:electron_density_Langmuir_wave}
 %n_{\alpha} = \beta_g \frac{\psi_{\alpha} - \beta_g R_{\alpha}}{R_{\alpha} \left( 1 - \beta_g^2 \right)}.
 n_{\alpha} = \frac{\beta_w}{1 - \beta_w^2} \left( \frac{\psi_{\alpha}}{R_{\alpha}} - \beta_w \right).
 \end{equation}
@@ -749,52 +747,54 @@ By integrating Eq.~(\ref{eq:eq_for_scalar_potential_5}) with the boundary condit
 \end{equation}
 From Eq.~(\ref{eq:integral}) one may find the optimal length of the driving electromagnetic pulse which maximizes the amplitude of the electric field, $ E = -\diff{\varphi}/{\zeta} $, within the Langmuir wave using the condition that $ E = 0 $ at the rear side of the pulse \cite{Bulanov2016, Bulanov2021},
 \begin{equation}\label{eq:optimal_length}
-l_{opt} = \int_{0}^{a^2} \sqrt{\frac{1 + \varphi}{\varphi \left( a^2 - \varphi \right)}} \dl \varphi = 2 E \left( -a^2 \right),
+l_{\mathrm{opt}} = \int_{0}^{a^2} \sqrt{\frac{1 + \varphi}{\varphi \left( a^2 - \varphi \right)}} \dl \varphi = 2 E \left( -a^2 \right),
 \end{equation}
 where $ E \left( \cdot \right) $ is the complete elliptic integral of the second kind \cite{Gradshteyn1980}. In the limit of small-amplitude driving electromagnetic pulse (i.e., $ a \ll 1 $), we may approximate Eq.~(\ref{eq:optimal_length}) as
-\begin{equation}\label{key}
-l_{opt} = \pi + \frac{\pi}{4} a^2 - \frac{3 \pi}{64} a^4 + \dots ,
+\begin{equation}\label{eq:optimal_length_small_amplitude}
+l_{\mathrm{opt}} = \pi + \frac{\pi}{4} a^2 - \frac{3 \pi}{64} a^4 + \dots ,
 \end{equation}
-and the wavelength of the Langmuir wave is $ \lambda_w = 4 l_{opt} $ (i.e., $ \lambda_w = 2 \pi c / \omega_{pe} $ in dimensional units). In the opposite limit of large-amplitude electromagnetic pulse (i.e., $ a \gg 1 $), one gets
-\begin{equation}\label{key}
-l_{opt} = 2a - \frac{1}{a} \ln a + \frac{1}{a} \left( \frac{1}{2} + 2 \ln 2 \right) - \dots ,
+and the wavelength of the Langmuir wave is $ \lambda_w = 4 l_{\mathrm{opt}} $ (i.e., $ \lambda_w = 2 \pi c / \omega_{pe} $ in dimensional units). In the opposite limit of large-amplitude electromagnetic pulse (i.e., $ a \gg 1 $), one gets
+\begin{equation}\label{eq:optimal_length_large_amplitude}
+l_{\mathrm{opt}} = 2a - \frac{1}{a} \ln a + \frac{1}{a} \left( \frac{1}{2} + 2 \ln 2 \right) - \dots ,
 \end{equation}
-and the Langmuir wave wavelength is $ \lambda_w = 2 l_{opt} $ (i.e., $ \lambda_w = 4 a c / \omega_{pe} $ in dimensional units). We see that $ \lambda_w $ is proportional to $ a $.
+and the Langmuir wave wavelength is $ \lambda_w = 2 l_{\mathrm{opt}} $ (i.e., $ \lambda_w = 4 a c / \omega_{pe} $ in dimensional units). We see that $ \lambda_w $ is proportional to $ a $.
 
 \begin{figure}[t]
 	\includegraphics[width=0.9\linewidth]{img/langmuir_wave.jpg}
-	\caption[]{\label{fig:langmuir_wave} Dependence of the scalar potential (black dashed line), electric field (blue), and electron density perturbation (solid black line) on the coordinate $ \zeta $ for the Langmuir wave generated by square electromagnetic pulse (red) with amplitude $ a = 2 $ and optimal length ($ l_{opt} = 5.27 $) given by Eq.~(\ref{eq:optimal_length}). The values of scalar potential and electric field in the wake left behind the driving electromagnetic pulse vary from $ -0.8 $ to $ 4 $ and from $ \approx -1.79 $ to $ \approx 1.79 $, respectively. The quantities are obtained numerically from Eq.~(\ref{eq:eq_for_scalar_potential_5}).}
+	\caption[]{\label{fig:langmuir_wave} Dependence of the scalar potential (black dashed line), electric field (blue), and electron density perturbation (solid black line) on the coordinate $ \zeta $ for the Langmuir wave generated by square electromagnetic pulse (red) with amplitude $ a = 2 $ and optimal length ($ l_{\mathrm{opt}} = 5.27 $) given by Eq.~(\ref{eq:optimal_length}). The values of scalar potential and electric field in the wake left behind the driving electromagnetic pulse vary from $ -0.8 $ to $ 4 $ and from $ \approx -1.79 $ to $ \approx 1.79 $, respectively. The quantities are obtained numerically from Eq.~(\ref{eq:eq_for_scalar_potential_5}).}
 \end{figure}
 
-The extrema of the scalar potential inside the electromagnetic pulse can be obtained from Eq.~(\ref{eq:integral}) using the condition $ \diff{\varphi}/{\zeta} = 0 $. We find that the minimum and maximum values of $ \varphi $ are, respectively, $ \varphi_{min} = 0 $ and $ \varphi_{max} = a^2 $. The extrema of the electric field inside the electromagnetic pulse can be found from Eq.~(\ref{eq:eq_for_scalar_potential_5}) using the condition $ \diff[2]{\varphi}/{\zeta} = 0 $. The minimum and maximum values of $ E $ are thus $ E_{min} = -\sqrt{1 + a^2} + 1 $ and $ E_{max} = \sqrt{1 + a^2} - 1 $, respectively. In order to examine the extrema of scalar potential and electric field left behind the driving electromagnetic pulse of the optimal length given by Eq.~(\ref{eq:optimal_length}), we integrate Eq.~(\ref{eq:eq_for_scalar_potential_5}) with $ a = 0 $ and use the boundary conditions $ \varphi \left( -l_{opt} \right) = a^2 $ and $ \diff{\varphi}/{\zeta} \left( -l_{opt} \right) = 0 $,
+The extrema of the scalar potential inside the electromagnetic pulse can be obtained from Eq.~(\ref{eq:integral}) using the condition $ \diff{\varphi}/{\zeta} = 0 $. We find that the minimum and maximum values of $ \varphi $ are, respectively, $ \varphi_{\mathrm{min}} = 0 $ and $ \varphi_{\mathrm{max}} = a^2 $. The extrema of the electric field inside the electromagnetic pulse can be found from Eq.~(\ref{eq:eq_for_scalar_potential_5}) using the condition $ \diff[2]{\varphi}/{\zeta} = 0 $. The minimum and maximum values of $ E $ are thus $ E_{\mathrm{min}} = -\sqrt{1 + a^2} + 1 $ and $ E_{\mathrm{max}} = \sqrt{1 + a^2} - 1 $, respectively. In order to examine the extrema of scalar potential and electric field left behind the driving electromagnetic pulse of the optimal length given by Eq.~(\ref{eq:optimal_length}), we integrate Eq.~(\ref{eq:eq_for_scalar_potential_5}) with $ a = 0 $ and use the boundary conditions $ \varphi \left( -l_{\mathrm{opt}} \right) = a^2 $ and $ \diff{\varphi}/{\zeta} \left( -l_{\mathrm{opt}} \right) = 0 $,
 \begin{equation}\label{eq:integral_2}
 \left( \diff{\varphi}{\zeta} \right)^2 = a^2 - \varphi - \frac{a^2 - \varphi}{\left(1 + a^2 \right) \left( 1 + \varphi \right)}.
 \end{equation}
-Using the same approach as before, we find from Eq.~(\ref{eq:integral_2}) that $ \varphi_{min} = -a^2 / \left( 1 + a^2 \right) $, $ \varphi_{max} = a^2 $, $ E_{min} = -a^2 / \sqrt{1 + a^2} $, and $ E_{max} = a^2 / \sqrt{1 + a^2} $. Note that the amplitude of the electric field inside the driving electromagnetic pulse is smaller than the amplitude of the electric field in the wake left behind the driver.
+Using the same approach as before, we find from Eq.~(\ref{eq:integral_2}) that $ \varphi_{\mathrm{min}} = -a^2 / \left( 1 + a^2 \right) $, $ \varphi_{\mathrm{max}} = a^2 $, $ E_{\mathrm{min}} = -a^2 / \sqrt{1 + a^2} $, and $ E_{\mathrm{max}} = a^2 / \sqrt{1 + a^2} $. Note that the amplitude of the electric field inside the driving electromagnetic pulse is smaller than the amplitude of the electric field in the wake left behind the driver.
 
 Fig.~\ref{fig:langmuir_wave} shows the dependence of scalar potential, electric field, and electron density perturbation on the coordinate $ \zeta $ for the Langmuir wave generated by square electromagnetic pulse with amplitude $ a = 2 $ and optimal length given by Eq.~(\ref{eq:optimal_length}). The quantities are obtained numerically from Eq.~(\ref{eq:eq_for_scalar_potential_5}).
 
 \subsection{Breaking of Langmuir waves}
 
 The amplitude of the electric field in the Langmuir wave with a given value of $ \beta_w $ cannot be arbitrarily large. It has been found that if the electric field exceeds the Akhiezer-Polovin limit value of the field \cite{Akhiezer1956}, 
-\begin{equation}\label{key}
+\begin{equation}\label{eq:akhiezer_polovin}
 E_{\mathrm{AP}} = \sqrt{2 \left( \gamma_w - 1 \right)},
 \end{equation}
 the Langmuir wave breaks. Here $ \gamma_w = 1 / \sqrt{1 - \beta_w^2} $ stands for the Lorentz factor of the Langmuir wave. 
 
-In this section we analyze the properties of Langmuir waves generated by a strong electromagnetic pulse as they approach the threshold of wave breaking. As closer discussed in Secs.~\ref{}, the breaking Langmuir waves are of high importance for the concept of laser-wakefield acceleration (they provide the electron self-injection into the accelerating regions of wakefield) as well as for the relativistic flying mirrors (they maximize the reflection coefficient of the mirrors realized with laser-driven Langmuir waves). Eqs.~(\ref{eq:eq_for_scalar_potential}) - (\ref{eq:eq_for_momentum}) can be rewritten in a single ordinary differential equation for the longitudinal component of the electron momentum $ p_e $ \cite{Panchenko2008, Bulanov2013},
+In this section we analyze the properties of Langmuir waves generated by a strong electromagnetic pulse as they approach the threshold of wave breaking. As closer discussed in Secs.~\ref{}, the breaking Langmuir waves are of high importance for the concept of laser-wakefield acceleration (they provide the electron self-injection into the accelerating regions of wakefield) as well as for the relativistic flying mirrors (they maximize the reflection coefficient of the mirrors realized with laser-driven Langmuir waves). 
+
+Eqs.~(\ref{eq:eq_for_scalar_potential}) - (\ref{eq:eq_for_momentum}) can be rewritten in a single ordinary differential equation for the longitudinal component of the electron momentum $ p_e $ \cite{Panchenko2008, Bulanov2013},
 \begin{equation}\label{eq:eq_for_long_momentum}
 \diff*[2]{\left( \gamma_e - \beta_w p_e \right)}{\zeta} = \frac{p_e}{\beta_w \gamma_e - p_e},
 \end{equation}
 where we assume that $ \gamma_e = \sqrt{1 + p_e^2 + a^2} $ (see also Sec.~\ref{label}). One can immediately see that Eq.~(\ref{eq:eq_for_long_momentum}) becomes singular when the denominator on the right-hand side vanishes, i.e., when the electron velocity, $ p_e / \gamma_e $, approaches the phase velocity of the Langmuir wave, $ \beta_{w} $. This singularity, which is also known as the gradient or cusp catastrophe, corresponds to the breaking of Langmuir wave.
 
-The structure of the breaking Langmuir wave can be revealed by expanding $ \gamma_e $ and $ p_e $ in the vicinity of the singularity, $ \zeta = \zeta_{br} + \delta \zeta  $, where $ \zeta_{br} $ is the breaking coordinate and $ \delta \zeta / \zeta_{br} \ll 1 $. The electron momentum is expanded as $ p_e = p_{br} + \delta p $, where $ p_{br} = \beta_w \gamma_w \sqrt{1 + a_{br}^2} $, $ \delta p / p_{br} \ll 1 $, and $ a_{br} = a \left( \zeta_{br} \right) $. From Eq.~(\ref{eq:eq_for_long_momentum}) one gets \cite{Panchenko2008, Bulanov2013}
+The structure of the breaking Langmuir wave can be revealed by expanding $ \gamma_e $ and $ p_e $ in the vicinity of the singularity, $ \zeta = \zeta_{\mathrm{br}} + \delta \zeta  $, where $ \zeta_{\mathrm{br}} $ is the breaking coordinate and $ \delta \zeta / \zeta_{\mathrm{br}} \ll 1 $. The electron momentum is expanded as $ p_e = p_{\mathrm{br}} + \delta p $, where $ p_{\mathrm{br}} = \beta_w \gamma_w \sqrt{1 + a_{\mathrm{br}}^2} $, $ \delta p / p_{\mathrm{br}} \ll 1 $, and $ a_{\mathrm{br}} = a \left( \zeta_{\mathrm{br}} \right) $. From Eq.~(\ref{eq:eq_for_long_momentum}) one gets \cite{Panchenko2008, Bulanov2013}
 \begin{equation}\label{eq:eq_for_long_momentum_2}
-\diff*[2]{\delta p^2 }{\zeta} = -2 \beta_w \gamma_w^6 \left( 1 + a_{br}^2 \right) \delta p^{-1}.
+\diff*[2]{\delta p^2 }{\zeta} = -2 \beta_w \gamma_w^6 \left( 1 + a_{\mathrm{br}}^2 \right) \delta p^{-1}.
 \end{equation}
 After integrating Eq.~(\ref{eq:eq_for_long_momentum_2}) over $ \zeta $ we obtain \cite{Panchenko2008, Bulanov2013}
 \begin{equation}\label{eq:eq_for_long_momentum_3}
-\left( \delta p \diff*{\delta p}{\zeta} \right)^2 + 2 \beta_w \gamma_w^6 \left( 1 + a_{br}^2 \right) \delta p = C,
+\left( \delta p \diff*{\delta p}{\zeta} \right)^2 + 2 \beta_w \gamma_w^6 \left( 1 + a_{\mathrm{br}}^2 \right) \delta p = C,
 \end{equation}
 where $ C $ is the integration constant (note that the value of $ C $ can be different in regions $ \delta \zeta < 0 $ and $ \delta \zeta > 0 $ since Eq.~(\ref{eq:eq_for_long_momentum_2}) is singular at $ \delta \zeta \rightarrow 0 $).
 
@@ -805,15 +805,15 @@ where $ C $ is the integration constant (note that the value of $ C $ can be dif
 
 When the product $ \delta p \, \diff{\delta p}/{\zeta} \rightarrow 0 $ at $ \delta p \rightarrow 0 $, which implies that $ C = 0 $, then \cite{Panchenko2008, Bulanov2013}
 \begin{equation}\label{eq:eq_for_delta_p}
-\delta p = -\beta_w \gamma_w^2 \left( \sqrt{\frac{9}{2}} \sqrt{1 + a_{br}^2} \frac{\delta \zeta}{\beta_w} \right)^{2/3}.
+\delta p = -\beta_w \gamma_w^2 \left( \sqrt{\frac{9}{2}} \sqrt{1 + a_{\mathrm{br}}^2} \frac{\delta \zeta}{\beta_w} \right)^{2/3}.
 \end{equation}
 The expression for the longitudinal electron velocity, $ \beta_e $, then reads as \cite{Panchenko2008, Bulanov2013}
 \begin{equation}\label{eq:eq_for_long_velocity}
-	\beta_e = \beta_w - \frac{\beta_w}{\gamma_w} \left( \sqrt{\frac{9}{2}} \left( 1 + a_{br}^2 \right)^{1/4} \frac{\delta \zeta}{\beta_w} \right)^{2/3}.
+	\beta_e = \beta_w - \frac{\beta_w}{\gamma_w} \left( \sqrt{\frac{9}{2}} \left( 1 + a_{\mathrm{br}}^2 \right)^{1/4} \frac{\delta \zeta}{\beta_w} \right)^{2/3}.
 \end{equation}
-Finally, by plugging Eq.~(\ref{eq:eq_for_long_velocity}) into the solution to Eq.~(\ref{eq:eq_for_density}), we obtain the distribution of the electron density, $ n_e $, of the breaking Langmuir wave in the vicinity of $ \zeta_{br} $ as \cite{Panchenko2008, Bulanov2013}
+Finally, by plugging Eq.~(\ref{eq:eq_for_long_velocity}) into the solution to Eq.~(\ref{eq:eq_for_density}), we obtain the distribution of the electron density, $ n_e $, of the breaking Langmuir wave in the vicinity of $ \zeta_{\mathrm{br}} $ as \cite{Panchenko2008, Bulanov2013}
 \begin{equation}\label{eq:eq_for_density_breaking}
-n_e = \frac{\beta_w}{\beta_w - \beta_e} \approx \gamma_w \left( \sqrt{\frac{2}{9}} \left( 1 + a_{br}^2 \right)^{1/4} \frac{ \beta_w}{\delta \zeta} \right)^{2/3}.
+n_e = \frac{\beta_w}{\beta_w - \beta_e} \approx \gamma_w \left( \sqrt{\frac{2}{9}} \left( 1 + a_{\mathrm{br}}^2 \right)^{1/4} \frac{ \beta_w}{\delta \zeta} \right)^{2/3}.
 \end{equation}
 Although for $ \delta \zeta \rightarrow 0 $ the electron density tends to infinity, the singularity is integrable. This means that in the breaking Langmuir wave there is a finite number of electrons \cite{Panchenko2008, Bulanov2013}. The distribution of $ n_e $ given by Eq.~(\ref{eq:eq_for_density_breaking}) is shown in Fig.~\ref{fig:breaking_wave}.
 
@@ -828,7 +828,7 @@ Singularities form naturally in the plasma flow with inhomogeneous velocity. The
 \section{Laser-wakefield acceleration of electrons\label{sec:lwfa}}
 %\input{dat/1-0.tex}
 
-In this section, we briefly introduce the concept of electron acceleration by the laser-generated wakefield \cite{Tajima1979}, i.e., the structure comprising the Langmuir wave and the associated longitudinal electric field. We first analyze the motion of electrons in the wakefield using the Hamiltonian formalism, ... An extensive study about the aspects of laser-wakefield accelerators can be found, e.g., in Refs.~\citenum{Esarey2009} and \citenum{Bulanov2016}.
+In this section, we briefly introduce the concept of electron acceleration by the laser-generated wakefield \cite{Tajima1979}, i.e., the structure comprising the Langmuir wave and the associated longitudinal electric field. We first analyze the motion of electrons in the wakefield using the Hamiltonian formalism and then discuss the aspects limiting the maximum achievable electron energy, such as electron dephasing, pulse energy depletion, or beam loading. An extensive study devoted to the laser-wakefield accelerators can be found, e.g., in Refs.~\citenum{Esarey2009} and \citenum{Bulanov2016}.
 
 %The fundamental role of the plasma in LWFA is to transform the strong, transversely oscillating laser fields into quasistatic, longitudinally accelerating fields.
 
@@ -837,43 +837,60 @@ In this section, we briefly introduce the concept of electron acceleration by th
 \subsection{Electron interaction with Langmuir wave}
 %\input{src/electron_interaction_with_langmuir_wave.tex}
 
-The one-dimensional motion of an electron in the wakefield and the electromagnetic pulse can be described by means of a Hamiltonian \cite{Esirkepov2006},
+The one-dimensional motion of an electron in the wakefield and the electromagnetic pulse can be described by means of a Hamiltonian \cite{Esirkepov2006, Esarey2009, Bulanov2013, Bulanov2016},
 \begin{equation}\label{eq:hamiltonian}
-\mathcal{H} = \sqrt{m_e^2 c^4 + c^2 P_{\parallel}^2 + c^2 \left( P_{\bot} + e A_{\bot} \right)^2} - e \phi,
+\mathcal{H} = \sqrt{1 + P_{\parallel}^2 + \left( P_{\bot} - a \right)^2} - \varphi,
 \end{equation}
-where $ P_{\parallel} \left( z, t \right) $ and $ P_{\bot} \left( z, t \right) $ are the longitudinal and transverse components of the electron canonical momentum, respectively, $ A_{\bot} \left( z, t \right) $ is the vector potential of the driving electromagnetic pulse, and $ \phi \left( z, t \right) $ is the scalar potential of the wakefield. From here on, we use the normalizations of quantities introduced in Sec~\ref{} and assume that $ A_{\bot} $ and $ \phi $ depend only on variable $ \zeta $. To ensure this, we neglect the effect of dispersion on the driving pulse, and consider that the pulse is circularly polarized and the initial value of $ P_{\bot} $ is equal to zero.
+where $ P_{\parallel} \left( z, t \right) $ and $ P_{\bot} \left( z, t \right) $ are the longitudinal and transverse components of the electron canonical momentum, respectively, $ a \left( z, t \right) $ is the vector potential of the driving electromagnetic pulse, and $ \varphi \left( z, t \right) $ is the scalar potential of the wakefield. Here and below we use the normalizations of quantities introduced in Sec~\ref{}. Further, we assume that $ a $ and $ \varphi $ depend only on variable $ \zeta $; to ensure this, we neglect the effect of dispersion on the driving pulse, and consider that the pulse is circularly polarized and the initial value of $ P_{\bot} $ is equal to zero.
 
-The integral of motion of the Hamiltonian [Eq.~(\ref{eq:hamiltonian})] can be written as 
-\begin{equation}\label{eq:hamiltonian_dimensionless}
+The integral of motion of the Hamiltonian [Eq.~(\ref{eq:hamiltonian})] can be written as \cite{Esirkepov2006, Esarey2009, Bulanov2013}
+\begin{equation}\label{eq:integral_of_motion}
 	h\left( \zeta, P_{\parallel} \right) = \sqrt{1 + P_{\parallel}^2 + a^2} - \varphi - \beta_w P_{\parallel} = h_0,
 \end{equation}
-where $ h_0 $ is a constant of the electron initial state. Eq.~(\ref{eq:hamiltonian_dimensionless}) states that the total energy (kinetic and potential) of the electron is conserved along its trajectory in phase space. For a given value of $ h_0 $, we may express the electron trajectory as
+where $ h_0 $ is a constant of the electron initial state. Eq.~(\ref{eq:integral_of_motion}) states that the total energy (kinetic and potential) of the electron is conserved along its trajectory in phase space. For a given value of $ h_0 $, we may express the electron trajectory in phase space as \cite{Schroeder2006, Esarey2009}
 \begin{equation}\label{eq:electron_trajectories}
-P_{\parallel} = \beta_w \gamma_w^2 \left( h_0 + \varphi \right) \pm \gamma_w \sqrt{\gamma_w^2 \left( h_0 + \varphi \right)^2 - a^2 - 1}.
+P_{\parallel} = \beta_w \gamma_w^2 \left( \varphi + h_0 \right) \pm \gamma_w^2 \sqrt{\left( \varphi + h_0 \right)^2 - \frac{a^2 + 1}{\gamma_w^2}}.
 \end{equation}
-Fig.~\ref{fig:phase_plot} (a) shows the phase plot of the system described by Eq.~(\ref{eq:hamiltonian_dimensionless}) in the case when the wakefield is generated by a Gaussian electromagnetic pulse with the envelope given by $ a \left( \zeta \right) = a_0 \exp \left( -\zeta^2 / l_p^2 \right) $, where $ a_0 = 2 $ and $ l_p^2 = 10 $, in a plasma with $ \beta_w = 0.99 $. The dependence of the corresponding longitudinal electric field and the envelope of the driver pulse on the coordinate $ \zeta $ is shown in Fig.~\ref{fig:phase_plot} (b). 
+Fig.~\ref{fig:phase_plot} (a) shows the phase plot of the system described by Eq.~(\ref{eq:integral_of_motion}) in the case when the wakefield is generated by a Gaussian electromagnetic pulse with the envelope given by $ a \left( \zeta \right) = a_0 \exp \left( -\zeta^2 / l_p^2 \right) $, where $ a_0 = 2 $ and $ l_p^2 = 10 $, in a plasma with $ \beta_w = 0.99 $. The dependence of the corresponding longitudinal electric field and the envelope of the driver pulse on the coordinate $ \zeta $ is shown in Fig.~\ref{fig:phase_plot} (b). 
 
 \begin{figure}[t]
 	\includegraphics[width=0.9\linewidth]{img/phase_plot.jpg}
-	\caption[]{\label{fig:phase_plot} (a) Phase plot of the system described by Eq.~(\ref{eq:hamiltonian_dimensionless}) in the case when the wakefield is generated by a Gaussian electromagnetic pulse with the envelope given by $ a \left( \zeta \right) = a_0 \exp \left( -\zeta^2 / l_p^2 \right) $, where $ a_0 = 2 $ and $ l_p^2 = 10 $, in a plasma with $ \beta_w = 0.99 $. The gray lines represent possible electron trajectories, the blue lines are for the separatrices [Eq.~(\ref{eq:separatrix})], and the black dashed line is for the curve given by Eq.~(\ref{eq:singular_points}). (b) Dependence of the longitudinal electric field (black) and the envelope of the driving pulse (blue) on the coordinate $ \zeta $ obtained numerically from Eq.~(\ref{eq:eq_for_scalar_potential_2}). The green and red stripes in both plots mark, respectively, the regions in the second wakefield period where $ E < 0 $ and $ E > 0 $, i.e., where the injected electron is being accelerated and decelerated.}
+	\caption[]{\label{fig:phase_plot} (a) Phase plot of the system described by Eq.~(\ref{eq:integral_of_motion}) in the case when the wakefield is generated by a Gaussian electromagnetic pulse with the envelope given by $ a \left( \zeta \right) = a_0 \exp \left( -\zeta^2 / l_p^2 \right) $, where $ a_0 = 2 $ and $ l_p^2 = 10 $, in a plasma with $ \beta_w = 0.99 $. The gray lines represent possible electron trajectories, the blue lines are for the separatrices [Eq.~(\ref{eq:separatrix})], and the black dashed line is for the curve given by Eq.~(\ref{eq:singular_points}). (b) Dependence of the longitudinal electric field (black) and the envelope of the driving pulse (blue) on the coordinate $ \zeta $ obtained numerically from Eq.~(\ref{eq:eq_for_scalar_potential_2}). The green and red stripes in both plots mark, respectively, the regions in the second wakefield period where $ E < 0 $ and $ E > 0 $, i.e., where the injected electron is being accelerated and decelerated.}
 \end{figure}
 
-The possible electron trajectories in Fig.~\ref{fig:phase_plot} (a) are obtained by varying the value of $ h_0 $. We see that the phase space is divided into several domains, in which the electrons move either on closed or open orbits (depending on their initial state). These domains are separated from each other by special orbits, called separatrices. The separatrices join at singular points $ \zeta_s $ (corresponding to the local minima of $ \varphi $), which lie on the curve given by
+The possible electron trajectories in Fig.~\ref{fig:phase_plot} (a) are obtained by varying the value of $ h_0 $. We see that the phase space is divided into several domains, in which the electrons move either on closed or open orbits (depending on their initial state). These domains are separated from each other by special orbits, called separatrices. The separatrices join at singular points $ \zeta_s $, which lie on the curve given by \cite{Esirkepov2006}
 \begin{equation}\label{eq:singular_points}
-	P_{\parallel} = \beta_w \gamma_w \sqrt{1 + a^2}.
+	P_{\parallel} = \beta_w \gamma_w \sqrt{a^2 + 1}.
 \end{equation}
-The separatrices themselves can be characterized by
+Note that if the driver pulse length is shorter than half of the wakefield wavelength, then the points $ \zeta_s $ correspond to the local minima of $ \varphi $, i.e., $ \varphi \left( \zeta_s \right) = \varphi_{\mathrm{min}} $. The separatrices themselves are determined by the condition $ h_0 = h_s $, where \cite{Esirkepov2006, Schroeder2006, Esarey2009}
 \begin{equation}\label{eq:separatrix}
-	h_s \left( \zeta, P_{\parallel} \right) = \frac{\sqrt{a^2 \left( \zeta_{s} \right) + 1}}{\gamma_w} - \varphi \left( \zeta_{s} \right).
+	h_s = \frac{\sqrt{a^2 \left( \zeta_{s} \right) + 1}}{\gamma_w} - \varphi \left( \zeta_{s} \right).
 \end{equation}
+Note that there may exist also other separatrices that are not shown in Fig.~\ref{fig:phase_plot} (a), e.g., the confining separatrix which encloses a domain of electron orbits trapped inside the potential well in the first period of the wakefield, or the ponderomotive separatrix which encloses the orbits of electrons being reflected by the ponderomotive force of the driver pulse \cite{Esirkepov2006}.
 
-If the initial electron momentum is too low or too high, the electrons are untrapped by the wakefield potential and thus move on open orbits in phase space. In the former case, the electrons slip backward through the Langmuir wave, while in the latter case they eventually outrun the Langmuir wave. Only the electrons with the initial momentum within certain limits become trapped. Once trapped, they find themselves on closed orbits as they periodically gain and lose energy. The regions where the electrons gain and lose energy (i.e., the accelerating and decelerating regions) are displayed in Fig.~\ref{fig:phase_plot} (a). Note that the threshold momentum required for trapping decreases for lower phase velocity and larger amplitude of the Langmuir wave \cite{Schroeder2006}.
-
-There may exist also other separatrices that are not shown in Fig.~\ref{fig:phase_plot} (a), e.g., the confining separatrix which encloses a domain of electron orbits trapped inside the potential well in the first period of the wakefield, or the ponderomotive separatrix \cite{Esirkepov2006}.
-
+From Fig.~\ref{fig:phase_plot} (a) we may see that when the initial electron momentum is too low or too high, the electrons are untrapped by the wakefield potential and thus move on open orbits in phase space. In the former case, the electrons slip backward through the Langmuir wave, while in the latter case they eventually outrun the Langmuir wave. Only the electrons with the initial momentum within the limits given by the condition $ h_0 < h_s $ become trapped (note that the threshold momentum required for trapping decreases for lower phase velocity and larger amplitude of the Langmuir wave \cite{Schroeder2006}). Once trapped, the electrons find themselves on closed orbits as they periodically gain and lose energy. The regions within a single Langmuir wave period where the electrons gain and lose energy (i.e., the accelerating and decelerating regions) are displayed in Fig.~\ref{fig:phase_plot} (a). 
 
 
-\subsection{Limits of acceleration}
+\subsection{Limits of laser-wakefield acceleration}
+
+From the solution to Eq.~(\ref{eq:integral_of_motion}) for $ \beta_w < 1 $, one may obtain the net kinetic energy acquired by an electron moving along the trajectory from $ \zeta_0 $ to $ \zeta $ \cite{Esirkepov2006, Bulanov2013, Bulanov2021},
+\begin{equation}\label{eq:electron_energy}
+	\mathcal{E} \left( \zeta \right) = \gamma_w^2 \left[ \varphi \left( \zeta \right) + h_0 \right] \pm \beta_w \gamma_w^2 \sqrt{ \left[ \varphi \left( \zeta \right) + h_0 \right]^2 - \frac{a^2 \left( \zeta \right) + 1}{\gamma_w^2}} - 1,
+\end{equation}
+where the $ + $ and $ - $ signs are, respectively, for $ \zeta $ increasing and decreasing with time and $ \mathcal{E} $ is expressed in the units of $ m_e c^2 $.
+
+The trapped electron achieves maximum kinetic energy at the coordinates $ \zeta_t $ of the top of the separatrix upper branch. Note that if the driver pulse length is shorter than half of the wakefield wavelength, then the points $ \zeta_t $ correspond to the local maxima of $ \varphi $, i.e., $ \varphi \left( \zeta_t \right) = \varphi_{\mathrm{max}} $. Let us consider an electron injected at $ \zeta_s $ with the initial kinetic energy $ \mathcal{E}_0 $ and moving along the upper branch of the separatrix to $ \zeta_t $. The electron kinetic energy at $ \zeta_t $ is then \cite{Esirkepov2006, Bulanov2013, Bulanov2021}
+\begin{equation}\label{eq:max_electron_energy}
+	\mathcal{E}_{\mathrm{max}} = \gamma_w^2 \Delta \varphi + \beta_w \gamma_w^2 \sqrt{ \Delta \varphi^2 + \frac{2}{\gamma_w} \Delta \varphi } + \mathcal{E}_0,
+\end{equation}
+where $ \Delta \varphi = \varphi \left( \zeta_t \right) - \varphi \left( \zeta_s \right) $. The initial velocity of an electron injected in the process of Langmuir wave breaking (i.e., the self-injection) is equal to $ \beta_w $ which implies $ \mathcal{E}_0 = \gamma_w - 1 $. In the limit $ \gamma_w \gg 1 $, Eq.~(\ref{eq:max_electron_energy}) becomes $ \mathcal{E}_{\mathrm{max}} \approx 2 \gamma_w^2 \Delta \varphi + \gamma_w - 1 $ \cite{Esirkepov2006, Bulanov2013}.
+
+The laboratory frame distance required for the electron to move from $ \zeta_s $ to $ \zeta_t $ is called the dephasing length, $ l_d $. If the electron interaction with the wakefield is not terminated at $ l_d $, the electron starts to decelerate. The optimal acceleration length $ l_{\mathrm{acc}} $ is thus equal to $ l_d $, which can be estimated as
+\begin{equation}\label{eq:dephasing_length}
+	l_d = \frac{\lambda_w}{2 \left( \beta_e - \beta_w \right)}.
+\end{equation}
+In the limit $ \beta_e \rightarrow 1 $ and $ \gamma_w \gg 1 $, $ l_d \approx \gamma_w^2 \lambda_w $.
+
 
 
 %\subsection{Electron injection mechanisms}
@@ -1032,23 +1049,21 @@ The mathematical expressions shown below cover only the case of radially polariz
 
 In the moving frame of reference, the electric and magnetic fields of the $ 4 \pi $-spherical focused radially polarized wave packet are expressed in the frequency domain as \cite{Jeong2020, Jeong2021}
 \begin{subequations}
-\begin{equation}\label{key}
+\begin{equation}\label{eq:E_field_4pi}
 \vec{E}^{\prime}_{f} \left( \rho^{\prime}, \theta^{\prime}; \omega \right) = \vec{e}_{\theta}^{\prime} \, i E_{0, f} \left( \omega^{\prime} \right) S_a \left( \rho^{\prime}, \theta^{\prime}; \omega^{\prime} \right) \exp \left(i \omega^{\prime} t^{\prime} \right),
 \end{equation}
-\begin{equation}\label{key}
+\begin{equation}\label{eq:B_field_4pi}
 \vec{B}^{\prime}_{f} \left( \rho^{\prime}, \theta^{\prime}; \omega \right) = - \vec{e}_{\phi}^{\prime} \, B_{0, f} \left( \omega^{\prime} \right) S_b \left( \rho^{\prime}, \theta^{\prime}; \omega^{\prime} \right) \exp \left(i \omega^{\prime} t^{\prime} \right),
 \end{equation}
 \end{subequations}
 where $ E_{0, f} \left( \omega^{\prime} \right) $ and $ B_{0, f} \left( \omega^{\prime} \right) $ are the peak amplitudes of the electric and magnetic fields at focus at a certain frequency $ \omega^{\prime} $, and $ S_a \left( \omega^{\prime} \right) $ and $ S_b \left( \omega^{\prime} \right) $ are the spatial distribution functions defined as \cite{Jeong2020, Jeong2021}
-\begin{subequations}
-\begin{equation}\label{key}
+\begin{equation}\label{eq:S_a}
 S_a \left( \omega^{\prime} \right) = j_0 \left( \frac{\omega^{\prime}}{c} \rho \right) + \frac{5}{2^3} j_2 \left( \frac{\omega^{\prime}}{c} \rho \right) P_2 \left( \cos \theta^{\prime} \right) + \dots,
 %\sum_{k = 0}^{+\infty} \frac{4k + 1}{2^{3k}} j_{2k} \left( \frac{\omega^{\prime}}{c} \rho \right) P_{2k} \left( \cos \theta^{\prime} \right),
 \end{equation}
-\begin{equation}\label{key}
+\begin{equation}\label{eq:S_b}
 S_b \left( \omega^{\prime} \right) = \frac{4}{\pi} j_1 \left( \frac{\omega^{\prime}}{c} \rho \right) P^1_1 \left( \cos \theta^{\prime} \right).
 \end{equation}
-\end{subequations}
 Here $ j_{n} \left( \cdot \right) $ is the $ n $-th order spherical Bessel function of the first kind, and $ P_n \left( \cdot \right) $ and $ P^m_n \left( \cdot \right) $ are the Legendre and associated Legendre functions \cite{Gradshteyn1980}.
 
 The resultant expressions for the spatiotemporal distribution of electric and magnetic fields of the radially polarized wave packet in the focal region of the mirror in the stationary frame of reference are obtained through the inverse Lorentz transformation and a Fourier transformation in the frequency domain \cite{Jeong2021},
@@ -1077,7 +1092,6 @@ The resultant expressions for the spatiotemporal distribution of electric and ma
 \end{equation}
 \end{subequations}
 Here $ w_e $ is the effective radius of the wave packet ($ w_e = w_0 \sqrt{2p + m + 1}$ for the $ p $-th radial, $ m $-th azimuthal Laguerre-Gaussian beam), $ \lambda_0 = 2 \pi c / \omega_0 $ is the wave packet wavelength,
-\begin{subequations}
 \begin{equation}\label{eq:envelope_function_1}
 \begin{aligned}
 \Upsilon_1 \left(T, R \right) & = \frac{1}{2} \left\lbrace \frac{\cos \theta + \beta_M}{1 + \beta_M \cos \theta} \exp \left[- \frac{\Delta \omega^{\prime 2}}{4} \left( T + \frac{R}{c} \right)^2 \right] \right. \\
@@ -1090,20 +1104,21 @@ Here $ w_e $ is the effective radius of the wave packet ($ w_e = w_0 \sqrt{2p + 
 + & \left. \frac{\sin \theta}{\gamma_M \left( 1 + \beta_M \cos \theta \right) } \exp \left[- \frac{\Delta \omega^{\prime 2}}{4} \left( T + \frac{R}{c} \right)^2 \right] \right\rbrace
 \end{aligned}
 \end{equation}
-\end{subequations}
 are the envelope functions, and
-\begin{equation}\label{eq:T_and_R}
-T \left(t, \rho \right) = \frac{t - \left(\rho / c\right) \beta_M \cos \theta}{\gamma_M \left( 1 - \beta_M^2 \cos^2 \theta \right)}, \quad R \left(\rho, t \right) = \frac{\rho - c t \beta_M \cos \theta}{\gamma_M \left( 1 - \beta_M^2 \cos^2 \theta \right)}.
+\begin{equation}\label{eq:T}
+T \left(t, \rho \right) = \frac{t - \left(\rho / c\right) \beta_M \cos \theta}{\gamma_M \left( 1 - \beta_M^2 \cos^2 \theta \right)},
 \end{equation}
-
+\begin{equation}\label{eq:R}
+R \left(\rho, t \right) = \frac{\rho - c t \beta_M \cos \theta}{\gamma_M \left( 1 - \beta_M^2 \cos^2 \theta \right)}.
+\end{equation}
 The phase of the outgoing wave packet in the stationary frame of reference can be obtained by decomposing the spherical Bessel function in Eqs.~(\ref{eq:reflected_e_lab_frame_parabolic}) or (\ref{eq:reflected_b_lab_frame_parabolic}) as $ \omega_0^{\prime} \left( T - R / c \right) = \left[ \left( 1 + \beta_M \right) / \left( 1 - \beta_M \cos \theta \right) \right] \omega_0 \left( t - \rho / c \right) $, thus the angular frequency is given by
-\begin{equation}\label{key}
+\begin{equation}\label{eq:upshift_factor_parabolic}
 	\omega_0^{\prime \prime} = \frac{1 + \beta_M}{1 - \beta_M \cos \theta} \omega_0.
 \end{equation}
 In the relativistic limit ($ \gamma_M \gg 1 $) and in the forward direction ($ \theta = 0 $), the angular frequency is upshifted by the factor $ \approx 4 \gamma_M^2 $, which is consistent to the case of relativistic flying flat mirror.
 
 The spectral bandwidth of the outgoing wave packet in the stationary frame of reference is determined by the term $ \Delta \omega^{\prime 2} \left( T - R / c \right)^2 / 4 = \left[ \left( 1 + \beta_M \right) / \left( 1 - \beta_M \cos \theta \right) \right]^2 \Delta \omega^2 \left( t - \rho / c \right)^2 / 4 $ in Eqs.~(\ref{eq:envelope_function_1}) or (\ref{eq:envelope_function_2}), thus the duration is given by
-\begin{equation}\label{key}
+\begin{equation}\label{eq:compression_factor_parabolic}
 	\tau^{\prime \prime} = \frac{1 - \beta_M \cos \theta}{1 + \beta_M} \tau.
 \end{equation}
 Again, in the relativistic limit and the forward direction, the duration is compressed by the factor $ \approx 4 \gamma_M^2 $, consistently to the case of relativistic flying flat mirror.
@@ -1120,7 +1135,7 @@ Let us consider a Langmuir wave near the threshold of breaking, which moves alon
 \begin{equation}\label{eq:refl_coeff_vector_potential}
 	\diffp[2]{A_x}{t} - c^2 \left( \diffp[2]{A_x}{y} + \diffp[2]{A_x}{z} \right) + \omega_{pe}^2 A_x = 0,
 \end{equation}
-where $ \omega_{pe} \left( \zeta \right) = \sqrt{e^2 n\left( \zeta \right) / \left( \varepsilon_0 m_e \gamma_e \right)} $ is the relativistic Langmuir frequency, $ \gamma_e $ is the electron Lorentz factor (note that $ \gamma_e = \gamma_M $ at the wave breaking coordinate $ \zeta_{br} $), $ n \left( \zeta \right) $ is the distribution of the electron density within the Langmuir wave, and $ \zeta = z - \beta_M c t $. 
+where $ \omega_{pe} \left( \zeta \right) = \sqrt{e^2 n\left( \zeta \right) / \left( \varepsilon_0 m_e \gamma_e \right)} $ is the relativistic Langmuir frequency, $ \gamma_e $ is the electron Lorentz factor (note that $ \gamma_e = \gamma_M $ at the wave breaking coordinate $ \zeta_{\mathrm{br}} $), $ n \left( \zeta \right) $ is the distribution of the electron density within the Langmuir wave, and $ \zeta = z - \beta_M c t $. 
 
 %We assume the Langmuir wave at the wave-breaking threshold; the electron density can be thus generally described by
 %\begin{equation}\label{key}
@@ -1170,15 +1185,15 @@ Assuming that the amplitude of the reflected wave is much smaller than the ampli
 
 Since we consider a Langmuir wave at the threshold of wave breaking, we may use Eq.~(\ref{eq:eq_for_density_breaking}) to describe the distribution of the electron density. In the moving frame of reference, in which the Langmuir wave is at rest, this yields
 \begin{equation}\label{eq:eq_for_nu}
-\nu = \frac{\left( 2 / 9 \right)^{1/3} \left( 1 + a_{br}^2 \right)^{1/6} k_p^{4/3} \gamma_M^{2/3}}{\left( z^{\prime} \right)^{2/3}}.
+\nu = \frac{\left( 2 / 9 \right)^{1/3} \left( 1 + a_{\mathrm{br}}^2 \right)^{1/6} k_p^{4/3} \gamma_M^{2/3}}{\left( z^{\prime} \right)^{2/3}}.
 \end{equation} 
 After substituting Eq.~(\ref{eq:eq_for_nu}) into Eq.~(\ref{eq:eq_for_rho}) and calculating the integral we obtain
 \begin{equation}\label{eq:eq_for_rho_2}
-\rho = \frac{i 3^{1 / 2} \Gamma \left( 1 / 3 \right) \left( 2 / 9 \right)^{1/3} \left( 1 + a_{br}^2 \right)^{1/6} k_p^{4/3} \gamma_M^{2/3}}{\left( 2 s \right)^{4 / 3}},
+\rho = \frac{i 3^{1 / 2} \Gamma \left( 1 / 3 \right) \left( 2 / 9 \right)^{1/3} \left( 1 + a_{\mathrm{br}}^2 \right)^{1/6} k_p^{4/3} \gamma_M^{2/3}}{\left( 2 s \right)^{4 / 3}},
 \end{equation}
 where $ \Gamma \left( \cdot \right) $ is the Euler gamma function \cite{Gradshteyn1980}. Finally, the reflection coefficient can be obtained as follows,
 \begin{equation}\label{eq:reflection_coefficient}
-\mathcal{R} = \norm{\rho}^2 = \frac{\Gamma^2 \left( 1 / 3 \right) \left( 1 + a_{br}^2 \right)^{1 / 3} k_p^{8/3} \gamma_M^{4/3}}{2^2 3^{1 / 3} s^{8 / 3}}.
+\mathcal{R} = \norm{\rho}^2 = \frac{\Gamma^2 \left( 1 / 3 \right) \left( 1 + a_{\mathrm{br}}^2 \right)^{1 / 3} k_p^{8/3} \gamma_M^{4/3}}{2^2 3^{1 / 3} s^{8 / 3}}.
 \end{equation}
 It is important to note that the formula for the reflection coefficient given by Eq.~(\ref{eq:reflection_coefficient}) is calculated in the moving frame of reference. In the stationary frame, it has to be interpreted as a reflection coefficient in terms of the photon number. 
 
@@ -1187,14 +1202,12 @@ It is important to note that the formula for the reflection coefficient given by
 Furthermore, the calculations presented above are valid only if the amplitude of the electromagnetic wave incident on the relativistic mirror is sufficiently low. When the amplitude is high, the electromagnetic wave may significantly affect the mirror motion (i.e., the radiation pressure of the wave may slow down or destroy the mirror) even if the mirror reflection coefficient is small. The knowledge of the onset of recoil effects associated with the interaction of the relativistic mirror and strong incident electromagnetic wave is thus crucial for maximizing the amplitude of the reflected wave.
 
 The recoil effects of relativistic mirrors physically realized by the structures in laser plasmas have been recently investigated in one-dimensional [\ref{paper_3}] and two-dimensional \cite{Jeong2021} geometries. Here we present the one-dimensional description. Let us consider a relativistic mirror in the form of an electron layer interacting with a counter-propagating electromagnetic wave. We assume that all the electrons are characterized by the same momentum, the electromagnetic wave is monochromatic with the angular frequency $ \omega_0 $, and the reflection coefficient (in terms of photon number) is equal to $ \mathcal{R} $. The conservation of momentum and energy before (unprimed quantities) and after (double-primed quantities) the interaction can be written as [\ref{paper_3}]
-\begin{subequations}\label{eq:conservation}
 \begin{equation}\label{eq:conservation_of_momentum}
 \mathcal{N}_e p_e - \mathcal{N}_{\omega} p_{\omega} = \mathcal{N}_e p_e^{\prime \prime} + \mathcal{R} \mathcal{N}_{\omega} p_{\omega}^{\prime \prime} - \left( 1 - \mathcal{R} \right) \mathcal{N}_{\omega} p_{\omega},
 \end{equation}
 \begin{equation}\label{eq:conservation_of_energy}
 \mathcal{N}_e \mathcal{E}_e + \mathcal{N}_{\omega} \mathcal{E}_{\omega} = \mathcal{N}_e \mathcal{E}_e^{\prime \prime} + \mathcal{R} \mathcal{N}_{\omega} \mathcal{E}_{\omega}^{\prime \prime} + \left( 1 - \mathcal{R} \right) \mathcal{N}_{\omega}  \mathcal{E}_{\omega}.
 \end{equation}
-\end{subequations}
 Here $ \mathcal{N} $, $ p $, and $ \mathcal{E} $ are the numbers, momenta, and energies of the interacting particles, respectively, and the subscripts $ e $ and $ \omega $ denote the electrons (representing the relativistic flying mirror) and photons (representing the incident electromagnetic wave), respectively. The electron and photon momenta can be expressed as $ p_e = m_e c \sqrt{\gamma_M^2 - 1} $ and $ p_{\omega} = \hbar \omega_0 / c $, respectively, and the electron and photon energies are $ \mathcal{E}_e = m_e c^2 \gamma_M $ and $ \mathcal{E}_{\omega} = \hbar \omega_0 $, respectively, where $ \hbar $ stands for the reduced Planck constant. The schematic of the analytical model is displayed in Fig.~\ref{fig:recoil_schematic}.
 
 % energies can be expressed as
@@ -1448,10 +1461,10 @@ where $ C \leq 1 $. For the alternatives to the standard finite-difference time-
 \subsection{Field and particle weighting}
 
 In order to obtain the spatial averages of the electric, $ \vec{E}_{p} $, and magnetic, $ \vec{B}_{p} $, field components acting on quasi-particles, we may exploit the shape functions as in the following expressions,
-\begin{equation}\label{key}
+\begin{equation}\label{eq:E_weighting}
 	\vec{E}_{p} = \sum_{i, j, k} \vec{E}_{i, j, k} S^r \left( \vec{r}_{i, j, k} - \vec{r}_{p} \right),
 \end{equation}
-\begin{equation}\label{key}
+\begin{equation}\label{eq:B_weighting}
 	\vec{B}_{p} = \sum_{i, j, k} \vec{B}_{i, j, k} S^r \left( \vec{r}_{i, j, k} - \vec{r}_{p} \right).
 \end{equation}
 This step represents the field weighting.
@@ -1473,20 +1486,20 @@ One could assign the current densities to the grid points by the analogy to Eq.~
 
 Here we present the method of Esirkepov (see Ref.~\citenum{Esirkepov2001} for closer details), which is valid for an arbitrary shape function. Due to the linearity of Eq.~(\ref{eq:discrete_continuity eq}), the total current density deposited on the grid can be decomposed into the current densities associated with the motion of individual quasi-particles. Let us thus consider a single quasi-particle moving along a straight line from $ \vec{r}_p = \left( x_p, y_p, z_p \right) $ to $ \vec{r}_p + \vec{\delta r}_p $ over one time step, where $ \vec{\delta r}_p = \left( \delta x_p, \delta y_p, \delta z_p \right) $ is a three-dimensional shift of the quasi-particle. Further, we define a vector $ \vec{W} = \left( W_x, W_y, W_z \right) $ by the following equations,
 \begin{subequations}\label{eq:current_density_deposition_eqs}
-\begin{equation}\label{key}
+\begin{equation}\label{eq:J_x_weighting}
 \left( J_x \right)_{i + 1, j, k}	= \left( J_x \right)_{i, j, k} - q_p \diff{x_p}{t} \left( W_x \right)_{i, j, k},
 \end{equation}
-\begin{equation}\label{key}
+\begin{equation}\label{eq:J_y_weighting}
 \left( J_y \right)_{i, j + 1, k}	= \left( J_y \right)_{i, j, k} - q_p \diff{y_p}{t} \left( W_y \right)_{i, j, k},
 \end{equation}
-\begin{equation}\label{key}
+\begin{equation}\label{eq:J_z_weighting}
 \left( J_z \right)_{i, j, k + 1}	= \left( J_z \right)_{i, j, k} - q_p \diff{z_p}{t} \left( W_z \right)_{i, j, k}.
 \end{equation}
+\end{subequations}
 According to Eq.~(\ref{eq:discrete_continuity eq}) we may write
-\begin{equation}\label{key}
+\begin{equation}\label{eq:W_weighting}
 \left( W_x \right)_{i, j, k} + \left( W_y \right)_{i, j, k} + \left( W_z \right)_{i, j, k} = S^r \left( \vec{r}_{i, j, k} - \vec{r}_p - \vec{\delta r}_p \right) - S^r \left( \vec{r}_{i, j, k} - \vec{r}_p \right).
 \end{equation}
-\end{subequations}
 The motion of the quasi-particle generates the following 8 functions,
 \begin{equation}\label{eq:current_density_deposition_functions}
 \begin{aligned}
@@ -1498,7 +1511,7 @@ The motion of the quasi-particle generates the following 8 functions,
 \end{equation}
 According to Ref.~\citenum{Esirkepov2001}, only one linear combination of the 8 functions, Eq.~(\ref{eq:current_density_deposition_functions}), satisfies the conditions imposed on $ \vec{W} $,
 \begin{subequations}\label{eq:current_density_deposition_lin_comb}
-\begin{equation}\label{key}
+\begin{equation}\label{eq:W_x_weighting}
 \begin{aligned}
 \left( W_x \right)_{i, j, k} & = \frac{1}{3} S^r \left( \vec{r}_{i, j, k} - \vec{r}_p - \vec{\delta r}_p \right) - \frac{1}{3} S^r \left( \vec{r}_{i, j, k} - \vec{r}_p - \delta y_p \vec{e}_y - \delta z_p \vec{e}_z \right) \\
 & + \frac{1}{6} S^r \left( \vec{r}_{i, j, k} - \vec{r}_p - \delta x_p \vec{e}_x - \delta z_p \vec{e}_z \right) - \frac{1}{6} S^r \left( \vec{r}_{i, j, k} - \vec{r}_p - \delta z_p \vec{e}_z \right) \\
@@ -1506,7 +1519,7 @@ According to Ref.~\citenum{Esirkepov2001}, only one linear combination of the 8 
 & + \frac{1}{3} S^r \left( \vec{r}_{i, j, k} - \vec{r}_p - \delta x_p \vec{e}_x \right) - \frac{1}{3} S^r \left( \vec{r}_{i, j, k} - \vec{r}_p \right), \\[1mm]
 \end{aligned}
 \end{equation}
-\begin{equation}\label{key}
+\begin{equation}\label{eq:W_y_weighting}
 \begin{aligned}
 \left( W_y \right)_{i, j, k} & = \frac{1}{3} S^r \left( \vec{r}_{i, j, k} - \vec{r}_p - \vec{\delta r}_p \right) - \frac{1}{3} S^r \left( \vec{r}_{i, j, k} - \vec{r}_p - \delta x_p \vec{e}_x - \delta z_p \vec{e}_z \right) \\
 & + \frac{1}{6} S^r \left( \vec{r}_{i, j, k} - \vec{r}_p - \delta y_p \vec{e}_y - \delta z_p \vec{e}_z \right) - \frac{1}{6} S^r \left( \vec{r}_{i, j, k} - \vec{r}_p - \delta z_p \vec{e}_z \right) \\
@@ -1514,7 +1527,7 @@ According to Ref.~\citenum{Esirkepov2001}, only one linear combination of the 8 
 & + \frac{1}{3} S^r \left( \vec{r}_{i, j, k} - \vec{r}_p - \delta y_p \vec{e}_y \right) - \frac{1}{3} S^r \left( \vec{r}_{i, j, k} - \vec{r}_p \right), \\[1mm]
 \end{aligned}
 \end{equation}
-\begin{equation}\label{key}
+\begin{equation}\label{eq:W_z_weighting}
 \begin{aligned}
 \left( W_z \right)_{i, j, k} & = \frac{1}{3} S^r \left( \vec{r}_{i, j, k} - \vec{r}_p - \vec{\delta r}_p \right) - \frac{1}{3} S^r \left( \vec{r}_{i, j, k} - \vec{r}_p - \delta x_p \vec{e}_x - \delta y_p \vec{e}_y \right) \\
 & + \frac{1}{6} S^r \left( \vec{r}_{i, j, k} - \vec{r}_p - \delta y_p \vec{e}_y - \delta z_p \vec{e}_z \right) - \frac{1}{6} S^r \left( \vec{r}_{i, j, k} - \vec{r}_p - \delta y_p \vec{e}_y \right) \\
@@ -1554,7 +1567,7 @@ The first part of the paper presents an analytical model based on geometric opti
 
 The main results of the paper can be summarized as follows. We identify and describe a novel physical mechanism which leads to the formation of ring-shaped electromagnetic-electron structures, where the electromagnetic rings arise from the laser pulse defocusing induced by the excitation of Langmuir waves in underdense plasma, and the ring-shaped electron beams are formed and accelerated subsequently by the secondary toroidal wakefields generated by the electromagnetic rings. We further reveal that the electromagnetic rings are relatively robust nonlinear objects, whose properties can be controlled by tuning the parameters of laser and plasma. Within the studied parameter range, we find that up to $ \approx 70 \ \% $ of the total initial driver pulse energy can be carried off by the electromagnetic rings having the opening angles $ \approx 45 - 115 \ \mathrm{mrad} $. 
 
-Our research published in Ref.~\ref{paper_1} has been promoted by the editors of Physics of Plasmas journal by selecting the article as \q{Featured} and additionally reported by Scilight, which showcases the most interesting research across the physical sciences published in AIP Publishing journals. Furthermore, Fig.~4 from Ref.~\ref{paper_1} has been selected as the cover image of the journal's December issue. Besides Ref.~\ref{paper_1}, a portion of this work has been also published in Ref.~[Valenta SPIE 2021] and presented by the author at \q{SPIE Optics+Optoelectronics 2021,} \q{OPTO2021 Symposium on Photon and Beam Science,} and \q{ELI Summer School 2021,} whereas the latter presentation has been awarded by the \q{Best poster prize.} The author contributed to all the aspects of the research, including the initial formulation of the scientific topic, development of the analytical model, setup and execution of the numerical simulations on computer clusters, and analysis and interpretation of the simulation data. Furthermore, based on the results obtained the author prepared figures, wrote the bulk of the manuscript text, and submitted the manuscript to the journal whereas serving as a corresponding author. Last, the author was communicating with editors and referees concerning the requested revisions of the manuscript until the final publication in the journal.
+Our research published in Ref.~\ref{paper_1} has been promoted by the editors of Physics of Plasmas journal by selecting the article as \q{Featured} and additionally reported by Scilight, which showcases the most interesting research across the physical sciences published in AIP Publishing journals. Furthermore, Fig.~4 from Ref.~\ref{paper_1} has been selected as the cover image of the journal's December issue. Besides Ref.~\ref{paper_1}, a portion of this work has been also published in Ref.~\citenum{Valenta2021} and presented by the author at \q{SPIE Optics+Optoelectronics 2021,} \q{OPTO2021 Symposium on Photon and Beam Science,} and \q{ELI Summer School 2021,} whereas the latter presentation has been awarded by the \q{Best poster prize.} The author contributed to all the aspects of the research, including the initial formulation of the scientific topic, development of the analytical model, setup and execution of the numerical simulations on computer clusters, and analysis and interpretation of the simulation data. Furthermore, based on the results obtained the author prepared figures, wrote the bulk of the manuscript text, and submitted the manuscript to the journal whereas serving as a corresponding author. Last, the author was communicating with editors and referees concerning the requested revisions of the manuscript until the final publication in the journal.
 
 \section{On the laser-wakefield polarity reversal\label{sec:on_the_laser-wakefield_polarity_reversal}}
 %\input{dat/1-0.tex}
@@ -1569,7 +1582,7 @@ In the first part of the paper we extend the standard model of the wakefield gen
 
 The main results of the paper can be summarized as follows. We reveal for the first time (to the best of our knowledge) that the wakefield, being excited by an ultrashort laser pulse in plasma, periodically reverses its polarity. As shown by the analytical model and numerical simulation, the wakefield polarity reversal is caused by dispersion and the corresponding difference between the propagation speed of the carrier and the envelope of the driving laser pulse. Further, we show that the novel phenomenon of the wakefield polarity reversal occurs on spatial scales shorter than the dephasing length and, therefore, significantly affects the energy spectra of accelerated electron beams. In the nonlinear regime, however, there may exist a case for which the polarity reversal length is equal to the dephasing length. In such a case, the dephasing limit is overcome and the electrons are accelerated until the energy of the driver pulse depletes. The discovery of this phenomenon is crucial for better control of the parameters of electron beams accelerated via the laser-wakefield mechanism (e.g., by adjusting the initial phase of the driver or by controlling the phase of the electron injection), particularly in experiments carried out with the present-day high-repetition-rate laser systems.
 
-Besides Ref.~\ref{paper_2}, a portion of this work has been also published in Refs.~[Lazzarini + book, Valenta SPIE 2019, Valenta EPS 2018] and presented by the author at \q{ELI Users' conference 2020,} \q{SPIE Optics+Optoelectronics 2019,} and \q{45$ ^{\mathrm{th}} $ EPS Conference on Plasma Physics,} whereas the latter presentation has been awarded by the \q{Best poster prize.} The author contributed to all the aspects of the research, including the initial formulation of the scientific topic, development of the analytical model, setup and execution of the numerical simulations on computer clusters, and analysis and interpretation of the simulation data. Furthermore, based on the results obtained the author prepared figures and wrote the bulk of the manuscript text, submitted the manuscript to the journal whereas serving as a corresponding author. Last, the author was communicating with editors and referees concerning the requested revisions of the manuscript until the final publication in the journal.
+Besides Ref.~\ref{paper_2}, a portion of this work has been also published in Refs.~\citenum{ Valenta2019, Lazzarini2019} and presented by the author at \q{ELI Users' conference 2020,} \q{SPIE Optics+Optoelectronics 2019,} and \q{45$ ^{\mathrm{th}} $ EPS Conference on Plasma Physics,} whereas the latter presentation has been awarded by the \q{Best poster prize.} The author contributed to all the aspects of the research, including the initial formulation of the scientific topic, development of the analytical model, setup and execution of the numerical simulations on computer clusters, and analysis and interpretation of the simulation data. Furthermore, based on the results obtained the author prepared figures and wrote the bulk of the manuscript text, submitted the manuscript to the journal whereas serving as a corresponding author. Last, the author was communicating with editors and referees concerning the requested revisions of the manuscript until the final publication in the journal.
 
 \section{On the recoil effects of relativistic mirrors\label{sec:on_the_recoil_effects_of_relativistic_mirrors}}
 %\input{dat/1-0.tex}
@@ -1582,7 +1595,7 @@ In the first part of the paper we exploit the conservation of momentum and energ
 
 The main results of the paper can be summarized as follows. We present an analytical model which shows that if the fluence of the electromagnetic wave incident on the relativistic mirror exceeds a certain threshold, the relativistic mirror undergoes a back reaction significantly affecting its amplification and frequency upshift factors. Further, the numerical simulations reveal that the Langmuir wave driven by a short intense laser pulse in uniform plasma decelerates and, therefore, the reflected radiation has a positive chirp. We find that the electric field amplification factor of the reflected radiation reaches its maximum at the moment of wave-breaking. In addition, our results show that for a given intensity of the source pulse there exists an optimal duration of the source pulse; longer-than-optimal pulses have lower reflected-to-incident energy ratio. Moreover, for a given Langmuir wave excited by the driver pulse there exists an optimal intensity of the source pulse which provides the most intense reflected wave with almost the same frequency upshift factor as in the weak-source approximation.
 
-Besides Ref.~\ref{paper_3}, a portion of this work has been also published in Refs.~[Valenta OSA 2020, Jeong ICXRL 2020] and presented by the author at \q{OSA High-brightness Sources and Light-driven Interactions Congress 2020,} \q{ELI Summer School 2020,} \q{LeCosPA Cosmology and Particle Astrophysics Seminar,} \q{4$ ^{\mathrm{th}} $ Users' Conference of IT4Innovations,} and \q{28$ ^{\mathrm{th}} $ Symposium on Plasma Physics and Technology.} The author contributed to all the aspects of the research, including the initial formulation of the scientific topic, development of the analytical model, setup and execution of the numerical simulations on computer clusters (requiring significant changes to the source code in this case), and analysis and interpretation of the simulation data. Furthermore, based on the results obtained the author prepared figures, wrote the bulk of the manuscript text, and submitted the manuscript to the journal whereas serving as a corresponding author. Last, the author was communicating with editors and referees concerning the requested revisions of the manuscript until the final publication in the journal.
+Besides Ref.~\ref{paper_3}, a portion of this work has been also published in Refs.~\citenum{Valenta2020c, Jeong2021b} and presented by the author at \q{OSA High-brightness Sources and Light-driven Interactions Congress 2020,} \q{ELI Summer School 2020,} \q{LeCosPA Cosmology and Particle Astrophysics Seminar,} \q{4$ ^{\mathrm{th}} $ Users' Conference of IT4Innovations,} and \q{28$ ^{\mathrm{th}} $ Symposium on Plasma Physics and Technology.} The author contributed to all the aspects of the research, including the initial formulation of the scientific topic, development of the analytical model, setup and execution of the numerical simulations on computer clusters (requiring significant changes to the source code in this case), and analysis and interpretation of the simulation data. Furthermore, based on the results obtained the author prepared figures, wrote the bulk of the manuscript text, and submitted the manuscript to the journal whereas serving as a corresponding author. Last, the author was communicating with editors and referees concerning the requested revisions of the manuscript until the final publication in the journal.
 
 
 \section{On the relativistic flying forcibly oscillating mirror\label{sec:on_the_relativistic_flying_forcibly_oscillating_mirror}}
@@ -1598,7 +1611,7 @@ In the first part of the paper we describe the physical mechanisms underlying th
 
 The main results of the paper can be summarized as follows. We propose a novel scheme for physical realization of relativistic mirrors based on the density singularities in laser plasmas - a relativistic flying forcibly oscillating mirror. The proposed scheme uses the electron density singularity at the joining area of the laser wake and bow waves to reflect the counter-propagating source pulse. Since in this regime the surface of the mirror is modulated and oscillates due to the presence of the strong electromagnetic field of the driving laser pulse, it acts as a reflective diffraction grating and generates boosted high-order harmonics of very high brightness. Compared with the boosted high-order harmonics produced by a high-density plasma slab and a thin electron layer \cite{Kulagin2007, Esirkepov2009, Wu2010}, the regime under consideration has the properties of a relativistic flying mirror \cite{Bulanov2003}, relativistic oscillating mirror \cite{Bulanov1994, Naumova2004}, and it inherits the properties of the laser driven oscillating electron spikes \cite{Pirozhkov2014, Pirozhkov2017}. 
 
-Besides Ref.~\ref{paper_4}, a portion of this work has been also published in Refs.~\citenum{Esirkepov2020}[Mu SPIE 2019, Mu Phys. Wave. Phen. 2019] and presented by the author at \q{SPIE Optics \& Photonics International Congress 2019,} \q{KPSI Scientific Seminar,} and \q{2$ ^{\mathrm{nd}} $ Users' Conference of IT4Innovations.} The author contributed mainly to the setup and execution of three-dimensional numerical simulations on computer clusters and subsequent analysis and interpretation of the simulation data. Based on the results obtained the author prepared figures and wrote the bulk of the manuscript text corresponding to the part dealing with the numerical simulations. Last, the author also contributed concerning the requested revisions of the manuscript until the final publication in the journal.
+Besides Ref.~\ref{paper_4}, a portion of this work has been also published in Refs.~\citenum{Mu2019, Mu2019b, Esirkepov2020} and presented by the author at \q{SPIE Optics \& Photonics International Congress 2019,} \q{KPSI Scientific Seminar,} and \q{2$ ^{\mathrm{nd}} $ Users' Conference of IT4Innovations.} The author contributed mainly to the setup and execution of three-dimensional numerical simulations on computer clusters and subsequent analysis and interpretation of the simulation data. Based on the results obtained the author prepared figures and wrote the bulk of the manuscript text corresponding to the part dealing with the numerical simulations. Last, the author also contributed concerning the requested revisions of the manuscript until the final publication in the journal.
 
 
 
