@@ -26,8 +26,12 @@
 	urlcolor=blue,
 	linkcolor=blue,
 	citecolor=blue
+	%urlcolor=black,
+	%linkcolor=black,
+	%citecolor=black
 }
 \newcommand{\link}[3][blue]{\href{#2}{\color{#1}{#3}}}%
+%\newcommand{\link}[3][black]{\href{#2}{\color{#1}{#3}}}%
 \usepackage[small, bf]{caption}
 \usepackage{enumerate}
 \usepackage{epstopdf}
@@ -261,7 +265,7 @@
 	\color{chaptergrey}%
 }
 \makeatother
-\definecolor{chaptergrey}{rgb}{0.95, 0.95, 0.95}
+\definecolor{chaptergrey}{rgb}{0.8, 0.8, 0.8}
 
 % fancy quotes
 \definecolor{quotemark}{rgb}{0.8, 0.8, 0.8}
@@ -694,7 +698,7 @@ Starting with the Maxwell's equations and the hydrodynamic equations for the ele
 \begin{equation}\label{eq:eq_for_momentum}
 \diffp{\vec{P}_{\alpha}}{t} = - \grad{\left( \rho_{\alpha} \varphi + \gamma_{\alpha} \right)} + \vec{\upbeta}_{\alpha} \times \rot{\vec{P}_{\alpha}},
 \end{equation}
-where $ \varphi $ and $ \vec{a} $ are the scalar and vector potentials, respectively (the Coulomb gauge is assumed, i.e., $ \div{\vec{a}} = 0 $), $ \vec{\upbeta}_{\alpha} $ is the velocity of the fluid component, and $ n_{\alpha} $ is the number density of the fluid component; the electron and ion fluid components are denoted by subscripts $ e $ and $ i $, respectively, the subscript $ \alpha $ is either $ e $ or $ i $. The canonical momentum $ \vec{P}_{\alpha} $ and the Lorentz factor $ \gamma_{\alpha} $ are related to the kinetic momentum $ \vec{p}_{\alpha} = \gamma_{\alpha} \vec{\upbeta}_{\alpha} $ as $ \vec{P}_{\alpha} = \vec{p}_{\alpha} + \rho_{\alpha} \vec{a} $ and $ \gamma_{\alpha} = \sqrt{1 + \norm{\vec{p}_{\alpha}}^2} $, respectively, where $ \rho_{\alpha} = - \left( q_{\alpha} / e \right) \left( m_e / m_{\alpha} \right) $. Here and below we use dimensionless quantities; quantities having the units of length and time are normalized by $ c / \omega_{pe} $ and $ \omega_{pe} $, respectively, velocities are normalized by $ c $, momenta by $ m_{\alpha} c $, scalar and vector potentials by $ m_e c^2 / e $ and $ m_e c / e $, respectively, and the number densities are normalized by $ n_0 $, where $ n_0 $ is the density of plasma components at the equilibrium state.
+where $ \varphi $ and $ \vec{a} $ are the scalar and vector potentials, respectively (the Coulomb gauge is assumed, i.e., $ \div{\vec{a}} = 0 $), $ \vec{\upbeta}_{\alpha} $ is the velocity of the fluid component, and $ n_{\alpha} $ is the number density of the fluid component; the electron and ion fluid components are denoted by subscripts $ e $ and $ i $, respectively, the subscript $ \alpha $ is either $ e $ or $ i $. The canonical momentum $ \vec{P}_{\alpha} $ and the Lorentz factor $ \gamma_{\alpha} $ are related to the kinetic momentum $ \vec{p}_{\alpha} = \gamma_{\alpha} \vec{\upbeta}_{\alpha} $ as $ \vec{P}_{\alpha} = \vec{p}_{\alpha} + \rho_{\alpha} \vec{a} $ and $ \gamma_{\alpha} = \sqrt{1 + \norm{\vec{p}_{\alpha}}^2} $, respectively, where $ \rho_{\alpha} = - \left( q_{\alpha} / e \right) \left( m_e / m_{\alpha} \right) $. Here and below we use dimensionless quantities; quantities having the units of length and time are normalized by $ c / \omega_{pe} $ and $ \omega_{pe} $, respectively, velocities are normalized by $ c $, momenta by $ m_{\alpha} c $, scalar and vector potentials by $ m_e c^2 / e $ and $ m_e c / e $, respectively, and the number densities are normalized by $ n_0 $, where $ n_0 $ is the density of plasma components at the equilibrium state (prior to the passage of the electromagnetic wave).
 
 In the one-dimensional geometry (i.e., $ \partial / \partial x = \partial / \partial y = 0 $) the dependence of all quantities in Eqs.~(\ref{eq:eq_for_vector_potential}) -- (\ref{eq:eq_for_momentum}) on the coordinate and time can be expressed via new variables $ \zeta = z - \beta_{w} t $ and $ \tau = t - \beta_{w} z $, where $ \beta_{w} $ is the phase velocity of the Langmuir wave (i.e., we search for the solution in the form of a plane wave traveling at constant velocity). Note that $ \beta_w = \beta_g $, where $ \beta_g $ is the group velocity of the electromagnetic wave; the group velocity of the Langmuir wave is in cold plasma equal to zero. For the sake of simplicity, we further assume that the electromagnetic wave is circularly polarized; the equations for the scalar, $ \varphi = \varphi \left( \zeta \right) $, and vector, $ a_x + i a_y = a \left( \zeta \right) \exp \left( i \omega \tau \right) $, potentials then read as \cite{Farina2001, Bulanov2013, Bulanov2021}
 \begin{equation}\label{eq:eq_for_scalar_potential_2}
@@ -891,44 +895,19 @@ The laboratory frame distance required for the electron to move from $ \zeta_s $
 \end{equation}
 In the limit $ \beta_e \rightarrow 1 $ and $ \gamma_w \gg 1 $, $ l_d \approx \gamma_w^2 \lambda_w $.
 
-As the driver pulse excites the wakefield, it continuously transfers its energy to the plasma; the associated energy loss manifests itself in the change of the driver pulse form (e.g., frequency shifts \cite{Esarey1990, Shadwick2009} and front steepening \cite{Bulanov1992, Esarey2000, Gordon2003}) which makes the pulse front velocity $ \beta_{\mathrm{etch}} $ smaller than $ \beta_g $ (so-called driver etching \cite{Nakajima2011}). This effect may thus also limit the maximum achievable electron energy. The characteristic scale length of driver energy deposition into wakefield generation is generally referred to as pump depletion length, $ l_{pd} $. The value of $ l_{pd} $ for the square pulse with the initial length $ l_p $ can be estimated as \cite{Bulanov2016}
+As the driver pulse excites the wakefield, it continuously transfers its energy to the plasma; the associated energy loss manifests itself in the change of the driver pulse form (e.g., frequency shifts \cite{Esarey1990, Shadwick2009} and front steepening \cite{Bulanov1992, Esarey2000, Gordon2003}) which makes the pulse front velocity $ \beta_{\mathrm{etch}} $ smaller than $ \beta_g $ (so-called driver etching \cite{Nakajima2011}). This effect may thus also limit $ l_{\mathrm{acc}} $ and $ \mathcal{E}_{\mathrm{max}} $. The characteristic scale length of driver energy deposition into wakefield generation is generally referred to as pump depletion length, $ l_{pd} $. The value of $ l_{pd} $ for the square pulse with the initial length $ l_p $ can be estimated as \cite{Bulanov2016}
 \begin{equation}\label{key}
 	l_{pd} \approx \frac{l_p}{\beta_g - \beta_{\mathrm{etch}}}.
 \end{equation}
 Taking into account the balance between the wakefield energy and the lost energy of the driver, we obtain the relationship $ \beta_{\mathrm{etch}} = \beta_g / \left( 2 - \beta_g^2 \right) $. In the limit $ \beta_g \rightarrow 1 $ and $ a \gg 1 $, $ l_{pd} \approx \lambda_w \gamma_w^2 $, thus $ l_{pd} \sim l_d $ \cite{Bulanov2016}.
 
-In three-dimensional geometry, the pulse front velocity is further reduced by the transverse evolution of the driver. The beam waist of the Gaussian driver pulse evolves as ... where ... is the Rayleigh length.
+In three-dimensional geometry, $ l_{\mathrm{acc}} $ is also largely determined by the transverse evolution of the driver. The spot size of a Gaussian driver pulse evolves according to $ w \left( z \right) = w_0 \sqrt{1 + \left( z / z_R \right)^2} $, where $ w_0 $ is the beam waist and $ z_R = \pi w_0^2 / \lambda $ is the Rayleigh length, i.e., a beam that is focused to a small spot rapidly diverges as it travels away from the focus. The value of $ l_{\mathrm{acc}} $ can be increased to multiple $ z_{R} $ by optical guiding, either through self-focusing mechanisms or using preformed plasma channels. Preformed plasma channels may offer several advantages over relying on self-guiding: (i) they provide some resistance to instabilities (e.g., hosing instability \cite{Shvets1994, Sprangle1994}); (ii) they reduce the amount of diffractive erosion of the driver pulse head \cite{Sprangle1990, Esarey1997}; and (iii) the condition of Eq.~(\ref{eq:}) $ P > P_c $ does not need to be satisfied and thus the accelerator can be operated in a more stable regime at lower $ a $.
 
-the laser intensity decreases due to diffraction, 
-
-which limit the acceleration length to a few Rayleigh lengths, $ z_R = $. The acceleration length can be extended to multiple $ z_{R} $ by optical guiding mechanisms, either through self-focusing or using preformed plasma channels. Preformed plasma channels may offer several advantages over relying on self-guiding: (i) they provide some resistance to instabilities (e.g., hosing instability \cite{}); (ii) they reduce the amount of diffractive erosion of the driver pulse head \cite{}; and (iii) the condition of Eq.~(\ref{eq:}) $ P > P_c $ does not need to be satisfied and thus the accelerator can be operated in a more stable regime at lower $ a $.
-
-
-
-%The effective acceleration length is also largely determined by the evolution of the laser pulse. For typical laser-plasma parameters, the most significant limitation on acceleration length is due to laser diffraction. Without some manner of optical guiding, the distance over which the electron bunch is subject to a significant accelerating gradient will be limited to a few Rayleigh ranges. 
-
-Extension of the laser-plasma interaction length to many Rayleigh ranges has been achieved through a combination of 
-
-preformed plasma channel guiding, 
-relativistic self-focusing, 
-and ponderomotive self-channeling, 
-
-These guiding mechanisms can lead to near balance of transverse forces and little evolution of the spot size.
-
-Overcoming this limit requires to optically guide the laser pulse, 
-either by relying on self-focusing effects or through the use of preformed plasma channels [96].
-
-The intensity of a Gaussian laser decreases by a factor of two at a Rayleigh length
-In any focused beam, diffraction will reduce the laser intensity after a certain distance
-
- transverse driver pulse evolution diffraction, Rayleigh length.
-
-the use of a preformed plasma channel or  relativistic self-focusing, and ponderomotive self-channeling. 
-
-
-
-
-
+Besides the value of $ \mathcal{E}_{\mathrm{max}} $ there are also other important parameters of the accelerated electron beams, e.g., luminosity (i.e., the number of electrons accelerated), beam divergence, energy spread, overall efficiency of the acceleration, etc. As the fraction of the trapped electrons becomes significant, the beam starts to generate (due to the space-charge force) its own wakefield that alters the wakefield driven by the electromagnetic pulse. This effect, which typically manifests itself in lower energy gain and a modified energy spread of the electron beam is referred to as beam loading \cite{Katsouleas1987, Tzoufras2008, Tzoufras2009}. The maximum number of electrons in the beam that can be accelerated by the wakefield, $ \mathcal{N}_{\mathrm{max}} $, is determined by the beam loading limit at which the wakefield driven by the electromagnetic pulse is entirely canceled by the wakefield of the electron beam. In linear regime, the value of $ \mathcal{N}_{\mathrm{max}} $ can be obtained by superposing both wakefields \cite{Katsouleas1987},
+\begin{equation}\label{eq:beam_loading}
+	 \mathcal{N}_{\mathrm{max}} = A_{b} E,
+\end{equation}
+where $ A_b $ is the cross-sectional area of the beam. For a beam containing $ \mathcal{N} $ electrons, the energy spread is $ \sim \mathcal{N} / \mathcal{N}_{\mathrm{max}} $ and the energy conversion efficiency from the wakefield to electrons is $ \sim \left( \mathcal{N} / \mathcal{N}_{\mathrm{max}} \right) / \left( 2 - \mathcal{N} / \mathcal{N}_{\mathrm{max}} \right) $, i.e., the efficiency of $ 100 \ \% $ is achieved only at $ 100 \ \% $ energy spread.
 
 
 %\subsection{Electron injection mechanisms}
@@ -955,15 +934,6 @@ the use of a preformed plasma channel or  relativistic self-focusing, and ponder
 %\subsection{Self-modulated regime}
 
 %\subsection{Blow-out regime}
-
-%\subsection{Limitations of LWFA}
-%\input{dat/1-0.tex}
-
-%\subsection{Electron dephasing length}
-
-%\subsection{Pump depletion length}
-
-%\subsection{Beam loading}
 
 %\subsection{Applications of accelerated electrons}
 %\input{dat/1-0.tex}
@@ -1711,15 +1681,22 @@ Besides Ref.~\ref{paper_4}, a portion of this work has been also published in Re
 
 %-------------------------------------------------------------------------------
 
-\newpage
+%\newpage
+%\addcontentsline{toc}{chapter}{Bibliography}
+
+\cleardoublepage
+\phantomsection
 \addcontentsline{toc}{chapter}{Bibliography}
 \bibliographystyle{bib/my-apalike}
 \bibliography{bib/references}
 
 %-------------------------------------------------------------------------------
 
-\part*{Appendices \markboth{Appendices}{Appendices}}
+\cleardoublepage
+\phantomsection
 \addcontentsline{toc}{chapter}{Appendices}
+\part*{Appendices \markboth{Appendices}{Appendices}}
+%\addcontentsline{toc}{chapter}{Appendices}
 
 \appendix
 
