@@ -590,6 +590,13 @@ The structure of this doctoral thesis is organized as follows:
 	\item[Appendix~\ref{chap:authors_publications}] contains a complete list of the author's publications as of the day of submission of this doctoral thesis, including the publications in peer-reviewed journals, conference proceedings, and as book chapters.
 	
 	\item[Appendix~\ref{chap:selected_publications}] contains the full texts (reproduced with permission) of the four selected publications (Refs.~\ref{paper_1} -- \ref{paper_4}).
+	
+	%Throughout the text, SI units are used unless stated otherwise. 
+	
+	%When it is convenient we use dimensionless units.
+	
+	%Only the electromagnetic field intensity and the energy of particles are expressed in more common units of $ \mathrm{W / cm^2} $ and $ eV $, respectively.
+	
 \end{description}
 
 %-------------------------------------------------------------------------------
@@ -626,9 +633,54 @@ As closer discussed in Secs.~\ref{}, the breaking Langmuir waves are of high imp
 
 \subsection{Basic laser and plasma parameters}
 
-% maxwell's equations, scalar and vector potentials, strength parameter, Langmuir frequency, critical density, ponderomotive force, self-focusing, self-modulation of phase and amplitude
+In this Chapter, we will set the theoretical background and briefly describe the effects
+connected with the ultra-intense laser-matter interaction. SI units are used throughout the
+text unless stated otherwise. Only the laser intensity and particle’s energy are expressed in
+more common unitsW/cm2 and eV, respectively.
+
+% maxwell's equations, scalar and vector potentials, strength parameter, dispersion equation, phase and group velocity, Langmuir frequency, critical density, ponderomotive force, self-focusing, self-modulation of phase and amplitude
+
+When a high-power laser pulse is focused onto the surface of a solid target, a high density plasma layer is produced almost immediately due to the presence of strong electromagnetic fields. The dense plasma expanding from the target surface forms a density profile and the laser-plasma interaction takes place in its lower density part. Many different and often nonlinear processes are involved in the laser-plasma interaction. A brief introduction to this field of research, which is rich both in physics and in applications, is provided in this chapter.
+
+Plasma, one of the four fundamental states of matter, is a quasi-neutral gas of charged and
+neutral particles which exhibits collective behavior [46]. It is necessary to better explain some
+terms used in this definition.
+By collective behavior one means motion that depends not only on local conditions but
+on the state of the plasma in remote regions as well. As charged particles move around, they
+can generate local concentrations of positive or negative charge, which give rise to electric
+fields. Motion of charges also generates currents, and hence magnetic fields. These fields
+affect the motion of other charged particles far away [46]. Thus, the plasma supports a wide
+range of possible motions.
+Quasi-neutrality describes the apparent charge neutrality of a plasma over large volumes,
+while at smaller scales, there can be charge imbalance, which may give rise to local electric
+fields. 
+
+Since the laser beam is nothing but the superposition of electromagnetic waves with high
+spatial and temporal coherence, the opening chapter has to be logically devoted to the fundamental physical aspects of the classical electromagnetic field theory based on the Maxwell’s
+equations.
+
+A description of the interaction 
+
+superposition of electromagnetic waves with high spatial and temporal coherence and 
+
+plasma is a quasi-neutral mixture of charged particles
+
 
 Maxwell's equations,
+
+
+The laser radiation can be viewed as a superposition of electromagnetic waves with high spatial and temporal coherence. 
+
+Plasma is a quasi-neutral mixture of charged and neutral particles which exhibits collective behavior,
+
+neutral over large volumes local electric fields due to small scale charge imbalances
+
+ i.e., the particle motion depends on local conditions as well as on the state of the plasma in remote regions
+
+not only  but
+
+
+In theory, the electromagnetic field is represented by two vector quantities: the electric field $ \vec{E} \left( \vec{r}, t \right) $ and the magnetic field $ \vec{B} \left( \vec{r}, t \right) $. Both quantities are finite and continuous functions of position $ \vec{r} = \left( x, y, z \right) $ and time $ t $. Within the framework of classical electrodynamics, the description of the electromagnetic phenomena (e.g., the generation and propagation of $ \vec{E} \left( \vec{r}, t \right) $ and $ \vec{B} \left( \vec{r}, t \right) $ as well as their interaction with charges and currents) is based on the system of Maxwell's equations; the microscopic variant with external sources in vacuum can be formulated as
 \begin{equation}\label{key}
 	\div{\vec{E}} = \frac{\rho}{\varepsilon_0},
 \end{equation}
@@ -639,44 +691,50 @@ Maxwell's equations,
 	\rot{\vec{E}} = \diffp{\vec{B}}{t},
 \end{equation}
 \begin{equation}\label{key}
-	\rot{\vec{B}} = \mu_0 \vec{J} + \mu_0 \varepsilon_0 \diffp{\vec{E}}{t}.
+	\rot{\vec{B}} = \mu_0 \vec{J} + \mu_0 \varepsilon_0 \diffp{\vec{E}}{t},
 \end{equation}
+where $ \rho \left( \vec{r}, t \right) $ and $ \vec{J} \left( \vec{r}, t \right) $ are, respectively, the total electric charge and current densities, and $ \varepsilon_0 $ and $ \mu_0 $ are, respectively, the electric permittivity and the magnetic permeability of vacuum.
 
-Scalar and vector potentials,
-\begin{equation}\label{key}
+The $ \vec{E} \left( \vec{r}, t \right) $ and $ \vec{B} \left( \vec{r}, t \right) $ fields can be expressed in terms of the scalar, $ \phi \left( \vec{r}, t \right) $, and vector $ \vec{A} \left( \vec{r}, t \right) $ potentials,
+\begin{equation}\label{eq:scalar_potential}
 	\vec{E} = -\grad{\phi} - \diffp{\vec{A}}{t},
 \end{equation}
-\begin{equation}\label{key}
+\begin{equation}\label{eq:vector_potential}
 	\vec{B} = \rot{\vec{A}}.
 \end{equation}
-Coulomb gauge, $ \div{\vec{A}} = 0 $.
+The potentials of Eqs.~(\ref{eq:scalar_potential}) and (\ref{eq:vector_potential}) are not defined uniquely, i.e., different solutions 
+%Coulomb gauge, $ \div{\vec{A}} = 0 $.
 
 Strength parameter: 
 \begin{equation}\label{key}
 	a_0 = 
 \end{equation}
 
+The motion of a single electron in the $ E $ and $ B $ fields is described by the Newton's second law of motion with the Lorentz force,
 \begin{equation}
 	\diff{\vec{p}}{t} = -e \left( \vec{E} + \vec{v} \times \vec{B} \right)
 \end{equation}
-
+where $ p = m_e v \gamma $ is the electron momentum, $ v $ is the electron velocity, $ \gamma $ is the electron Lorentz factor. Expanding the time derivative and interpreting 
 \begin{equation}
 	\diffp{\vec{p}}{t} + \left(\vec{v} \cdot \grad \right) \vec{p} = e \grad{\phi} + e \diffp{\vec{A}}{t} - e \left[ \vec{v} \times \left( \rot{\vec{A}} \right) \right]
 \end{equation}
-
-perpendicular component of momentum,
-\begin{equation}
-	\diffp{p_{\bot}}{t} + v_{\parallel} \diffp{p_{\bot}}{z} = e \diffp{A_{\bot}}{t} + e v_{\parallel} \diffp{A_{\bot}}{z},
-\end{equation}
-
-\begin{equation}\label{key}
-p_{\bot} - e A_{\bot} = const.
-\end{equation}
-
-parallel component of momentum
+in one-dimensional geometry, parallel ($ \parallel $) and perpendicular ($ \bot $) components of Eq.~(\ref{eq:}),
 \begin{equation}
 	\diffp{p_{\parallel}}{t} + v_{\parallel} \diffp{p_{\parallel}}{z} = e \diffp{\phi}{z} - e v_{\bot} \diffp{A_{\bot}}{z},
 \end{equation}
+\begin{equation}
+	\diffp{p_{\bot}}{t} + v_{\parallel} \diffp{p_{\bot}}{z} = e \diffp{A_{\bot}}{t} + e v_{\parallel} \diffp{A_{\bot}}{z},
+\end{equation}
+It is now convenient to work with dimensionless quantities by introducing the following normalizations,
+\begin{equation}\label{key}
+	z \rightarrow \frac{z \omega_p}{c}, \quad t \rightarrow t \omega_p, \quad \beta \rightarrow \frac{v}{c}, \quad p \rightarrow \frac{p}{m_e c}, \quad \varphi \rightarrow \frac{e \phi}{m_e c^2}, \quad a \rightarrow \frac{e A}{m_e c}.
+\end{equation}
+
+\begin{equation}\label{key}
+	p_{\bot} - e A_{\bot} = const.
+\end{equation}
+
+parallel component of momentum
 
 
 
@@ -901,7 +959,7 @@ As the driver pulse excites the wakefield, it continuously transfers its energy 
 \end{equation}
 Taking into account the balance between the wakefield energy and the lost energy of the driver, we obtain the relationship $ \beta_{\mathrm{etch}} = \beta_g / \left( 2 - \beta_g^2 \right) $. In the limit $ \beta_g \rightarrow 1 $ and $ a \gg 1 $, $ l_{pd} \approx \lambda_w \gamma_w^2 $, thus $ l_{pd} \sim l_d $ \cite{Bulanov2016}.
 
-In three-dimensional geometry, $ l_{\mathrm{acc}} $ is also largely determined by the transverse evolution of the driver. The spot size of a Gaussian driver pulse evolves according to $ w \left( z \right) = w_0 \sqrt{1 + \left( z / z_R \right)^2} $, where $ w_0 $ is the beam waist and $ z_R = \pi w_0^2 / \lambda $ is the Rayleigh length, i.e., a beam that is focused to a small spot rapidly diverges as it travels away from the focus. The value of $ l_{\mathrm{acc}} $ can be increased to multiple $ z_{R} $ by optical guiding, either through self-focusing mechanisms or using preformed plasma channels. Preformed plasma channels may offer several advantages over relying on self-guiding: (i) they provide some resistance to instabilities (e.g., hosing instability \cite{Shvets1994, Sprangle1994}); (ii) they reduce the amount of diffractive erosion of the driver pulse head \cite{Sprangle1990, Esarey1997}; and (iii) the condition of Eq.~(\ref{eq:}) $ P > P_c $ does not need to be satisfied and thus the accelerator can be operated in a more stable regime at lower $ a $.
+In three-dimensional geometry, $ l_{\mathrm{acc}} $ is also largely determined by the transverse evolution of the driver. The spot size of a Gaussian driver pulse evolves along the propagation direction $ z $ according to $ w \left( z \right) = w_0 \sqrt{1 + \left( z / z_R \right)^2} $, where $ w_0 $ is the beam waist (radius at $ 1 / e $ of the maximum driver electric field) and $ z_R = \pi w_0^2 / \lambda $ is the Rayleigh length, i.e., a beam that is focused to a small spot rapidly diverges as it travels away from the focus. The value of $ l_{\mathrm{acc}} $ can be increased to multiple $ z_{R} $ by optical guiding, either through self-focusing mechanisms or using preformed plasma channels. Preformed plasma channels may offer several advantages over relying on self-guiding: (i) they provide some resistance to instabilities (e.g., hosing instability \cite{Shvets1994, Sprangle1994}); (ii) they reduce the amount of diffractive erosion of the driver pulse head \cite{Sprangle1990, Esarey1997}; and (iii) the condition of Eq.~(\ref{eq:}) $ P > P_c $ does not need to be satisfied and thus the accelerator can be operated in a more stable regime at lower $ a $.
 
 Besides the value of $ \mathcal{E}_{\mathrm{max}} $ there are also other important parameters of the accelerated electron beams, e.g., luminosity (i.e., the number of electrons accelerated), beam divergence, energy spread, overall efficiency of the acceleration, etc. As the fraction of the trapped electrons becomes significant, the beam starts to generate (due to the space-charge force) its own wakefield that alters the wakefield driven by the electromagnetic pulse. This effect, which typically manifests itself in lower energy gain and a modified energy spread of the electron beam is referred to as beam loading \cite{Katsouleas1987, Tzoufras2008, Tzoufras2009}. The maximum number of electrons in the beam that can be accelerated by the wakefield, $ \mathcal{N}_{\mathrm{max}} $, is determined by the beam loading limit at which the wakefield driven by the electromagnetic pulse is entirely canceled by the wakefield of the electron beam. In linear regime, the value of $ \mathcal{N}_{\mathrm{max}} $ can be obtained by superposing both wakefields \cite{Katsouleas1987},
 \begin{equation}\label{eq:beam_loading}
