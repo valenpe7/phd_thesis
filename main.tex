@@ -597,6 +597,8 @@ The structure of this doctoral thesis is organized as follows:
 	
 	%Only the electromagnetic field intensity and the energy of particles are expressed in more common units of $ \mathrm{W / cm^2} $ and $ eV $, respectively.
 	
+	% scalar quantities in italics, vector in bold
+	
 \end{description}
 
 %-------------------------------------------------------------------------------
@@ -677,7 +679,7 @@ i.e., the particle motion depends on local conditions as well as on the state of
 
 \subsection{Basic laser and plasma parameters}
 
-In theory, the electromagnetic field is represented by two vector quantities: the electric field $ \vec{E} \left( \vec{r}, t \right) $ and the magnetic field $ \vec{B} \left( \vec{r}, t \right) $. Both quantities are finite and continuous functions of position $ \vec{r} = \left( x, y, z \right) $ and time $ t $. Within the framework of classical electrodynamics, the description of the electromagnetic phenomena (e.g., the generation and propagation of $ \vec{E} \left( \vec{r}, t \right) $ and $ \vec{B} \left( \vec{r}, t \right) $ as well as their interaction with charges and currents) is based on the system of Maxwell's equations; the microscopic variant with external sources in vacuum can be formulated as
+The electromagnetic field is represented by two vector quantities: the electric field $ \vec{E} \left( \vec{r}, t \right) $ and the magnetic field $ \vec{B} \left( \vec{r}, t \right) $. Both quantities are finite and continuous functions of position $ \vec{r} = \left( x, y, z \right) $ and time $ t $. Within the framework of classical electrodynamics, the description of the electromagnetic phenomena (e.g., the generation and propagation of $ \vec{E} $ and $ \vec{B} $ as well as their interaction with charges and currents) is based on the system of Maxwell's equations; the microscopic variant with external sources in vacuum can be formulated as
 \begin{equation}\label{eq:gauss_law_for_e}
 	\div{\vec{E}} = \frac{\rho}{\varepsilon_0},
 \end{equation}
@@ -690,13 +692,13 @@ In theory, the electromagnetic field is represented by two vector quantities: th
 \begin{equation}\label{eq:ampere_law}
 	\rot{\vec{B}} = \mu_0 \vec{J} + \mu_0 \varepsilon_0 \diffp{\vec{E}}{t},
 \end{equation}
-where $ \rho \left( \vec{r}, t \right) $ and $ \vec{J} \left( \vec{r}, t \right) $ are, respectively, the total electric charge and current densities, and $ \varepsilon_0 $ and $ \mu_0 $ are, respectively, the electric permittivity and the magnetic permeability of vacuum. By definition, $ \mu_0 \varepsilon_0 = 1 / c^2 $, where $ c $ is the velocity of light in vacuum.
+where $ \rho \left( \vec{r}, t \right) $ and $ \vec{J} \left( \vec{r}, t \right) $ are, respectively, the total electric charge and current densities, and $ \varepsilon_0 $ and $ \mu_0 $ are the electric permittivity and the magnetic permeability of vacuum, respectively. By definition, $ \mu_0 \varepsilon_0 = 1 / c^2 $, where $ c $ is the velocity of light in vacuum.
 
-By combining Eqs.~(\ref{eq:faraday_law}) and (\ref{eq:ampere_law}) and using the identity $ \rot{\left(\rot{\vec{E}}\right)} = \grad{\left(\div{\vec{E}}\right)} - \laplace{\vec{E}} $ we get the wave equation for $ \vec{E} \left( \vec{r}, t \right) $,
+By combining Eqs.~(\ref{eq:faraday_law}) and (\ref{eq:ampere_law}) and using the identity $ \rot{\left(\rot{\vec{E}}\right)} = \grad{\left(\div{\vec{E}}\right)} - \laplace{\vec{E}} $ we get the wave equation for $ \vec{E} $,
 \begin{equation}\label{eq:wave_eq}
 	\left( \laplace{} - \mu_0 \varepsilon_0 \diffp[2]{}{t} \right) \vec{E} = \mu_0 \diffp{\vec{J}}{t} + \frac{1}{\varepsilon_0} \grad{\rho}.
 \end{equation}
-Representing the plasma as a cold electron fluid with homogeneous density $ n_e $ and considering the linearized equation of motion $ m_e \diffp{\vec{v}}/{t} = -e \vec{E} $, where $ \vec{v} $ is the electron velocity, $ -e $ is the electron charge, and $ m_e $ is the electron rest mass, we obtain that $ \grad{\rho} = 0 $ and $ \diffp{\vec{J}}/{t} = \left( e^2 n_e / m_e \right) \diffp{\vec{v}}/{t} $. For a plane electromagnetic wave $ \vec{E} \left( \vec{r}, t \right) \sim \exp \left( -i \vec{k} \vec{r} - i \omega t \right) $ with the wavevector $ \vec{k} $ and the angular frequency $ \omega = c \norm{\vec{k}} = c k $, Eq.~(\ref{eq:wave_eq}) results in the dispersion equation of cold plasma,
+Representing the plasma as a cold electron fluid with homogeneous density $ n_e $ and considering the linearized equation of motion $ m_e \diffp{\vec{v}}/{t} = -e \vec{E} $, where $ \vec{v} $ is the electron velocity, $ -e $ is the electron charge, and $ m_e $ is the electron rest mass, we obtain $ \grad{\rho} = 0 $ and $ \diffp{\vec{J}}/{t} = \left( e^2 n_e / m_e \right) \diffp{\vec{v}}/{t} $. For a plane electromagnetic wave $ \vec{E} \sim \exp \left( -i \vec{k} \cdot \vec{r} - i \omega t \right) $ with the wavevector $ \vec{k} $ and the angular frequency $ \omega = c \norm{\vec{k}} = c k $, Eq.~(\ref{eq:wave_eq}) results in the dispersion equation of cold plasma,
 \begin{equation}\label{eq:disp_eq}
 	\omega^2 = \omega_{pe}^2 + c^2 k^2,
 \end{equation}
@@ -712,22 +714,22 @@ and
 \end{equation}
 We may see that $ v_{ph} v_{g} = c^2 $. If $ \omega > \omega_{pe} $, Eq.~(\ref{eq:disp_eq}) has real solution for $ \vec{k} $ and thus the electromagnetic wave propagates in plasma. On the contrary, if $ \omega < \omega_{pe} $, $ \vec{k} $ becomes imaginary and the electromagnetic wave is evanescent. The boundary between these two cases is determined by the critical plasma density $ n_c = \varepsilon_0 m_e \omega^2 / e^2 $. The regions of plasma where $ n_e < n_c $ and $ n_e > n_c $ are called underdense and overdense, respectively. In this doctoral thesis, we only deal with the underdense plasma.
 
-The motion of a single electron in the presence of $ \vec{E} \left( \vec{r}, t \right) $ and $ \vec{B} \left( \vec{r}, t \right) $ fields can be studied with the Lorentz equation,
+The motion of a single electron in the presence of $ \vec{E} $ and $ \vec{B} $ fields can be studied with the Lorentz equation,
 \begin{equation}\label{eq:lorentz_eq}
 	\diff{\vec{p}}{t} = -e \left( \vec{E} + \vec{v} \times \vec{B} \right),
 \end{equation}
-where $ \vec{p} = \gamma m_e \vec{v} $ is the electron momentum and $ \gamma = \sqrt{1 + p^2 / \left( m_e c \right)^2 } $ is the Lorentz factor. The $ \vec{E} \left( \vec{r}, t \right) $ and $ \vec{B} \left( \vec{r}, t \right) $ fields can be expressed in terms of the scalar, $ \phi \left( \vec{r}, t \right) $, and vector, $ \vec{A} \left( \vec{r}, t \right) $, potentials,
+where $ \vec{p} = \gamma m_e \vec{v} $ is the electron momentum and $ \gamma = \sqrt{1 + \norm{\vec{p}}^2 / \left( m_e c \right)^2 } $ is the Lorentz factor. The $ \vec{E} $ and $ \vec{B} $ fields can be expressed in terms of the scalar, $ \phi \left( \vec{r}, t \right) $, and vector, $ \vec{A} \left( \vec{r}, t \right) $, potentials,
 \begin{equation}\label{eq:scalar_potential}
 	\vec{E} = -\grad{\phi} - \diffp{\vec{A}}{t},
 \end{equation}
 \begin{equation}\label{eq:vector_potential}
 	\vec{B} = \rot{\vec{A}}.
 \end{equation}
-We note that the potentials of Eqs.~(\ref{eq:scalar_potential}) and (\ref{eq:vector_potential}) are not defined uniquely, i.e., the same $ \vec{E} \left( \vec{r}, t \right) $ and $ \vec{B} \left( \vec{r}, t \right) $ fields can be constructed with infinite number of different $ \phi \left( \vec{r}, t \right) $ and $ \vec{A} \left( \vec{r}, t \right) $ potentials. This can be avoided by gauge transformations; throughout this thesis we use the Coulomb gauge, i.e., $ \div{\vec{A}} = 0 $. Eq.~(\ref{eq:lorentz_eq}) in terms of $ \phi \left( \vec{r}, t \right) $ and $ \vec{A} \left( \vec{r}, t \right) $ reads as
+We note that the potentials of Eqs.~(\ref{eq:scalar_potential}) and (\ref{eq:vector_potential}) are not defined uniquely, i.e., the same $ \vec{E} $ and $ \vec{B} $ fields can be constructed with infinite number of different $ \phi $ and $ \vec{A} $ potentials. This can be avoided by gauge transformations; throughout this thesis we use the Coulomb gauge, i.e., $ \div{\vec{A}} = 0 $. Eq.~(\ref{eq:lorentz_eq}) in terms of $ \phi $ and $ \vec{A} $ reads as
 \begin{equation}\label{eq:lorentz_eq_potentials}
 	\diffp{\vec{p}}{t} + \left(\vec{v} \cdot \grad \right) \vec{p} = e \grad{\phi} + e \diffp{\vec{A}}{t} - e \vec{v} \times \left( \rot{\vec{A}} \right),
 \end{equation}
-where we expand the substantial derivative. Using the identities $ \left(\vec{p} \cdot \grad{} \right) \vec{p} = \grad{p^2} / 2 - \vec{p} \times \left( \rot{\vec{p}} \right) $ and $ \grad{p^2} = m_e^2 c^2 2 \gamma \grad{\gamma} $ we rewrite Eq.~(\ref{eq:lorentz_eq_potentials}) as
+where we expand the substantial derivative. Using the identities $ \left(\vec{p} \cdot \grad{} \right) \vec{p} = \grad{\norm{\vec{p}}^2} / 2 - \vec{p} \times \left( \rot{\vec{p}} \right) $ and $ \grad{\norm{\vec{p}}^2} = m_e^2 c^2 2 \gamma \grad{\gamma} $ we rewrite Eq.~(\ref{eq:lorentz_eq_potentials}) as
 \begin{equation}\label{eq:lorentz_eq_expanded}
 	\diffp{\vec{p}}{t} = e \grad{\phi} + e \diffp{\vec{A}}{t} + \vec{v} \times \left[ \rot{\left(\vec{p} - e \vec{A} \right)} \right] - m_e c^2 \grad{\gamma}.
 \end{equation}
@@ -767,7 +769,7 @@ Strength parameter:
 
 Let us here describe the propagation of finite-amplitude (i.e., the frequency of the wave depends on the amplitude) electromagnetic and Langmuir (electrostatic) waves in cold collisionless plasma. The exact solution to this problem was first found in Ref.~\citenum{Akhiezer1956}.
 
-Starting with the Maxwell's equations and the hydrodynamic equations for the electron and ion fluid components, we may obtain the system of partial differential equations for coupled electromagnetic and Langmuir waves in the following compact form \cite{Farina2001, Bulanov2013, Bulanov2021},
+Starting with Maxwell's equations [Eqs.~(\ref{eq:gauss_law_for_e}) -- (\ref{eq:ampere_law})] and the hydrodynamic equations for the electron and ion fluid components, we may obtain the system of partial differential equations for coupled electromagnetic and Langmuir waves in the following compact form \cite{Farina2001, Bulanov2013, Bulanov2021},
 \begin{equation}\label{eq:eq_for_vector_potential}
 \laplace{\vec{a}} - \diffp[2]{\vec{a}}{t} - \diffp{}{t} \grad{\varphi} = n_e \vec{\upbeta}_e - n_i \vec{\upbeta}_i,
 \end{equation}
