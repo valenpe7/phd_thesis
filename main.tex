@@ -458,6 +458,8 @@
 \addcontentsline{toc}{chapter}{Abstract}
 \pagestyle{myfancy}
 
+We investigate sources of high-energy electrons and photons based on the concepts of laser-wakefield acceleration and the relativistic flying mirrors in underdense plasmas. \\ 
+
 %We explore novel regimes of laser-plasma interaction accessible by new generation laser systems. The scientific focus is mainly devoted to enhancement of laser-generated sources of accelerated electrons and coherent short-wavelength radiation based on plasma waves driven by intense laser pulses. First we describe mechanisms for obtaining electron beams based on laser wakefield acceleration technique. We analyze the properties of the wakefield in regimes dominated by the effects of dispersion and carrier envelope phase. Discussed range of parameters is relevant for electron acceleration at high repetition rate. Second we investigate the concept of relativistic mirrors in laser plasmas. We describe the recoil effects on reflection from relativistic mirrors which is crucial for maximizing the energy of reflected radiation. We find the threshold for incident pulse energy above which the relativistic mirrors undergo significant back reaction. We also analyze the generation of coherent hard electromagnetic radiation by the reflection from the electron density singularities.\\
 
 {\noindent \bf Keywords:} laser-plasma interaction, laser-wakefield acceleration, relativistic mirrors, particle-in-cell simulation %\keywords
@@ -484,7 +486,7 @@
 %\addcontentsline{toc}{chapter}{Introduction}
 %\input{dat/introduction.tex}
 
-\noindent \textsl{In this chapter, we first introduce the reader with a very coarse review of historical milestones and some of the most important achievements of laser -- our main instrument. Then, we define the objectives of our research and put them in the context of current worldwide efforts in the corresponding fields. Also, we specify what exactly has been accomplished by the author and how it advances the scientific knowledge. Finally, we outline how the structure of this doctoral thesis is organized.}
+\noindent \textsl{In the opening chapter, we first introduce the reader with a very coarse review of historical milestones and some of the most important achievements of laser -- our main instrument. Then, we define the objectives of our research and put them in the context of current worldwide efforts in the corresponding fields. Also, we specify what exactly has been accomplished by the author and how it advances the scientific knowledge. Finally, we outline how the structure of this doctoral thesis is organized.}
 
 % the work that has been already done and 
 
@@ -518,7 +520,7 @@ The relativistic flying mirrors are objects that reflect incoming radiation whil
 
 A number of schemes that lead to the physical generation of relativistic mirrors in laser plasmas have been described in theoretical and experimental studies (e.g., double-sided mirrors \cite{Kulagin2007a, Esirkepov2009, Wu2010, Kiefer2013, Ma2014}, oscillating mirrors \cite{Bulanov1994, Lichters1996, Naumova2004, Wheeler2012, Vincenti2019}, sliding mirrors \cite{Pirozhkov2006}, flying mirrors realized with strongly nonlinear Langmuir waves \cite{Bulanov2003, Kando2007, Pirozhkov2007, Kando2009}) and, hence, have already proven the feasibility of this concept. Relativistic mirrors in plasmas are nowadays actively studied as a unique tool for fundamental research (e.g., light intensification toward the Schwinger limit \cite{Bulanov2003}, investigation of photon–photon and Delbrück scattering \cite{Koga2012, Koga2018}, analog black hole to investigate Hawking radiation and the information loss paradox \cite{Chen2017, Chen2020}) and for many practical applications in diverse fields; depending on whether the configuration is co-propagating or counter-propagating, relativistic mirrors might be used either for the acceleration of ions (e.g., for hadron therapy \cite{Bulanov2002}) or for producing coherent high-brightness radiation with wavelengths ranging from x-rays to gamma-rays (e.g., for molecular imaging \cite{Neutze2000} and attosecond spectroscopy \cite{Krausz2009}).
 
-The first goal of our work is to develop a theory for less explored regimes of the laser-wakefield acceleration of electrons. We focus on the evolution of high-power laser pulse in plasma and its effect on the resulting parameters of the accelerated electron beams in the regime of strong interaction between the driver pulse and the electron density spikes of the co-propagating Langmuir wave. Also, we investigate the peculiarities of the laser-wakefield acceleration in the regime of ultrashort laser pulses and near-critical density plasmas, which is of high interest for the acceleration driven by high-repetition-rate laser systems. Our second goal is to extend the theory for the interaction of laser and counter-propagating relativistic mirror in the regime of strong incident electromagnetic wave, where the recoil effects cannot be neglected, and to search for novel or innovative schemes for physical realization of relativistic flying mirrors in underdense plasmas.
+The first goal of our work is to develop a theory for less explored regimes of the laser-wakefield acceleration of electrons. We focus on the evolution of high-power laser pulse in plasma and its effect on the resulting parameters of the accelerated electron beams in the regime of strong interaction between the driver pulse and the electron density spikes of the co-propagating Langmuir wave. Also, we investigate the peculiarities of the laser-wakefield acceleration in the regime of ultrashort laser pulses and near-critical density plasmas, which is of high interest for the acceleration driven by high-repetition-rate laser systems. Our second goal is to extend the theory for the interaction of laser and counter-propagating relativistic mirror in the regime of strong incident electromagnetic wave, where the recoil effects cannot be neglected, as well as to search for novel or innovative schemes for physical realization of relativistic flying mirrors in underdense plasmas.
 
 The work presented in this doctoral thesis is conducted on an exclusively theoretical level. Each of the research topics is first approached by simple (but not trivial) analytical model, which is then confronted with large-scale numerical simulations. Being in a close contact with experimental teams, however, the initial formulations and specifications of the topics to be studied, as well as the achieved results, have always been a subject of long mutual discussions. All the conditions and parameters used in this work are thus tightly connected to capabilities of experimental devices (either existing or under construction). Overall, the aim of our theoretical work is not only to provide a general description of investigated physical processes, but also to explain and interpret the results of ongoing experiments, as well as to suggest and predict new experiments to be carried out in future.
 
@@ -546,7 +548,7 @@ My first internship took place at the Leung Center for Cosmology and Particle As
 
 %Apart from the scientific aspects, I have learned about the specifications, roadmap, and organizational structure of the project and I had a chance to meet researchers and students associated with the project.
 
-My second internship took place at the Kansai Photon Science Institute, National Institutes for Quantum and Radiological Science and Technology in Kyoto, Japan. There, I was working under the supervision of Dr. T. Kawachi, director of the institute, and Dr. T. Z. Esirkepov, senior principal researcher, also on the research related to relativistic mirrors. On the contrary to my previous internship, however, now the main research topic changed to the development of a novel scheme for physical realization of relativistic flying mirrors based on the density singularities in laser plasmas. 
+My second internship took place at the Kansai Photon Science Institute, National Institutes for Quantum Science and Technology in Kyoto, Japan. There, I was working under the supervision of Dr. T. Kawachi, director of the institute, and Dr. T. Z. Esirkepov, senior principal researcher, also on the research related to relativistic mirrors. On the contrary to my previous internship, however, now the main research topic changed to the development of a novel scheme for physical realization of relativistic flying mirrors based on the density singularities in laser plasmas. 
 
 %Further details about this research are provided in Sec.~\ref{sec:on_the_relativistic_flying_forcibly_oscillating_mirror}.
 
@@ -591,16 +593,10 @@ The structure of this doctoral thesis is organized as follows:
 	
 	\item[Appendix~\ref{chap:selected_publications}] contains the full texts (reproduced with permission) of the four selected publications (Refs.~\ref{paper_1} -- \ref{paper_4}).
 	
-	%Throughout the text, SI units are used unless stated otherwise. 
-	
-	%When it is convenient we use dimensionless units.
-	
-	%Only the electromagnetic field intensity and the energy of particles are expressed in more common units of $ \mathrm{W / cm^2} $ and $ eV $, respectively.
-	
-	% scalar quantities in italics, vector in bold
-	
 \end{description}
-
+	
+To distinguish between vector and scalar quantities, we write scalars in italic and vectors in bold. We use SI units throughout the main text of this doctoral theis and, when it is convenient, we perform normalizations to obtain dimensionless quantities. The articles in Appendix~\ref{chap:selected_publications} use Gaussian units.
+	
 %-------------------------------------------------------------------------------
 
 \begin{savequote}[0.45\linewidth]
@@ -611,73 +607,16 @@ The structure of this doctoral thesis is organized as follows:
 
 \chapter{Theoretical background\label{chap:theoretical_background}}
 
-\noindent \textsl{Introducing paragraph.}
+\noindent \textsl{This chapter sets the theoretical background related to the topics considered within this doctoral thesis. We review the fundamental concepts underpinning the interaction of high-power laser and low-density plasma. We also deal with the excitation of the finite-amplitude Langmuir waves in plasma as well as their role in the development of high-energy electron and radiation sources based on the laser-wakefield acceleration and the relativistic flying mirrors. Finally, we discuss the aspects of the particle-in-cell algorithm for the numerical simulation of laser-plasma interactions.}
 
 \section{Interaction of laser and underdense plasma}
 
-Langmuir waves are perhaps the most essential physical entities considered within this doctoral thesis. They play a key role in the concepts of laser-wakefield acceleration and relativistic flying mirrors, which are presented in the following sections (Secs.~\ref{sec:lwfa} and \ref{sec:rfm}). 
+In the first section we start with the definitions of the most important parameters characterizing the interaction of short intense laser pulses with low density plasmas. Then we proceed to the description of the propagation of Langmuir waves in plasma as well as their fundamental properties. Finally, we discuss the structure of the Langmuir waves when they approach the threshold of wave breaking. Langmuir waves are perhaps the most essential physical entities considered within this doctoral thesis; they play a key role in the concepts of laser-wakefield acceleration and relativistic flying mirrors, as closer discussed in the following sections (Secs.~\ref{sec:lwfa} and \ref{sec:rfm}). 
 
-As closer discussed in Secs.~\ref{}, the breaking Langmuir waves are of high importance for the concept of laser-wakefield acceleration (they provide the electron self-injection into the accelerating regions of wakefield) as well as for the relativistic flying mirrors (they maximize the reflection coefficient of the mirrors realized with laser-driven Langmuir waves). 
-
-In this Chapter, we will set the theoretical background and briefly describe the effects
-connected with the ultra-intense laser-matter interaction. SI units are used throughout the
-text unless stated otherwise. Only the laser intensity and particle’s energy are expressed in
-more common unitsW/cm2 and eV, respectively.
-
-% maxwell's equations, scalar and vector potentials, strength parameter, dispersion equation, phase and group velocity, Langmuir frequency, critical density, ponderomotive force, self-focusing, self-modulation of phase and amplitude
-
-When a high-power laser pulse is focused onto the surface of a solid target, a high density plasma layer is produced almost immediately due to the presence of strong electromagnetic fields. The dense plasma expanding from the target surface forms a density profile and the laser-plasma interaction takes place in its lower density part. Many different and often nonlinear processes are involved in the laser-plasma interaction. A brief introduction to this field of research, which is rich both in physics and in applications, is provided in this chapter.
-
-Plasma, one of the four fundamental states of matter, is a quasi-neutral gas of charged and
-neutral particles which exhibits collective behavior [46]. It is necessary to better explain some
-terms used in this definition.
-By collective behavior one means motion that depends not only on local conditions but
-on the state of the plasma in remote regions as well. As charged particles move around, they
-can generate local concentrations of positive or negative charge, which give rise to electric
-fields. Motion of charges also generates currents, and hence magnetic fields. These fields
-affect the motion of other charged particles far away [46]. Thus, the plasma supports a wide
-range of possible motions.
-Quasi-neutrality describes the apparent charge neutrality of a plasma over large volumes,
-while at smaller scales, there can be charge imbalance, which may give rise to local electric
-fields. 
-
-Since the laser beam is nothing but the superposition of electromagnetic waves with high
-spatial and temporal coherence, the opening chapter has to be logically devoted to the fundamental physical aspects of the classical electromagnetic field theory based on the Maxwell’s
-equations.
-
-A description of the interaction 
-
-superposition of electromagnetic waves with high spatial and temporal coherence and 
-
-plasma is a quasi-neutral mixture of charged particles
+%As closer discussed in Secs.~\ref{}, the breaking Langmuir waves are of high importance for the concept of laser-wakefield acceleration (they provide the electron self-injection into the accelerating regions of wakefield) as well as for the relativistic flying mirrors (they maximize the reflection coefficient of the mirrors realized with laser-driven Langmuir waves). 
 
 
-Maxwell's equations,
-
-
-The laser radiation can be viewed as a superposition of electromagnetic waves with high spatial and temporal coherence. 
-
-Plasma is a quasi-neutral mixture of charged and neutral particles which exhibits collective behavior,
-
-neutral over large volumes local electric fields due to small scale charge imbalances
-
-i.e., the particle motion depends on local conditions as well as on the state of the plasma in remote regions
-
-%\input{dat/1-0.tex}
-
-%\subsection{Equations of EM field}
-%\input{dat/1-0.tex}
-
-%\subsection{EM waves in vacuum}
-%\input{dat/1-0.tex}
-
-%\subsection{Gaussian beam optics}
-%\input{dat/1-0.tex}
-
-%\subsection{Interaction with single electrons, ponderomotive force}
-%\input{src/interaction_with_single_electron.tex}
-
-\subsection{Basic laser and plasma parameters}
+\subsection{Basic laser and plasma parameters\label{sec:laser_plasma_params}}
 
 The electromagnetic field is represented by two vector quantities: the electric field $ \vec{E} \left( \vec{r}, t \right) $ and the magnetic field $ \vec{B} \left( \vec{r}, t \right) $. Both quantities are finite and continuous functions of position $ \vec{r} = \left( x, y, z \right) $ and time $ t $. Within the framework of classical electrodynamics, the description of the electromagnetic phenomena (e.g., the generation and propagation of $ \vec{E} $ and $ \vec{B} $ as well as their interaction with charges and currents) is based on the system of Maxwell's equations; the microscopic variant with external sources in vacuum can be formulated as
 \begin{equation}\label{eq:gauss_law_for_e}
@@ -692,9 +631,9 @@ The electromagnetic field is represented by two vector quantities: the electric 
 \begin{equation}\label{eq:ampere_law}
 	\rot{\vec{B}} = \mu_0 \vec{J} + \mu_0 \varepsilon_0 \diffp{\vec{E}}{t},
 \end{equation}
-where $ \rho \left( \vec{r}, t \right) $ and $ \vec{J} \left( \vec{r}, t \right) $ are, respectively, the total electric charge and current densities, and $ \varepsilon_0 $ and $ \mu_0 $ are the electric permittivity and the magnetic permeability of vacuum, respectively. By definition, $ \mu_0 \varepsilon_0 = 1 / c^2 $, where $ c $ is the velocity of light in vacuum.
+where $ \rho \left( \vec{r}, t \right) $ and $ \vec{J} \left( \vec{r}, t \right) $ are, respectively, the electric charge and current densities, and $ \varepsilon_0 $ and $ \mu_0 $ are the electric permittivity and the magnetic permeability of vacuum, respectively. By definition, $ \mu_0 \varepsilon_0 = 1 / c^2 $, where $ c $ is the velocity of light in vacuum.
 
-By combining Eqs.~(\ref{eq:faraday_law}) and (\ref{eq:ampere_law}) and using the identity $ \rot{\left(\rot{\vec{E}}\right)} = \grad{\left(\div{\vec{E}}\right)} - \laplace{\vec{E}} $ we get the wave equation for $ \vec{E} $,
+By combining Eqs.~(\ref{eq:faraday_law}) and (\ref{eq:ampere_law}) and using the identity $ \rot{\left(\rot{\vec{E}}\right)} = \grad{\left(\div{\vec{E}}\right)} - \laplace{\vec{E}} $ we obtain the wave equation for $ \vec{E} $,
 \begin{equation}\label{eq:wave_eq}
 	\left( \laplace{} - \mu_0 \varepsilon_0 \diffp[2]{}{t} \right) \vec{E} = \mu_0 \diffp{\vec{J}}{t} + \frac{1}{\varepsilon_0} \grad{\rho}.
 \end{equation}
@@ -718,14 +657,16 @@ The motion of a single electron in the presence of $ \vec{E} $ and $ \vec{B} $ f
 \begin{equation}\label{eq:lorentz_eq}
 	\diff{\vec{p}}{t} = -e \left( \vec{E} + \vec{v} \times \vec{B} \right),
 \end{equation}
-where $ \vec{p} = \gamma m_e \vec{v} $ is the electron momentum and $ \gamma = \sqrt{1 + \norm{\vec{p}}^2 / \left( m_e c \right)^2 } $ is the Lorentz factor. The $ \vec{E} $ and $ \vec{B} $ fields can be expressed in terms of the scalar, $ \phi \left( \vec{r}, t \right) $, and vector, $ \vec{A} \left( \vec{r}, t \right) $, potentials,
+where $ \vec{p} = \gamma m_e \vec{v} $ is the electron momentum and $ \gamma = \sqrt{1 + \left( \norm{\vec{p}} / m_e c \right)^2 } $ is the Lorentz factor. The $ \vec{E} $ and $ \vec{B} $ fields can be expressed in terms of the scalar, $ \phi \left( \vec{r}, t \right) $, and vector, $ \vec{A} \left( \vec{r}, t \right) $, potentials,
 \begin{equation}\label{eq:scalar_potential}
 	\vec{E} = -\grad{\phi} - \diffp{\vec{A}}{t},
 \end{equation}
 \begin{equation}\label{eq:vector_potential}
 	\vec{B} = \rot{\vec{A}}.
 \end{equation}
-We note that the potentials of Eqs.~(\ref{eq:scalar_potential}) and (\ref{eq:vector_potential}) are not defined uniquely, i.e., the same $ \vec{E} $ and $ \vec{B} $ fields can be constructed with infinite number of different $ \phi $ and $ \vec{A} $ potentials. This can be avoided by gauge transformations; throughout this thesis we use the Coulomb gauge, i.e., $ \div{\vec{A}} = 0 $. Eq.~(\ref{eq:lorentz_eq}) in terms of $ \phi $ and $ \vec{A} $ reads as
+We note that the potentials of Eqs.~(\ref{eq:scalar_potential}) and (\ref{eq:vector_potential}) are not defined uniquely, i.e., the same $ \vec{E} $ and $ \vec{B} $ fields can be constructed with infinite number of different $ \phi $ and $ \vec{A} $ potentials. This can be avoided by gauge transformations; throughout this thesis we use the Coulomb gauge, i.e., $ \div{\vec{A}} = 0 $. 
+
+Eq.~(\ref{eq:lorentz_eq}) in terms of $ \phi $ and $ \vec{A} $ reads as
 \begin{equation}\label{eq:lorentz_eq_potentials}
 	\diffp{\vec{p}}{t} + \left(\vec{v} \cdot \grad \right) \vec{p} = e \grad{\phi} + e \diffp{\vec{A}}{t} - e \vec{v} \times \left( \rot{\vec{A}} \right),
 \end{equation}
@@ -733,38 +674,28 @@ where we expand the substantial derivative. Using the identities $ \left(\vec{p}
 \begin{equation}\label{eq:lorentz_eq_expanded}
 	\diffp{\vec{p}}{t} = e \grad{\phi} + e \diffp{\vec{A}}{t} + \vec{v} \times \left[ \rot{\left(\vec{p} - e \vec{A} \right)} \right] - m_e c^2 \grad{\gamma}.
 \end{equation}
-In one-dimensional approximation, we may integrate the transverse ($ \bot $) component of Eq.~(\ref{eq:lorentz_eq_expanded}) to obtain the relationship $ p_{\bot} - e A_{\bot} = const. $ which states that the transverse component of the canonical momentum is conserved.
+In one-dimensional approximation, we may integrate the transverse ($ \bot $) component of Eq.~(\ref{eq:lorentz_eq_expanded}) to obtain the relationship $ \vec{p}_{\bot} - e \vec{A}_{\bot} = const. $, which states that the transverse component of the canonical momentum is conserved (due to the homogeneity of the problem along the transverse directions). The first term on the right hand side of Eq.~(\ref{eq:lorentz_eq_expanded}), $ e \grad{\phi} $, is responsible for the space charge force and the last term, $ - m_e c^2 \grad{\gamma} $, is the generalized ponderomotive force. The ponderomotive force pushes the plasma electrons into regions of lower laser field amplitude, while the space charge force pulls them back and makes them oscillate at $ \omega_{pe} $. This results in significant electron density changes and a wide range of nonlinear phenomena (e.g., ponderomotive self-channeling \cite{Sun1987, Kurki-Suonio1989, Borisov1992}, plasma wave guiding \cite{Sprangle1990, Sprangle1992, Chen1993}, self-modulation of long pulses \cite{Andreev1992, Antonsen1992, Krall1993}). Note that the effect of ponderomotive force on ions is much weaker due to its inverse proportionality on particle mass and can be neglected on short time scales.
 
-The last term on the right hand side of Eq.~(\ref{eq:lorentz_eq_expanded}), $ - m_e c^2 \grad{\gamma} $, is the ponderomotive force
+Another important parameter describing the regime of the laser-plasma interaction is the laser strength parameter, $ a_0 $, defined as the peak amplitude of the normalized vector potential of the laser field, $ \vec{a} = e \vec{A} / m_e c $. The peak laser intensity, $ I_0 $, can be expressed in terms of $ a_0 $ as follows,
+\begin{equation}\label{eq:laser_intensity}
+	I_0 = \frac{2 \pi^2 \varepsilon_0 m_e^2 c^5}{e^2} \left( \frac{a_0}{\lambda} \right)^2,
+\end{equation} 
+where $ \lambda = 2 \pi c / \omega $ is the laser wavelength. From the conservation of transverse canonical momentum we see that $ \vec{a} = \vec{p}_{\bot} / \left( m_e c \right) $ is the normalized transverse \q{quiver} momentum of a plasma electron. We may thus use $ a_0 $ to distinguish between the non-relativistic, $ a_0 \ll 1 $, and the relativistic, $ a_0 \gtrsim 1 $, regimes of the interaction.
 
-Let us analyze the transverse ($ \bot $) and longitudinal ($ \parallel $) components of Eq.~(\ref{eq:lorentz_eq_potentials}) in one spatial dimension $ z $ and time $ t $,
-\begin{equation}\label{eq:lorentz_eq_trans}
-	\left( \diffp{}{t} + v_{\parallel} \diffp{}{z} \right) p_{\bot} = e \diffp{A_{\bot}}{t} + e v_{\parallel} \diffp{A_{\bot}}{z},
+For the purpose of description of high-power laser pulse propagation in underdense plasmas, it is convenient to extend $ \omega_{pe} $ to include also the effects of electron density perturbation and relativistic mass increase,
+\begin{equation}\label{eq:langmuir_freq_rel}
+	\omega_{pe, rel}^2 = \frac{\omega_{pe}^2}{\gamma} \frac{n_e}{n_0},
 \end{equation}
-\begin{equation}\label{eq:lorentz_eq_long}
-	\left( \diffp{}{t} + v_{\parallel} \diffp{}{z} \right) p_{\parallel} = e \diffp{\phi}{z} - e v_{\bot} \diffp{A_{\bot}}{z}.
+where $ n_0 $ is the plasma density at the equilibrium state (prior to the passage of the laser pulse). Writing the electron density profile as $ n_e = n_0 + \delta n_e + \Delta n_e $, where $ \delta n_e \left( \vec{r}_{\bot} \right) $ and $ \Delta n_e \left( \vec{r}_{\bot} \right) $ are the radial density perturbations due to the ponderomotive force and the preformed plasma channel, respectively, and considering only the electron quiver motion, i.e., $ \gamma = \sqrt{1 + \norm{\vec{a}}^2} $, the plasma refractive index can be approximated as \cite{Esarey1997}
+\begin{equation}\label{eq:plasma_refractive_index}
+	\eta \approx 1 - \frac{\omega_{pe}^2}{2 \omega^2} \left( 1 - \frac{\norm{\vec{a}}^2}{2} + \frac{\delta n_e}{n_0} + \frac{\Delta n_e}{n_0} \right).
 \end{equation}
-It is now convenient to work with dimensionless quantities by introducing the following normalizations,
-\begin{equation}\label{eq:normalizations}
-	\vec{r} \rightarrow \frac{\vec{r} \omega_{pe}}{c}, \quad t \rightarrow t \omega_{pe}, \quad \vec{\upbeta} \rightarrow \frac{\vec{v}}{c}, \quad \vec{p} \rightarrow \frac{\vec{p}}{m_e c}, \quad \varphi \rightarrow \frac{e \phi}{m_e c^2}, \quad a \rightarrow \frac{e A}{m_e c}, \quad n_e \rightarrow \frac{n_e}{n_0}.
-\end{equation}
-Integrating Eq.~(\ref{eq:lorentz_eq_trans}) we obtain the relationship $ p_{\bot} - a = const. $ which states that the transverse component of the canonical momentum is conserved. Using this result, we rewrite Eq.~(\ref{eq:lorentz_eq_long}) as
-\begin{equation}\label{key}
-	\left( \diffp{}{t} + v_{\parallel} \diffp{}{z} \right) p_{\parallel} = \diffp{\varphi}{z} - \frac{1}{2 \gamma} \diffp{a^2}{z},
-\end{equation}
-with 
-
-Strength parameter: 
-\begin{equation}\label{key}
-	a_0 = \frac{e E}{m_e \omega c}
+For a laser intensity profile peaked on the propagation axis, the term $ \norm{\vec{a}}^2 / 2 $ on the right hand side of Eq.~(\ref{eq:plasma_refractive_index}) is responsible for the relativistic self-focusing. The onset of the relativistic self-focusing occurs when the laser power, $ \mathcal{P} $, exceeds a critical power, $ \mathcal{P}_c $, defined as \cite{Sun1987},
+\begin{equation}\label{eq:critical_power}
+	\mathcal{P}_c = \frac{8 \pi \varepsilon_0 m_e^2 c^5}{e^2} \left( \frac{\omega}{\omega_{pe}} \right)^2.
 \end{equation}
 
-\begin{equation}\label{key}
-	P_c = 
-\end{equation}
-
-
-\subsection{Finite-amplitude Langmuir waves}
+\subsection{Finite-amplitude Langmuir waves\label{sec:langmuir_waves}}
 %\input{dat/1-0.tex}
 
 Let us here describe the propagation of finite-amplitude (i.e., the frequency of the wave depends on the amplitude) electromagnetic and Langmuir (electrostatic) waves in cold collisionless plasma. The exact solution to this problem was first found in Ref.~\citenum{Akhiezer1956}.
@@ -782,9 +713,12 @@ Starting with Maxwell's equations [Eqs.~(\ref{eq:gauss_law_for_e}) -- (\ref{eq:a
 \begin{equation}\label{eq:eq_for_momentum}
 \diffp{\vec{P}_{\alpha}}{t} = - \grad{\left( \rho_{\alpha} \varphi + \gamma_{\alpha} \right)} + \vec{\upbeta}_{\alpha} \times \rot{\vec{P}_{\alpha}},
 \end{equation}
-where $ \varphi $ and $ \vec{a} $ are the scalar and vector potentials, respectively (the Coulomb gauge is assumed, i.e., $ \div{\vec{a}} = 0 $), $ \vec{\upbeta}_{\alpha} $ is the velocity of the fluid component, and $ n_{\alpha} $ is the number density of the fluid component; the electron and ion fluid components are denoted by subscripts $ e $ and $ i $, respectively, the subscript $ \alpha $ is either $ e $ or $ i $. The canonical momentum $ \vec{P}_{\alpha} $ and the Lorentz factor $ \gamma_{\alpha} $ are related to the kinetic momentum $ \vec{p}_{\alpha} = \gamma_{\alpha} \vec{\upbeta}_{\alpha} $ as $ \vec{P}_{\alpha} = \vec{p}_{\alpha} + \rho_{\alpha} \vec{a} $ and $ \gamma_{\alpha} = \sqrt{1 + \norm{\vec{p}_{\alpha}}^2} $, respectively, where $ \rho_{\alpha} = - \left( q_{\alpha} / e \right) \left( m_e / m_{\alpha} \right) $. Here and below we use dimensionless quantities; quantities having the units of length and time are normalized by $ c / \omega_{pe} $ and $ \omega_{pe} $, respectively, velocities are normalized by $ c $, momenta by $ m_{\alpha} c $, scalar and vector potentials by $ m_e c^2 / e $ and $ m_e c / e $, respectively, and the number densities are normalized by $ n_0 $, where $ n_0 $ is the density of plasma components at the equilibrium state (prior to the passage of the electromagnetic wave).
+where the electron and ion fluid components are denoted by subscripts $ e $ and $ i $, respectively, and the subscript $ \alpha $ is either $ e $ or $ i $. Here we use dimensionless quantities: $ \varphi $ is the scalar potential normalized by $ m_e c^2 / e $, $ \vec{a} $ is the vector potential normalized by $ m_e c / e $, $ \vec{\upbeta}_{\alpha} $ is the velocity of the fluid component normalized by $ c $, and $ n_{\alpha} $ is the density of the fluid component normalized by $ n_0 $. The canonical momentum $ \vec{P}_{\alpha} $ and the Lorentz factor $ \gamma_{\alpha} $ are related to the kinetic momentum $ \vec{p}_{\alpha} $ normalized by $ m_e c $ as $ \vec{P}_{\alpha} = \vec{p}_{\alpha} + \rho_{\alpha} \vec{a} $ and $ \gamma_{\alpha} = \sqrt{1 + \norm{\vec{p}_{\alpha}}^2} $, respectively, where $ \rho_{\alpha} = - \left( q_{\alpha} / e \right) \left( m_e / m_{\alpha} \right) $.
 
-In the one-dimensional geometry (i.e., $ \partial / \partial x = \partial / \partial y = 0 $) the dependence of all quantities in Eqs.~(\ref{eq:eq_for_vector_potential}) -- (\ref{eq:eq_for_momentum}) on the coordinate and time can be expressed via new variables $ \zeta = z - \beta_{w} t $ and $ \tau = t - \beta_{w} z $, where $ \beta_{w} $ is the phase velocity of the Langmuir wave (i.e., we search for the solution in the form of a plane wave traveling at constant velocity). Note that $ \beta_w = \beta_g $, where $ \beta_g $ is the group velocity of the electromagnetic wave; the group velocity of the Langmuir wave is in cold plasma equal to zero. For the sake of simplicity, we further assume that the electromagnetic wave is circularly polarized; the equations for the scalar, $ \varphi = \varphi \left( \zeta \right) $, and vector, $ a_x + i a_y = a \left( \zeta \right) \exp \left( i \omega \tau \right) $, potentials then read as \cite{Farina2001, Bulanov2013, Bulanov2021}
+
+%where $ \varphi $ and $ \vec{a} $ are the scalar and vector potentials, respectively (the Coulomb gauge is assumed, i.e., $ \div{\vec{a}} = 0 $), $ \vec{\upbeta}_{\alpha} $ is the velocity of the fluid component, and $ n_{\alpha} $ is the number density of the fluid component; the electron and ion fluid components are denoted by subscripts $ e $ and $ i $, respectively, the subscript $ \alpha $ is either $ e $ or $ i $. The canonical momentum $ \vec{P}_{\alpha} $ and the Lorentz factor $ \gamma_{\alpha} $ are related to the kinetic momentum $ \vec{p}_{\alpha} = \gamma_{\alpha} \vec{\upbeta}_{\alpha} $ as $ \vec{P}_{\alpha} = \vec{p}_{\alpha} + \rho_{\alpha} \vec{a} $ and $ \gamma_{\alpha} = \sqrt{1 + \norm{\vec{p}_{\alpha}}^2} $, respectively, where $ \rho_{\alpha} = - \left( q_{\alpha} / e \right) \left( m_e / m_{\alpha} \right) $. Here and below we use dimensionless quantities; quantities having the units of length and time are normalized by $ c / \omega_{pe} $ and $ \omega_{pe} $, respectively, velocities are normalized by $ c $, momenta by $ m_{\alpha} c $, scalar and vector potentials by $ m_e c^2 / e $ and $ m_e c / e $, respectively, and the number densities are normalized by $ n_0 $, where $ n_0 $ is the density of plasma components at the equilibrium state (prior to the passage of the electromagnetic wave).
+
+In the one-dimensional geometry (i.e., $ \diffp{}/{x} = \diffp{}/{y} = 0 $) the dependence of all quantities in Eqs.~(\ref{eq:eq_for_vector_potential}) -- (\ref{eq:eq_for_momentum}) on the coordinate and time can be expressed via new variables $ \zeta = z - \beta_{w} t $ and $ \tau = t - \beta_{w} z $, where $ \beta_{w} $ is the phase velocity of the Langmuir wave (i.e., we search for the solution in the form of a plane wave traveling at constant velocity). Note that $ \beta_w = \beta_g $, where $ \beta_g $ is the group velocity of the electromagnetic wave; the group velocity of the Langmuir wave is in cold plasma equal to zero. For the sake of simplicity, we further assume that the electromagnetic wave is circularly polarized; the equations for the scalar, $ \varphi = \varphi \left( \zeta \right) $, and vector, $ a_x + i a_y = a \left( \zeta \right) \exp \left( i \omega \tau \right) $, potentials then read as \cite{Farina2001, Bulanov2013, Bulanov2021}
 \begin{equation}\label{eq:eq_for_scalar_potential_2}
 \diff[2]{\varphi}{\zeta} = \frac{\beta_{w}}{1 - \beta_{w}^2} \left(\frac{\psi_e}{R_e} - \frac{\psi_i}{R_i} \right),
 \end{equation}
@@ -801,7 +735,7 @@ where $ \omega $ is the angular frequency of the electromagnetic wave, $ \psi_{\
 n_{\alpha} = \frac{\beta_w}{1 - \beta_w^2} \left( \frac{\psi_{\alpha}}{R_{\alpha}} - \beta_w \right).
 \end{equation}
 %if the electromagnetic field amplitude is constant (i.e., $ a = a_0 $ and $ \varphi = 0 $) and the plasma is at rest (i.e., $ \norm{\vec{p}_{\alpha}} = 0 $) at infinity, then $ \mathit{\Gamma}_{\alpha} = \sqrt{1 + \rho_{\alpha}^2 a_0^2} $. 
-In what follows we neglect the motion of ions, i.e., $ \rho_i = 0 $ (note that the ion motion affects the value of scalar potential in the Langmuir wave \cite{Bulanov2021}). 
+In what follows we neglect the motion of ions, i.e., $ \rho_i = 0 $, which can be justified for short electromagnetic wave packets ($ < 1 \ \mathrm{ps} $). Note that the ion motion affects the maximum value of scalar potential in the Langmuir wave \cite{Bulanov2021}. 
 
 %If we set the electromagnetic wave amplitude to zero, i.e., $ a = a_0 = 0 $, Eq.~(\ref{eq:eq_for_scalar_potential_2}) describes free Langmuir waves,
 %\begin{equation}\label{eq:eq_for_scalar_potential_3}
@@ -874,7 +808,7 @@ Let us closer analyze the properties of Langmuir waves generated by a strong ele
 \begin{equation}\label{eq:eq_for_long_momentum}
 \diff*[2]{\left( \gamma_e - \beta_w p_e \right)}{\zeta} = \frac{p_e}{\beta_w \gamma_e - p_e},
 \end{equation}
-where we assume that $ \gamma_e = \sqrt{1 + p_e^2 + a^2} $ (see also Sec.~\ref{label}). One can immediately see that Eq.~(\ref{eq:eq_for_long_momentum}) becomes singular when the denominator on the right-hand side vanishes, i.e., when the electron velocity, $ p_e / \gamma_e $, approaches the phase velocity of the Langmuir wave, $ \beta_{w} $. This singularity, which is also known as the gradient or cusp catastrophe, corresponds to the breaking of Langmuir wave.
+where we assume that $ \gamma_e = \sqrt{1 + p_e^2 + a^2} $ due to the conservation of transverse canonical momentum (see Sec.~\ref{sec:laser_plasma_params}). One can immediately see that Eq.~(\ref{eq:eq_for_long_momentum}) becomes singular when the denominator on the right-hand side vanishes, i.e., when the electron velocity, $ p_e / \gamma_e $, approaches the phase velocity of the Langmuir wave, $ \beta_{w} $. This singularity, which is also known as the gradient or cusp catastrophe, corresponds to the breaking of Langmuir wave.
 
 The structure of the breaking Langmuir wave can be revealed by expanding $ \gamma_e $ and $ p_e $ in the vicinity of the singularity, $ \zeta = \zeta_{\mathrm{br}} + \delta \zeta  $, where $ \zeta_{\mathrm{br}} $ is the breaking coordinate and $ \delta \zeta / \zeta_{\mathrm{br}} \ll 1 $. The electron momentum is expanded as $ p_e = p_{\mathrm{br}} + \delta p $, where $ p_{\mathrm{br}} = \beta_w \gamma_w \sqrt{1 + a_{\mathrm{br}}^2} $, $ \delta p / p_{\mathrm{br}} \ll 1 $, and $ a_{\mathrm{br}} = a \left( \zeta_{\mathrm{br}} \right) $. From Eq.~(\ref{eq:eq_for_long_momentum}) one gets \cite{Panchenko2008, Bulanov2013}
 \begin{equation}\label{eq:eq_for_long_momentum_2}
@@ -929,7 +863,7 @@ The one-dimensional motion of an electron in the wakefield and the electromagnet
 \begin{equation}\label{eq:hamiltonian}
 \mathcal{H} = \sqrt{1 + P_{\parallel}^2 + \left( P_{\bot} + a \right)^2} - \varphi,
 \end{equation}
-where $ P_{\parallel} \left( z, t \right) $ and $ P_{\bot} \left( z, t \right) $ are the longitudinal and transverse components of the canonical momentum, respectively, $ a \left( z, t \right) $ is the vector potential of the driving electromagnetic pulse, and $ \varphi \left( z, t \right) $ is the scalar potential of the wakefield. The canonical to kinetic momentum relations are $ P_{\parallel} = p_{\parallel} $ and $ P_{\bot} = p_{\bot} - a $. Here and below we use again the normalizations of quantities introduced in Sec~\ref{}. Further, we assume that $ a $ and $ \varphi $ depend only on variable $ \zeta $; to ensure this, we neglect the effect of dispersion on the driving pulse, and consider that the pulse is circularly polarized and the initial value of $ P_{\bot} $ is equal to zero.
+where $ P_{\parallel} \left( z, t \right) $ and $ P_{\bot} \left( z, t \right) $ are the longitudinal and transverse components of the canonical momentum, respectively, $ a \left( z, t \right) $ is the vector potential of the driving electromagnetic pulse, and $ \varphi \left( z, t \right) $ is the scalar potential of the wakefield. The canonical to kinetic momentum relations are $ P_{\parallel} = p_{\parallel} $ and $ P_{\bot} = p_{\bot} - a $. Here and below we use again the normalizations of quantities introduced in Sec.~\ref{sec:langmuir_waves}. Further, we assume that $ a $ and $ \varphi $ depend only on variable $ \zeta $; to ensure this, we neglect the effect of dispersion on the driving pulse, and consider that the pulse is circularly polarized and the initial value of $ P_{\bot} $ is equal to zero.
 
 The integral of motion of the Hamiltonian [Eq.~(\ref{eq:hamiltonian})] can be written as \cite{Esirkepov2006, Esarey2009, Bulanov2013}
 \begin{equation}\label{eq:integral_of_motion}
@@ -985,7 +919,7 @@ As the driver pulse excites the wakefield, it continuously transfers its energy 
 \end{equation}
 Taking into account the balance between the wakefield energy and the lost energy of the driver, we obtain the relationship $ \beta_{\mathrm{etch}} = \beta_g / \left( 2 - \beta_g^2 \right) $. In the limit $ \beta_g \rightarrow 1 $ and $ a \gg 1 $, $ l_{pd} \approx \lambda_w \gamma_w^2 $, thus $ l_{pd} \sim l_d $ \cite{Bulanov2016}.
 
-In three-dimensional geometry, $ l_{\mathrm{acc}} $ is also largely determined by the transverse evolution of the driver. The spot size of a Gaussian driver pulse evolves along the propagation direction $ z $ according to $ w \left( z \right) = w_0 \sqrt{1 + \left( z / z_R \right)^2} $, where $ w_0 $ is the beam waist (radius at $ 1 / e $ of the maximum driver electric field) and $ z_R = \pi w_0^2 / \lambda $ is the Rayleigh length, i.e., a beam that is focused to a small spot rapidly diverges as it travels away from the focus. The value of $ l_{\mathrm{acc}} $ can be increased to multiple $ z_{R} $ by optical guiding, either through self-focusing mechanisms or using preformed plasma channels. Preformed plasma channels may offer several advantages over relying on self-guiding: (i) they provide some resistance to instabilities (e.g., hosing instability \cite{Shvets1994, Sprangle1994}); (ii) they reduce the amount of diffractive erosion of the driver pulse head \cite{Sprangle1990, Esarey1997}; and (iii) the condition of Eq.~(\ref{eq:}) $ P > P_c $ does not need to be satisfied and thus the accelerator can be operated in a more stable regime at lower $ a $.
+In three-dimensional geometry, $ l_{\mathrm{acc}} $ is also largely determined by the transverse evolution of the driver. The spot size of a Gaussian driver pulse evolves along the propagation direction $ z $ according to $ w \left( z \right) = w_0 \sqrt{1 + \left( z / z_R \right)^2} $, where $ w_0 $ is the beam waist (radius at $ 1 / e $ of the maximum driver electric field) and $ z_R = \pi w_0^2 / \lambda $ is the Rayleigh length, i.e., a beam that is focused to a small spot rapidly diverges as it travels away from the focus. The value of $ l_{\mathrm{acc}} $ can be increased to multiple $ z_{R} $ by optical guiding, either through self-focusing mechanisms or using preformed plasma channels. Preformed plasma channels may offer several advantages over relying on self-guiding: (i) they provide some resistance to instabilities (e.g., hosing instability \cite{Shvets1994, Sprangle1994}); (ii) they reduce the amount of diffractive erosion of the driver pulse head \cite{Sprangle1990, Esarey1997}; and (iii) the condition $ \mathcal{P} > \mathcal{P}_c $ [see Eq.~(\ref{eq:critical_power})] does not need to be satisfied and thus the accelerator can be operated in a more stable regime at lower $ a $.
 
 Besides the value of $ \mathcal{E}_{\mathrm{max}} $ there are also other important parameters of the accelerated electron beams, e.g., luminosity (i.e., the number of electrons accelerated), beam divergence, energy spread, overall efficiency of the acceleration, etc. As the fraction of the trapped electrons becomes significant, the beam starts to generate (due to the space-charge force) its own wakefield that alters the wakefield driven by the electromagnetic pulse. This effect, which typically manifests itself in lower energy gain and a modified energy spread of the electron beam is referred to as beam loading \cite{Katsouleas1987, Tzoufras2008, Tzoufras2009}. The maximum number of electrons in the beam that can be accelerated by the wakefield, $ \mathcal{N}_{\mathrm{max}} $, is determined by the beam loading limit at which the wakefield driven by the electromagnetic pulse is entirely canceled by the wakefield of the electron beam. In linear regime, the value of $ \mathcal{N}_{\mathrm{max}} $ can be obtained by superposing both wakefields \cite{Katsouleas1987},
 \begin{equation}\label{eq:beam_loading}
@@ -1315,10 +1249,10 @@ Here $ \mathcal{N} $, $ p $, and $ \mathcal{E} $ are the numbers, momenta, and e
 
 \begin{figure}[t]
 	\includegraphics[width=0.45\linewidth]{img/recoil_scheme.png}
-	\caption[]{\label{fig:recoil_schematic} Schematic illustrating the analytical model of Eqs.~(\ref{eq:conservation}) (a) before and (b) after the interaction of incident electromagnetic wave with a counter-propagating relativistic mirror, which is represented by thin electron layer (red dots).}
+	\caption[]{\label{fig:recoil_schematic} Schematic illustrating the analytical model of Eqs.~(\ref{eq:conservation_of_momentum}) and (\ref{eq:conservation_of_energy}) (a) before and (b) after the interaction of incident electromagnetic wave with a counter-propagating relativistic mirror, which is represented by thin electron layer (red dots).}
 \end{figure}
 
-By combining Eqs.~(\ref{eq:conservation}) we obtain the following formula [\ref{paper_3}],
+By combining Eqs.~(\ref{eq:conservation_of_momentum}) and (\ref{eq:conservation_of_energy}) we obtain the following formula [\ref{paper_3}],
 \begin{equation}\label{eq:recoil_1}
 \hbar \omega_0^{\prime \prime} = \hbar \omega_0 \frac{\mathcal{E}_e \left( \mathcal{E}_e + p_e c \right)}{\mathcal{N}_e \left( \mathcal{E}_e + p_e c \right) + 2 \mathcal{R} \mathcal{N}_{\omega} \hbar \omega_0} = \hbar \omega_0 \frac{\mathcal{N}_e m_e c^2 \left( \gamma_M + \sqrt{\gamma_M^2 - 1} \right)}{\mathcal{N}_e m_e c^2 \left( \gamma_M - \sqrt{\gamma_M^2 - 1} \right) + 2 \mathcal{R} \mathcal{N}_{\omega} \hbar \omega_0}.
 \end{equation}
@@ -1423,7 +1357,7 @@ with $ \vec{u}_p = \vec{p}_p / m_s $.
 %\end{equation}
 %The values of electric and magnetic fields at the quasi-particle position, $ \vec{E}_p \left( t \right) $ and $ \vec{B}_p \left( t \right) $, in Eq.~(\ref{eq:quasi_particle_fields}) are calculated by interpolation from nearest grid points (the form of interpolation is determined by the spatial shape function as closer discussed in Sec.~).
 
-The core elements of the the particle-in-cell computational cycle are shown in Fig.~\ref{fig:pic_cycle}. Having the information about the quasi-particle positions, $ \vec{r}_p $, and momenta, $ \vec{p}_p $, at a given time step, we calculate the charge, $ \rho_{i, j, k} $, and current, $ \vec{J}_{i, j, k} $, densities at each grid point (particle weighting). Then, the electric, $ \vec{E}_{i,j,k} $, and magnetic, $ \vec{B}_{i, j, k} $, fields at each grid point are advanced by solving the Maxwell's equations (field solver). After that, the new values of the electric and magnetic fields are interpolated back to the quasi-particle positions (field weighting). Finally, we calculate the new quasi-particle positions and momenta by solving the Newton-Lorentz equations of motion (particle pusher). The whole cycle repeats until the end of simulation. We note that additional operations are usually performed in between these fundamental steps (e.g., current filtering, application of external fields, diagnostics, etc.).
+The core elements of the the particle-in-cell computational cycle are shown in Fig.~\ref{fig:pic_cycle}. Having the information about the quasi-particle positions, $ \vec{r}_p $, and momenta, $ \vec{p}_p $, at a given time step, we calculate the charge, $ \rho_{i, j, k} $, and current, $ \vec{J}_{i, j, k} $, densities at each grid point (particle weighting). Then, the electric, $ \vec{E}_{i,j,k} $, and magnetic, $ \vec{B}_{i, j, k} $, fields at each grid point are advanced by solving Maxwell's equations (field solver). After that, the new values of the electric and magnetic fields are interpolated back to the quasi-particle positions (field weighting). Finally, we calculate the new quasi-particle positions and momenta by solving the Newton-Lorentz equations of motion (particle pusher). The whole cycle repeats until the end of simulation. We note that additional operations are usually performed in between these fundamental steps (e.g., current filtering, application of external fields, diagnostics, etc.).
 
 %The influence of the choice of the time and spatial step on the stability and accuracy of the PIC method will be demonstrated as well.  The PIC code EPOCH \cite{bennett}, which has been used for the simulations within this work, is described in the last section of this chapter.
 
@@ -1474,7 +1408,7 @@ Finally, we substitute the vector $ \vec{u}_{p}^{\:+} $ into Eq.~(\ref{eq:boris_
 
 \subsection{Field solver}
 
-The integration of the Maxwell's equations in time on the Cartesian grid is in the particle-in-cell algorithm usually carried out using the standard finite-difference time-domain method \cite{Yee1966}. In this method, the vector components of the electric, $ \vec{E}_{i, j, k} $, and magnetic, $ \vec{B}_{i, j, k} $, fields are spatially staggered about the rectangular cells of the grid,
+The integration of Maxwell's equations in time on the Cartesian grid is in the particle-in-cell algorithm usually carried out using the standard finite-difference time-domain method \cite{Yee1966}. In this method, the vector components of the electric, $ \vec{E}_{i, j, k} $, and magnetic, $ \vec{B}_{i, j, k} $, fields are spatially staggered about the rectangular cells of the grid,
 \begin{equation}
 	\label{eq:staggered_E}
 	\vec{E}_{i, j, k} \coloneqq \left[\left(E_{x}\right)_{i,\: j + 1/2,\: k + 1/2}, \ \left(E_{y}\right)_{i + 1/2,\: j,\: k + 1/2}, \ \left(E_{z}\right)_{i + 1/2,\: j + 1/2,\: k} \right],
@@ -1492,7 +1426,7 @@ The components of the current density, $ \vec{J}_{i, j, k} $, are defined in the
 \end{equation}
 The illustration of this scheme, also known as the Yee latice, is shown in Fig.~\ref{fig:yee_lattice}. 
 
-The standard finite-difference time-domain method uses centered finite differences to approximate space and time derivatives achieving the second-order accuracy. The Maxwell's equations, being discretized using the explicit leap-frog scheme \cite{Press2007}, take the following form,
+The standard finite-difference time-domain method uses centered finite differences to approximate space and time derivatives achieving the second-order accuracy. Maxwell's equations [Eqs.~(\ref{eq:gauss_law_for_e}) -- (\ref{eq:ampere_law})], being discretized using the explicit leap-frog scheme \cite{Press2007}, take the following form,
 \begin{equation}\label{eq:discrete_maxwell_1}
 	\nabla^{+} \cdot \vec{E}_{i, j, k}^{\,n} = \frac{\rho_{i, j, k}^{\,n}}{\varepsilon_0},
 \end{equation}
@@ -1536,7 +1470,7 @@ It is important to realize that, in the three-dimensional case, the system of Eq
 \begin{equation}\label{eq:discrete_continuity_eq}
 	\frac{\rho_{i, j, k}^{\,n + 1} - \rho_{i, j, k}^{\,n}}{\Delta t} + \nabla^{+} \cdot \vec{J}_{i, j, k}^{\,n + 1/2} = 0.
 \end{equation}
-This means that, to get a complete description of the new electric and magnetic fields, it is sufficient to calculate only Eqs.~(\ref{eq:discrete_maxwell_3}) and (\ref{eq:discrete_maxwell_4}), while Eqs.~(\ref{eq:discrete_maxwell_1}) and (\ref{eq:discrete_maxwell_2}) can be considered as initial conditions. In such a case, however, the deposition of charge and current densities on the grid has to satisfy the discrete continuity equation [Eq.~(\ref{eq:discrete_continuity eq})].
+This means that, to get a complete description of the new electric and magnetic fields, it is sufficient to calculate only Eqs.~(\ref{eq:discrete_maxwell_3}) and (\ref{eq:discrete_maxwell_4}), while Eqs.~(\ref{eq:discrete_maxwell_1}) and (\ref{eq:discrete_maxwell_2}) can be considered as initial conditions. In such a case, however, the deposition of charge and current densities on the grid has to satisfy the discrete continuity equation [Eq.~(\ref{eq:discrete_continuity_eq})].
 
 The standard finite-difference time-domain method introduces a numerical dispersion in vacuum, the effect of which on the frequency $ \omega $ and wavevector $ \vec{k} = \left( k_x, k_y, k_z \right) $ of the electromagnetic wave can be described as follows \cite{Vay2011}, 
 \begin{equation}\label{eq:numerical_disp_eq}
@@ -1574,9 +1508,9 @@ After discretizing the expression of Eqs.~(\ref{eq:charge_density}) with quasi-p
 \end{equation}
 where $ q_p = q_s w_p $ is the charge of the quasi-particle.
 
-One could assign the current densities to the grid points by the analogy to Eq.~(\ref{eq:charge_density_discretized}), but the discrete continuity equation [Eq.~(\ref{eq:discrete_continuity eq})] would be violated. To resolve this issue, one would have to calculate the Poisson equation [Eq.~(\ref{eq:discrete_maxwell_1})] for the correction of the electric field at every simulation time step or use more sophisticated methods (referred to as the charge conservation methods) that satisfy the continuity equation exactly (see, e.g., Refs.~\citenum{Morse1971, Eastwood1991, Villasenor1992, Eastwood1995, Esirkepov2001, Umeda2003}).
+One could assign the current densities to the grid points by the analogy to Eq.~(\ref{eq:charge_density_discretized}), but the discrete continuity equation [Eq.~(\ref{eq:discrete_continuity_eq})] would be violated. To resolve this issue, one would have to calculate the Poisson equation [Eq.~(\ref{eq:discrete_maxwell_1})] for the correction of the electric field at every simulation time step or use more sophisticated methods (referred to as the charge conservation methods) that satisfy the continuity equation exactly (see, e.g., Refs.~\citenum{Morse1971, Eastwood1991, Villasenor1992, Eastwood1995, Esirkepov2001, Umeda2003}).
 
-Here we present the method of Esirkepov (see Ref.~\citenum{Esirkepov2001} for closer details), which is valid for an arbitrary shape function. Due to the linearity of Eq.~(\ref{eq:discrete_continuity eq}), the total current density deposited on the grid can be decomposed into the current densities associated with the motion of individual quasi-particles. Let us thus consider a single quasi-particle moving along a straight line from $ \vec{r}_p = \left( x_p, y_p, z_p \right) $ to $ \vec{r}_p + \vec{\delta r}_p $ over one time step, where $ \vec{\delta r}_p = \left( \delta x_p, \delta y_p, \delta z_p \right) $ is a three-dimensional shift of the quasi-particle. Further, we define a vector $ \vec{W} = \left( W_x, W_y, W_z \right) $ by the following equations,
+Here we present the method of Esirkepov (see Ref.~\citenum{Esirkepov2001} for closer details), which is valid for an arbitrary shape function. Due to the linearity of Eq.~(\ref{eq:discrete_continuity_eq}), the total current density deposited on the grid can be decomposed into the current densities associated with the motion of individual quasi-particles. Let us thus consider a single quasi-particle moving along a straight line from $ \vec{r}_p = \left( x_p, y_p, z_p \right) $ to $ \vec{r}_p + \vec{\delta r}_p $ over one time step, where $ \vec{\delta r}_p = \left( \delta x_p, \delta y_p, \delta z_p \right) $ is a three-dimensional shift of the quasi-particle. Further, we define a vector $ \vec{W} = \left( W_x, W_y, W_z \right) $ by the following equations,
 \begin{subequations}\label{eq:current_density_deposition_eqs}
 \begin{equation}\label{eq:J_x_weighting}
 \left( J_x \right)_{i + 1, j + 1/2, k + 1/2}	= \left( J_x \right)_{i, j + 1/2, k + 1/2} - q_p \diff{x_p}{t} \left( W_x \right)_{i, j, k},
@@ -1808,7 +1742,7 @@ Besides Ref.~\ref{paper_4}, a portion of this work has been also published in Re
 	
 	\item \underline{Valenta, P.}, Grittani, G. M., Lazzarini, C. M., Klimo, O., and Bulanov, S. V. (2021). \link{http://dx.doi.org/10.1063/5.0065167}{On the electromagnetic-electron rings originating from the interaction of high-power short-pulse laser and underdense plasma}. \textit{Physics of Plasmas}, \textbf{28}(12):122104.
 	
-	\item Hadjisolomou, P., Jeong, T. M., \underline{Valenta, P.}, Kolenatý, D., Versaci, R., Olšovcová, V., Ridgers, C. P., and Bulanov, S. V. (2021). \link{http://dx.doi.org/}{Gamma-ray flash in the interaction of a tightly focused single-cycle ultraintense laser pulse with a solid target}. \textit{Journal of Plasma Physics}, \textbf{XXX}(X):XXXXXX.
+	\item Hadjisolomou, P., Jeong, T. M., \underline{Valenta, P.}, Kolenatý, D., Versaci, R., Olšovcová, V., Ridgers, C. P., and Bulanov, S. V. (2022). \link{http://dx.doi.org/}{Gamma-ray flash in the interaction of a tightly focused single-cycle ultraintense laser pulse with a solid target}. \textit{Journal of Plasma Physics}, \textbf{XXX}(X):XXXXXX.
 	
 \end{itemize}
 
