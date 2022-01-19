@@ -64,6 +64,7 @@ ENTRY
     volume
     year
     doi
+    url
   }
   {}
   { label extra.label sort.label }
@@ -164,12 +165,27 @@ FUNCTION {new.sentence}
   if$
 }
 
+%FUNCTION {doilink}
+%{ duplicate$ empty$
+%{ pop$ "" }
+%{ doi empty$
+%    { skip$ }
+%    { "\href{http://dx.doi.org/" doi * "}{" * swap$ * "}" * }
+%  if$
+%}
+%if$
+%}
+
 FUNCTION {doilink}
 { duplicate$ empty$
 { pop$ "" }
 { doi empty$
-    { skip$ }
-    { "\href{http://dx.doi.org/" doi * "}{" * swap$ * "}" * }
+    { url empty$
+        { skip$ }
+        { "\href{" url * "}{" * swap$ * "}" * }
+      if$
+    }
+    { "\href{https://doi.org/" doi * "}{" * swap$ * "}" * }
   if$
 }
 if$

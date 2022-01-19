@@ -213,7 +213,8 @@
 \newcommand{\fnspe}{Faculty of Nuclear Sciences and Physical Engineering}
 \newcommand{\dpe}{Department of Physical Electronics}
 \newcommand{\branch}{Computational Physics}
-\newcommand{\projecttitle}{Laser-driven sources of~electrons and~x-rays in~underdense plasma: Theory and~simulation}
+%\newcommand{\projecttitle}{laser-driven sources of~electrons and~x-rays in~underdense plasma: theory and~simulation}
+\newcommand{\projecttitle}{Laser-driven Sources of~Electrons and~X-rays in~Underdense Plasma: Theory and Simulation}
 \newcommand{\projecttitlecz}{Laserem řízené zdroje elektronů a~rentgenového záření v~podkritickém plazmatu: Teorie a~simulace}
 \newcommand{\valenta}{Ing. Petr Valenta}
 \newcommand{\klimo}{doc. Ing. Ondřej Klimo, Ph.D.}
@@ -232,7 +233,9 @@
 \llap{\ensuremath{_{\rule{0pt}{7pt}#2}}}
 \mbox{#3}}}
 
-\newcommand{\norm}[1]{\lVert#1\rVert}
+%\newcommand{\norm}[1]{\lVert#1\rVert}
+%\newcommand{\norm}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{|#1|}
 \newcommand{\abs}[1]{\lvert#1\rvert}
 
 \renewcommand{\vec}[1]{\boldsymbol{\mathrm{#1}}}
@@ -320,8 +323,6 @@
 
 \begin{document}
 
-\pagestyle{empty}
-
 %1------------------------------------------------------------------------------
 
 %\mbox{}
@@ -329,62 +330,83 @@
 
 \begin{titlepage}
 
-\begin{center}
-\epsfysize=35mm \epsffile{img/logo/ctu.pdf} \\[15mm]
-\end{center}
+%\begin{center}
+%\epsfysize=35mm \epsffile{img/logo/ctu.pdf} \\[20mm]
+%\end{center}
+
+%\begin{center}
+%{\rule{125mm}{2pt}} \\[4mm]
+%\begin{spacing}{2.2}
+%{\huge \bf \projecttitle} \\
+%\end{spacing}
+%{\rule{125mm}{2pt}} \\[10mm]
+%{\LARGE by Petr Valenta}
+%\end{center}
+
+%\vfill
+
+%\begin{center}
+%\parbox{0.75\textwidth}{\noindent \centering \large Dissertation submitted to the \\ \fnspe, \\ \ctu, \\ in partial fulfillment of the requirements for the degree of Doctor of Philosophy.}
+%\end{center}
+
+%\vfill
+
+%\begin{center}
+%{\large Prague, 2022}
+%\end{center}
+
+
 
 \begin{center}
-\begin{spacing}{2.0}
-{\rule{125mm}{2pt}} \\[4mm]
-{\huge \bf \projecttitle} \\
-{\rule{125mm}{2pt}} \\[5mm]
+\begin{spacing}{2.2}
+{\Large \bf \ctu} \\
+{\Large \bf \fnspe} \\[16mm]
+\epsfysize=40mm \epsffile{img/logo/ctu.pdf}\\[16mm]
+{\huge \textsc{dissertation}}\\[16mm]
+\parbox{12cm}
+{
+\centering
+{\LARGE \bf Laser-driven Sources of~Electrons and~X-rays in~Underdense~Plasma: Theory and Simulation}
+}
 \end{spacing}
-{\LARGE by Petr Valenta} \\
 \end{center}
+
+
 
 \vfill
-
-\begin{center}
-\parbox{0.75\textwidth}{\noindent \centering \large Dissertation submitted to the \\ \fnspe, \\ \ctu, \\ in partial fulfillment of the requirements for the degree of Doctor of Philosophy.}
-\end{center}
-
-\vfill
-
-\begin{center}
-{\large Prague, 2022}
-\end{center}
+{\Large \bf Prague 2022} \hfill {\Large \bf Petr Valenta}
 
 \end{titlepage}
 
 %2------------------------------------------------------------------------------
 
-\newpage
-\rule{0pt}{0pt}
-\vfill
-\begin{description}
-	\item[supervisor:]\ \\
-	\klimo \\
-	\dpe, \\
-	\fnspe, \\ 
-	\ctu, \\
-	Trojanova 13, 120 00 Praha, \\
-	%Břehová 7, 115 19 Prague, \\
-	Czech Republic
-\end{description}
+%\newpage
+%\rule{0pt}{0pt}
+%\vfill
+%\begin{description}
+%	\item[supervisor:]\ \\
+%	\klimo \\
+%	\dpe, \\
+%	\fnspe, \\ 
+%	\ctu, \\
+%	Trojanova 13, 120 00 Praha, \\
+%	%Břehová 7, 115 19 Prague, \\
+%	Czech Republic
+%\end{description}
 
-\begin{description}
-	\item[supervisor specialist:]\ \\
-	\bulanov \\
-	ELI Beamlines Centre, \\
-	Institute of Physics, \\
-	Czech Academy of Sciences, \\
-	%Na Slovance 1999/2, 182 21 Prague, \\
-	Za Radnicí 835, 252 41 Dolní Břežany, \\
-	Czech Republic
-\end{description}
-\vglue 1cm
+%\begin{description}
+%	\item[supervisor specialist:]\ \\
+%	\bulanov \\
+%	ELI Beamlines Centre, \\
+%	Institute of Physics, \\
+%	Czech Academy of Sciences, \\
+%	%Na Slovance 1999/2, 182 21 Prague, \\
+%	Za Radnicí 835, 252 41 Dolní Břežany, \\
+%	Czech Republic
+%\end{description}
+%\vglue 1cm
 
-\noindent Copyright {\copyright} {2022} {Petr Valenta}
+%\noindent Copyright {\copyright} {2022} {Petr Valenta}
 
 %3------------------------------------------------------------------------------
 
@@ -419,26 +441,59 @@
 
 %7------------------------------------------------------------------------------
 
-%\newpage
-%\begin{flushleft}
-%	\renewcommand{\arraystretch}{1.3}
-%	\begin{tabular}{r p{12cm}}
-%		Název práce:
-%		~ & \bf \projecttitlecz \\
-%		Autor:
-%		~ & \valenta \\
-%		Druh práce:
-%		~ & Diplomová práce \\
-%		Studijní program:
-%		~ & (N3913) Aplikace přírodních věd \\
-%		Obor:
-%		~ & (3901T065) Informatická fyzika \\
-%		Vedoucí práce:
-%		~ & \klimo \newline Katedra fyzikální elektroniky, Fakulta jaderná a fyzikálně inženýrská, České vysoké učení technické v Praze \\
-%		Konzultant:
-%		~ & \bulanov \newline Projekt ELI-Beamlines, Fyzikální ústav Akademie věd České republiky, v. v. i. \\
-%	\end{tabular}
-%\end{flushleft}
+\chapter*{Bibliografický záznam}
+\thispagestyle{empty}
+\begin{flushleft}
+	\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}{r p{10cm}}
+		Autor:
+		~ & \valenta \newline České vysoké učení technické v Praze, Fakulta jaderná a fyzikálně inženýrská, Katedra fyzikální elektroniky \\
+		Název práce:
+		~ & \projecttitlecz \\
+		Studijní program:
+		~ & Aplikace přírodních věd \\
+		Studijní obor:
+		~ & Fyzikální inženýrství \\
+		Školitel:
+		~ & \klimo \newline České vysoké učení technické v Praze, Fakulta jaderná a fyzikálně inženýrská, Katedra fyzikální elektroniky \\
+		Školitel specialista:
+		~ & \bulanov \newline Akademie věd České republiky, Fyzikální ústav, ELI Beamlines \\
+		Akademický rok:
+		~ & 2021/2022 \\
+		Počet stran:
+		~ & 123 \\
+		Klíčová slova:
+		~ & interakce laseru s plazmatem, urychlování elektronů brázdovým polem, relativistická zrcadla, částicové simulace \\
+	\end{tabular}
+\end{flushleft}
+
+%7------------------------------------------------------------------------------
+
+\chapter*{Bibliographic entry}
+\thispagestyle{empty}
+\begin{flushleft}
+	\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}{r p{10cm}}
+		Author:
+		~ & Ing. Petr Valenta \newline Czech Technical University in Prague, Faculty of Nuclear Sciences and Physical Engineering, Department of Physical Electronics \\
+		Title of Dissertation:
+		~ & \projecttitle \\
+		Degree Programme:
+		~ & Applications of Natural Sciences \\
+		Field of Study:
+		~ & Physical Engineering \\
+		Supervisor:
+		~ & \klimo \newline Czech Technical University in Prague, Faculty of Nuclear Sciences and Physical Engineering, Department of Physical Electronics \\
+		Supervisor specialist:
+		~ & \bulanov \newline Czech Academy of Sciences, Institute of Physics, ELI Beamlines \\
+		Academic Year:
+		~ & 2021/2022 \\
+		Number of Pages:
+		~ & 123 \\
+		Keywords:
+		~ & laser-plasma interaction, laser-wakefield acceleration, relativistic mirrors, particle-in-cell simulation \\
+	\end{tabular}
+\end{flushleft}
 
 %\begin{center}
 %\textbf{Abstrakt}\\
@@ -453,18 +508,24 @@
 
 %\newpage
 
+\chapter*{Abstrakt\markboth{Abstract}{Abstract}}
+%\addcontentsline{toc}{chapter}{Abstract}
+\thispagestyle{empty}
 
-\chapter*{Abstract\markboth{Abstract}{Abstract}}
-\addcontentsline{toc}{chapter}{Abstract}
-\pagestyle{myfancy}
+Tato práce se zabývá vývojem zdrojů urychlených elektronů a koherentního krátkovlnného záření, převážně v rentgenovém spektru energie fotonů, založených na interakci vysokovýkonných laserů s plazmatem. Využíváme metodu urychlování elektronů laserem řízeným brázdovým polem a relativistické zrcadla, které významně závisí na řízené excitaci Langmuirových vln o vysokých amplitudách v podkritickém plazmatu. Tato témata studujeme pomocí teoretické práce a rozsáhlých numerických simulací založených na metodě particle-in-cell.
 
-We investigate sources of high-energy electron beams and coherent short-wavelength radiation, predominantly in the x-ray range of photon energies, using the interaction of high-power laser with plasma. We employ the concepts of the laser-wakefield acceleration and relativistic flying mirrors which both strongly rely on controlled generation of large-amplitude Langmuir waves in underdense plasma. We study these topics using analytical modeling and large-scale numerical simulations based on the particle-in-cell method. 
+Co se týče zdrojů urychlených eletronů, práce obsahuje popis nových fyzikálních mechanismů vedoucích ke vzniku elektromagnetických a elektronových prstenců a objev periodického přepólování brázdového pole v případě vybuzení ultrakrátkým laserovým svazkem v plazmatu o téměř kritické hustotě. V případě zdrojů krátkovlnného záření, práce popisuje jevy zpětného rázu působící na relativistické zrcadlo při odrazu laserového svazku a návrh nového schématu pro fyzickou realizaci relativistického zrcadla založený na hustotních singularitách v podkritickém plazmatu.
+
+
+
+{\let\clearpage\relax\chapter*{Abstract}}
+\thispagestyle{empty}
+
+We investigate sources of high-energy electron beams and coherent short-wavelength radiation, predominantly in the x-ray range of photon energies, using the interaction of high-power laser with plasma. We employ the concepts of the laser-wakefield acceleration and relativistic flying mirrors which both strongly rely on controlled generation of large-amplitude Langmuir waves in underdense plasma. We study these topics using theoretical work and large-scale numerical simulations based on the particle-in-cell method. 
 
 Regarding the sources of electrons, we describe novel physical mechanisms which lead to the formation of ring-shaped electromagnetic-electron structures and reveal that the wakefield excited by an ultrashort laser pulse in near-critical density plasma periodically reverses its polarity. Regarding the sources of coherent short-wavelength radiation, we describe the recoil effects on the laser pulse reflection from relativistic flying mirrors and propose a novel scheme for physical realization of relativistic flying mirrors based on the electron density singularities in underdense plasma. \\
 
 %We explore novel regimes of laser-plasma interaction accessible by new generation laser systems. The scientific focus is mainly devoted to enhancement of laser-generated sources of accelerated electrons and coherent short-wavelength radiation based on plasma waves driven by intense laser pulses. First we describe mechanisms for obtaining electron beams based on laser wakefield acceleration technique. We analyze the properties of the wakefield in regimes dominated by the effects of dispersion and carrier envelope phase. Discussed range of parameters is relevant for electron acceleration at high repetition rate. Second we investigate the concept of relativistic mirrors in laser plasmas. We describe the recoil effects on reflection from relativistic mirrors which is crucial for maximizing the energy of reflected radiation. We find the threshold for incident pulse energy above which the relativistic mirrors undergo significant back reaction. We also analyze the generation of coherent hard electromagnetic radiation by the reflection from the electron density singularities.\\
-
-{\noindent \bf Keywords:} laser-plasma interaction, laser-wakefield acceleration, relativistic mirrors, particle-in-cell simulation %\keywords
 
 %\newpage
 %\thispagestyle{empty}
@@ -473,6 +534,7 @@ Regarding the sources of electrons, we describe novel physical mechanisms which 
 %9------------------------------------------------------------------------------
 
 \tableofcontents
+\pagestyle{myfancy}
 %\addtocontents{toc}%{\protect\thispagestyle{empty}}
 %\thispagestyle{empty}
 
@@ -516,7 +578,7 @@ The research fields where the high-power lasers play a significant role can be d
 
 The laser-wakefield acceleration, which was proposed in 1979 \cite{Tajima1979}, is already a well-established technique for producing high-energy electron beams in a plasma medium. Within this concept, a relativistically intense laser pulse propagating in underdense plasma induces a strong longitudinal electric field which, in turn, accelerates duly injected electrons \cite{Esarey1996, Esarey2009, Hooker2013, Bulanov2016}. One of the primary advantages of this concept lies in the fact that ionized plasmas can sustain electric fields several orders of magnitude larger than conventional radio-frequency accelerators \cite{Dawson1959}, allowing one to substantially reduce the acceleration length (e.g., to generate the electron beam with the energy up to $ 10 \ \mathrm{GeV} $, the acceleration length of only $ 20 \ \mathrm{cm} $ is required, whereas it would take about $ 500 \ \mathrm{m} $ with a conventional accelerator).
 
-Over the last few decades, the quality of accelerated electron beams has rapidly evolved mainly due to the advances in technology and better understanding of the underlying physical processes. First high-quality quasi-monoenergetic electron beams were produced in 2004 \cite{Faure2004, Geddes2004, Mangles2004} operating the laser-wakefield acceleration experiments in the blowout (or bubble) regime \cite{Pukhov2002, Lu2006, Lu2007}, in which the wakefield takes the form of an ion cavity surrounded by thin electron walls. Today, the laser-wakefield acceleration has demonstrated (although not simultaneously) the capability of producing electron beams in the multi-$ \mathrm{GeV} $ energy range with a relative energy spread of a few percent \cite{Kim2013, Leemans2014, Gonsalves2019}, a few $ \mathrm{fs} $ duration \cite{Tilborg2006, Ohkubo2007, Debus2010, Lundh2011}, and hundreds of $ \mathrm{pC} $ of charge \cite{Couperus2017}. These achievements make the concept of laser-wakefield acceleration increasingly attractive for a wide range of multi-disciplinary experiments and applications (e.g. radiography \cite{Glinec2005}, radiotherapy \cite{Malka2010, DesRosiers2000}, radiolysis \cite{Malka2010, Gauduel2010}).
+Over the last few decades, the quality of accelerated electron beams has rapidly evolved mainly due to the advances in technology and better understanding of the underlying physical processes. First high-quality quasi-monoenergetic electron beams were produced in 2004 \cite{Faure2004, Geddes2004, Mangles2004} operating the laser-wakefield acceleration experiments in the blowout (or bubble) regime \cite{Pukhov2002, Lu2006, Lu2007}, in which the wakefield takes the form of an ion cavity surrounded by thin electron walls. Today, the laser-wakefield acceleration has demonstrated (although not simultaneously) the capability of producing electron beams in the multi-$ \mathrm{GeV} $ energy range with a relative energy spread of a few percent \cite{Kim2013, Leemans2014, Gonsalves2019}, a few $ \mathrm{fs} $ duration \cite{Tilborg2006, Ohkubo2007, Debus2010, Lundh2011}, and hundreds of $ \mathrm{pC} $ of charge \cite{Couperus2017}. These achievements make the concept of laser-wakefield acceleration increasingly attractive for fundamental science (e.g., ) and a wide range of multi-disciplinary applications (e.g., radiography \cite{Glinec2005}, radiotherapy \cite{Malka2010, DesRosiers2000}, radiolysis \cite{Malka2010, Gauduel2010}).
 
 The relativistic flying mirrors are objects that reflect incoming radiation while moving at relativistic velocity \cite{Einstein1905}. An electromagnetic wave incident on a relativistic mirror undergoes energy and frequency changes due to the double Doppler effect. In a co-propagating configuration, the reflected wave is stretched, its amplitude is lowered, and its frequency is downshifted. In contrast, in a counter-propagating configuration, the reflected wave is compressed, amplified, and its frequency is upshifted. Relativistic mirrors can be physically realized, e.g., by irradiating plasma targets with intense laser pulses (see Ref. \citenum{Bulanov2013} for a review and the literature cited therein). They appear in laser plasmas as thin dense electron (or electron-ion) shells accelerated to relativistic velocities. 
 
@@ -562,13 +624,13 @@ The systematic efforts and involvement in highly stimulating environment have na
 
 The research projects I have been working on and the achieved results are to a large extent described in publications of mine and my co-authors. In total, I have authored or co-authored 20 publications (9 publications in peer-reviewed journals, 8 publications in conference proceedings, and 3 book chapters), in 7 of which I serve as a corresponding author. The core of this doctoral thesis is based on the following four selected publications:
 \begin{enumerate}[label=\Roman*.]
-	\item \label{paper_1} Valenta, P., Grittani, G. M., Lazzarini, C. M., Klimo, O., and Bulanov, S. V. (2021). \link{http://dx.doi.org/10.1063/5.0065167}{On the electromagnetic-electron rings originating from the interaction of high-power short-pulse laser and underdense plasma}. \textit{Physics of Plasmas}, \textbf{28}(12):122104.
+	\item \label{paper_1} Valenta, P., Grittani, G. M., Lazzarini, C. M., Klimo, O., and Bulanov, S. V. (2021). \link{https://doi.org/10.1063/5.0065167}{On the electromagnetic-electron rings originating from the interaction of high-power short-pulse laser and underdense plasma}. \textit{Physics of Plasmas}, \textbf{28}(12):122104.
 	
-	\item \label{paper_2} Valenta, P., Esirkepov, T. Z., Koga, J. K., Nečas, A., Grittani, G. M., Lazzarini, C. M., Klimo, O., Korn, G., and Bulanov, S. V. (2020). \link{http://dx.doi.org/10.1103/PhysRevE.102.053216}{Polarity reversal of wakefields driven by ultrashort pulse laser}. \textit{Physical Review E}, \textbf{102}(5):053216.
+	\item \label{paper_2} Valenta, P., Esirkepov, T. Z., Koga, J. K., Nečas, A., Grittani, G. M., Lazzarini, C. M., Klimo, O., Korn, G., and Bulanov, S. V. (2020). \link{https://doi.org/10.1103/PhysRevE.102.053216}{Polarity reversal of wakefields driven by ultrashort pulse laser}. \textit{Physical Review E}, \textbf{102}(5):053216.
 	
-	\item \label{paper_3} Valenta, P., Esirkepov, T. Z., Koga, J. K., Pirozhkov, A. S., Kando, M., Kawachi, T., Liu, Y. K., Fang, P., Chen, P., Mu, J., Korn, G., Klimo, O., and Bulanov, S. V. (2020). \link{http://dx.doi.org/10.1063/1.5142084}{Recoil effects on reflection from relativistic mirrors in laser plasmas}., \textit{Physics of Plasmas}, \textbf{27}(3):032109.
+	\item \label{paper_3} Valenta, P., Esirkepov, T. Z., Koga, J. K., Pirozhkov, A. S., Kando, M., Kawachi, T., Liu, Y. K., Fang, P., Chen, P., Mu, J., Korn, G., Klimo, O., and Bulanov, S. V. (2020). \link{https://doi.org/10.1063/1.5142084}{Recoil effects on reflection from relativistic mirrors in laser plasmas}., \textit{Physics of Plasmas}, \textbf{27}(3):032109.
 	
-	\item \label{paper_4} Mu, J., Esirkepov, T. Z., Valenta, P., Gu, Y., Jeong, T. M., Pirozhkov, A. S., Koga, J. K., Kando, M., Korn, G., and Bulanov, S. V. (2020). \link{http://dx.doi.org/10.1103/PhysRevE.102.053202}{Relativistic flying forcibly oscillating reflective diffraction grating}. \textit{Physical Review E}, \textbf{102}(5):053202.
+	\item \label{paper_4} Mu, J., Esirkepov, T. Z., Valenta, P., Gu, Y., Jeong, T. M., Pirozhkov, A. S., Koga, J. K., Kando, M., Korn, G., and Bulanov, S. V. (2020). \link{https://doi.org/10.1103/PhysRevE.102.053202}{Relativistic flying forcibly oscillating reflective diffraction grating}. \textit{Physical Review E}, \textbf{102}(5):053202.
 	
 \end{enumerate}
 These publications will be referred to in text by their Roman numerals.
@@ -599,7 +661,7 @@ The structure of this doctoral thesis is organized as follows:
 	
 \end{description}
 	
-We use SI units throughout the main text of this doctoral theis and, when it is convenient, we perform normalizations to obtain dimensionless quantities. The articles in Appendix~\ref{chap:selected_publications} use Gaussian units. To distinguish between vector and scalar quantities, we write scalars in italic and vectors in bold. The symbols $ \mathbb{Z} $ and $ \mathbb{N} $ denote the sets of all integers and natural numbers, respectively. The unit vector in the direction of vector $ \vec{x} = \left( x_1, x_2, x_3 \right) $ is denoted as $ \vec{e}_{x} $, i.e., $ \vec{e}_{x} = \vec{x} / \norm{\vec{x}} $, where $ \norm{\vec{x}} \coloneq \sqrt{x_1^2 + x_2^2 + x_3^2} $ is the Euclidean norm. 
+We use SI units throughout the main text of this doctoral theis and, when it is convenient, we perform normalizations to obtain dimensionless quantities. The articles in Appendix~\ref{chap:selected_publications} use Gaussian units. To distinguish between vector and scalar quantities, we write scalars in italics and vectors in bold. The symbols $ \mathbb{Z} $ and $ \mathbb{N} $ denote the sets of all integers and natural numbers, respectively. The unit vector in the direction of vector $ \vec{x} = \left( x_1, x_2, x_3 \right) $ is denoted as $ \vec{e}_{x} $, i.e., $ \vec{e}_{x} = \vec{x} / \norm{\vec{x}} $, where $ \norm{\vec{x}} \coloneq \sqrt{x_1^2 + x_2^2 + x_3^2} $ is the Euclidean norm. 
 % unit vector, norm, grad, laplace, N natural, Z whole, R real numbers
 %The symbol $ \nabla = \left( \diffp{}/{x_1}, \diffp{}/{x_2}, \diffp{}/{x_3} \right) $ and $ \laplace = \nabla^2 $. 
 	
@@ -637,11 +699,11 @@ The electromagnetic field is represented by two vector quantities: the electric 
 \begin{equation}\label{eq:ampere_law}
 	\rot{\vec{B}} = \mu_0 \vec{J} + \mu_0 \varepsilon_0 \diffp{\vec{E}}{t},
 \end{equation}
-where $ \rho \left( \vec{r}, t \right) $ and $ \vec{J} \left( \vec{r}, t \right) $ are, respectively, the electric charge and current densities, and $ \varepsilon_0 $ and $ \mu_0 $ are the electric permittivity and the magnetic permeability of vacuum, respectively. By definition, $ \mu_0 \varepsilon_0 = 1 / c^2 $, where $ c $ is the velocity of light in vacuum.
+where $ \rho \left( \vec{r}, t \right) $ and $ \vec{J} \left( \vec{r}, t \right) $ are the electric charge and current densities, and $ \varepsilon_0 $ and $ \mu_0 $ are the electric permittivity and the magnetic permeability of vacuum, respectively. By definition, $ \mu_0 \varepsilon_0 = 1 / c^2 $, where $ c $ is the velocity of light in vacuum.
 
-By combining Eqs.~(\ref{eq:faraday_law}) and (\ref{eq:ampere_law}) and using the identity $ \rot{\left(\rot{\vec{E}}\right)} = \grad{\left(\div{\vec{E}}\right)} - \laplace{\vec{E}} $ we obtain the wave equation for $ \vec{E} $,
+By combining Eqs.~(\ref{eq:faraday_law}) and (\ref{eq:ampere_law}) and using the identity $ \rot{\left(\rot{\vec{E}}\right)} = \grad{\left(\div{\vec{E}}\right)} - \laplace{\vec{E}} $ we obtain the wave equation for $ \vec{E} $ in the presence of sources,
 \begin{equation}\label{eq:wave_eq}
-	\left( \laplace{} - \mu_0 \varepsilon_0 \diffp[2]{}{t} \right) \vec{E} = \mu_0 \diffp{\vec{J}}{t} + \frac{1}{\varepsilon_0} \grad{\rho}.
+	\laplace{\vec{E}} - \mu_0 \varepsilon_0 \diffp[2]{\vec{E}}{t} = \mu_0 \diffp{\vec{J}}{t} + \frac{1}{\varepsilon_0} \grad{\rho}.
 \end{equation}
 Representing the plasma as a cold electron fluid with homogeneous density $ n_e $ and considering the linearized equation of motion $ m_e \diffp{\vec{v}}/{t} = -e \vec{E} $, where $ \vec{v} $ is the electron velocity, $ -e $ is the electron charge, and $ m_e $ is the electron rest mass, we obtain $ \grad{\rho} = 0 $ and $ \diffp{\vec{J}}/{t} = \left( e^2 n_e / m_e \right) \diffp{\vec{v}}/{t} $. For a plane electromagnetic wave $ \vec{E} \sim \exp \left( -i \vec{k} \cdot \vec{r} - i \omega t \right) $ with the wavevector $ \vec{k} $ and the angular frequency $ \omega = c \norm{\vec{k}} = c k $, Eq.~(\ref{eq:wave_eq}) results in the dispersion equation of cold plasma,
 \begin{equation}\label{eq:disp_eq}
@@ -657,9 +719,9 @@ and
 \begin{equation}\label{eq:group_velocity}
 	v_g = \diffp{\omega}{k} = c \sqrt{1 - \frac{\omega_{pe}^2}{\omega^2}}.
 \end{equation}
-We may see that $ v_{ph} v_{g} = c^2 $. If $ \omega > \omega_{pe} $, Eq.~(\ref{eq:disp_eq}) has real solution for $ \vec{k} $ and thus the electromagnetic wave can propagate through plasma. On the contrary, if $ \omega < \omega_{pe} $, $ \vec{k} $ becomes imaginary and the electromagnetic wave is evanescent. The boundary between these two cases is determined by the critical plasma density $ n_c = \varepsilon_0 m_e \omega^2 / e^2 $. The regions of plasma where $ n_e < n_c $ and $ n_e > n_c $ are called underdense and overdense, respectively. In this doctoral thesis, we only deal with the underdense plasma.
+We may see that $ v_{ph} v_{g} = c^2 $. If $ \omega > \omega_{pe} $, Eq.~(\ref{eq:disp_eq}) has real solution for $ \vec{k} $ and thus the electromagnetic wave can propagate through plasma. On the contrary, if $ \omega < \omega_{pe} $, $ \vec{k} $ becomes imaginary and the electromagnetic wave is evanescent. The boundary between these two cases is determined by the critical plasma density $ n_c = \varepsilon_0 m_e \omega^2 / e^2 $. The regions of plasma where $ n_e < n_c $ and $ n_e > n_c $ are called underdense and overdense, respectively. In this doctoral thesis, we deal solely with the underdense plasma.
 
-The motion of a single electron in the presence of $ \vec{E} $ and $ \vec{B} $ fields can be studied with the Lorentz equation,
+The motion of a single electron in the presence of $ \vec{E} $ and $ \vec{B} $ fields can be studied using the equations of motion with the Lorentz force,
 \begin{equation}\label{eq:lorentz_eq}
 	\diff{\vec{p}}{t} = -e \left( \vec{E} + \vec{v} \times \vec{B} \right),
 \end{equation}
@@ -1752,23 +1814,23 @@ Concerning the research on relativistic flying mirrors, we plan to work on devel
 
 \begin{itemize}
 	
-	\item Mu, J., Esirkepov, T. Z., \underline{Valenta, P.}, Jeong, T. M., Gu, Y., Koga, J. K., Pirozhkov, A. S., Kando, M., Korn, G., and Bulanov, S. V. (2019). \link{http://dx.doi.org/10.3103/S1541308X19040010}{High-order harmonics from laser irradiated electron density singularity formed at the bow wave in the laser plasma}. \textit{Physics of Wave Phenomena}, \textbf{27}(4):247-256.
+	\item Mu, J., Esirkepov, T. Z., \underline{Valenta, P.}, Jeong, T. M., Gu, Y., Koga, J. K., Pirozhkov, A. S., Kando, M., Korn, G., and Bulanov, S. V. (2019). \link{https://doi.org/10.3103/S1541308X19040010}{High-order harmonics from laser irradiated electron density singularity formed at the bow wave in the laser plasma}. \textit{Physics of Wave Phenomena}, \textbf{27}(4):247-256.
 	
-	\item \underline{Valenta, P.}, Esirkepov, T. Z., Koga, J. K., Pirozhkov, A. S., Kando, M., Kawachi, T., Liu, Y. K., Fang, P., Chen, P., Mu, J., Korn, G., Klimo, O., and Bulanov, S. V. (2020). \link{http://dx.doi.org/10.1063/1.5142084}{Recoil effects on reflection from relativistic mirrors in laser plasmas}., \textit{Physics of Plasmas}, \textbf{27}(3):032109.
+	\item \underline{Valenta, P.}, Esirkepov, T. Z., Koga, J. K., Pirozhkov, A. S., Kando, M., Kawachi, T., Liu, Y. K., Fang, P., Chen, P., Mu, J., Korn, G., Klimo, O., and Bulanov, S. V. (2020). \link{https://doi.org/10.1063/1.5142084}{Recoil effects on reflection from relativistic mirrors in laser plasmas}., \textit{Physics of Plasmas}, \textbf{27}(3):032109.
 	
-	\item Esirkepov, T. Z., Mu, J., Gu, Y., Jeong, T. M., \underline{Valenta, P.}, Klimo, O., Koga, J. K., Kando, M., Neely, D., Korn, G., Bulanov, S. V., and Pirozhkov, A. S. (2020). \link{http://dx.doi.org/10.1063/5.0004525}{Optical probing of relativistic plasma singularities}. \textit{Physics of Plasmas}, \textbf{27}(3):052103.
+	\item Esirkepov, T. Z., Mu, J., Gu, Y., Jeong, T. M., \underline{Valenta, P.}, Klimo, O., Koga, J. K., Kando, M., Neely, D., Korn, G., Bulanov, S. V., and Pirozhkov, A. S. (2020). \link{https://doi.org/10.1063/5.0004525}{Optical probing of relativistic plasma singularities}. \textit{Physics of Plasmas}, \textbf{27}(3):052103.
 	
-	\item Mu, J., Esirkepov, T. Z., \underline{Valenta, P.}, Gu, Y., Jeong, T. M., Pirozhkov, A. S., Koga, J. K., Kando, M., Korn, G., and Bulanov, S. V. (2020). \link{http://dx.doi.org/10.1103/PhysRevE.102.053202}{Relativistic flying forcibly oscillating reflective diffraction grating}. \textit{Physical Review E}, \textbf{102}(5):053202.
+	\item Mu, J., Esirkepov, T. Z., \underline{Valenta, P.}, Gu, Y., Jeong, T. M., Pirozhkov, A. S., Koga, J. K., Kando, M., Korn, G., and Bulanov, S. V. (2020). \link{https://doi.org/10.1103/PhysRevE.102.053202}{Relativistic flying forcibly oscillating reflective diffraction grating}. \textit{Physical Review E}, \textbf{102}(5):053202.
 	
-	\item \underline{Valenta, P.}, Esirkepov, T. Z., Koga, J. K., Nečas, A., Grittani, G. M., Lazzarini, C. M., Klimo, O., Korn, G., and Bulanov, S. V. (2020). \link{http://dx.doi.org/10.1103/PhysRevE.102.053216}{Polarity reversal of wakefields driven by ultrashort pulse laser}. \textit{Physical Review E}, \textbf{102}(5):053216.
+	\item \underline{Valenta, P.}, Esirkepov, T. Z., Koga, J. K., Nečas, A., Grittani, G. M., Lazzarini, C. M., Klimo, O., Korn, G., and Bulanov, S. V. (2020). \link{https://doi.org/10.1103/PhysRevE.102.053216}{Polarity reversal of wakefields driven by ultrashort pulse laser}. \textit{Physical Review E}, \textbf{102}(5):053216.
 	
-	\item Hadjisolomou, P., Jeong, T. M., \underline{Valenta, P.}, Korn, G., and Bulanov, S. V. (2021). \link{http://dx.doi.org/10.1103/PhysRevE.104.015203}{Gamma-ray flash generation in irradiating a thin foil target by a single-cycle tightly focused extreme power laser pulse}. \textit{Physical Review E}, \textbf{104}(1):015203.
+	\item Hadjisolomou, P., Jeong, T. M., \underline{Valenta, P.}, Korn, G., and Bulanov, S. V. (2021). \link{https://doi.org/10.1103/PhysRevE.104.015203}{Gamma-ray flash generation in irradiating a thin foil target by a single-cycle tightly focused extreme power laser pulse}. \textit{Physical Review E}, \textbf{104}(1):015203.
 	
-	\item Jeong, T. M., Bulanov, S. V., \underline{Valenta, P.}, Korn, G., Esirkepov, T. Z., Koga, J. K., Pirozhkov, A. S., Kando, M., and Bulanov, S. S. (2021). \link{http://dx.doi.org/10.1103/PhysRevA.104.053533}{Relativistic-flying laser focus by a laser-produced parabolic plasma mirror}. \textit{Physical Review A}, \textbf{104}(6):053533.
+	\item Jeong, T. M., Bulanov, S. V., \underline{Valenta, P.}, Korn, G., Esirkepov, T. Z., Koga, J. K., Pirozhkov, A. S., Kando, M., and Bulanov, S. S. (2021). \link{https://doi.org/10.1103/PhysRevA.104.053533}{Relativistic-flying laser focus by a laser-produced parabolic plasma mirror}. \textit{Physical Review A}, \textbf{104}(6):053533.
 	
-	\item \underline{Valenta, P.}, Grittani, G. M., Lazzarini, C. M., Klimo, O., and Bulanov, S. V. (2021). \link{http://dx.doi.org/10.1063/5.0065167}{On the electromagnetic-electron rings originating from the interaction of high-power short-pulse laser and underdense plasma}. \textit{Physics of Plasmas}, \textbf{28}(12):122104.
+	\item \underline{Valenta, P.}, Grittani, G. M., Lazzarini, C. M., Klimo, O., and Bulanov, S. V. (2021). \link{https://doi.org/10.1063/5.0065167}{On the electromagnetic-electron rings originating from the interaction of high-power short-pulse laser and underdense plasma}. \textit{Physics of Plasmas}, \textbf{28}(12):122104.
 	
-	\item Hadjisolomou, P., Jeong, T. M., \underline{Valenta, P.}, Kolenatý, D., Versaci, R., Olšovcová, V., Ridgers, C. P., and Bulanov, S. V. (2022). \link{http://dx.doi.org/}{Gamma-ray flash in the interaction of a tightly focused single-cycle ultraintense laser pulse with a solid target}. \textit{Journal of Plasma Physics}, \textbf{XXX}(X):XXXXXX.
+	\item Hadjisolomou, P., Jeong, T. M., \underline{Valenta, P.}, Kolenatý, D., Versaci, R., Olšovcová, V., Ridgers, C. P., and Bulanov, S. V. (2022). \link{https://doi.org/10.1017/S0022377821001318}{Gamma-ray flash in the interaction of a tightly focused single-cycle ultraintense laser pulse with a solid target}. \textit{Journal of Plasma Physics}, \textbf{88}(1):905880104.
 	
 \end{itemize}
 
@@ -1780,17 +1842,17 @@ Concerning the research on relativistic flying mirrors, we plan to work on devel
 	
 	\item \underline{Valenta, P.}, Klimo, O., Bulanov, S. V., and Korn, G. (2018). \link{http://ocs.ciemat.es/EPS2018PAP/pdf/P2.2031.pdf}{On high-quality electron beam generated by breaking wake wave in near-critical density plasmas}. \textit{45th EPS Conference on Plasma Physics}, P2.2031. 
 	
-	\item \underline{Valenta, P.}, Klimo, O., Grittani, G. M., Esirkepov, T. Z., Korn, G., and Bulanov, S. V. (2019). \link{http://dx.doi.org/10.1117/12.2521040}{Wakefield excited by ultrashort laser pulses in near-critical density plasmas}. \textit{Proc. SPIE 11037, Laser Acceleration of Electrons, Protons, and Ions V}, 110370T.
+	\item \underline{Valenta, P.}, Klimo, O., Grittani, G. M., Esirkepov, T. Z., Korn, G., and Bulanov, S. V. (2019). \link{https://doi.org/10.1117/12.2521040}{Wakefield excited by ultrashort laser pulses in near-critical density plasmas}. \textit{Proc. SPIE 11037, Laser Acceleration of Electrons, Protons, and Ions V}, 110370T.
 	
-	\item Mu, J., Gu, Y., Jeong, T. M., \underline{Valenta, P.}, Klimo, O., Esirkepov, T. Z., Pirozhkov, A. S., Koga, J. K., Kando, M., Korn, G., and Bulanov, S. V. (2019). \link{http://dx.doi.org/10.1117/12.2524653}{High order harmonics generation via laser reflection at electron density peaks}. \textit{Proc. SPIE 11039, Research Using Extreme Light: Entering New Frontiers with Petawatt-Class Lasers IV}, 110390H.
+	\item Mu, J., Gu, Y., Jeong, T. M., \underline{Valenta, P.}, Klimo, O., Esirkepov, T. Z., Pirozhkov, A. S., Koga, J. K., Kando, M., Korn, G., and Bulanov, S. V. (2019). \link{https://doi.org/10.1117/12.2524653}{High order harmonics generation via laser reflection at electron density peaks}. \textit{Proc. SPIE 11039, Research Using Extreme Light: Entering New Frontiers with Petawatt-Class Lasers IV}, 110390H.
 	
-	\item Lazzarini, C. M., Goncalves, L. V., Grittani, G. M., Lorenz, S., Nevrkla, M., \underline{Valenta, P.}, Levato, T., Bulanov, S. V., and Korn, G. (2020). \link{http://dx.doi.org/10.1142/S0217751X19430103}{Electron acceleration at ELI Beamlines: towards high-energy and high-repetition-rate accelerators}. \textit{International Journal of Modern Physics A}, \textbf{34}(34):1943010.
+	\item Lazzarini, C. M., Goncalves, L. V., Grittani, G. M., Lorenz, S., Nevrkla, M., \underline{Valenta, P.}, Levato, T., Bulanov, S. V., and Korn, G. (2020). \link{https://doi.org/10.1142/S0217751X19430103}{Electron acceleration at ELI Beamlines: towards high-energy and high-repetition-rate accelerators}. \textit{International Journal of Modern Physics A}, \textbf{34}(34):1943010.
 	
-	\item \underline{Valenta, P.}, Esirkepov, T. Z., Koga, J. K., Pirozhkov, A. S., Kando, M., Kawachi, T., Liu, Y. K., Fang, P., Chen, P., Mu, J., Korn, G., Klimo, O., and Bulanov, S. V. (2020). \link{http://dx.doi.org/10.1364/EUVXRAY.2020.EM1A.5}{Relativistic flying mirrors as a compact source of coherent short-wavelength radiation}. \textit{OSA High-brightness Sources and Light-driven Interactions Congress 2020}, EM1A.5.
+	\item \underline{Valenta, P.}, Esirkepov, T. Z., Koga, J. K., Pirozhkov, A. S., Kando, M., Kawachi, T., Liu, Y. K., Fang, P., Chen, P., Mu, J., Korn, G., Klimo, O., and Bulanov, S. V. (2020). \link{https://doi.org/10.1364/EUVXRAY.2020.EM1A.5}{Relativistic flying mirrors as a compact source of coherent short-wavelength radiation}. \textit{OSA High-brightness Sources and Light-driven Interactions Congress 2020}, EM1A.5.
 	
-	\item \underline{Valenta, P.}, Grittani, G. M., Lazzarini, C. M., Klimo, O., and Bulanov, S. V. (2021). \link{http://dx.doi.org/10.1117/12.2589222}{Ring-shaped electron beams from laser-wakefield accelerator}. \textit{Proc. SPIE 11779, Laser Acceleration of Electrons, Protons, and Ions VI}, 1177909.
+	\item \underline{Valenta, P.}, Grittani, G. M., Lazzarini, C. M., Klimo, O., and Bulanov, S. V. (2021). \link{https://doi.org/10.1117/12.2589222}{Ring-shaped electron beams from laser-wakefield accelerator}. \textit{Proc. SPIE 11779, Laser Acceleration of Electrons, Protons, and Ions VI}, 1177909.
 	
-	\item Jeong, T. M., Bulanov, S. V., \underline{Valenta, P.}, Korn, G., Esirkepov, T. Z., Koga, J. K., and Pirozhkov, A. S (2021) \link{http://dx.doi.org/10.1117/12.2592047}{Ultra-strong attosecond laser focus produced by a relativistic-flying parabolic mirror}. \textit{Proc. SPIE 11886, International Conference on X-Ray Lasers 2020}, 118860H.
+	\item Jeong, T. M., Bulanov, S. V., \underline{Valenta, P.}, Korn, G., Esirkepov, T. Z., Koga, J. K., and Pirozhkov, A. S (2021) \link{https://doi.org/10.1117/12.2592047}{Ultra-strong attosecond laser focus produced by a relativistic-flying parabolic mirror}. \textit{Proc. SPIE 11886, International Conference on X-Ray Lasers 2020}, 118860H.
 	
 \end{itemize}
 
@@ -1800,7 +1862,7 @@ Concerning the research on relativistic flying mirrors, we plan to work on devel
 	
 	\item Matys, M., Pšikal, J., Danielová, M., \underline{Valenta, P.}, and Bulanov, S. V. (2019). \link{https://www.it4i.cz/cs/file/abd1875ff7d0e6f59799c4f470545516/173/Supercomputing-in-Science-and-Engineering_preview.pdf}{Laser-driven ion acceleration using cryogenic hydrogen targets}. \textit{Supercomputing in Science and Engineering 2017-18}, pp. 149-151.
 	
-	\item Lazzarini, C. M., Goncalves, L. V., Grittani, G. M., Lorenz, S., Nevrkla, M., \underline{Valenta, P.}, Levato, T., Bulanov, S. V., and Korn, G. (2020) \link{http://dx.doi.org/10.1142/9789811217135_0010}{Electron acceleration at ELI Beamlines: towards high-energy and high-repetition-rate accelerators}. \textit{Beam Acceleration in Crystals and Nanostructures}, pp. 153-170.
+	\item Lazzarini, C. M., Goncalves, L. V., Grittani, G. M., Lorenz, S., Nevrkla, M., \underline{Valenta, P.}, Levato, T., Bulanov, S. V., and Korn, G. (2020) \link{https://doi.org/10.1142/9789811217135_0010}{Electron acceleration at ELI Beamlines: towards high-energy and high-repetition-rate accelerators}. \textit{Beam Acceleration in Crystals and Nanostructures}, pp. 153-170.
 	
 	\item Matys, M., \underline{Valenta, P.}, Kecová, M., Nishihara, K., Pšikal, J., Esirkepov, T. Z., Koga, J. K., Nečas, A., Grittani, G. M., Lazzarini, C. M., Klimo, O., Korn, G., and Bulanov, S. V. (2021). \link{https://www.it4i.cz/file/be151db89e56452e36511f5410126441/6419/Supercomputing\%20in\%20Science\%20and\%20Engineering\%202019-2020.pdf}{Laser-driven acceleration of charged particles}. \textit{Supercomputing in Science and Engineering 2019-20}, pp. 86-88.
 	
@@ -1816,7 +1878,7 @@ Concerning the research on relativistic flying mirrors, we plan to work on devel
 \newpage
 \section{On the electromagnetic-electron rings originating from the interaction of high-power short-pulse laser and underdense plasma \label{sec:paper_1}}
 
-The following article is reproduced from Valenta, P., Grittani, G. M., Lazzarini, C. M., Klimo, O., and Bulanov, S. V. (2021). \link{http://dx.doi.org/10.1063/5.0065167}{On the electromagnetic-electron rings originating from the interaction of high-power short-pulse laser and underdense plasma}. \textit{Physics of Plasmas}, \textbf{28}(12):122104, with the permission of AIP Publishing. \\
+The following article is reproduced from Valenta, P., Grittani, G. M., Lazzarini, C. M., Klimo, O., and Bulanov, S. V. (2021). \link{https://doi.org/10.1063/5.0065167}{On the electromagnetic-electron rings originating from the interaction of high-power short-pulse laser and underdense plasma}. \textit{Physics of Plasmas}, \textbf{28}(12):122104, with the permission of AIP Publishing. \\
 
 \noindent Copyright {\copyright} {2021} {American Institute of Physics}.
 
@@ -1834,7 +1896,7 @@ The following article is reproduced from Valenta, P., Grittani, G. M., Lazzarini
 \newpage
 \section{Polarity reversal of wakefields driven by ultrashort pulse laser \label{sec:paper_2}}
 
-The following article is reproduced from Valenta, P., Esirkepov, T. Z., Koga, J. K., Nečas, A., Grittani, G. M., Lazzarini, C. M., Klimo, O., Korn, G., and Bulanov, S. V. (2020). \link{http://dx.doi.org/10.1103/PhysRevE.102.053216}{Polarity reversal of wakefields driven by ultrashort pulse laser}. \textit{Physical Review E}, \textbf{102}(5):053216, with the permission of APS. \\
+The following article is reproduced from Valenta, P., Esirkepov, T. Z., Koga, J. K., Nečas, A., Grittani, G. M., Lazzarini, C. M., Klimo, O., Korn, G., and Bulanov, S. V. (2020). \link{https://doi.org/10.1103/PhysRevE.102.053216}{Polarity reversal of wakefields driven by ultrashort pulse laser}. \textit{Physical Review E}, \textbf{102}(5):053216, with the permission of APS. \\
 
 \noindent Copyright {\copyright} {2020} {American Physical Society}.
 
@@ -1851,7 +1913,7 @@ The following article is reproduced from Valenta, P., Esirkepov, T. Z., Koga, J.
 
 \section{Recoil effects on reflection from relativistic mirrors in laser plasmas \label{sec:paper_3}}
 
-The following article is reproduced from Valenta, P., Esirkepov, T. Z., Koga, J. K., Pirozhkov, A. S., Kando, M., Kawachi, T., Liu, Y. K., Fang, P., Chen, P., Mu, J., Korn, G., Klimo, O., and Bulanov, S. V. (2020). \link{http://dx.doi.org/10.1063/1.5142084}{Recoil effects on reflection from relativistic mirrors in laser plasmas}., \textit{Physics of Plasmas}, \textbf{27}(3):032109, with the permission of AIP Publishing. \\
+The following article is reproduced from Valenta, P., Esirkepov, T. Z., Koga, J. K., Pirozhkov, A. S., Kando, M., Kawachi, T., Liu, Y. K., Fang, P., Chen, P., Mu, J., Korn, G., Klimo, O., and Bulanov, S. V. (2020). \link{https://doi.org/10.1063/1.5142084}{Recoil effects on reflection from relativistic mirrors in laser plasmas}., \textit{Physics of Plasmas}, \textbf{27}(3):032109, with the permission of AIP Publishing. \\
 
 \noindent Copyright {\copyright} {2020} {American Institute of Physics}.
 
@@ -1864,7 +1926,7 @@ The following article is reproduced from Valenta, P., Esirkepov, T. Z., Koga, J.
 
 \section{Relativistic flying forcibly oscillating reflective diffraction grating \label{sec:paper_4}}
 
-The following article is reproduced from Mu, J., Esirkepov, T. Z., Valenta, P., Gu, Y., Jeong, T. M., Pirozhkov, A. S., Koga, J. K., Kando, M., Korn, G., and Bulanov, S. V. (2020). \link{http://dx.doi.org/10.1103/PhysRevE.102.053202}{Relativistic flying forcibly oscillating reflective diffraction grating}. \textit{Physical Review E}, \textbf{102}(5):053202, with the permission of APS. \\
+The following article is reproduced from Mu, J., Esirkepov, T. Z., Valenta, P., Gu, Y., Jeong, T. M., Pirozhkov, A. S., Koga, J. K., Kando, M., Korn, G., and Bulanov, S. V. (2020). \link{https://doi.org/10.1103/PhysRevE.102.053202}{Relativistic flying forcibly oscillating reflective diffraction grating}. \textit{Physical Review E}, \textbf{102}(5):053202, with the permission of APS. \\
 
 \noindent Copyright {\copyright} {2020} {American Physical Society}.
 
