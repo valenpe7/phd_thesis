@@ -59,7 +59,6 @@
 %\renewcommand{\familydefault}{\sfdefault}
 
 
-
 \newcommand{\q}[1]{``#1''} % quotation marks
 
 %cite----------
@@ -78,6 +77,26 @@
 \fancyhead[CE]{}
 \fancyhead[RE]{}
 \fancyhead[RO]{\nouppercase{\rightmark}}
+
+\fancyfoot[LE]{\thepage}
+\fancyfoot[LO]{}
+\fancyfoot[CO]{}
+\fancyfoot[CE]{}
+\fancyfoot[RE]{}
+\fancyfoot[RO]{\thepage}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.0pt}
+}
+
+\fancypagestyle{myfancy2}{
+	
+\fancyhead[LE]{\nouppercase{\leftmark}}
+\fancyhead[LO]{}
+\fancyhead[CO]{}
+\fancyhead[CE]{}
+\fancyhead[RE]{}
+\fancyhead[RO]{\nouppercase{\leftmark}}
 
 \fancyfoot[LE]{\thepage}
 \fancyfoot[LO]{}
@@ -319,6 +338,7 @@
 }%
 \makeatother
 
+
 %document-----------------------------------------------------------------------
 
 \begin{document}
@@ -461,7 +481,7 @@
 		Akademický rok:
 		~ & 2021/2022 \\
 		Počet stran:
-		~ & 123 \\
+		~ & 127 \\
 		Klíčová slova:
 		~ & interakce laseru s plazmatem, urychlování elektronů brázdovým polem, relativistická zrcadla, částicové simulace \\
 	\end{tabular}
@@ -476,20 +496,20 @@
 	\begin{tabular}{r p{10cm}}
 		Author:
 		~ & Ing. Petr Valenta \newline Czech Technical University in Prague, Faculty of Nuclear Sciences and Physical Engineering, Department of Physical Electronics \\
-		Title of Dissertation:
+		Title of dissertation:
 		~ & \projecttitle \\
-		Degree Programme:
+		Degree programme:
 		~ & Applications of Natural Sciences \\
-		Field of Study:
+		Field of study:
 		~ & Physical Engineering \\
 		Supervisor:
 		~ & \klimo \newline Czech Technical University in Prague, Faculty of Nuclear Sciences and Physical Engineering, Department of Physical Electronics \\
 		Supervisor specialist:
 		~ & \bulanov \newline Czech Academy of Sciences, Institute of Physics, ELI Beamlines \\
-		Academic Year:
+		Academic year:
 		~ & 2021/2022 \\
-		Number of Pages:
-		~ & 123 \\
+		Number of pages:
+		~ & 127 \\
 		Keywords:
 		~ & laser-plasma interaction, laser-wakefield acceleration, relativistic mirrors, particle-in-cell simulation \\
 	\end{tabular}
@@ -508,22 +528,20 @@
 
 %\newpage
 
-\chapter*{Abstrakt\markboth{Abstract}{Abstract}}
+\chapter*{Abstrakt}
 %\addcontentsline{toc}{chapter}{Abstract}
 \thispagestyle{empty}
 
-Tato práce se zabývá vývojem zdrojů urychlených elektronů a koherentního krátkovlnného záření, převážně v rentgenovém spektru energie fotonů, založených na interakci vysokovýkonných laserů s plazmatem. Využíváme metodu urychlování elektronů laserem řízeným brázdovým polem a relativistické zrcadla, které významně závisí na řízené excitaci Langmuirových vln o vysokých amplitudách v podkritickém plazmatu. Tato témata studujeme pomocí teoretické práce a rozsáhlých numerických simulací založených na metodě particle-in-cell.
+Tato práce se zabývá vývojem zdrojů urychlených elektronů a koherentního krátkovlnného záření, převážně v rentgenové části spektra energie fotonů, založených na interakci vysokovýkonných laserových svazků s podkritickým plazmatem. Jsou využity metody laserem buzeného brázdového pole a relativistického zrcadla, které obě významně závisí na řízené excitaci Langmuirových vln o vysokých amplitudách. Tato témata jsou studována pomocí teoretické práce a rozsáhlých numerických simulací založených na metodě particle-in-cell.
 
-Co se týče zdrojů urychlených eletronů, práce obsahuje popis nových fyzikálních mechanismů vedoucích ke vzniku elektromagnetických a elektronových prstenců a objev periodického přepólování brázdového pole v případě vybuzení ultrakrátkým laserovým svazkem v plazmatu o téměř kritické hustotě. V případě zdrojů krátkovlnného záření, práce popisuje jevy zpětného rázu působící na relativistické zrcadlo při odrazu laserového svazku a návrh nového schématu pro fyzickou realizaci relativistického zrcadla založený na hustotních singularitách v podkritickém plazmatu.
-
-
+Co se týče zdrojů urychlených eletronů, práce obsahuje popis nových fyzikálních mechanismů interakce laseru s plazmatem vedoucích ke vzniku elektromagnetických a elektronových prstenců a objev periodického přepólování brázdového pole vybuzeného ultrakrátkým laserovým svazkem v plazmatu o téměř kritické hustotě. V případě zdrojů koherentního krátkovlnného záření práce popisuje jevy zpětného rázu působící na relativistické zrcadlo při odrazu laserového svazku a návrh nového schématu pro fyzickou realizaci relativistického zrcadla založeného na laserem vytvářených hustotních singularitách v podkritickém plazmatu.
 
 {\let\clearpage\relax\chapter*{Abstract}}
 \thispagestyle{empty}
 
-We investigate sources of high-energy electron beams and coherent short-wavelength radiation, predominantly in the x-ray range of photon energies, using the interaction of high-power laser with plasma. We employ the concepts of the laser-wakefield acceleration and relativistic flying mirrors which both strongly rely on controlled generation of large-amplitude Langmuir waves in underdense plasma. We study these topics using theoretical work and large-scale numerical simulations based on the particle-in-cell method. 
+\noindent This work is devoted to the sources of high-energy electron beams and coherent short-wavelength radiation, predominantly in the x-ray range of photon energies, using the interaction of high-power laser with underdense plasma. We employ the concepts of the laser-wakefield acceleration and relativistic flying mirrors, which both strongly rely on controlled generation of large-amplitude Langmuir waves. We study these topics using theoretical work and large-scale numerical simulations based on the particle-in-cell method. 
 
-Regarding the sources of electrons, we describe novel physical mechanisms which lead to the formation of ring-shaped electromagnetic-electron structures and reveal that the wakefield excited by an ultrashort laser pulse in near-critical density plasma periodically reverses its polarity. Regarding the sources of coherent short-wavelength radiation, we describe the recoil effects on the laser pulse reflection from relativistic flying mirrors and propose a novel scheme for physical realization of relativistic flying mirrors based on the electron density singularities in underdense plasma. \\
+Regarding the sources of electrons, we describe novel physical mechanisms of laser-plasma interaction which lead to the formation of ring-shaped electromagnetic-electron structures and reveal that the wakefield excited by an ultrashort laser pulse in near-critical density plasma periodically reverses its polarity. Regarding the sources of coherent short-wavelength radiation, we describe the recoil effects on the laser pulse reflection from relativistic flying mirrors and propose a novel scheme for physical realization of relativistic flying mirrors based on the laser-driven electron density singularities in underdense plasma. \\
 
 %We explore novel regimes of laser-plasma interaction accessible by new generation laser systems. The scientific focus is mainly devoted to enhancement of laser-generated sources of accelerated electrons and coherent short-wavelength radiation based on plasma waves driven by intense laser pulses. First we describe mechanisms for obtaining electron beams based on laser wakefield acceleration technique. We analyze the properties of the wakefield in regimes dominated by the effects of dispersion and carrier envelope phase. Discussed range of parameters is relevant for electron acceleration at high repetition rate. Second we investigate the concept of relativistic mirrors in laser plasmas. We describe the recoil effects on reflection from relativistic mirrors which is crucial for maximizing the energy of reflected radiation. We find the threshold for incident pulse energy above which the relativistic mirrors undergo significant back reaction. We also analyze the generation of coherent hard electromagnetic radiation by the reflection from the electron density singularities.\\
 
@@ -533,8 +551,10 @@ Regarding the sources of electrons, we describe novel physical mechanisms which 
 
 %9------------------------------------------------------------------------------
 
-\tableofcontents
+\clearpage
 \pagestyle{myfancy}
+\tableofcontents
+
 %\addtocontents{toc}%{\protect\thispagestyle{empty}}
 %\thispagestyle{empty}
 
@@ -578,7 +598,7 @@ The research fields where the high-power lasers play a significant role can be d
 
 The laser-wakefield acceleration, which was proposed in 1979 \cite{Tajima1979}, is already a well-established technique for producing high-energy electron beams in a plasma medium. Within this concept, a relativistically intense laser pulse propagating in underdense plasma induces a strong longitudinal electric field which, in turn, accelerates duly injected electrons \cite{Esarey1996, Esarey2009, Hooker2013, Bulanov2016}. One of the primary advantages of this concept lies in the fact that ionized plasmas can sustain electric fields several orders of magnitude larger than conventional radio-frequency accelerators \cite{Dawson1959}, allowing one to substantially reduce the acceleration length (e.g., to generate the electron beam with the energy up to $ 10 \ \mathrm{GeV} $, the acceleration length of only $ 20 \ \mathrm{cm} $ is required, whereas it would take about $ 500 \ \mathrm{m} $ with a conventional accelerator).
 
-Over the last few decades, the quality of accelerated electron beams has rapidly evolved mainly due to the advances in technology and better understanding of the underlying physical processes. First high-quality quasi-monoenergetic electron beams were produced in 2004 \cite{Faure2004, Geddes2004, Mangles2004} operating the laser-wakefield acceleration experiments in the blowout (or bubble) regime \cite{Pukhov2002, Lu2006, Lu2007}, in which the wakefield takes the form of an ion cavity surrounded by thin electron walls. Today, the laser-wakefield acceleration has demonstrated (although not simultaneously) the capability of producing electron beams in the multi-$ \mathrm{GeV} $ energy range with a relative energy spread of a few percent \cite{Kim2013, Leemans2014, Gonsalves2019}, a few $ \mathrm{fs} $ duration \cite{Tilborg2006, Ohkubo2007, Debus2010, Lundh2011}, and hundreds of $ \mathrm{pC} $ of charge \cite{Couperus2017}. These achievements make the concept of laser-wakefield acceleration increasingly attractive for fundamental science (e.g., ) and a wide range of multi-disciplinary applications (e.g., radiography \cite{Glinec2005}, radiotherapy \cite{Malka2010, DesRosiers2000}, radiolysis \cite{Malka2010, Gauduel2010}).
+Over the last few decades, the quality of accelerated electron beams has rapidly evolved mainly due to the advances in technology and better understanding of the underlying physical processes. First high-quality quasi-monoenergetic electron beams were produced in 2004 \cite{Faure2004, Geddes2004, Mangles2004} operating the laser-wakefield acceleration experiments in the blowout (or bubble) regime \cite{Pukhov2002, Lu2006, Lu2007}, in which the wakefield takes the form of an ion cavity surrounded by thin electron walls. Today, the laser-wakefield acceleration has demonstrated (although not simultaneously) the capability of producing electron beams in the multi-$ \mathrm{GeV} $ energy range with a relative energy spread of a few percent \cite{Kim2013, Leemans2014, Gonsalves2019}, a few $ \mathrm{fs} $ duration \cite{Tilborg2006, Ohkubo2007, Debus2010, Lundh2011}, and hundreds of $ \mathrm{pC} $ of charge \cite{Couperus2017}. The electron beams from the laser-wakefield accelerator can be converted to high photon energy radiation with unique characteristics via various physical processes (e.g., Compton scattering \cite{Compton1923}, bremsstrahlung \cite{Bernstein1970}, betatron \cite{Whittum1990} and undulator \cite{Schwinger1949} oscillations). The concept of laser-wakefield acceleration thus becomes increasingly attractive for fundamental science (e.g., study of non-collective radiation reaction \cite{Zeldovich1975}, vacuum polarization and birefringence \cite{Dirac1934}, Breit-Wheeler \cite{Breit1934} and trident \cite{Ritus1972} processes) and a wide range of multi-disciplinary applications (e.g., radiography \cite{Glinec2005}, radiotherapy \cite{Malka2010, DesRosiers2000}, radiolysis \cite{Malka2010, Gauduel2010}).
 
 The relativistic flying mirrors are objects that reflect incoming radiation while moving at relativistic velocity \cite{Einstein1905}. An electromagnetic wave incident on a relativistic mirror undergoes energy and frequency changes due to the double Doppler effect. In a co-propagating configuration, the reflected wave is stretched, its amplitude is lowered, and its frequency is downshifted. In contrast, in a counter-propagating configuration, the reflected wave is compressed, amplified, and its frequency is upshifted. Relativistic mirrors can be physically realized, e.g., by irradiating plasma targets with intense laser pulses (see Ref. \citenum{Bulanov2013} for a review and the literature cited therein). They appear in laser plasmas as thin dense electron (or electron-ion) shells accelerated to relativistic velocities. 
 
@@ -644,6 +664,8 @@ The quality of the research as well as its communication has been appreciated by
 \section{Outline of the thesis}
 %\input{dat/1-0.tex}
 
+We use SI units throughout the main text of this doctoral theis and, when it is convenient, we perform normalizations to obtain dimensionless quantities. The articles in Appendix~\ref{chap:selected_publications} use Gaussian units. To distinguish between vector and scalar quantities, we write scalars in italics and vectors in bold. The symbols $ \mathbb{Z} $ and $ \mathbb{N} $ denote the sets of all integers and natural numbers, respectively. The unit vector in the direction of vector $ \vec{x} = \left( x_1, x_2, x_3 \right) $ is denoted as $ \vec{e}_{x} $, i.e., $ \vec{e}_{x} = \vec{x} / \norm{\vec{x}} $, where $ \norm{\vec{x}} \coloneq \sqrt{x_1^2 + x_2^2 + x_3^2} $ is the Euclidean norm. 
+
 The structure of this doctoral thesis is organized as follows: 
 
 \begin{description}
@@ -661,7 +683,6 @@ The structure of this doctoral thesis is organized as follows:
 	
 \end{description}
 	
-We use SI units throughout the main text of this doctoral theis and, when it is convenient, we perform normalizations to obtain dimensionless quantities. The articles in Appendix~\ref{chap:selected_publications} use Gaussian units. To distinguish between vector and scalar quantities, we write scalars in italics and vectors in bold. The symbols $ \mathbb{Z} $ and $ \mathbb{N} $ denote the sets of all integers and natural numbers, respectively. The unit vector in the direction of vector $ \vec{x} = \left( x_1, x_2, x_3 \right) $ is denoted as $ \vec{e}_{x} $, i.e., $ \vec{e}_{x} = \vec{x} / \norm{\vec{x}} $, where $ \norm{\vec{x}} \coloneq \sqrt{x_1^2 + x_2^2 + x_3^2} $ is the Euclidean norm. 
 % unit vector, norm, grad, laplace, N natural, Z whole, R real numbers
 %The symbol $ \nabla = \left( \diffp{}/{x_1}, \diffp{}/{x_2}, \diffp{}/{x_3} \right) $ and $ \laplace = \nabla^2 $. 
 	
@@ -675,11 +696,11 @@ We use SI units throughout the main text of this doctoral theis and, when it is 
 
 \chapter{Theoretical background\label{chap:theoretical_background}}
 
-\noindent \textsl{This chapter sets the theoretical background related to the topics considered within this doctoral thesis. We review the fundamental concepts underpinning the interaction of high-power laser and low-density plasma. We also deal with the excitation of the finite-amplitude Langmuir waves in plasma as well as their role in the development of high-energy electron and radiation sources based on the laser-wakefield acceleration and the relativistic flying mirrors. Finally, we discuss the aspects of the particle-in-cell algorithm for the numerical simulation of laser-plasma interactions.}
+\noindent \textsl{This chapter sets the theoretical background related to the topics considered within this doctoral thesis. We review fundamental concepts underpinning the interaction of high-power laser and low-density plasma. We also deal with the excitation of the finite-amplitude Langmuir waves in plasma as well as their role in the development of high-energy electron and radiation sources based on the laser-wakefield acceleration and the relativistic flying mirrors. Finally, we discuss the aspects of the particle-in-cell algorithm for the numerical simulation of laser-plasma interactions.}
 
 \section{Interaction of laser and underdense plasma}
 
-In the first section we start with the definitions of the most important parameters characterizing the interaction of short intense laser pulses with low density plasmas. Then we proceed to the description of the propagation of Langmuir waves in plasma as well as their fundamental properties. Finally, we discuss the structure of the Langmuir waves when they approach the threshold of wave breaking. Langmuir waves are perhaps the most essential physical entities considered within this doctoral thesis; they play a key role in the concepts of laser-wakefield acceleration and relativistic flying mirrors, as closer discussed in the following sections (Secs.~\ref{sec:lwfa} and \ref{sec:rfm}). 
+In the first section we start with the definitions of the most important parameters characterizing the interaction of short intense laser pulses with low-density plasmas. Then we proceed to the description of the propagation of Langmuir waves in plasma as well as their fundamental properties. Finally, we discuss the structure of the Langmuir waves when they approach the threshold of wave breaking. Langmuir waves are perhaps the most essential physical entities considered within this doctoral thesis; they play a key role in the concepts of laser-wakefield acceleration and relativistic flying mirrors, as closer discussed in the following sections (Secs.~\ref{sec:lwfa} and \ref{sec:rfm}). 
 
 %As closer discussed in Secs.~\ref{}, the breaking Langmuir waves are of high importance for the concept of laser-wakefield acceleration (they provide the electron self-injection into the accelerating regions of wakefield) as well as for the relativistic flying mirrors (they maximize the reflection coefficient of the mirrors realized with laser-driven Langmuir waves). 
 
@@ -781,7 +802,7 @@ Starting with Maxwell's equations [Eqs.~(\ref{eq:gauss_law_for_e}) -- (\ref{eq:a
 \begin{equation}\label{eq:eq_for_momentum}
 \diffp{\vec{P}_{\alpha}}{t} = - \grad{\left( \rho_{\alpha} \varphi + \gamma_{\alpha} \right)} + \vec{\upbeta}_{\alpha} \times \rot{\vec{P}_{\alpha}},
 \end{equation}
-where the electron and ion fluid components are denoted by subscripts $ e $ and $ i $, respectively, and the subscript $ \alpha $ is either $ e $ or $ i $. Here we use dimensionless quantities: The quantities having the units of length and time are normalized by $ c / \omega_{pe} $ and $ \omega_{pe} $, respectively, $ \varphi $ is the scalar potential normalized by $ m_e c^2 / e $, $ \vec{a} $ is the vector potential normalized by $ m_e c / e $, $ \vec{\upbeta}_{\alpha} $ is the velocity of the fluid component normalized by $ c $, and $ n_{\alpha} $ is the density of the fluid component normalized by $ n_0 $. The canonical momentum $ \vec{P}_{\alpha} $ and the Lorentz factor $ \gamma_{\alpha} $ are related to the kinetic momentum $ \vec{p}_{\alpha} $ normalized by $ m_{\alpha} c $ as $ \vec{P}_{\alpha} = \vec{p}_{\alpha} + \rho_{\alpha} \vec{a} $ and $ \gamma_{\alpha} = \sqrt{1 + \norm{\vec{p}_{\alpha}}^2} $, respectively, where $ \rho_{\alpha} = - \left( q_{\alpha} / e \right) \left( m_e / m_{\alpha} \right) $. Here $ q_{\alpha} $ and $ m_{\alpha} $ are the charge and rest mass of the fluid component. 
+where the electron and ion fluid components are denoted by subscripts $ e $ and $ i $, respectively, and the subscript $ \alpha $ is either $ e $ or $ i $. Here we use dimensionless quantities: The quantities having the units of length and time are normalized by $ c / \omega_{pe} $ and $ \omega_{pe} $, respectively, $ \varphi $ is the scalar potential normalized by $ m_e c^2 / e $, $ \vec{a} $ is the vector potential normalized by $ m_e c / e $, $ \vec{\upbeta}_{\alpha} $ is the velocity of the fluid component normalized by $ c $, and $ n_{\alpha} $ is the density of the fluid component normalized by $ n_0 $. The canonical momentum $ \vec{P}_{\alpha} $ and the Lorentz factor $ \gamma_{\alpha} $ are related to the kinetic momentum $ \vec{p}_{\alpha} $ normalized by $ m_{\alpha} c $ as $ \vec{P}_{\alpha} = \vec{p}_{\alpha} + \rho_{\alpha} \vec{a} $ and $ \gamma_{\alpha} = \sqrt{1 + \norm{\vec{p}_{\alpha}}^2} $, respectively, where $ \rho_{\alpha} = - \left( q_{\alpha} / e \right) \left( m_e / m_{\alpha} \right) $. Here $ q_{\alpha} $ and $ m_{\alpha} $ are the charge and rest mass of the fluid component $ \alpha $. 
 
 
 %where $ \varphi $ and $ \vec{a} $ are the scalar and vector potentials, respectively (the Coulomb gauge is assumed, i.e., $ \div{\vec{a}} = 0 $), $ \vec{\upbeta}_{\alpha} $ is the velocity of the fluid component, and $ n_{\alpha} $ is the number density of the fluid component; the electron and ion fluid components are denoted by subscripts $ e $ and $ i $, respectively, the subscript $ \alpha $ is either $ e $ or $ i $. The canonical momentum $ \vec{P}_{\alpha} $ and the Lorentz factor $ \gamma_{\alpha} $ are related to the kinetic momentum $ \vec{p}_{\alpha} = \gamma_{\alpha} \vec{\upbeta}_{\alpha} $ as $ \vec{P}_{\alpha} = \vec{p}_{\alpha} + \rho_{\alpha} \vec{a} $ and $ \gamma_{\alpha} = \sqrt{1 + \norm{\vec{p}_{\alpha}}^2} $, respectively, where $ \rho_{\alpha} = - \left( q_{\alpha} / e \right) \left( m_e / m_{\alpha} \right) $. Here and below we use dimensionless quantities; quantities having the units of length and time are normalized by $ c / \omega_{pe} $ and $ \omega_{pe} $, respectively, velocities are normalized by $ c $, momenta by $ m_{\alpha} c $, scalar and vector potentials by $ m_e c^2 / e $ and $ m_e c / e $, respectively, and the number densities are normalized by $ n_0 $, where $ n_0 $ is the density of plasma components at the equilibrium state (prior to the passage of the electromagnetic wave).
@@ -831,7 +852,7 @@ Analytical solution to Eq.~(\ref{eq:eq_for_scalar_potential_5}) can be found in 
 \begin{equation}\label{eq:analytical_solution}
 \zeta = 2 \left[ \sqrt{\frac{\left( a^2 - \varphi \right) \left( 1 + \varphi \right)}{\varphi}} + E \left( \sin \frac{1}{\sqrt{\varphi}}, -a^2 \right) \right],
 \end{equation}
-where $ E \left( \cdot, \cdot \right) $ is the incomplete elliptic integral of the second kind \cite{Gradshteyn1980}. 
+where $ E \left( \cdot, \cdot \right) $ is the incomplete elliptic integral of the second kind \cite{Gradshteyn1965}. 
 
 By integrating Eq.~(\ref{eq:eq_for_scalar_potential_5}) with the boundary conditions $ \varphi \left( 0 \right) = \diff{\varphi}/{\zeta} \left( 0 \right) = 0 $ we get
 \begin{equation}\label{eq:integral}
@@ -841,7 +862,7 @@ From Eq.~(\ref{eq:integral}) one may find the optimal length of the driving elec
 \begin{equation}\label{eq:optimal_length}
 l_{\mathrm{opt}} = \int_{0}^{a^2} \sqrt{\frac{1 + \varphi}{\varphi \left( a^2 - \varphi \right)}} \dl \varphi = 2 E \left( -a^2 \right),
 \end{equation}
-where $ E \left( \cdot \right) $ is the complete elliptic integral of the second kind \cite{Gradshteyn1980}. In the limit of small-amplitude driving electromagnetic pulse (i.e., $ a \ll 1 $), we may approximate Eq.~(\ref{eq:optimal_length}) as
+where $ E \left( \cdot \right) $ is the complete elliptic integral of the second kind \cite{Gradshteyn1965}. In the limit of small-amplitude driving electromagnetic pulse (i.e., $ a \ll 1 $), we may approximate Eq.~(\ref{eq:optimal_length}) as
 \begin{equation}\label{eq:optimal_length_small_amplitude}
 l_{\mathrm{opt}} = \pi + \frac{\pi}{4} a^2 - \frac{3 \pi}{64} a^4 + \dots ,
 \end{equation}
@@ -862,7 +883,7 @@ The extrema of the scalar potential inside the electromagnetic pulse can be obta
 \end{equation}
 Using the same approach as before, we find from Eq.~(\ref{eq:integral_2}) that $ \varphi_{\mathrm{min}} = -a^2 / \left( 1 + a^2 \right) $, $ \varphi_{\mathrm{max}} = a^2 $, $ E_{\mathrm{min}} = -a^2 / \sqrt{1 + a^2} $, and $ E_{\mathrm{max}} = a^2 / \sqrt{1 + a^2} $. Note that the amplitude of the electric field inside the driving electromagnetic pulse is smaller than the amplitude of the electric field in the wake left behind the driver.
 
-Fig.~\ref{fig:langmuir_wave} shows the dependence of scalar potential, electric field, and electron density perturbation on the coordinate $ \zeta $ for the Langmuir wave generated by square electromagnetic pulse with amplitude $ a = 2 $ and optimal length given by Eq.~(\ref{eq:optimal_length}). The quantities are obtained numerically from Eq.~(\ref{eq:eq_for_scalar_potential_5}).
+Fig.~\ref{fig:langmuir_wave} shows the dependence of scalar potential, $ \varphi $, electric field, $ E $, and electron density perturbation, $ n_e - 1 $, on the coordinate $ \zeta $ for the Langmuir wave generated by square electromagnetic pulse with amplitude $ a = 2 $ and optimal length, $ l_{\mathrm{opt}} $, given by Eq.~(\ref{eq:optimal_length}). The quantities are obtained numerically from Eq.~(\ref{eq:eq_for_scalar_potential_5}).
 
 \subsection{Breaking of Langmuir waves}
 
@@ -907,7 +928,7 @@ n_e = \frac{\beta_w}{\beta_w - \beta_e} \approx \gamma_w \left( \sqrt{\frac{2}{9
 \end{equation}
 Although for $ \delta \zeta \rightarrow 0 $ the electron density tends to infinity, the singularity is integrable. This means that in the breaking Langmuir wave there is a finite number of electrons \cite{Panchenko2008, Bulanov2013}. The distribution of $ n_e $ given by Eq.~(\ref{eq:eq_for_density_breaking}) is shown in Fig.~\ref{fig:breaking_wave}.
 
-Singularities form naturally in the plasma flow with inhomogeneous velocity. There have been identified several kinds of singularities due to the breaking of finite-amplitude Langmuir waves depending on their closeness to the wave breaking threshold. It turned out that the dependence of the electron density on the coordinate can be in general expressed as $ n_e \left( \delta \zeta \right) \approx \delta \zeta^{-\alpha} $ with $ 1/2 \leq \alpha < 1 $ \cite{Panchenko2008}.
+Singularities form naturally in the plasma flow with inhomogeneous velocity. There have been identified several kinds of singularities due to the breaking of finite-amplitude Langmuir waves depending on their closeness to the wave breaking threshold. It turned out that the dependence of the electron density on the coordinate can be, in general, expressed as $ n_e \left( \delta \zeta \right) \approx \delta \zeta^{-\alpha} $ with $ 1/2 \leq \alpha < 1 $ \cite{Panchenko2008}.
 
 
 %\subsection{Self-focusing, self-guiding, self-phase modulation, self-amplitude modulation}
@@ -945,7 +966,7 @@ Fig.~\ref{fig:phase_plot} (a) shows the phase plot of the system described by Eq
 
 \begin{figure}[t]
 	\includegraphics[width=0.9\linewidth]{img/phase_plot.jpg}
-	\caption[]{\label{fig:phase_plot} (a) Phase plot of the system described by Eq.~(\ref{eq:integral_of_motion}) in the case when the wakefield is generated by a Gaussian electromagnetic pulse with the envelope given by $ a \left( \zeta \right) = a_0 \exp \left( -\zeta^2 / l_p^2 \right) $, where $ a_0 = 2 $ and $ l_p^2 = 10 $, in a plasma with $ \beta_w = 0.99 $. The gray lines represent possible electron trajectories, the blue lines are for the separatrices [Eq.~(\ref{eq:separatrix})], and the black dashed line is for the curve given by Eq.~(\ref{eq:singular_points}). (b) Dependence of the longitudinal electric field (black) and the envelope of the driving pulse (blue) on the coordinate $ \zeta $ obtained numerically from Eq.~(\ref{eq:eq_for_scalar_potential_2}). The green and red stripes in both plots mark, respectively, the regions in the second wakefield period where $ E < 0 $ and $ E > 0 $, i.e., where the injected electron is being accelerated and decelerated.}
+	\caption[]{\label{fig:phase_plot} (a) Phase plot of the system described by Eq.~(\ref{eq:integral_of_motion}) in the case when the wakefield is generated by a Gaussian electromagnetic pulse with the envelope given by $ a \left( \zeta \right) = a_0 \exp \left( -\zeta^2 / l_p^2 \right) $, where $ a_0 = 2 $ and $ l_p^2 = 10 $, in a plasma with $ \beta_w = 0.99 $. The gray lines represent possible electron trajectories [Eq.~(\ref{eq:electron_trajectories})], the blue lines are for the separatrices [Eq.~(\ref{eq:separatrix})], and the black dashed line is for the curve given by Eq.~(\ref{eq:singular_points}). (b) Dependence of the longitudinal electric field (black) and the envelope of the driving pulse (blue) on the coordinate $ \zeta $ obtained numerically from Eq.~(\ref{eq:eq_for_scalar_potential_2}). The green and red stripes in both plots mark, respectively, the regions in the second wakefield period where $ E < 0 $ and $ E > 0 $, i.e., where the injected electron is being accelerated and decelerated.}
 \end{figure}
 
 The possible electron trajectories in Fig.~\ref{fig:phase_plot} (a) are obtained by varying the value of $ h_0 $ in Eq.~(\ref{eq:electron_trajectories}). We see that the phase space is divided into several domains, in which the electrons move either on closed or open orbits (depending on their initial state). These domains are separated from each other by special orbits, called separatrices. The separatrices join at singular points $ \zeta_s $, which lie on the curve given by \cite{Esirkepov2006}
@@ -1050,7 +1071,7 @@ where $ A_b $ is the cross-sectional area of the beam. For a beam containing $ \
 %\subsection{Bow wave}
 %\input{dat/1-0.tex}
 
-Now we proceed to description of fundamental physical processes related to the interaction of electromagnetic waves with counter-propagating relativistic mirrors. We outline possible physical realizations as well as characteristics of the mirrors in underdense plasmas which are of great interest in the context of the development of coherent high-brightness radiation sources with wavelengths ranging from x-rays to gamma-rays. For a comprehensive study about the relativistic mirrors in plasmas we refer the reader to Refs.~\citenum{Bulanov2013} and \citenum{Bulanov2016b}.
+Now we proceed to the description of fundamental physical processes related to the interaction of electromagnetic waves with counter-propagating relativistic mirrors. We outline several mirror models as well as characteristics of the mirrors in underdense plasmas which are of great interest in the context of the development of coherent high-brightness radiation sources with wavelengths ranging from x-rays to gamma-rays. For a comprehensive study about the relativistic mirrors in plasmas we refer the reader to Refs.~\citenum{Bulanov2013} and \citenum{Bulanov2016b}.
 
 
 \subsection{Relativistic flying flat mirror\label{sec:rffm}}
@@ -1079,7 +1100,7 @@ The components of electric field transform as
 \begin{equation}\label{eq:lorentz_transform_fields}
 \vec{E}^{\prime}_{i, \parallel} = \vec{E}_{i, \parallel}, \quad \vec{E}^{\prime}_{i, \bot} = \frac{\vec{E}_{i, \bot} + \beta_M c \, \vec{e}_z \times \vec{B}_{i}}{\sqrt{1 - \beta_M^2}},
 \end{equation}
-where the subscripts $ \parallel $ and $ \bot $ denote the field polarization components parallel and perpendicular to the direction of mirror motion and $ \vec{B}_{i} = -\vec{e}_z / c \times \vec{E}_i $ is the magnetic field of the incident wave packet in $ S_1 $. Note that the origin of $ M $ is located at $ \left( 0, 0, z_0 \right) $. In $ M $, the electric field of the incident wave packet, Eq.~(\ref{eq:incident_lab_frame_1}) takes the following form,
+where the subscripts $ \parallel $ and $ \bot $ denote the field polarization components parallel and perpendicular to the direction of mirror motion and $ \vec{B}_{i} = -\vec{e}_z / c \times \vec{E}_i $ is the magnetic field of the incident wave packet in $ S_1 $. Note that the origin of $ M $ is located at $ \left( 0, 0, z_0 \right) $. In $ M $, the electric field of the incident wave packet, Eq.~(\ref{eq:incident_lab_frame_1}), takes the following form,
 \begin{equation}\label{eq:incident_boost_frame}
 \vec{E}^{\prime}_i \left(x^{\prime}, y^{\prime}, z^{\prime}; t^{\prime} \right) = \vec{e}_x^{\prime} E^{\prime}_0 \left(x^{\prime}, y^{\prime} \right) \exp \left[ - \frac{1}{2 \tau^{\prime 2}} \left(t^{\prime} + \frac{z^{\prime}}{c}\right)^2 \right] \exp \left[ i \omega_0^{\prime} \left(t^{\prime} + \frac{z^{\prime}}{c}\right) \right],
 \end{equation}
@@ -1158,7 +1179,7 @@ S_a \left( \omega^{\prime} \right) = j_0 \left( \frac{\omega^{\prime}}{c} \rho \
 \begin{equation}\label{eq:S_b}
 S_b \left( \omega^{\prime} \right) = \frac{4}{\pi} j_1 \left( \frac{\omega^{\prime}}{c} \rho \right) P^1_1 \left( \cos \theta^{\prime} \right).
 \end{equation}
-Here $ j_{n} \left( \cdot \right) $ is the $ n $-th order spherical Bessel function of the first kind, and $ P_n \left( \cdot \right) $ and $ P^m_n \left( \cdot \right) $ are the Legendre and associated Legendre functions \cite{Gradshteyn1980}.
+Here $ j_{n} \left( \cdot \right) $ is the $ n $-th order spherical Bessel function of the first kind, and $ P_n \left( \cdot \right) $ and $ P^m_n \left( \cdot \right) $ are the Legendre and associated Legendre functions, respectively \cite{Gradshteyn1965}.
 
 The resultant expressions for the spatiotemporal distribution of electric and magnetic fields of the radially polarized wave packet in the focal region of the mirror in the stationary frame of reference are obtained through the inverse Lorentz transformation and a Fourier transformation in the frequency domain \cite{Jeong2021},
 \begin{subequations}
@@ -1205,13 +1226,14 @@ T \left(t, \rho \right) = \frac{t - \left(\rho / c\right) \beta_M \cos \theta}{\
 \begin{equation}\label{eq:R}
 R \left(\rho, t \right) = \frac{\rho - c t \beta_M \cos \theta}{\gamma_M \left( 1 - \beta_M^2 \cos^2 \theta \right)}.
 \end{equation}
-The phase of the outgoing wave packet in the stationary frame of reference can be obtained by decomposing the spherical Bessel function in Eqs.~(\ref{eq:reflected_e_lab_frame_parabolic}) or (\ref{eq:reflected_b_lab_frame_parabolic}) as $ \omega_0^{\prime} \left( T - R / c \right) = \left[ \left( 1 + \beta_M \right) / \left( 1 - \beta_M \cos \theta \right) \right] \omega_0 \left( t - \rho / c \right) $, thus the angular frequency is given by
+
+The phase of the outgoing wave packet in the stationary frame of reference can be obtained by decomposing the spherical Bessel function in Eqs.~(\ref{eq:reflected_e_lab_frame_parabolic}) or (\ref{eq:reflected_b_lab_frame_parabolic}) as $ \omega_0^{\prime} \left( T - R / c \right) = \left[ \left( 1 + \beta_M \right) / \left( 1 - \beta_M \cos \theta \right) \right] \omega_0 \left( t - \rho / c \right) $, thus the angular frequency is given by \cite{Jeong2021}
 \begin{equation}\label{eq:upshift_factor_parabolic}
 	\omega_0^{\prime \prime} = \frac{1 + \beta_M}{1 - \beta_M \cos \theta} \omega_0.
 \end{equation}
 In the relativistic limit ($ \gamma_M \gg 1 $) and in the forward direction ($ \theta = 0 $), the angular frequency is upshifted by the factor $ \approx 4 \gamma_M^2 $, which is consistent to the case of relativistic flying flat mirror.
 
-The spectral bandwidth of the outgoing wave packet in the stationary frame of reference is determined by the term $ \Delta \omega^{\prime 2} \left( T - R / c \right)^2 / 4 = \left[ \left( 1 + \beta_M \right) / \left( 1 - \beta_M \cos \theta \right) \right]^2 \Delta \omega^2 \left( t - \rho / c \right)^2 / 4 $ in Eqs.~(\ref{eq:envelope_function_1}) or (\ref{eq:envelope_function_2}), thus the duration is given by
+The spectral bandwidth of the outgoing wave packet in the stationary frame of reference is determined by the term $ \Delta \omega^{\prime 2} \left( T - R / c \right)^2 / 4 = \left[ \left( 1 + \beta_M \right) / \left( 1 - \beta_M \cos \theta \right) \right]^2 \Delta \omega^2 \left( t - \rho / c \right)^2 / 4 $ in Eqs.~(\ref{eq:envelope_function_1}) or (\ref{eq:envelope_function_2}), thus the duration is given by \cite{Jeong2021}
 \begin{equation}\label{eq:compression_factor_parabolic}
 	\tau^{\prime \prime} = \frac{1 - \beta_M \cos \theta}{1 + \beta_M} \tau.
 \end{equation}
@@ -1225,7 +1247,7 @@ From Eqs.~(\ref{eq:reflected_e_lab_frame_parabolic}) and (\ref{eq:reflected_b_la
 
 In reality the reflection coefficient of relativistic flying mirrors in plasmas is, in general, very far from unity and, therefore, constitutes an important factor that has to be taken into account. Here we present an estimation of the reflection coefficient for the mirror being physically realized with strongly nonlinear Langmuir wave in underdense plasma.
 
-Let us consider a Langmuir wave near the threshold of breaking, which moves along the $ +z $-axis at a constant phase velocity $ v_{M} = \beta_M c $. The counter-propagating electromagnetic wave incident on the mirror is characterized by the $ x $-component of the vector potential $ A_x \left( y, z; t \right) $; the interaction between the electromagnetic wave and the mirror is governed by the wave equation
+Let us consider a Langmuir wave near the threshold of breaking, which moves along the $ +z $-axis at a constant phase velocity $ v_{M} = \beta_M c $. The counter-propagating electromagnetic wave incident on the mirror is characterized by the $ x $-component of the vector potential $ A_x \left( y, z; t \right) $; the interaction between the electromagnetic wave and the mirror is governed by the wave equation \cite{Panchenko2008, Bulanov2013}
 \begin{equation}\label{eq:refl_coeff_vector_potential}
 	\diffp[2]{A_x}{t} - c^2 \left( \diffp[2]{A_x}{y} + \diffp[2]{A_x}{z} \right) + \omega_{pe}^2 A_x = 0,
 \end{equation}
@@ -1237,7 +1259,7 @@ where $ \omega_{pe} \left( \zeta \right) = \sqrt{e^2 n\left( \zeta \right) / \le
 %\end{equation}
 %where $ n_0 $ is the ambient plasma density, $ k_p $ is the plasma wavenumber, $ G_{\alpha} $ is a dimensionless constant, and $ 1/2 \leq \alpha < 1 $. 
 
-The form of Eq.~(\ref{eq:refl_coeff_vector_potential}) in the frame of reference moving with the mirror can be found using the Lorentz transformation as
+The form of Eq.~(\ref{eq:refl_coeff_vector_potential}) in the frame of reference moving with the mirror can be found using the Lorentz transformation as \cite{Panchenko2008, Bulanov2013}
 \begin{equation}\label{eq:refl_coeff_vector_potential_2}
 \frac{d^2 a}{d z^{\prime 2}}+ \left( s^2 - \nu \right) a = 0.
 \end{equation}
@@ -1255,7 +1277,7 @@ which implies that
 \diff{b_{+}}{z^{\prime}} \exp \left( i s z^{\prime} \right) = -\diff{b_{-}}{z^{\prime}} \exp \left( -i s z^{\prime} \right).
 \end{equation}
 
-By plugging Eq.~(\ref{eq:vector_potential_form}) into Eq.~(\ref{eq:refl_coeff_vector_potential_2}) and taking into account the condition of Eq.~(\ref{eq:boundary_condition_2}), we may write a system of equations for the functions $ b_{-} $ and $  b_{+} $ in the following compact form,
+By plugging Eq.~(\ref{eq:vector_potential_form}) into Eq.~(\ref{eq:refl_coeff_vector_potential_2}) and taking into account the condition of Eq.~(\ref{eq:boundary_condition_2}), we may write a system of equations for the functions $ b_{-} $ and $  b_{+} $ in the following compact form \cite{Bulanov2013},
 \begin{equation}\label{eq:refl_coeff_system}
 \diff*
 {\begin{bmatrix}
@@ -1272,20 +1294,20 @@ By plugging Eq.~(\ref{eq:vector_potential_form}) into Eq.~(\ref{eq:refl_coeff_ve
 	b_{+}
 \end{bmatrix}}.
 \end{equation}
-Assuming that the amplitude of the reflected wave is much smaller than the amplitude of the incident wave (i.e., $ \rho \ll 1 $), the solution of the system of Eqs.~(\ref{eq:refl_coeff_system}) can be written as
+Assuming that the amplitude of the reflected wave is much smaller than the amplitude of the incident wave (i.e., $ \rho \ll 1 $), the solution of the system of Eqs.~(\ref{eq:refl_coeff_system}) can be written as \cite{Bulanov2013}
 \begin{equation}\label{eq:eq_for_rho}
 	\rho = \frac{i}{2 s} \int_{-\infty}^{+\infty} \nu \left( z^{\prime} \right) \exp \left( -2 i s z^{\prime} \right) \dl z^{\prime}.
 \end{equation}
 
-Since we consider a Langmuir wave at the threshold of wave breaking, we may use Eq.~(\ref{eq:eq_for_density_breaking}) to describe the distribution of the electron density. In the moving frame of reference, in which the Langmuir wave is at rest, this yields
+Since we consider a Langmuir wave at the threshold of wave breaking, we may use Eq.~(\ref{eq:eq_for_density_breaking}) to describe the distribution of the electron density. In the moving frame of reference, in which the Langmuir wave is at rest, this yields \cite{Bulanov2013}
 \begin{equation}\label{eq:eq_for_nu}
 \nu = \frac{\left( 2 / 9 \right)^{1/3} \left( 1 + a_{\mathrm{br}}^2 \right)^{1/6} k_p^{4/3} \gamma_M^{2/3}}{\left( z^{\prime} \right)^{2/3}}.
 \end{equation} 
-After substituting Eq.~(\ref{eq:eq_for_nu}) into Eq.~(\ref{eq:eq_for_rho}) and calculating the integral we obtain
+After substituting Eq.~(\ref{eq:eq_for_nu}) into Eq.~(\ref{eq:eq_for_rho}) and calculating the integral we obtain \cite{Bulanov2013}
 \begin{equation}\label{eq:eq_for_rho_2}
 \rho = \frac{i 3^{1 / 2} \Gamma \left( 1 / 3 \right) \left( 2 / 9 \right)^{1/3} \left( 1 + a_{\mathrm{br}}^2 \right)^{1/6} k_p^{4/3} \gamma_M^{2/3}}{\left( 2 s \right)^{4 / 3}},
 \end{equation}
-where $ \Gamma \left( \cdot \right) $ is the Euler gamma function \cite{Gradshteyn1980}. Finally, the reflection coefficient can be obtained as follows,
+where $ \Gamma \left( \cdot \right) $ is the Euler gamma function \cite{Gradshteyn1965}. Finally, the reflection coefficient can be obtained as follows \cite{Bulanov2013},
 \begin{equation}\label{eq:reflection_coefficient}
 \mathcal{R} = \norm{\rho}^2 = \frac{\Gamma^2 \left( 1 / 3 \right) \left( 1 + a_{\mathrm{br}}^2 \right)^{1 / 3} k_p^{8/3} \gamma_M^{4/3}}{2^2 3^{1 / 3} s^{8 / 3}}.
 \end{equation}
@@ -1302,7 +1324,7 @@ The recoil effects of relativistic mirrors physically realized by the structures
 \begin{equation}\label{eq:conservation_of_energy}
 \mathcal{N}_e \mathcal{E}_e + \mathcal{N}_{\omega} \mathcal{E}_{\omega} = \mathcal{N}_e \mathcal{E}_e^{\prime \prime} + \mathcal{R} \mathcal{N}_{\omega} \mathcal{E}_{\omega}^{\prime \prime} + \left( 1 - \mathcal{R} \right) \mathcal{N}_{\omega}  \mathcal{E}_{\omega}.
 \end{equation}
-Here $ \mathcal{N} $, $ p $, and $ \mathcal{E} $ are the numbers, momenta, and energies of the interacting particles, respectively, and the subscripts $ e $ and $ \omega $ denote the electrons (representing the relativistic flying mirror) and photons (representing the incident electromagnetic wave), respectively. The electron and photon momenta can be expressed as $ p_e = m_e c \sqrt{\gamma_M^2 - 1} $ and $ p_{\omega} = \hbar \omega_0 / c $, respectively, and the electron and photon energies are $ \mathcal{E}_e = m_e c^2 \gamma_M $ and $ \mathcal{E}_{\omega} = \hbar \omega_0 $, respectively, where $ \hbar $ stands for the reduced Planck constant. The schematic of the analytical model is displayed in Fig.~\ref{fig:recoil_schematic}.
+Here $ \mathcal{N} $, $ p $, and $ \mathcal{E} $ are the total numbers, momenta, and energies of the interacting particles, respectively, and the subscripts $ e $ and $ \omega $ denote the electrons (representing the relativistic flying mirror) and photons (representing the incident electromagnetic wave), respectively. The electron and photon momenta can be expressed as $ p_e = m_e c \sqrt{\gamma_M^2 - 1} $ and $ p_{\omega} = \hbar \omega_0 / c $, respectively, and the electron and photon energies are $ \mathcal{E}_e = m_e c^2 \gamma_M $ and $ \mathcal{E}_{\omega} = \hbar \omega_0 $, respectively, where $ \hbar $ stands for the reduced Planck constant. The schematic of the analytical model is displayed in Fig.~\ref{fig:recoil_schematic}.
 
 % energies can be expressed as
 %\begin{subequations}\label{eq:electron_and_photon_momentum_and_energy}
@@ -1316,7 +1338,7 @@ Here $ \mathcal{N} $, $ p $, and $ \mathcal{E} $ are the numbers, momenta, and e
 %where $ \hbar $ is the reduced Planck constant.
 
 \begin{figure}[t]
-	\includegraphics[width=0.45\linewidth]{img/recoil_scheme.png}
+	\includegraphics[width=0.425\linewidth]{img/recoil_scheme.png}
 	\caption[]{\label{fig:recoil_schematic} Schematic illustrating the analytical model of Eqs.~(\ref{eq:conservation_of_momentum}) and (\ref{eq:conservation_of_energy}) (a) before and (b) after the interaction of incident electromagnetic wave with a counter-propagating relativistic mirror, which is represented by thin electron layer (red dots).}
 \end{figure}
 
@@ -1324,7 +1346,7 @@ By combining Eqs.~(\ref{eq:conservation_of_momentum}) and (\ref{eq:conservation_
 \begin{equation}\label{eq:recoil_1}
 \hbar \omega_0^{\prime \prime} = \hbar \omega_0 \frac{\mathcal{E}_e \left( \mathcal{E}_e + p_e c \right)}{\mathcal{N}_e \left( \mathcal{E}_e + p_e c \right) + 2 \mathcal{R} \mathcal{N}_{\omega} \hbar \omega_0} = \hbar \omega_0 \frac{\mathcal{N}_e m_e c^2 \left( \gamma_M + \sqrt{\gamma_M^2 - 1} \right)}{\mathcal{N}_e m_e c^2 \left( \gamma_M - \sqrt{\gamma_M^2 - 1} \right) + 2 \mathcal{R} \mathcal{N}_{\omega} \hbar \omega_0}.
 \end{equation}
-In the relativistic limit, Eq.~(\ref{eq:recoil_1}) can be simplified as
+In the relativistic limit ($ \gamma_M \gg 1 $), Eq.~(\ref{eq:recoil_1}) can be simplified as
 \begin{equation}\label{eq:recoil_2}
 \omega_0^{\prime \prime} \approx 4 \gamma_M^2 \omega_0 \frac{\mathcal{N}_e m_e c^2 / 4 \gamma_M}{\mathcal{N}_e m_e c^2 / 4 \gamma_M + \mathcal{R} \mathcal{N}_{\omega} \hbar \omega_0} \approx 4 \gamma_M^2 \omega_0 \left( 1 - \frac{\mathcal{R} \mathcal{N}_{\omega} \hbar \omega_0}{\mathcal{N}_e m_e c^2 / 4 \gamma_M} \right).
 \end{equation}
@@ -1391,7 +1413,7 @@ The shape functions cannot be chosen arbitrarily, they have to satisfy the follo
 \begin{figure}[t]
 	\centering
 	\tikzstyle{empty} = [rectangle, fill=white, text width=11em, text badly centered, node distance=4em]
-	\tikzstyle{block} = [rectangle, draw, thick, fill=white, text width=11em, text centered, rounded corners, minimum height=4.5em]
+	\tikzstyle{block} = [rectangle, draw, thick, fill=white, text width=11em, text centered, rounded corners, minimum height=4.0em]
 	\tikzstyle{line} = [draw, -triangle 45]
 	\begin{tikzpicture}[node distance = 2cm, auto]
 		\node [block] (nahore) {Particle pusher\\[2mm] $ \vec{F}_p \rightarrow \left(\vec{x}, \vec{p}\,\right)_{p} $};	
@@ -1655,7 +1677,7 @@ First, we present the results of research devoted to the coupled electromagnetic
 
 In general, this work investigates (analytically and using numerical simulations) the propagation of high-power short-pulse laser in a low-density plasma, which is a topic relevant to a number of scientific challenges, such as laser-driven acceleration of charged particles \cite{Tajima1979, Esarey2009, Gonsalves2019}, development of sources of hard electromagnetic radiation \cite{Pirozhkov2012, Bulanov2013}, and nuclear fusion within the framework of the fast ignition concept \cite{Tabak1994}. For most of these applications, it is essential that the laser pulse propagates over extended distances and transmits its energy into the plasma in controlled way without incurring excessive losses. In this context, much of the attention has been focused on the evolution of the radial profile of the laser beam in a fully ionized plasma; it turned out that the process of self-focusing for high-power laser pulses may lead to the formation of the multifilament and, in particular, ring-shaped transverse structures \cite{Mori1988, Cohen1991, Borisov1992, Krushelnick1997, Cattani2001, Kim2002, Naseri2016, Kovalev2019}. We show that these electromagnetic rings can become a source of high-energy ring-shaped electron beams. 
 
-In addition to the applications mentioned above, the understanding of the physical processes that lead to the generation of the electromagnetic and electron ring structures is important due to the following reasons: (i) the electromagnetic rings may carry off a significant fraction of energy from the driver, and thus limit the overall efficiency of applications based on the laser-plasma interaction; (ii) the electron beams accelerated in the wake of the electromagnetic rings may cause a damage to surrounding equipment (e.g., capillaries used for the laser pulse guiding) and become a source of unwanted electromagnetic radiation; and (iii) the knowledge of the origin of the electromagnetic and electron rings could serve as a diagnostics for determining the regimes of laser-plasma interaction.
+In addition to the applications mentioned above, the understanding of the physical processes that lead to the generation of the electromagnetic and electron ring structures is important due to the following reasons: (i) the electromagnetic rings may carry off a significant fraction of energy from the driver, and thus limit the overall efficiency of applications based on the laser-plasma interaction; (ii) the electron beams accelerated in the wake of the electromagnetic rings may cause a damage to surrounding equipment (e.g., capillaries used for the laser pulse guiding) and become a source of unwanted electromagnetic radiation; and (iii) the knowledge of the origin of the electromagnetic and electron rings could serve as a diagnostics for determining the regimes of laser-plasma interaction. The electromagnetic and electron ring structures are also considered as drivers for plasma acceleration of positrons \cite{Jain2015, Jain2019}, as a source of high-flux x-rays \cite{Zhao2016}, and as compact collimators for proton bunches in radio frequency accelerators \cite{Stancari2011}.
 
 The first part of the paper presents an analytical model based on geometric optics approximation which qualitatively illustrates the origin and the initial stage of the electromagnetic ring formation. We define the plasma density distribution within the Langmuir wave as well as the Hamiltonian for the photon interaction with the Langmuir wave; the trajectories of photons are then obtained by solving the Hamilton equations. The second part of the paper presents a three-dimensional particle-in-cell simulation, the results of which demonstrate the formation of the electromagnetic as well as electron ring. We discuss the mechanism of formation of the electromagnetic ring and the processes of electron injection into the accelerating phase of the secondary wakefield generated by the electromagnetic ring. Finally, the third part of the paper contains the results of a systematic multi-parametric simulation study for various plasma densities, laser intensities, and laser spot sizes revealing the relationships among the properties of the electromagnetic rings and the parameters of laser and plasma.
 
@@ -1732,13 +1754,13 @@ In Chapter~\ref{chap:theoretical_background}, we set the theoretical background 
 
 Chapter~\ref{chap:authors_original_results} contains closer details about the author's most important results which have been published in the four selected papers. We provide a brief summary of each selected paper, its main contributions to the corresponding scientific fields, and a detailed description of the author's role.
 
-Let us here once again summarize the main results achieved by the author: Regarding the sources of electrons, we first identify and describe a novel physical mechanism which leads to the formation of ring-shaped electromagnetic-electron structures. Our model shows that the electromagnetic rings arise from the laser pulse defocusing induced by the excitation of Langmuir waves in underdense plasma, and the ring-shaped electron beams are formed and accelerated subsequently by the secondary toroidal wakefields generated by the electromagnetic rings. The knowledge of mechanisms that lead to the formation of electromagnetic and electron rings can be directly used for advancing applications based on the laser and underdense plasma interaction (e.g., charged-particle acceleration or inertial confinement fusion) via development of a new diagnostic tools. 
+Let us here once again summarize the main results achieved by the author: Regarding the sources of electrons, we first identify and describe a novel physical mechanism of laser-plasma interaction which leads to the formation of ring-shaped electromagnetic-electron structures. Our model shows that the electromagnetic rings arise from the laser pulse defocusing induced by the excitation of strongly nonlinear Langmuir waves in underdense plasma, and the ring-shaped electron beams are formed and accelerated subsequently by the secondary toroidal wakefields generated by the electromagnetic rings. The knowledge of mechanisms that lead to the formation of electromagnetic and electron rings can be directly used for advancing applications based on the laser and underdense plasma interaction (e.g., charged-particle acceleration or inertial confinement fusion) via development of a new diagnostic tools. 
 
 Second we reveal that the wakefield excited by an ultrashort laser pulse in near-critical density plasma periodically reverses its polarity. The wakefield polarity reversal is caused by dispersion and the corresponding difference between the propagation speed of the carrier and the envelope of the driving laser pulse. The knowledge of mechanisms underpinning this phenomenon is important for better control of the parameters of electron beams accelerated via the laser-wakefield mechanism (e.g., by adjusting the initial phase of the driver or by controlling the phase of the electron injection), especially in experiments carried out with the present-day high-repetition-rate laser systems.
 
-As far as the sources of coherent short-wavelength radiation are concerned, we first describe the recoil effects on the laser pulse reflection from relativistic flying mirrors and show that when the fluence of the electromagnetic wave incident on the relativistic mirror exceeds a certain threshold, the relativistic mirror undergoes a back reaction significantly affecting its amplification and frequency upshift factors. The knowledge of the threshold for the onset of recoil effects is important for the question of the feasibility of relativistic flying mirrors for developing sources of coherent x-rays for various applications (e.g., molecular imaging and attosecond spectroscopy) and fundamental research (e.g., investigation of photon-photon and Delbrück scattering).
+As far as the sources of coherent short-wavelength radiation are concerned, we first describe the recoil effects on the laser pulse reflection from relativistic flying mirrors and show that when the fluence of the electromagnetic wave incident on the relativistic mirror exceeds a certain threshold, the relativistic mirror undergoes a back reaction significantly affecting its amplification and frequency upshift factors. The knowledge of the threshold for the onset of recoil effects is important for the question of the feasibility of relativistic flying mirrors for developing sources of coherent x-rays for various applications (e.g., molecular imaging and attosecond spectroscopy) and fundamental research (e.g., investigation of photon-photon and Delbrück scattering, light intensification towards Schwinger field).
 
-Finally, we propose a novel scheme for physical realization of relativistic flying mirrors based on the electron density singularities in underdense plasma. Since the singularities oscillate due to the presence of strong electromagnetic field of the driving laser pulse, the reflected radiation spectrum contains high-order harmonics of very high brightness. Apart from the applications of reflected radiation mentioned above, this scheme provides an additional tool in laser-plasma diagnostics (e.g., for control and tuning of the burst intensification by singularity emitting radiation or study of the Lampa-Penrose-Terrell effect).
+Finally, we propose a novel scheme for physical realization of relativistic flying mirrors based on the laser-driven electron density singularities in underdense plasma. Since the singularities oscillate due to the presence of strong electromagnetic field of the driving laser pulse, the reflected radiation spectrum contains boosted high-order harmonics of very high brightness. Apart from the applications of reflected radiation mentioned above, this scheme provides an additional tool in laser-plasma diagnostics (e.g., for control and tuning of the burst intensification by singularity emitting radiation or study of the Lampa-Penrose-Terrell effect).
 
 \section{Future research and perspectives}
 
@@ -1746,7 +1768,7 @@ Due to their high potential for both fundamental science and practical applicati
 
 Further, we plan to extend the study of laser-wakefield polarity reversal in near-critical density plasma for the case of longer pulses in the self-modulated regime and to include the effect of plasma inhomogeneity. Using additional parameters could help us to find a regime, in which the polarity reversal length is equal to the electron dephasing length, which could potentially result in enhanced energy gains of electron beams. We would also like to work on development of diagnostic tools for detecting the wakefield polarity reversal experimentally.
 
-Concerning the research on relativistic flying mirrors, we plan to work on development of new methods for simulating the electromagnetic wave reflection and the focal spot structure in full three-dimensional geometry. The standard finite-difference time-domain solver would require too high resolution making the simulation computationally infeasible at the state-of-the-art. Further, we would like to work on the parameter optimization, which could lead to the electromagnetic field intensification towards the values typical for strong field quantum electrodynamics, and to investigate the processes involved (e.g., the electron-positron pair production).
+Concerning the research on relativistic flying mirrors, we plan to work on development of new methods for simulating the electromagnetic wave reflection and the focal spot structure in full three-dimensional geometry. The standard finite-difference time-domain solver would require too high resolution making the simulation computationally infeasible at the state-of-the-art. Further, we would like to work on the laser and plasma parameter optimization, which could lead to the electromagnetic field intensification towards the values typical for strong field quantum electrodynamics, and to investigate the processes involved (e.g., the electron-positron pair production).
 
 %Although in the early days the laser was named as \q{a bright solution looking for a problem}, it has since then developed/matured in one of the most important inventions of the last century. It is going to play a even more important role in this century.
 
@@ -1759,7 +1781,7 @@ Concerning the research on relativistic flying mirrors, we plan to work on devel
 \newpage
 
 \chapter*{Acknowledgements \markboth{Acknowledgements}{Acknowledgements}}
-\addcontentsline{toc}{chapter}{Acknowledgements}
+%\addcontentsline{toc}{chapter}{Acknowledgements}
 
 %LeCosPa: Yen-Ling Lee, Mia Wang, Yung-Kun Liu, Yuan Fang, Pisin Chen 
 %KPSI: Satoshi Orimo, Timur Esirkepov, James Koga, Alexander Pirozhkov, Masaki Kando, Tetsuya Kawachi
@@ -1801,10 +1823,12 @@ Concerning the research on relativistic flying mirrors, we plan to work on devel
 \cleardoublepage
 \phantomsection
 \addcontentsline{toc}{chapter}{Appendices}
-\part*{Appendices \markboth{Appendices}{Appendices}}
+\part*{Appendices\markboth{Appendices}{Appendices}}
 %\addcontentsline{toc}{chapter}{Appendices}
 
 \appendix
+
+\pagestyle{myfancy2}
 
 \chapter{List of author's publications\label{chap:authors_publications}}
 
@@ -1856,7 +1880,7 @@ Concerning the research on relativistic flying mirrors, we plan to work on devel
 	
 \end{itemize}
 
-\section{Book chapters \label{sec:book_chapters}}
+\section{Book chapters\label{sec:book_chapters}}
 
 \begin{itemize}
 	
@@ -1876,11 +1900,17 @@ Concerning the research on relativistic flying mirrors, we plan to work on devel
 \mbox{}
 
 \newpage
-\section{On the electromagnetic-electron rings originating from the interaction of high-power short-pulse laser and underdense plasma \label{sec:paper_1}}
+\section{On the electromagnetic-electron rings originating from the interaction of high-power short-pulse laser and underdense plasma\label{sec:paper_1}}
 
 The following article is reproduced from Valenta, P., Grittani, G. M., Lazzarini, C. M., Klimo, O., and Bulanov, S. V. (2021). \link{https://doi.org/10.1063/5.0065167}{On the electromagnetic-electron rings originating from the interaction of high-power short-pulse laser and underdense plasma}. \textit{Physics of Plasmas}, \textbf{28}(12):122104, with the permission of AIP Publishing. \\
 
 \noindent Copyright {\copyright} {2021} {American Institute of Physics}.
+
+\newpage
+\thispagestyle{empty}
+\mbox{}
+
+\includepdf[pages=-]{misc/cover.pdf}
 
 \newpage
 \thispagestyle{empty}
@@ -1894,7 +1924,7 @@ The following article is reproduced from Valenta, P., Grittani, G. M., Lazzarini
 %\thispagestyle{empty}
 
 \newpage
-\section{Polarity reversal of wakefields driven by ultrashort pulse laser \label{sec:paper_2}}
+\section{Polarity reversal of wakefields driven by ultrashort pulse laser\label{sec:paper_2}}
 
 The following article is reproduced from Valenta, P., Esirkepov, T. Z., Koga, J. K., Nečas, A., Grittani, G. M., Lazzarini, C. M., Klimo, O., Korn, G., and Bulanov, S. V. (2020). \link{https://doi.org/10.1103/PhysRevE.102.053216}{Polarity reversal of wakefields driven by ultrashort pulse laser}. \textit{Physical Review E}, \textbf{102}(5):053216, with the permission of APS. \\
 
@@ -1911,7 +1941,7 @@ The following article is reproduced from Valenta, P., Esirkepov, T. Z., Koga, J.
 \thispagestyle{empty}
 \newpage
 
-\section{Recoil effects on reflection from relativistic mirrors in laser plasmas \label{sec:paper_3}}
+\section{Recoil effects on reflection from relativistic mirrors in laser plasmas\label{sec:paper_3}}
 
 The following article is reproduced from Valenta, P., Esirkepov, T. Z., Koga, J. K., Pirozhkov, A. S., Kando, M., Kawachi, T., Liu, Y. K., Fang, P., Chen, P., Mu, J., Korn, G., Klimo, O., and Bulanov, S. V. (2020). \link{https://doi.org/10.1063/1.5142084}{Recoil effects on reflection from relativistic mirrors in laser plasmas}., \textit{Physics of Plasmas}, \textbf{27}(3):032109, with the permission of AIP Publishing. \\
 
@@ -1924,7 +1954,7 @@ The following article is reproduced from Valenta, P., Esirkepov, T. Z., Koga, J.
 \newpage
 \includepdf[pages=2-]{misc/paper3.pdf}
 
-\section{Relativistic flying forcibly oscillating reflective diffraction grating \label{sec:paper_4}}
+\section{Relativistic flying forcibly oscillating reflective diffraction grating\label{sec:paper_4}}
 
 The following article is reproduced from Mu, J., Esirkepov, T. Z., Valenta, P., Gu, Y., Jeong, T. M., Pirozhkov, A. S., Koga, J. K., Kando, M., Korn, G., and Bulanov, S. V. (2020). \link{https://doi.org/10.1103/PhysRevE.102.053202}{Relativistic flying forcibly oscillating reflective diffraction grating}. \textit{Physical Review E}, \textbf{102}(5):053202, with the permission of APS. \\
 
