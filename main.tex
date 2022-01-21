@@ -381,12 +381,12 @@
 \begin{spacing}{2.2}
 {\Large \bf \ctu} \\
 {\Large \bf \fnspe} \\[16mm]
-\epsfysize=40mm \epsffile{img/logo/ctu.pdf}\\[16mm]
+\epsfysize=35mm \epsffile{img/logo/ctu.pdf}\\[16mm]
 {\huge \textsc{dissertation}}\\[16mm]
-\parbox{12cm}
+\parbox{10cm}
 {
 \centering
-{\LARGE \bf Laser-driven Sources of~Electrons and~X-rays in~Underdense~Plasma: Theory and Simulation}
+{\Large \bf Laser-driven Sources of~Electrons and~X-rays in~Underdense~Plasma: Theory and Simulation}
 }
 \end{spacing}
 \end{center}
@@ -394,7 +394,7 @@
 
 
 \vfill
-{\Large \bf Prague 2022} \hfill {\Large \bf Petr Valenta}
+{\Large Prague 2022} \hfill {\Large Petr Valenta}
 
 \end{titlepage}
 
@@ -560,11 +560,11 @@ Regarding the sources of electrons, we describe novel physical mechanisms of las
 
 %-------------------------------------------------------------------------------
 
-%\begin{savequote}[0.45\linewidth]
-%	\begin{fquote}
-%		[-- Albert Einstein (1879 -- 1955)][][] Everything should be made as simple as possible, but no simpler.
-%	\end{fquote}
-%\end{savequote}
+\begin{savequote}[0.45\linewidth]
+	\begin{fquote}
+		[-- Albert Einstein (1879 -- 1955)][][] Everything should be made as simple as possible, but no simpler.
+	\end{fquote}
+\end{savequote}
 
 \chapter{Introduction\label{chap:intro}}
 %\addcontentsline{toc}{chapter}{Introduction}
@@ -572,15 +572,13 @@ Regarding the sources of electrons, we describe novel physical mechanisms of las
 
 \noindent \textsl{In the opening chapter, we first introduce the reader with a very coarse review of historical milestones and some of the most important achievements of laser -- our main instrument. Then, we define the objectives of our research and put them in the context of current worldwide efforts in the corresponding fields. Also, we specify what exactly has been accomplished by the author and how it advances the scientific knowledge. Finally, we outline how the structure of this doctoral thesis is organized.}
 
-% the work that has been already done and 
-
 \section{Methods and state-of-the-art}
 
 The operation of the world's first working laser was demonstrated in 1960 \cite{Maiman1960}. Soon after, the introductions of Q-switching \cite{McClung1962} and mode-locking \cite{Mocker1965} have enabled generation of laser pulses with GW peak powers and sub-$ \mathrm{ps} $ durations. At the same time, most of the major effects in nonlinear optics were discovered or experimentally verified (e.g., generation of optical harmonics \cite{Franken1961}, optical rectification \cite{Bass1962}, optical Kerr effect \cite{Armstrong1962, Maker1964}, stimulated Raman scattering \cite{Woodbury1962}, stimulated Brillouin scattering \cite{Chiao1964b, Chiao1964}, multiphoton absorption and ionization \cite{Kaiser1961, Voronov1966}). 
 
 Further amplification of laser pulses had been limited for relatively long time due to the development of nonlinear effects causing a detrimental pulse distortions or even a damage to the gain medium and optical components. This obstacle was overcome by applying the method of chirped pulse amplification to optical amplifiers \cite{Strickland1985, Maine1988}. To avoid the nonlinear effects, the laser pulse is stretched out temporally by several orders of magnitude (the input pulse energy is unchanged, but the intensity is lowered to an acceptable level) before passing through the amplifier medium (there are usually several amplifier stages) and then compressed by the same ratio back to a duration similar to its initial value.
 
-%\footnote{In 2018, G. Mourou and D. Strickland were awarded the Nobel Prize in Physics, for their joint work on chirped pulse amplification.}
+% \footnote{In 2018, G. Mourou and D. Strickland were awarded the Nobel Prize in Physics, for their joint work on chirped pulse amplification.}
 
 A rapid progress in laser technology over several past decades has stimulated the development of high-power lasers all over the world. By the end of the 20th century, the laser pulses exceeded the PW power threshold \cite{Perry1999}. Currently, the highest laser pulse peak power achieved is 10 PW \cite{Tanaka2020}. Global efforts towards making the lasers even more powerful are continuing; historical perspective, current status, and future plans to attain the 100 PW level are summarized, e.g., in Refs.~\citenum{Danson2019} and \citenum{Li2021}.
 
@@ -612,17 +610,7 @@ The work presented in this doctoral thesis is conducted on an exclusively theore
 \section{Author's role and contributions}
 %\input{dat/1-0.tex}
 
-%The leader of the project, prof. S. V. Bulanov, has became also the supervisor specialist of my dissertation. I have been employed at ELI Beamlines. 
-
-%, which significantly extended already available resources provided by the ECLIPSE cluster of the ELI Beamlines, were also used by other members of the HIFI team.
-
 My doctoral training has been supervised jointly by Dr. O. Klimo and Prof. S. V. Bulanov; it took place at the Department of Physical Electronics, Faculty of Nuclear Sciences and Physical Engineering, Czech Technical University in Prague and at the ELI Beamlines Centre, Institute of Physics, Czech Academy of Sciences. Since the beginning of my postgraduate studies, I have been involved in the European Regional Development Fund project \q{High Field Initiative} (HiFI) led by Prof. S. V. Bulanov, which is oriented on research of new physical regimes accessible with the next generation high-power laser systems. My research responsibilities within this project partially overlap with those considered in this doctoral thesis.
-
-%Next generation high power lasers, such as ELI-Beamlines 10 PW laser, access new physics regimes. The theory/simulation program will explore these regimes and give a solid theoretical base which will lead to the realization of completely new high field experiments.
-
-%My responsibilities within this project have been to develop and investigate novel schemes for physical realization of sources of electron beams and short-wavelength radiation based on the laser-plasma interaction, as closer described in Sec.~\ref{sec:aims_and_motivation}. I have studied these topics predominantly using analytical modeling and large-scale computer simulations.
-
-% My responsibilities within this project have been aligned 
 
 During my postgraduate studies, I have had a chance to take part in all the aspects of scientific work. I have been involved in the process of formulation and specification of research topics, I have received a systematic high-level training in analytical and numerical modeling of wide range of linear and nonlinear phenomena, I have been trained in development and optimization of various scientific software designed for large-scale numerical simulations, I have learned how to setup and execute the simulations on computer clusters, how to efficiently analyze and interpret $ \mathrm{TB} $-scale data generated by the simulation codes, and how to produce clear and at the same time visually appealing figures. Last but not least, I have learned how to write research manuscripts properly, and how to communicate with editors and referees until the final publication of the obtained results in a scientific journal.
 
@@ -630,19 +618,13 @@ I have also gained an experience with grant applications. First, I successfully 
 
 My first internship took place at the Leung Center for Cosmology and Particle Astrophysics, National Taiwan University in Taipei, Taiwan. There, I was working under the supervision of Prof. P. Chen, director of the institute, on the research related to relativistic mirrors. I have been involved in an ongoing project called \q{Analog Black Hole Evaporation via Lasers} (AnaBHEL), which aims at resolving the question, whether Hawking evaporation violates unitarity, and therefore results in the loss of information. The laboratory investigation of the Hawking effect is planned to be in this case realized using relativistic mirrors in the form of Langmuir waves that can be accelerated drastically and stopped abruptly by impinging high-power laser pulses on plasma targets with a density gradient. This is analogous to the late time evolution of black hole Hawking evaporation. During this internship, I have made initial attempts to describe the recoil effects of relativistic mirrors.
 
-%Apart from the scientific aspects, I have learned about the specifications, roadmap, and organizational structure of the project and I had a chance to meet researchers and students associated with the project.
-
 My second internship took place at the Kansai Photon Science Institute, National Institutes for Quantum Science and Technology in Kyoto, Japan. There, I was working under the supervision of Dr. T. Kawachi, director of the institute, and Dr. T. Z. Esirkepov, senior principal researcher, also on the research related to relativistic mirrors. On the contrary to my previous internship, however, now the main research topic changed to the development of a novel scheme for physical realization of relativistic flying mirrors based on the density singularities in laser plasmas. 
-
-%Further details about this research are provided in Sec.~\ref{sec:on_the_relativistic_flying_forcibly_oscillating_mirror}.
 
 I have also played an important role in many other activities related to my postgraduate education. To name a few, I organized short-term visits and seminars of Prof. P. Chen and Dr. T. Kawachi at the ELI Beamlines Centre, I was involved in the preparation of Memorandum of Understanding between the Institute of Physics and the Kansai Photon Science Institute which was signed by directors of both institutes, Dr. M. Prouza and Dr. T. Kawachi, in 2020, I was giving tutorials for the undergraduate courses \q{Numerical methods} and \q{Principles of plasma physics} at the Czech Technical University in Prague, I have been a member of several academic communities, namely \q{SPIE CTU in Prague Student Chapter,} \q{Prague EPS Young Minds Section,} and \q{SIAM Student Chapter Prague,} where I was actively engaged in popularization of science and organization of regular meetings and seminars. All of these activities were extremely beneficial in terms of gaining new knowledge and experience, efficient sharing of research findings and ideas, tightening of collaborations, and networking with fellow students and scientists.
 
 The systematic efforts and involvement in highly stimulating environment have naturally resulted in a number of original scientific results. Regarding the laser-driven sources of electrons, the most important results achieved are the description of coupled electromagnetic and electron rings originating from the laser-wakefield acceleration and the discovery of the polarity reversal of wakefields excited by ultrashort laser pulses in near-critical density plasmas. Regarding the laser-driven sources of short-wavelength radiation, the most important results I took considerable part in are the description of the recoil effects of relativistic mirrors and the invention of novel scheme for physical realization of relativistic mirrors based on the density singularities in laser plasmas. 
 
-%Further details about the achieved results as well as a closer description of the author's role and contributions are provided in Chapter~\ref{chap:authors_original_results}.
-
-The research projects I have been working on and the achieved results are to a large extent described in publications of mine and my co-authors. In total, I have authored or co-authored 20 publications (9 publications in peer-reviewed journals, 8 publications in conference proceedings, and 3 book chapters), in 7 of which I serve as a corresponding author. The core of this doctoral thesis is based on the following four selected publications:
+The research projects I have been working on and the achieved results are to a large extent described in publications of mine and my co-authors. In total, I have authored or co-authored 20 publications (10 publications in peer-reviewed journals, 7 publications in conference proceedings, and 3 book chapters), in 7 of which I serve as a corresponding author. The core of this doctoral thesis is based on the following four selected publications:
 \begin{enumerate}[label=\Roman*.]
 	\item \label{paper_1} Valenta, P., Grittani, G. M., Lazzarini, C. M., Klimo, O., and Bulanov, S. V. (2021). \link{https://doi.org/10.1063/5.0065167}{On the electromagnetic-electron rings originating from the interaction of high-power short-pulse laser and underdense plasma}. \textit{Physics of Plasmas}, \textbf{28}(12):122104.
 	
@@ -654,8 +636,6 @@ The research projects I have been working on and the achieved results are to a l
 	
 \end{enumerate}
 These publications will be referred to in text by their Roman numerals.
-
-%According to the Web of Science, the publications (as of the day of submission of this dissertation) have been cited 8 times (6 times excluding self-citations) and my h-index is 2. 
 
 The results obtained have been also presented at a number of international scientific conferences, workshops, and seminars. Although we do not include the full list, some of my most important oral and poster communications of research related to Refs.~\ref{paper_1} -- \ref{paper_4} are mentioned in Chapter~\ref{chap:authors_original_results}. It is important to note, however, that since the beginning of 2020, the communications and promotions of our research results have been heavily affected by the COVID-19 pandemics. Some conferences were either postponed or completely canceled, the others went eventually remote.
 
@@ -675,24 +655,19 @@ The structure of this doctoral thesis is organized as follows:
 	
 	\item[Chapter~\ref{chap:conclusion}] summarizes the content of this doctoral thesis as well as the most important results achieved by the author and outlines possible directions for future research. 
 	
-	%Due to their high potential for both fundamental science and practical applications, all the findings certainly deserve further attention. The summary and possible directions for future research are outlined in Chap.~\ref{chap:conclusion}. 
-	
 	\item[Appendix~\ref{chap:authors_publications}] contains a complete list of the author's publications as of the day of submission of this doctoral thesis, including the publications in peer-reviewed journals, conference proceedings, and as book chapters.
 	
 	\item[Appendix~\ref{chap:selected_publications}] contains the full texts (reproduced with permission) of the four selected publications (Refs.~\ref{paper_1} -- \ref{paper_4}).
 	
 \end{description}
 	
-% unit vector, norm, grad, laplace, N natural, Z whole, R real numbers
-%The symbol $ \nabla = \left( \diffp{}/{x_1}, \diffp{}/{x_2}, \diffp{}/{x_3} \right) $ and $ \laplace = \nabla^2 $. 
-	
 %-------------------------------------------------------------------------------
 
-%\begin{savequote}[0.45\linewidth]
-%	\begin{fquote}
-%		[-- Gustav Kirchhoff (1824 -- 1887)] There is nothing more practical than a~good theory.
-%	\end{fquote}
-%\end{savequote}
+\begin{savequote}[0.45\linewidth]
+	\begin{fquote}
+		[-- Gustav Kirchhoff (1824 -- 1887)] There is nothing more practical than a~good theory.
+	\end{fquote}
+\end{savequote}
 
 \chapter{Theoretical background\label{chap:theoretical_background}}
 
@@ -1659,11 +1634,11 @@ The expressions of Eqs.~(\ref{eq:current_density_deposition_lin_comb}) define th
 
 %-------------------------------------------------------------------------------
 
-%\begin{savequote}[0.45\linewidth]
-%	\begin{fquote}
-%		[-- Edward Teller (1908 -- 2003)] The science of today is the technology of tomorrow.
-%	\end{fquote}
-%\end{savequote}
+\begin{savequote}[0.45\linewidth]
+	\begin{fquote}
+		[-- Edward Teller (1908 -- 2003)] The science of today is the technology of tomorrow.
+	\end{fquote}
+\end{savequote}
 
 \chapter{Author's original results\label{chap:authors_original_results}}
 %\input{dat/1-0.tex}
@@ -1732,11 +1707,11 @@ Besides Ref.~\ref{paper_4}, a portion of this work has been also published in Re
 
 %-------------------------------------------------------------------------------
 
-%\begin{savequote}[0.405\linewidth]
-%	\begin{fquote}
-%		[-- Voltaire (1694 -- 1778)] The best is the enemy of the good. 
-%	\end{fquote}
-%\end{savequote}
+\begin{savequote}[0.405\linewidth]
+	\begin{fquote}
+		[-- Voltaire (1694 -- 1778)] The best is the enemy of the good. 
+	\end{fquote}
+\end{savequote}
 
 \chapter{Conclusion\label{chap:conclusion}}
 %\addcontentsline{toc}{chapter}{Conclusion and forthcoming work}
@@ -1783,10 +1758,18 @@ Concerning the research on relativistic flying mirrors, we plan to work on devel
 \chapter*{Acknowledgements \markboth{Acknowledgements}{Acknowledgements}}
 %\addcontentsline{toc}{chapter}{Acknowledgements}
 
+First and foremost ...
+
+This work was supported by the project "High Field Initiative" (Grant No. CZ.02.1.01/0.0/\\0.0/15\_003/0000449) from the European Regional Development Fund.
+
+%SVB, OK
 %LeCosPa: Yen-Ling Lee, Mia Wang, Yung-Kun Liu, Yuan Fang, Pisin Chen 
 %KPSI: Satoshi Orimo, Timur Esirkepov, James Koga, Alexander Pirozhkov, Masaki Kando, Tetsuya Kawachi
 %HIFI: Prokopis Hadjisolomou, Tae-Moon Jeong, David Kolenaty, 
-%Office: Elizaveta Pulnova, 
+%Office: 
+%Martin Matys, Martin Jirka, Jan Nikl, Sviatoslav Shekhanov, Jiri Vyskocil, Mariana Kecova, Karel Petranek, Pavel Janecka, Jakub Grosz, Jiri Majer, Elizaveta Pulnova, Luke Duthoit, Chao Lu.
+
+
 
 %\newpage
 %\pagestyle{plain}
@@ -1840,6 +1823,8 @@ Concerning the research on relativistic flying mirrors, we plan to work on devel
 	
 	\item Mu, J., Esirkepov, T. Z., \underline{Valenta, P.}, Jeong, T. M., Gu, Y., Koga, J. K., Pirozhkov, A. S., Kando, M., Korn, G., and Bulanov, S. V. (2019). \link{https://doi.org/10.3103/S1541308X19040010}{High-order harmonics from laser irradiated electron density singularity formed at the bow wave in the laser plasma}. \textit{Physics of Wave Phenomena}, \textbf{27}(4):247-256.
 	
+	\item Lazzarini, C. M., Goncalves, L. V., Grittani, G. M., Lorenz, S., Nevrkla, M., \underline{Valenta, P.}, Levato, T., Bulanov, S. V., and Korn, G. (2020). \link{https://doi.org/10.1142/S0217751X19430103}{Electron acceleration at ELI Beamlines: towards high-energy and high-repetition-rate accelerators}. \textit{International Journal of Modern Physics A}, \textbf{34}(34):1943010.
+	
 	\item \underline{Valenta, P.}, Esirkepov, T. Z., Koga, J. K., Pirozhkov, A. S., Kando, M., Kawachi, T., Liu, Y. K., Fang, P., Chen, P., Mu, J., Korn, G., Klimo, O., and Bulanov, S. V. (2020). \link{https://doi.org/10.1063/1.5142084}{Recoil effects on reflection from relativistic mirrors in laser plasmas}., \textit{Physics of Plasmas}, \textbf{27}(3):032109.
 	
 	\item Esirkepov, T. Z., Mu, J., Gu, Y., Jeong, T. M., \underline{Valenta, P.}, Klimo, O., Koga, J. K., Kando, M., Neely, D., Korn, G., Bulanov, S. V., and Pirozhkov, A. S. (2020). \link{https://doi.org/10.1063/5.0004525}{Optical probing of relativistic plasma singularities}. \textit{Physics of Plasmas}, \textbf{27}(3):052103.
@@ -1862,21 +1847,19 @@ Concerning the research on relativistic flying mirrors, we plan to work on devel
 
 \begin{itemize}
 	
-	\item Klimo, O., \underline{Valenta, P.}, and Weber, S. (2017). \link{http://ocs.ciemat.es/EPS2017PAP/pdf/P5.225.pdf}{Laser absorption and ion acceleration under tight-focusing conditions}. \textit{44th EPS Conference on Plasma Physics}, P5.225.
+	\item Klimo, O., \underline{Valenta, P.}, and Weber, S. (2017). \link{http://ocs.ciemat.es/EPS2017PAP/pdf/P5.225.pdf}{Laser absorption and ion acceleration under tight-focusing conditions}. In Bret A., Fajardo M., Westerhof E., Melzer A., Dromey B., and Riconda C., editors, \textit{44th EPS Conference on Plasma Physics}, page P5.225. European Physical Society, EPS.
 	
-	\item \underline{Valenta, P.}, Klimo, O., Bulanov, S. V., and Korn, G. (2018). \link{http://ocs.ciemat.es/EPS2018PAP/pdf/P2.2031.pdf}{On high-quality electron beam generated by breaking wake wave in near-critical density plasmas}. \textit{45th EPS Conference on Plasma Physics}, P2.2031. 
+	\item \underline{Valenta, P.}, Klimo, O., Bulanov, S. V., and Korn, G. (2018). \link{http://ocs.ciemat.es/EPS2018PAP/pdf/P2.2031.pdf}{On high-quality electron beam generated by breaking wake wave in near-critical density plasmas}. In Michaut C., Berndt J., Mantsinen M., Coda S., Lapenta G., and Weber S., editors, \textit{45th EPS Conference on Plasma Physics}, page P2.2031. European Physical Society, EPS.
 	
-	\item \underline{Valenta, P.}, Klimo, O., Grittani, G. M., Esirkepov, T. Z., Korn, G., and Bulanov, S. V. (2019). \link{https://doi.org/10.1117/12.2521040}{Wakefield excited by ultrashort laser pulses in near-critical density plasmas}. \textit{Proc. SPIE 11037, Laser Acceleration of Electrons, Protons, and Ions V}, 110370T.
+	\item \underline{Valenta, P.}, Klimo, O., Grittani, G. M., Esirkepov, T. Z., Korn, G., and Bulanov, S. V. (2019). \link{https://doi.org/10.1117/12.2521040}{Wakefield excited by ultrashort laser pulses in near-critical density plasmas}. In Esarey, E., Schroeder, C. B., and Schreiber, J., editors, \textit{Laser Acceleration of Electrons, Protons, and Ions V}, volume 11037, pages 57--65. International Society for Optics and Photonics, SPIE.
 	
-	\item Mu, J., Gu, Y., Jeong, T. M., \underline{Valenta, P.}, Klimo, O., Esirkepov, T. Z., Pirozhkov, A. S., Koga, J. K., Kando, M., Korn, G., and Bulanov, S. V. (2019). \link{https://doi.org/10.1117/12.2524653}{High order harmonics generation via laser reflection at electron density peaks}. \textit{Proc. SPIE 11039, Research Using Extreme Light: Entering New Frontiers with Petawatt-Class Lasers IV}, 110390H.
+	\item Mu, J., Gu, Y., Jeong, T. M., \underline{Valenta, P.}, Klimo, O., Esirkepov, T. Z., Pirozhkov, A. S., Koga, J. K., Kando, M., Korn, G., and Bulanov, S. V. (2019). \link{https://doi.org/10.1117/12.2524653}{High order harmonics generation via laser reflection at electron density peaks}. In Korn G. and Silva L. O., editors, \textit{Research Using Extreme Light: Entering New Frontiers with Petawatt-class Lasers IV}, volume 11039, pages 9--13. International Society for Optics and Photonics, SPIE.
 	
-	\item Lazzarini, C. M., Goncalves, L. V., Grittani, G. M., Lorenz, S., Nevrkla, M., \underline{Valenta, P.}, Levato, T., Bulanov, S. V., and Korn, G. (2020). \link{https://doi.org/10.1142/S0217751X19430103}{Electron acceleration at ELI Beamlines: towards high-energy and high-repetition-rate accelerators}. \textit{International Journal of Modern Physics A}, \textbf{34}(34):1943010.
+	\item \underline{Valenta, P.}, Esirkepov, T. Z., Koga, J. K., Pirozhkov, A. S., Kando, M., Kawachi, T., Liu, Y. K., Fang, P., Chen, P., Mu, J., Korn, G., Klimo, O., and Bulanov, S. V. (2020). \link{https://doi.org/10.1364/EUVXRAY.2020.EM1A.5}{Relativistic flying mirrors as a compact source of coherent short-wavelength radiation}. In Assoufid, L., Naulleau, P., Couprie, M., Ishikawa, T., Rocca, J., Haefner, C., Sansone, G., Metzger, T., Quéré, F., Ebrahim-Zadeh, M., Helmy, A., Laurell, F., and Leo, G., editors, \textit{OSA High-brightness Sources and Light-driven Interactions Congress 2020}, page EM1A.5. Optical Society of America, OSA.
 	
-	\item \underline{Valenta, P.}, Esirkepov, T. Z., Koga, J. K., Pirozhkov, A. S., Kando, M., Kawachi, T., Liu, Y. K., Fang, P., Chen, P., Mu, J., Korn, G., Klimo, O., and Bulanov, S. V. (2020). \link{https://doi.org/10.1364/EUVXRAY.2020.EM1A.5}{Relativistic flying mirrors as a compact source of coherent short-wavelength radiation}. \textit{OSA High-brightness Sources and Light-driven Interactions Congress 2020}, EM1A.5.
+	\item \underline{Valenta, P.}, Grittani, G. M., Lazzarini, C. M., Klimo, O., and Bulanov, S. V. (2021). \link{https://doi.org/10.1117/12.2589222}{Ring-shaped electron beams from laser-wakefield accelerator}. In Bulanov, S. S., Schreiber, J., and Schroeder, C. B., editors, \textit{Laser Acceleration of Electrons, Protons, and Ions VI}, volume 11779, pages 14--22. International Society for Optics and Photonics, SPIE.
 	
-	\item \underline{Valenta, P.}, Grittani, G. M., Lazzarini, C. M., Klimo, O., and Bulanov, S. V. (2021). \link{https://doi.org/10.1117/12.2589222}{Ring-shaped electron beams from laser-wakefield accelerator}. \textit{Proc. SPIE 11779, Laser Acceleration of Electrons, Protons, and Ions VI}, 1177909.
-	
-	\item Jeong, T. M., Bulanov, S. V., \underline{Valenta, P.}, Korn, G., Esirkepov, T. Z., Koga, J. K., and Pirozhkov, A. S (2021) \link{https://doi.org/10.1117/12.2592047}{Ultra-strong attosecond laser focus produced by a relativistic-flying parabolic mirror}. \textit{Proc. SPIE 11886, International Conference on X-Ray Lasers 2020}, 118860H.
+	\item Jeong, T. M., Bulanov, S. V., \underline{Valenta, P.}, Korn, G., Esirkepov, T. Z., Koga, J. K., and Pirozhkov, A. S (2021) \link{https://doi.org/10.1117/12.2592047}{Ultra-strong attosecond laser focus produced by a relativistic-flying parabolic mirror}. In Bleiner, D., editor, \textit{International Conference on X-ray Lasers 2020}, volume 11886, pages 125--132. International Society for Optics and Photonics, SPIE. 
 	
 \end{itemize}
 
@@ -1884,11 +1867,11 @@ Concerning the research on relativistic flying mirrors, we plan to work on devel
 
 \begin{itemize}
 	
-	\item Matys, M., Pšikal, J., Danielová, M., \underline{Valenta, P.}, and Bulanov, S. V. (2019). \link{https://www.it4i.cz/cs/file/abd1875ff7d0e6f59799c4f470545516/173/Supercomputing-in-Science-and-Engineering_preview.pdf}{Laser-driven ion acceleration using cryogenic hydrogen targets}. \textit{Supercomputing in Science and Engineering 2017-18}, pp. 149-151.
+	\item Matys, M., Pšikal, J., Danielová, M., \underline{Valenta, P.}, and Bulanov, S. V. (2019). \link{https://www.it4i.cz/cs/file/abd1875ff7d0e6f59799c4f470545516/173/Supercomputing-in-Science-and-Engineering_preview.pdf}{Laser-driven ion acceleration using cryogenic hydrogen targets}. In Pešatová, K., Poláková, B., Cawley, J., and Červenková, Z., editors, \textit{Supercomputing in Science and Engineering 2017-18}, pages 149--151. VSB - Technical University of Ostrava.
 	
-	\item Lazzarini, C. M., Goncalves, L. V., Grittani, G. M., Lorenz, S., Nevrkla, M., \underline{Valenta, P.}, Levato, T., Bulanov, S. V., and Korn, G. (2020) \link{https://doi.org/10.1142/9789811217135_0010}{Electron acceleration at ELI Beamlines: towards high-energy and high-repetition-rate accelerators}. \textit{Beam Acceleration in Crystals and Nanostructures}, pp. 153-170.
+	\item Lazzarini, C. M., Goncalves, L. V., Grittani, G. M., Lorenz, S., Nevrkla, M., \underline{Valenta, P.}, Levato, T., Bulanov, S. V., and Korn, G. (2020) \link{https://doi.org/10.1142/9789811217135_0010}{Electron acceleration at ELI Beamlines: towards high-energy and high-repetition-rate accelerators}. In Chattopadhyay, S., Mourou, G., Shiltsev, V. D., and Tajima, T., editors, \textit{Beam Acceleration in Crystals and Nanostructures}, pages 153--170. World Scientific Publishing.
 	
-	\item Matys, M., \underline{Valenta, P.}, Kecová, M., Nishihara, K., Pšikal, J., Esirkepov, T. Z., Koga, J. K., Nečas, A., Grittani, G. M., Lazzarini, C. M., Klimo, O., Korn, G., and Bulanov, S. V. (2021). \link{https://www.it4i.cz/file/be151db89e56452e36511f5410126441/6419/Supercomputing\%20in\%20Science\%20and\%20Engineering\%202019-2020.pdf}{Laser-driven acceleration of charged particles}. \textit{Supercomputing in Science and Engineering 2019-20}, pp. 86-88.
+	\item Matys, M., \underline{Valenta, P.}, Kecová, M., Nishihara, K., Pšikal, J., Esirkepov, T. Z., Koga, J. K., Nečas, A., Grittani, G. M., Lazzarini, C. M., Klimo, O., Korn, G., and Bulanov, S. V. (2021). \link{https://www.it4i.cz/file/be151db89e56452e36511f5410126441/6419/Supercomputing\%20in\%20Science\%20and\%20Engineering\%202019-2020.pdf}{Laser-driven acceleration of charged particles}. In Vondrák, V., Kozubek, T., and Jansík, B., editors, \textit{Supercomputing in Science and Engineering 2019-20}, pages 86--88. VSB - Technical University of Ostrava.
 	
 \end{itemize}
 
