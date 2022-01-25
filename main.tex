@@ -532,7 +532,7 @@
 %\addcontentsline{toc}{chapter}{Abstract}
 \thispagestyle{empty}
 
-Tato práce se zabývá vývojem zdrojů urychlených elektronů a koherentního krátkovlnného záření, převážně v rentgenové části spektra energie fotonů, založených na interakci vysokovýkonných laserových svazků s podkritickým plazmatem. Jsou využity metody laserem buzeného brázdového pole a relativistického zrcadla, které obě významně závisí na řízené excitaci Langmuirových vln o vysokých amplitudách. Tato témata jsou studována pomocí teoretické práce a rozsáhlých numerických simulací založených na metodě particle-in-cell.
+Tato práce se zabývá vývojem zdrojů urychlených elektronů a koherentního krátkovlnného záření, převážně v rentgenové části elektromagnetického spektra, založených na interakci vysokovýkonných laserových svazků s podkritickým plazmatem. Jsou využity metody laserem buzeného brázdového pole a relativistického zrcadla, které obě významně závisí na řízené excitaci Langmuirových vln o vysokých amplitudách. Tato témata jsou studována pomocí teoretické práce a rozsáhlých numerických simulací založených na metodě particle-in-cell.
 
 Co se týče zdrojů urychlených eletronů, práce obsahuje popis nových fyzikálních mechanismů interakce laseru s plazmatem vedoucích ke vzniku elektromagnetických a elektronových prstenců a objev periodického přepólování brázdového pole vybuzeného ultrakrátkým laserovým svazkem v plazmatu o téměř kritické hustotě. V případě zdrojů koherentního krátkovlnného záření práce popisuje jevy zpětného rázu působící na relativistické zrcadlo při odrazu laserového svazku a návrh nového schématu pro fyzickou realizaci relativistického zrcadla založeného na laserem vytvářených hustotních singularitách v podkritickém plazmatu.
 
@@ -644,7 +644,7 @@ The quality of the research as well as its communication has been appreciated by
 \section{Outline of the thesis}
 %\input{dat/1-0.tex}
 
-We use SI units throughout the main text of this doctoral theis and, when it is convenient, we perform normalizations to obtain dimensionless quantities. The articles in Appendix~\ref{chap:selected_publications} use Gaussian units. To distinguish between vector and scalar quantities, we write scalars in italics and vectors in bold. The symbols $ \mathbb{Z} $ and $ \mathbb{N} $ denote the sets of all integers and natural numbers, respectively. The unit vector in the direction of vector $ \vec{x} = \left( x_1, x_2, x_3 \right) $ is denoted as $ \vec{e}_{x} $, i.e., $ \vec{e}_{x} = \vec{x} / \norm{\vec{x}} $, where $ \norm{\vec{x}} \coloneq \sqrt{x_1^2 + x_2^2 + x_3^2} $ is the Euclidean norm. 
+We use SI units throughout the main text of this doctoral theis and, when it is convenient, we perform normalizations to obtain dimensionless quantities. The articles in Appendix~\ref{chap:selected_publications} use Gaussian units. To distinguish between vector and scalar quantities, we write scalars in italics and vectors in bold. The symbols $ \mathbb{Z} $ and $ \mathbb{N} $ denote the sets of all integers and natural numbers, respectively. The unit vector in the direction of vector $ \vec{x} = \left( x_1, x_2, x_3 \right) $ is denoted as $ \vec{e}_{x} $, i.e., $ \vec{e}_{x} = \vec{x} / \norm{\vec{x}} $, where $ \norm{\vec{x}} \coloneq \sqrt{x_1^2 + x_2^2 + x_3^2} $ is the Euclidean norm of $ \vec{x} $. 
 
 The structure of this doctoral thesis is organized as follows: 
 
@@ -1160,7 +1160,7 @@ The resultant expressions for the spatiotemporal distribution of electric and ma
 \begin{subequations}
 \begin{equation}\label{eq:reflected_e_lab_frame_parabolic}
 \begin{aligned}
-\vec{E}^{\prime \prime}_{f} & \left(\rho, \theta, \phi; t \right) = \gamma_M \frac{1 + \beta_M}{1 - \beta_M} \sqrt{\frac{3 \pi^5}{8}} \frac{w_e}{\lambda_0} E_0 \\[2mm]
+\vec{E}^{\prime \prime}_{f} & \left(\rho, \theta, \phi; t \right) = \gamma_M \frac{1 + \beta_M}{1 - \beta_M \cos \theta} \sqrt{\frac{3 \pi^5}{8}} \frac{w_e}{\lambda_0} E_0 \\[2mm]
 \times &
 \begin{bmatrix}
 	\left\lbrace -j_0 \left( \omega_0^{\prime} R / c \right) \sin \left(\omega_0^{\prime} T \right) \Upsilon_1 + \beta_M j_1 \left( \omega_0^{\prime} R / c \right) \cos \left(\omega_0^{\prime} T \right) \Upsilon_2 \right\rbrace \cos \phi \\[1mm]
@@ -1171,7 +1171,7 @@ The resultant expressions for the spatiotemporal distribution of electric and ma
 \end{equation}
 \begin{equation}\label{eq:reflected_b_lab_frame_parabolic}
 \begin{aligned}
-\vec{B}^{\prime \prime}_{f} & \left(\rho, \theta, \phi; t \right) = \gamma_M \frac{1 + \beta_M}{1 - \beta_M} \sqrt{\frac{3 \pi^5}{8}} \frac{w_e}{\lambda_0} \frac{E_0}{c} \\[2mm]
+\vec{B}^{\prime \prime}_{f} & \left(\rho, \theta, \phi; t \right) = \gamma_M \frac{1 + \beta_M}{1 - \beta_M \cos \theta} \sqrt{\frac{3 \pi^5}{8}} \frac{w_e}{\lambda_0} \frac{E_0}{c} \\[2mm]
 \times & 
 \begin{bmatrix}
 	\left\lbrace -j_1 \left( \omega_0^{\prime} R / c \right) \cos \left(\omega_0^{\prime} T \right) \Upsilon_2 + \beta_M j_0 \left( \omega_0^{\prime} R / c \right) \sin \left(\omega_0^{\prime} T \right) \Upsilon_1 \right\rbrace \sin \phi \\[1mm]
@@ -1202,19 +1202,22 @@ T \left(t, \rho \right) = \frac{t - \left(\rho / c\right) \beta_M \cos \theta}{\
 R \left(\rho, t \right) = \frac{\rho - c t \beta_M \cos \theta}{\gamma_M \left( 1 - \beta_M^2 \cos^2 \theta \right)}.
 \end{equation}
 
-The phase of the outgoing wave packet in the stationary frame of reference can be obtained by decomposing the spherical Bessel function in Eqs.~(\ref{eq:reflected_e_lab_frame_parabolic}) or (\ref{eq:reflected_b_lab_frame_parabolic}) as $ \omega_0^{\prime} \left( T - R / c \right) = \left[ \left( 1 + \beta_M \right) / \left( 1 - \beta_M \cos \theta \right) \right] \omega_0 \left( t - \rho / c \right) $, thus the angular frequency is given by \cite{Jeong2021}
+The angular frequency of the outgoing wave packet in the stationary frame of reference is given by \cite{Jeong2021}
 \begin{equation}\label{eq:upshift_factor_parabolic}
-	\omega_0^{\prime \prime} = \frac{1 + \beta_M}{1 - \beta_M \cos \theta} \omega_0.
+	\omega_0^{\prime \prime} = \sqrt{ \frac{1 + \beta_M}{1 - \beta_M \cos \theta}} \omega_0^{\prime} = \frac{1 + \beta_M}{1 - \beta_M \cos \theta} \omega_0.
 \end{equation}
-In the relativistic limit ($ \gamma_M \gg 1 $) and in the forward direction ($ \theta = 0 $), the angular frequency is upshifted by the factor $ \approx 4 \gamma_M^2 $, which is consistent to the case of relativistic flying flat mirror.
-
-The spectral bandwidth of the outgoing wave packet in the stationary frame of reference is determined by the term $ \Delta \omega^{\prime 2} \left( T - R / c \right)^2 / 4 = \left[ \left( 1 + \beta_M \right) / \left( 1 - \beta_M \cos \theta \right) \right]^2 \Delta \omega^2 \left( t - \rho / c \right)^2 / 4 $ in Eqs.~(\ref{eq:envelope_function_1}) or (\ref{eq:envelope_function_2}), thus the duration is given by \cite{Jeong2021}
+In the relativistic limit ($ \gamma_M \gg 1 $) and in the forward direction ($ \theta = 0 $), the angular frequency is upshifted by the factor $ \approx 4 \gamma_M^2 $, which is consistent to the case of relativistic flying flat mirror. The duration of the outgoing wave packet in the stationary frame of reference is given by \cite{Jeong2021}
 \begin{equation}\label{eq:compression_factor_parabolic}
-	\tau^{\prime \prime} = \frac{1 - \beta_M \cos \theta}{1 + \beta_M} \tau.
+	\tau^{\prime \prime} = \sqrt{\frac{1 - \beta_M \cos \theta}{1 + \beta_M}} \tau^{\prime} = \frac{1 - \beta_M \cos \theta}{1 + \beta_M} \tau.
 \end{equation}
 Again, in the relativistic limit and the forward direction, the duration is compressed by the factor $ \approx 4 \gamma_M^2 $, consistently to the case of relativistic flying flat mirror.
 
 From Eqs.~(\ref{eq:reflected_e_lab_frame_parabolic}) and (\ref{eq:reflected_b_lab_frame_parabolic}) it is also clear that the field strength and intensity of the reflected wave packet at focus of the relativistic flying parabolic mirror are in the relativistic limit enhanced by factors of $ \approx 4 \gamma_M^3 \sqrt{3 \pi^5 / 8} \left( w_e / \lambda_0 \right) $ and $ \approx 16 \gamma_M^6 \left( 3 \pi^5 / 8 \right) \left( w_e / \lambda_0 \right)^2 $, respectively; thus in comparison with the relativistic flying flat mirror, the focusing provides additional enhancements of the field strength and intensity of $ \approx \gamma_M \sqrt{3 \pi^5 / 8} \left( w_e / \lambda_0 \right) $ and $ \approx \gamma_M^2 \left( 3 \pi^5 / 8 \right) \left( w_e / \lambda_0 \right)^2 $, respectively. Assuming again a laser pulse of wavelength $ 0.8 \ \mathrm{\mu m} $, effective radius $ 3 \ \mathrm{\mu m} $, and peak intensity $ 10^{18} \ \mathrm{W / cm^2} $ being reflected from an ideal relativistic flying parabolic mirror with $ \gamma_M = 10 $, one obtains an intensity of $ 2.6 \times 10^{28} \ \mathrm{W / cm^2} $ at focus.
+
+\begin{figure}[t]
+	\includegraphics[width=0.95\linewidth]{img/rfm_focus.png}
+	\caption[]{\label{fig:rfm_focus} Distribution of the outgoing electromagnetic wave packet reflected from the flying parabolic mirror with $ \beta_M = 0.9 $ calculated from Eq.~() for $ \phi = 0 $, $ w_e = 3 \sqrt{3} \lambda_0 $, $ \Delta \omega = \omega_0 / 10 $, $ t_{\mathrm{FWHM}} \approx 3.75 \ T_0 $, , }
+\end{figure}
 
 \subsection{Reflection coefficient}
 
@@ -1313,7 +1316,7 @@ Here $ \mathcal{N} $, $ p $, and $ \mathcal{E} $ are the total numbers, momenta,
 %where $ \hbar $ is the reduced Planck constant.
 
 \begin{figure}[t]
-	\includegraphics[width=0.425\linewidth]{img/recoil_scheme.png}
+	\includegraphics[width=0.5\linewidth]{img/recoil_scheme.png}
 	\caption[]{\label{fig:recoil_schematic} Schematic illustrating the analytical model of Eqs.~(\ref{eq:conservation_of_momentum}) and (\ref{eq:conservation_of_energy}) (a) before and (b) after the interaction of incident electromagnetic wave with a counter-propagating relativistic mirror, which is represented by thin electron layer (red dots).}
 \end{figure}
 
@@ -1506,10 +1509,10 @@ The standard finite-difference time-domain method uses centered finite differenc
 \end{equation}
 The operators $ \nabla^{+} $ and $ \nabla^{-} $ used in Eqs.~(\ref{eq:discrete_maxwell_1}) -- (\ref{eq:discrete_maxwell_4}) act on a scalar field $ f_{i, j, k} $ as follows \cite{Esirkepov2001},
 \begin{equation}\label{eq:nabla_plus}
-	\nabla^{+} f_{i, j, k} = \left[ \frac{f_{i + 1, j, k} - f_{i, j, k}}{\Delta x}, \frac{f_{i, j + 1, k} - f_{i, j, k}}{\Delta y}, \frac{f_{i, j, k + 1} - f_{i, j, k}}{\Delta z} \right], 
+	\nabla^{+} f_{i, j, k} = \left( \frac{f_{i + 1, j, k} - f_{i, j, k}}{\Delta x}, \frac{f_{i, j + 1, k} - f_{i, j, k}}{\Delta y}, \frac{f_{i, j, k + 1} - f_{i, j, k}}{\Delta z} \right), 
 \end{equation}
 \begin{equation}\label{eq:nabla_minus}
-	\nabla^{-} f_{i, j, k} = \left[ \frac{f_{i, j, k} - f_{i - 1, j, k}}{\Delta x}, \frac{f_{i, j, k} - f_{i, j - 1, k}}{\Delta y}, \frac{f_{i, j, k} - f_{i, j, k - 1}}{\Delta z} \right].
+	\nabla^{-} f_{i, j, k} = \left( \frac{f_{i, j, k} - f_{i - 1, j, k}}{\Delta x}, \frac{f_{i, j, k} - f_{i, j - 1, k}}{\Delta y}, \frac{f_{i, j, k} - f_{i, j, k - 1}}{\Delta z} \right).
 \end{equation}
 These operators have the following properties \cite{Esirkepov2001},
 \begin{equation}\label{eq:nabla_properties}
@@ -1528,7 +1531,7 @@ where the symbol $ \Delta^{\pm} $ stands for the discrete Laplace operator \cite
 	\caption[]{\label{fig:yee_lattice} Standard Cartesian Yee cell used in the finite-difference time-domain method (taken from Ref.~\citenum{Valenta2017}).}
 \end{figure}
 
-It is important to realize that, in the three-dimensional case, the system of Eqs.~(\ref{eq:discrete_maxwell_1}) -- (\ref{eq:discrete_maxwell_4}) represents 8 first-order differential equations for 6 unknown vector components. Acting on Eqs.~(\ref{eq:discrete_maxwell_3}) and (\ref{eq:discrete_maxwell_4}) by the operators $ \left(\nabla^{+}\cdot\right) $ and $ \left(\nabla^{-}\cdot\right) $, respectively, one obtains
+It is important to realize that, in the three-dimensional case, the system of Eqs.~(\ref{eq:discrete_maxwell_1}) -- (\ref{eq:discrete_maxwell_4}) represents 8 first-order differential equations for 6 unknown vector components. Acting on Eqs.~(\ref{eq:discrete_maxwell_3}) and (\ref{eq:discrete_maxwell_4}) by the operators $ \left(\nabla^{-}\cdot\right) $ and $ \left(\nabla^{+}\cdot\right) $, respectively, one obtains
 \begin{equation}\label{eq:discrete_eq_for_B}
 	\frac{\nabla^{-} \cdot \vec{B}_{i, j, k}^{\,n + 1/2} - \nabla^{-} \cdot \vec{B}_{i, j, k}^{\,n - 1/2}}{\Delta t} = 0,
 \end{equation}
@@ -1567,7 +1570,7 @@ A final step that is yet to be discussed is thus the particle weighting, i.e., t
 \begin{equation}\label{eq:current_density}
 	\vec{J} \left(\vec{r}, t \right) = \sum_{\alpha} q_{\alpha} \int f_{\alpha} \left(\vec{r}, \vec{p}, t \right) \vec{v} \, \dl \vec{p}.
 \end{equation}
-After discretizing the expression of Eqs.~(\ref{eq:charge_density}) with quasi-particles and using the shape function properties, one gets
+After discretizing the expression of Eq.~(\ref{eq:charge_density}) with quasi-particles and using the shape function properties, one gets
 \begin{equation}\label{eq:charge_density_discretized}
 	\rho_{i, j, k} = \sum_{p} q_p S^r \left( \vec{r}_{i, j, k} - \vec{r}_{p} \right),
 \end{equation}
@@ -1758,17 +1761,53 @@ Concerning the research on relativistic flying mirrors, we plan to work on devel
 \chapter*{Acknowledgements \markboth{Acknowledgements}{Acknowledgements}}
 %\addcontentsline{toc}{chapter}{Acknowledgements}
 
-First and foremost ...
+First and foremost I would like to thank Prof. S. V. Bulanov 
 
-This work was supported by the project "High Field Initiative" (Grant No. CZ.02.1.01/0.0/\\0.0/15\_003/0000449) from the European Regional Development Fund.
+
+and I am extremely grateful for their guidance and support
+
+for all of the support and assistance you’ve given me. It has been a
+pleasure to work with you all and it’s a bonus that I’ve made some great friends
+too. I’d particularly like to single out Stuart, Phil and Alec to who I am especially
+grateful, for being so patient with me, not only during the (long) experiments, but
+during the analysis as well.
+
+Most of the members of the
+Imperial College Plasma Physics group, past and present, have at some stage of my
+PhD provided assistance in some way, discussions, advise and encouragement, so
+many thanks to you all.
+
+provided guidance whenever I needed it,
+and enabled me to build my own scientific career.
+
+Even more importantly, he created
+a fair and productive work environment and through his leadership enabled a group of
+young researchers to grow into an outstanding team that, through its accomplishments
+
+Wim’s profound knowledge of virtually any aspect of
+laser-plasma acceleration, even when it comes to the smallest technical details, has
+always impressed me and struck me as something to strive for.
+
+Second, I would like to thank Dr. O. Klimo for introducing me to this fascinating field of science and for being always around / supporting me since my undergraduate studies.
+
+Through the years, I had the chance to share office space with great people that inspired me a lot and with who I had the chance to spend amazing time in (and sometimes out of) the office! 
+
+newline \\ 
+
+proficient supervision
+
+\noindent This work was supported by the project "High Field Initiative" (Grant No. CZ.02.1.01/0.0/0.0/\\15\_003/0000449) from the European Regional Development Fund.
 
 %SVB, OK
 %LeCosPa: Yen-Ling Lee, Mia Wang, Yung-Kun Liu, Yuan Fang, Pisin Chen 
 %KPSI: Satoshi Orimo, Timur Esirkepov, James Koga, Alexander Pirozhkov, Masaki Kando, Tetsuya Kawachi
 %HIFI: Prokopis Hadjisolomou, Tae-Moon Jeong, David Kolenaty, 
+%ELBA: Grittani, Lazzarini, Lorenz
+%TAE: Necas
 %Office: 
-%Martin Matys, Martin Jirka, Jan Nikl, Sviatoslav Shekhanov, Jiri Vyskocil, Mariana Kecova, Karel Petranek, Pavel Janecka, Jakub Grosz, Jiri Majer, Elizaveta Pulnova, Luke Duthoit, Chao Lu.
+%Martin Matys, Martin Jirka, Jan Nikl, Jiri Vyskocil, Mariana Kecova, Karel Petranek, Pavel Janecka, Jakub Grosz, Jiri Majer, Sviatoslav Shekhanov, Elizaveta Pulnova, Luke Duthoit, Chao Lu.
 
+with whom I had a chance to share office
 
 
 %\newpage
