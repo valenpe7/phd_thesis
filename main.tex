@@ -682,7 +682,7 @@ In the first section we start with the definitions of the most important paramet
 
 \subsection{Basic laser and plasma parameters\label{sec:laser_plasma_params}}
 
-The electromagnetic field is represented by two vector quantities: the electric field $ \vec{E} \left( \vec{r}, t \right) $ and the magnetic field $ \vec{B} \left( \vec{r}, t \right) $. Both quantities are finite and continuous functions of position $ \vec{r} = \left( x, y, z \right) $ and time $ t $. Within the framework of classical electrodynamics, the description of the electromagnetic phenomena (e.g., the generation and propagation of $ \vec{E} $ and $ \vec{B} $ as well as their interaction with charges and currents) is based on the system of Maxwell's equations; the microscopic variant with external sources in vacuum can be formulated as
+The electromagnetic field is represented by two vector quantities: the electric field $ \vec{E} \left( \vec{r}; t \right) $ and the magnetic field $ \vec{B} \left( \vec{r}; t \right) $. Both quantities are finite and continuous functions of position $ \vec{r} = \left( x, y, z \right) $ and time $ t $. Within the framework of classical electrodynamics, the description of the electromagnetic phenomena (e.g., the generation and propagation of $ \vec{E} $ and $ \vec{B} $ as well as their interaction with charges and currents) is based on the system of Maxwell's equations; the microscopic variant with external sources in vacuum can be formulated as
 \begin{equation}\label{eq:gauss_law_for_e}
 	\div{\vec{E}} = \frac{\rho}{\varepsilon_0},
 \end{equation}
@@ -695,7 +695,7 @@ The electromagnetic field is represented by two vector quantities: the electric 
 \begin{equation}\label{eq:ampere_law}
 	\rot{\vec{B}} = \mu_0 \vec{J} + \mu_0 \varepsilon_0 \diffp{\vec{E}}{t},
 \end{equation}
-where $ \rho \left( \vec{r}, t \right) $ and $ \vec{J} \left( \vec{r}, t \right) $ are the electric charge and current densities, and $ \varepsilon_0 $ and $ \mu_0 $ are the electric permittivity and the magnetic permeability of vacuum, respectively. By definition, $ \mu_0 \varepsilon_0 = 1 / c^2 $, where $ c $ is the velocity of light in vacuum.
+where $ \rho \left( \vec{r}; t \right) $ and $ \vec{J} \left( \vec{r}; t \right) $ are the electric charge and current densities, and $ \varepsilon_0 $ and $ \mu_0 $ are the electric permittivity and the magnetic permeability of vacuum, respectively. By definition, $ \mu_0 \varepsilon_0 = 1 / c^2 $, where $ c $ is the velocity of light in vacuum.
 
 By combining Eqs.~(\ref{eq:faraday_law}) and (\ref{eq:ampere_law}) and using the identity $ \rot{\left(\rot{\vec{E}}\right)} = \grad{\left(\div{\vec{E}}\right)} - \laplace{\vec{E}} $ we obtain the wave equation for $ \vec{E} $ in the presence of sources,
 \begin{equation}\label{eq:wave_eq}
@@ -721,7 +721,7 @@ The motion of a single electron in the presence of $ \vec{E} $ and $ \vec{B} $ f
 \begin{equation}\label{eq:lorentz_eq}
 	\diff{\vec{p}}{t} = -e \left( \vec{E} + \vec{v} \times \vec{B} \right),
 \end{equation}
-where $ \vec{p} = \gamma m_e \vec{v} $ is the electron momentum and $ \gamma = \sqrt{1 + \left( \norm{\vec{p}} / m_e c \right)^2 } $ is the Lorentz factor. The $ \vec{E} $ and $ \vec{B} $ fields can be expressed in terms of the scalar, $ \phi \left( \vec{r}, t \right) $, and vector, $ \vec{A} \left( \vec{r}, t \right) $, potentials,
+where $ \vec{p} = \gamma m_e \vec{v} $ is the electron momentum and $ \gamma = \sqrt{1 + \left( \norm{\vec{p}} / m_e c \right)^2 } $ is the Lorentz factor. The $ \vec{E} $ and $ \vec{B} $ fields can be expressed in terms of the scalar, $ \phi \left( \vec{r}; t \right) $, and vector, $ \vec{A} \left( \vec{r}; t \right) $, potentials,
 \begin{equation}\label{eq:scalar_potential}
 	\vec{E} = -\grad{\phi} - \diffp{\vec{A}}{t},
 \end{equation}
@@ -927,7 +927,7 @@ The one-dimensional motion of an electron in the wakefield and the electromagnet
 \begin{equation}\label{eq:hamiltonian}
 \mathcal{H} = \sqrt{1 + P_{\parallel}^2 + \left( P_{\bot} + a \right)^2} - \varphi,
 \end{equation}
-where $ P_{\parallel} \left( z, t \right) $ and $ P_{\bot} \left( z, t \right) $ are the longitudinal and transverse components of the canonical momentum, respectively, $ a \left( z, t \right) $ is the vector potential of the driving electromagnetic pulse, and $ \varphi \left( z, t \right) $ is the scalar potential of the wakefield. The canonical to kinetic momentum relations are $ P_{\parallel} = p_{\parallel} $ and $ P_{\bot} = p_{\bot} - a $. Here and below we use again the normalizations of quantities introduced in Sec.~\ref{sec:langmuir_waves}. Further, we assume that $ a $ and $ \varphi $ depend only on variable $ \zeta $; to ensure this, we neglect the effect of dispersion on the driving pulse, and consider that the pulse is circularly polarized and the initial value of $ P_{\bot} $ is equal to zero.
+where $ P_{\parallel} \left( z; t \right) $ and $ P_{\bot} \left( z; t \right) $ are the longitudinal and transverse components of the canonical momentum, respectively, $ a \left( z; t \right) $ is the vector potential of the driving electromagnetic pulse, and $ \varphi \left( z; t \right) $ is the scalar potential of the wakefield. The canonical to kinetic momentum relations are $ P_{\parallel} = p_{\parallel} $ and $ P_{\bot} = p_{\bot} - a $. Here and below we use again the normalizations of quantities introduced in Sec.~\ref{sec:langmuir_waves}. Further, we assume that $ a $ and $ \varphi $ depend only on variable $ \zeta $; to ensure this, we neglect the effect of dispersion on the driving pulse, and consider that the pulse is circularly polarized and the initial value of $ P_{\bot} $ is equal to zero.
 
 The integral of motion of the Hamiltonian [Eq.~(\ref{eq:hamiltonian})] can be written as \cite{Esirkepov2006, Esarey2009, Bulanov2013}
 \begin{equation}\label{eq:integral_of_motion}
@@ -1168,7 +1168,7 @@ The resultant expressions for the spatiotemporal distribution of electric and ma
 	\left( 1 / \gamma_M \right) j_0 \left( \omega_0^{\prime} R / c \right) \sin \left(\omega_0^{\prime} T \right) \Upsilon_2
 \end{bmatrix},
 \end{aligned}
-\end{equation}
+\end{equation}\vspace{2mm}
 \begin{equation}\label{eq:reflected_b_lab_frame_parabolic}
 \begin{aligned}
 \vec{B}^{\prime \prime}_{f} & \left(\rho, \theta, \phi; t \right) = \gamma_M \frac{1 + \beta_M}{1 - \beta_M \cos \theta} \sqrt{\frac{3 \pi^5}{8}} \frac{w_e}{\lambda_0} \frac{E_0}{c} \\[2mm]
@@ -1181,13 +1181,13 @@ The resultant expressions for the spatiotemporal distribution of electric and ma
 \end{aligned}
 \end{equation}
 \end{subequations}
-Here $ w_e $ is the effective radius of the wave packet ($ w_e = w_0 \sqrt{2p + m + 1}$ for the $ p $-th radial, $ m $-th azimuthal Laguerre-Gaussian beam), $ \lambda_0 = 2 \pi c / \omega_0 $ is the wave packet wavelength,
+Here $ w_e $ is the effective radius of the incident wave packet ($ w_e = w_0 \sqrt{2p + m + 1}$ for the $ p $-th radial, $ m $-th azimuthal Laguerre-Gaussian beam), $ \lambda_0 = 2 \pi c / \omega_0 $ is the wavelength of the incident wave packet,
 \begin{equation}\label{eq:envelope_function_1}
 \begin{aligned}
 \Upsilon_1 \left(T, R \right) & = \frac{1}{2} \left\lbrace \frac{\cos \theta + \beta_M}{1 + \beta_M \cos \theta} \exp \left[- \frac{\Delta \omega^{\prime 2}}{4} \left( T + \frac{R}{c} \right)^2 \right] \right. \\
 + & \left. \frac{\cos \theta - \beta_M}{1 - \beta_M \cos \theta} \exp \left[- \frac{\Delta \omega^{\prime 2}}{4} \left( T - \frac{R}{c} \right)^2 \right] \right\rbrace,
 \end{aligned}
-\end{equation}
+\end{equation}\vspace{2mm}
 \begin{equation}\label{eq:envelope_function_2}
 \begin{aligned}
 \Upsilon_2 \left(T, R \right) & = \frac{1}{2} \left\lbrace \frac{\sin \theta}{\gamma_M \left( 1 - \beta_M \cos \theta \right) } \exp \left[- \frac{\Delta \omega^{\prime 2}}{4} \left( T - \frac{R}{c} \right)^2 \right] \right. \\
@@ -1196,10 +1196,10 @@ Here $ w_e $ is the effective radius of the wave packet ($ w_e = w_0 \sqrt{2p + 
 \end{equation}
 are the envelope functions, and
 \begin{equation}\label{eq:T}
-T \left(t, \rho \right) = \frac{t - \left(\rho / c\right) \beta_M \cos \theta}{\gamma_M \left( 1 - \beta_M^2 \cos^2 \theta \right)},
+T \left(\rho; t \right) = \frac{t - \left(\rho / c\right) \beta_M \cos \theta}{\gamma_M \left( 1 - \beta_M^2 \cos^2 \theta \right)},
 \end{equation}
 \begin{equation}\label{eq:R}
-R \left(\rho, t \right) = \frac{\rho - c t \beta_M \cos \theta}{\gamma_M \left( 1 - \beta_M^2 \cos^2 \theta \right)}.
+R \left(\rho; t \right) = \frac{\rho - c t \beta_M \cos \theta}{\gamma_M \left( 1 - \beta_M^2 \cos^2 \theta \right)}.
 \end{equation}
 
 The angular frequency of the outgoing wave packet in the stationary frame of reference is given by \cite{Jeong2021}
@@ -1215,9 +1215,11 @@ Again, in the relativistic limit and the forward direction, the duration is comp
 From Eqs.~(\ref{eq:reflected_e_lab_frame_parabolic}) and (\ref{eq:reflected_b_lab_frame_parabolic}) it is also clear that the field strength and intensity of the reflected wave packet at focus of the relativistic flying parabolic mirror are in the relativistic limit enhanced by factors of $ \approx 4 \gamma_M^3 \sqrt{3 \pi^5 / 8} \left( w_e / \lambda_0 \right) $ and $ \approx 16 \gamma_M^6 \left( 3 \pi^5 / 8 \right) \left( w_e / \lambda_0 \right)^2 $, respectively; thus in comparison with the relativistic flying flat mirror, the focusing provides additional enhancements of the field strength and intensity of $ \approx \gamma_M \sqrt{3 \pi^5 / 8} \left( w_e / \lambda_0 \right) $ and $ \approx \gamma_M^2 \left( 3 \pi^5 / 8 \right) \left( w_e / \lambda_0 \right)^2 $, respectively. Assuming again a laser pulse of wavelength $ 0.8 \ \mathrm{\mu m} $, effective radius $ 3 \ \mathrm{\mu m} $, and peak intensity $ 10^{18} \ \mathrm{W / cm^2} $ being reflected from an ideal relativistic flying parabolic mirror with $ \gamma_M = 10 $, one obtains an intensity of $ 2.6 \times 10^{28} \ \mathrm{W / cm^2} $ at focus.
 
 \begin{figure}[t]
-	\includegraphics[width=0.95\linewidth]{img/rfm_focus.png}
-	\caption[]{\label{fig:rfm_focus} Distribution of the outgoing electromagnetic wave packet reflected from the flying parabolic mirror with $ \beta_M = 0.9 $ calculated from Eq.~() for $ \phi = 0 $, $ w_e = 3 \sqrt{3} \lambda_0 $, $ \Delta \omega = \omega_0 / 10 $, $ t_{\mathrm{FWHM}} \approx 3.75 \ T_0 $, , }
+	\includegraphics[width=1\linewidth]{img/rfm_focus.png}
+	\caption[]{\label{fig:rfm_focus} Laboratory frame distribution of the squared electric field, $ \left( \vec{E}^{\prime \prime}_{f} / E_0 \right)^2 $, of the outgoing electromagnetic wave packet reflected from the flying parabolic mirror moving with $ \beta_M = 0.9 $. The distribution is calculated from Eq.~(\ref{eq:reflected_e_lab_frame_parabolic}) and shown in the plane given by $ \phi = 0 $ for four subsequent instants of time. The parameters of the incident wave packet are $ w_e = 3 \sqrt{3} \lambda_0 $ and $ \Delta \omega = \omega_0 / 10 $ (i.e., $ \tau_{\mathrm{FWHM}} \approx 3.75 \ T_0 $, where $ T_0 = \lambda_0 / c $ is the period of the incident wave packet). The intensification factor at focus is $ \approx 2.4 \times 10^6 $ (the colorbar is saturated).}
 \end{figure}
+
+The distribution of $ \left( \vec{E}^{\prime \prime}_{f} / E_0 \right)^2 $, as described by Eq.~(\ref{eq:reflected_e_lab_frame_parabolic}), is displayed in Fig.~\ref{fig:rfm_focus} for the case of electromagnetic wave packet with $ w_e = 3 \sqrt{3} \lambda_0 $ and $ \Delta \omega = \omega_0 / 10 $ reflected from the flying parabolic mirror moving with $ \beta_M = 0.9 $. The figure shows the cross-sections determined by $ \phi = 0 $ at four subsequent instants of time capturing the outgoing electromagnetic wave distribution.
 
 \subsection{Reflection coefficient}
 
@@ -1295,7 +1297,7 @@ It is important to note that the formula for the reflection coefficient given by
 
 Furthermore, the calculations presented above are valid only if the amplitude of the electromagnetic wave incident on the relativistic mirror is sufficiently low. When the amplitude is high, the electromagnetic wave may significantly affect the mirror motion (i.e., the radiation pressure of the wave may slow down or destroy the mirror) even if the mirror reflection coefficient is small. The knowledge of the onset of recoil effects associated with the interaction of the relativistic mirror and strong incident electromagnetic wave is thus crucial for maximizing the amplitude of the reflected wave.
 
-The recoil effects of relativistic mirrors physically realized by the structures in laser plasmas have been recently investigated in one-dimensional [\ref{paper_3}] and two-dimensional \cite{Jeong2021} geometries. Here we present the one-dimensional description. Let us consider a relativistic mirror in the form of an electron layer interacting with a counter-propagating electromagnetic wave. We assume that all the electrons are characterized by the same momentum, the electromagnetic wave is monochromatic with the angular frequency $ \omega_0 $, and the reflection coefficient (in terms of photon number) is equal to $ \mathcal{R} $. The conservation of momentum and energy before (unprimed quantities) and after (double-primed quantities) the interaction can be written as [\ref{paper_3}]
+The recoil effects of relativistic mirrors physically realized by the structures in laser plasmas have been recently investigated in one-dimensional [\ref{paper_3}] and two-dimensional \cite{Jeong2021} geometries. Here we present the one-dimensional description: Let us consider a relativistic mirror in the form of an electron layer interacting with a counter-propagating electromagnetic wave. We assume that all the electrons are characterized by the same momentum, the electromagnetic wave is monochromatic with the angular frequency $ \omega_0 $, and the reflection coefficient (in terms of photon number) is equal to $ \mathcal{R} $. The conservation of momentum and energy before (unprimed quantities) and after (double-primed quantities) the interaction can be written as [\ref{paper_3}]
 \begin{equation}\label{eq:conservation_of_momentum}
 \mathcal{N}_e p_e - \mathcal{N}_{\omega} p_{\omega} = \mathcal{N}_e p_e^{\prime \prime} + \mathcal{R} \mathcal{N}_{\omega} p_{\omega}^{\prime \prime} - \left( 1 - \mathcal{R} \right) \mathcal{N}_{\omega} p_{\omega},
 \end{equation}
@@ -1316,7 +1318,7 @@ Here $ \mathcal{N} $, $ p $, and $ \mathcal{E} $ are the total numbers, momenta,
 %where $ \hbar $ is the reduced Planck constant.
 
 \begin{figure}[t]
-	\includegraphics[width=0.5\linewidth]{img/recoil_scheme.png}
+	\includegraphics[width=0.475\linewidth]{img/recoil_scheme.png}
 	\caption[]{\label{fig:recoil_schematic} Schematic illustrating the analytical model of Eqs.~(\ref{eq:conservation_of_momentum}) and (\ref{eq:conservation_of_energy}) (a) before and (b) after the interaction of incident electromagnetic wave with a counter-propagating relativistic mirror, which is represented by thin electron layer (red dots).}
 \end{figure}
 
@@ -1366,23 +1368,23 @@ In order to investigate various nonlinear phenomena involved in the collective b
 
 In the particle-in-cell method, the evolution of a system is determined by the motion of individual particles. However, real systems are in general very large in terms of a number of particles they contain. The particle-in-cell method therefore uses a finite set of so-called quasi-particles, each representing a group of physical particles that are near each other in the phase space. A quasi-particle becomes a carrier of certain attributes, e.g., mass, charge, position in space, momentum, etc. As shown below, it is possible to rescale the number of particles in the system, since the Lorentz force acting on the particles depends only on the charge to mass ratio, which is invariant to this transformation. 
 
-The particle-in-cell algorithm combines the Eulerian and Lagrangian approaches of the mathematical description. The electromagnetic fields are calculated on a fixed mesh (Eulerian frame), whereas the quasi-particles can move in a continuous phase space (Lagrangian frame). The algorithm is outlined below for regular spaced three-dimensional Cartesian grid, therefore we may discretize the spatial coordinate as $ \vec{r} \rightarrow \vec{r}_{i, j, k} $, where $ (i, \ j, \ k) \in \mathbb{Z}^{3} $ are the grid indices. If $ \Delta x $, $ \Delta y $, and $ \Delta z $ are the spatial steps in each direction, then $ \vec{r}_{i, j, k} = \left( i \Delta x, \ j \Delta y, \ k \Delta z \right) $. The time is discretized as $ t \rightarrow t^{\,n} $, where $ n \in \mathbb{N} $ is the time level index. If $ \Delta t $ is the time step, then $ t^{\,n} = n \Delta t $. Each quantity $ A \left(\vec{r}_{i, j, k}, t^{\,n} \right) $ is hereafter denoted as $ A_{i, j, k}^{\,n} $.
+The particle-in-cell algorithm combines the Eulerian and Lagrangian approaches of the mathematical description. The electromagnetic fields are calculated on a fixed mesh (Eulerian frame), whereas the quasi-particles can move in a continuous phase space (Lagrangian frame). The algorithm is outlined below for regular spaced three-dimensional Cartesian grid, therefore we may discretize the spatial coordinate as $ \vec{r} \rightarrow \vec{r}_{i, j, k} $, where $ (i, \ j, \ k) \in \mathbb{Z}^{3} $ are the grid indices. If $ \Delta x $, $ \Delta y $, and $ \Delta z $ are the spatial steps in each direction, then $ \vec{r}_{i, j, k} = \left( i \Delta x, \ j \Delta y, \ k \Delta z \right) $. The time is discretized as $ t \rightarrow t^{\,n} $, where $ n \in \mathbb{N} $ is the time level index. If $ \Delta t $ is the time step, then $ t^{\,n} = n \Delta t $. Each quantity $ A \left(\vec{r}_{i, j, k}; t^{\,n} \right) $ is hereafter denoted as $ A_{i, j, k}^{\,n} $.
 
 %In the case of three-dimensional geometry, the spatial coordinate is discretized as $ \vec{r} \rightarrow \vec{r}_{i j k} $, where $ (i, \ j, \ k) \in \mathbb{Z}^{3} $ are the grid indices. The time is discretized as $ t \rightarrow t^{\,n} $, where $ n \in \mathbb{N} $ is the time level index. The algorithm is outlined below for regular Cartesian grid, therefore $ \vec{r}_{i j k} = \left( i \Delta x, \ j \Delta y, \ k \Delta z \right) $, where $ \Delta x $, $ \Delta y $, and $ \Delta z $ are the spatial steps in each direction, and $ t^{\,n} = n \Delta t $, where $ \Delta t $ is the time step. Each quantity $ A \left(\vec{r}_{i j k}, t^{\,n} \right) $ is hereafter denoted as $ A_{ijk}^{\,n} $.
 
-In kinetic theory, each particle species $ \alpha $ in the system is assigned a distribution function $ f_{\alpha} \left( \vec{r}, \vec{p}, t \right) $. In the case of collisionless plasma, the evolution of $ f_{\alpha} $ is governed by the Vlasov equation
+In kinetic theory, each particle species $ \alpha $ in the system is assigned a distribution function $ f_{\alpha} \left( \vec{r}, \vec{p}; t \right) $. In the case of collisionless plasma, the evolution of $ f_{\alpha} $ is governed by the Vlasov equation
 \begin{equation}\label{eq:vlasov_eq}
 	\left( \diffp[]{}{t} + \frac{\vec{p}}{m_{\alpha} \gamma} \cdot \nabla + \vec{F}_L \cdot \frac{\partial}{\partial \vec{p}} \right) f_{\alpha} = 0,
 \end{equation}
 where $ \vec{F}_L = q_{\alpha} \left( \vec{E} + \vec{v} \times \vec{B} \right) $ is the Lorentz force that stems from the existence of collective $ \vec{E} $ and $ \vec{B} $ fields in plasma.
 
-The particle-in-cell algorithm assumes that $ f_{\alpha} $ is obtained by summing the distribution functions $ f_{p, \alpha} \left( \vec{r}, \vec{p}, t \right) $ of each quasi-particle $ p $ of species $ \alpha $,
+The particle-in-cell algorithm assumes that $ f_{\alpha} $ is obtained by summing the distribution functions $ f_{p, \alpha} \left( \vec{r}, \vec{p}; t \right) $ of each quasi-particle $ p $ of species $ \alpha $,
 \begin{equation}\label{eq:dist_function}
 	f_{\alpha} =  \sum_{p} f_{p, \alpha}.
 \end{equation}
 Here and below we use the subscript $ p $ to denote the quantities attributed to quasi-particles or evaluated at the quasi-particle positions. The quasi-particle distribution function can be defined as 
 \begin{equation}\label{eq:quasi_particle_dist_function}
-	f_{p, \alpha} \left( \vec{r}, \vec{p}, t \right) = w_{p} S^r \left[ \vec{r} - \vec{r}_{p} \left( t \right) \right] S^p \left[ \vec{p} - \vec{p}_{p} \left( t \right) \right],
+	f_{p, \alpha} \left( \vec{r}, \vec{p}; t \right) = w_{p} S^r \left[ \vec{r} - \vec{r}_{p} \left( t \right) \right] S^p \left[ \vec{p} - \vec{p}_{p} \left( t \right) \right],
 \end{equation}
 where $ S^r $ and $ S^p $ are the shape functions for the position and momentum variables, respectively, and $ w_{p} $ is the weight of the quasi-particle (i.e., a number of physical particles which the quasi-particle represents).
 
@@ -1395,10 +1397,10 @@ The shape functions cannot be chosen arbitrarily, they have to satisfy the follo
 	\tikzstyle{line} = [draw, -triangle 45]
 	\begin{tikzpicture}[node distance = 2cm, auto]
 		\node [block] (nahore) {Particle pusher\\[2mm] $ \vec{F}_p \rightarrow \left(\vec{x}, \vec{p}\,\right)_{p} $};	
-		\node [empty, below of=nahore, node distance=2cm] (uprostred) {};	
+		\node [empty, below of=nahore, node distance=1.8cm] (uprostred) {};	
 		\node [block, right of=uprostred, node distance=4cm] (vpravo) {Particle weighting\\[2mm] $ \left(\vec{x}, \vec{p}\right)_{p} \rightarrow \left(\rho, \vec{J}\,\right)_{i, j, k} $ };
 		\node [block, left of=uprostred, node distance=4cm] (vlevo) {Field weighting \\[2mm] $ \left(\vec{E}, \vec{B}\,\right)_{i, j, k} \rightarrow \vec{F}_p $};	
-		\node [block, below of=uprostred, node distance=2cm] (dole) {Field solver\\[2mm] $ \left(\rho, \vec{J}\,\right)_{i, j, k} \rightarrow \left(\vec{E}, \vec{B}\,\right)_{i, j, k} $};	
+		\node [block, below of=uprostred, node distance=1.8cm] (dole) {Field solver\\[2mm] $ \left(\rho, \vec{J}\,\right)_{i, j, k} \rightarrow \left(\vec{E}, \vec{B}\,\right)_{i, j, k} $};	
 		\path [line] (dole) -| (vlevo);
 		\path [line] (vlevo) |- (nahore);
 		\path [line] (nahore) -| (vpravo);
@@ -1565,10 +1567,10 @@ This step represents the field weighting.
 
 A final step that is yet to be discussed is thus the particle weighting, i.e., the deposition of $ \rho $ and $ \vec{J} $ from the quasi-particles to the grid points. According to the kinetic theory, $ \rho $ and $ \vec{J} $ can be obtained by the following integrals over the momentum space,
 \begin{equation}\label{eq:charge_density}
-	\rho \left(\vec{r}, t \right) = \sum_{\alpha} q_{\alpha} \int f_{\alpha} \left(\vec{r}, \vec{p}, t \right) \dl \vec{p}, 
+	\rho \left(\vec{r}; t \right) = \sum_{\alpha} q_{\alpha} \int f_{\alpha} \left(\vec{r}, \vec{p}; t \right) \dl \vec{p}, 
 \end{equation}
 \begin{equation}\label{eq:current_density}
-	\vec{J} \left(\vec{r}, t \right) = \sum_{\alpha} q_{\alpha} \int f_{\alpha} \left(\vec{r}, \vec{p}, t \right) \vec{v} \, \dl \vec{p}.
+	\vec{J} \left(\vec{r}; t \right) = \sum_{\alpha} q_{\alpha} \int f_{\alpha} \left(\vec{r}, \vec{p}; t \right) \vec{v} \, \dl \vec{p}.
 \end{equation}
 After discretizing the expression of Eq.~(\ref{eq:charge_density}) with quasi-particles and using the shape function properties, one gets
 \begin{equation}\label{eq:charge_density_discretized}
@@ -1630,6 +1632,7 @@ According to Ref.~\citenum{Esirkepov2001}, only one linear combination of the 8 
 \end{aligned}
 \end{equation}
 \end{subequations}
+
 The expressions of Eqs.~(\ref{eq:current_density_deposition_lin_comb}) define the current density decomposition. The current density associated with the motion of a single quasi-particle is obtained by solving Eqs.~(\ref{eq:current_density_deposition_eqs}). We note that the charge conservation methods do not use the charge densities to advance the electromagnetic fields, they are usually projected on the grid only for diagnostics purposes.
 
 %\subsection{Particle-in-cell algorithm}
@@ -1659,7 +1662,7 @@ In addition to the applications mentioned above, the understanding of the physic
 
 The first part of the paper presents an analytical model based on geometric optics approximation which qualitatively illustrates the origin and the initial stage of the electromagnetic ring formation. We define the plasma density distribution within the Langmuir wave as well as the Hamiltonian for the photon interaction with the Langmuir wave; the trajectories of photons are then obtained by solving the Hamilton equations. The second part of the paper presents a three-dimensional particle-in-cell simulation, the results of which demonstrate the formation of the electromagnetic as well as electron ring. We discuss the mechanism of formation of the electromagnetic ring and the processes of electron injection into the accelerating phase of the secondary wakefield generated by the electromagnetic ring. Finally, the third part of the paper contains the results of a systematic multi-parametric simulation study for various plasma densities, laser intensities, and laser spot sizes revealing the relationships among the properties of the electromagnetic rings and the parameters of laser and plasma.
 
-The main results of the paper can be summarized as follows. We identify and describe a novel physical mechanism which leads to the formation of ring-shaped electromagnetic-electron structures, where the electromagnetic rings arise from the laser pulse defocusing induced by the excitation of Langmuir waves in underdense plasma, and the ring-shaped electron beams are formed and accelerated subsequently by the secondary toroidal wakefields generated by the electromagnetic rings. We further reveal that the electromagnetic rings are relatively robust nonlinear objects, whose properties can be controlled by tuning the parameters of laser and plasma. Within the studied parameter range, we find that up to $ \approx 70 \ \% $ of the total initial driver pulse energy can be carried off by the electromagnetic rings having the opening angles $ \approx 45 - 115 \ \mathrm{mrad} $. 
+The main results of the paper can be summarized as follows: We identify and describe a novel physical mechanism which leads to the formation of ring-shaped electromagnetic-electron structures, where the electromagnetic rings arise from the laser pulse defocusing induced by the excitation of Langmuir waves in underdense plasma, and the ring-shaped electron beams are formed and accelerated subsequently by the secondary toroidal wakefields generated by the electromagnetic rings. We further reveal that the electromagnetic rings are relatively robust nonlinear objects, whose properties can be controlled by tuning the parameters of laser and plasma. Within the studied parameter range, we find that up to $ \approx 70 \ \% $ of the total initial driver pulse energy can be carried off by the electromagnetic rings having the opening angles $ \approx 45 - 115 \ \mathrm{mrad} $. 
 
 Our research published in Ref.~\ref{paper_1} has been promoted by the editors of \textit{Physics of Plasmas} journal by selecting the article as \q{Featured} and additionally reported by \textit{Scilight} \cite{Patrick2021}, which showcases the most interesting research across the physical sciences published in AIP Publishing journals. Furthermore, Fig.~4 from Ref.~\ref{paper_1} has been selected as the cover image of the journal's December issue. Besides Ref.~\ref{paper_1}, a portion of this work has been also published in Ref.~\citenum{Valenta2021} and presented by the author at \q{SPIE Optics+Optoelectronics 2021,} \q{OPTO2021 Symposium on Photon and Beam Science,} and \q{ELI Summer School 2021,} whereas the latter presentation has been awarded by the \q{Best poster prize.} The author contributed to all the aspects of the research, including the initial formulation of the scientific topic, development of the analytical model, setup and execution of the numerical simulations on computer clusters, and analysis and interpretation of the simulation data. Furthermore, based on the results obtained the author prepared figures, wrote the bulk of the manuscript text, and submitted the manuscript to the journal whereas serving as a corresponding author. Last, the author was communicating with editors and referees concerning the requested revisions of the manuscript until the final publication in the journal.
 
@@ -1674,7 +1677,7 @@ The research on laser-wakefield acceleration of electrons has been predominantly
 
 In the first part of the paper we extend the standard model of the wakefield generation by considering the carrier-envelope phase shift of the driving laser pulse. The model shows that wakefield generated by the ultrashort laser pulse contains a long-wavelength modulation of its amplitude. In the second part of the paper we analytically investigate the acceleration of single relativistic electron by the modulated wakefield. We show that the electron energy gain depends on the initial phase of the driver and find the case for which the net energy acquired by the electron over given distance is maximal. Finally, the third part of the paper contains the description of setup and the results of the three-dimensional particle-in-cell simulation on the self-consistent evolution of the ultrashort laser pulse and near-critical density plasma. The simulation results are in qualitative agreement with the analytical model.
 
-The main results of the paper can be summarized as follows. We reveal for the first time (to the best of our knowledge) that the wakefield, being excited by an ultrashort laser pulse in plasma, periodically reverses its polarity. As shown by the analytical model and numerical simulation, the wakefield polarity reversal is caused by dispersion and the corresponding difference between the propagation speed of the carrier and the envelope of the driving laser pulse. Further, we show that the novel phenomenon of the wakefield polarity reversal occurs on spatial scales shorter than the dephasing length and, therefore, significantly affects the energy spectra of accelerated electron beams. In the nonlinear regime, however, there may exist a case for which the polarity reversal length is equal to the dephasing length. In such a case, the dephasing limit is overcome and the electrons are accelerated until the energy of the driver pulse depletes. The discovery of this phenomenon is crucial for better control of the parameters of electron beams accelerated via the laser-wakefield mechanism (e.g., by adjusting the initial phase of the driver or by controlling the phase of the electron injection), particularly in experiments carried out with the present-day high-repetition-rate laser systems.
+The main results of the paper can be summarized as follows: We reveal for the first time (to the best of our knowledge) that the wakefield, being excited by an ultrashort laser pulse in plasma, periodically reverses its polarity. As shown by the analytical model and numerical simulation, the wakefield polarity reversal is caused by dispersion and the corresponding difference between the propagation speed of the carrier and the envelope of the driving laser pulse. Further, we show that the novel phenomenon of the wakefield polarity reversal occurs on spatial scales shorter than the dephasing length and, therefore, significantly affects the energy spectra of accelerated electron beams. In the nonlinear regime, however, there may exist a case for which the polarity reversal length is equal to the dephasing length. In such a case, the dephasing limit is overcome and the electrons are accelerated until the energy of the driver pulse depletes. The discovery of this phenomenon is crucial for better control of the parameters of electron beams accelerated via the laser-wakefield mechanism (e.g., by adjusting the initial phase of the driver or by controlling the phase of the electron injection), particularly in experiments carried out with the present-day high-repetition-rate laser systems.
 
 Besides Ref.~\ref{paper_2}, a portion of this work has been also published in Refs.~\citenum{ Valenta2019, Lazzarini2019} and presented by the author at \q{ELI Users' conference 2020,} \q{SPIE Optics+Optoelectronics 2019,} and \q{45$ ^{\mathrm{th}} $ EPS Conference on Plasma Physics,} whereas the latter presentation has been awarded by the \q{Best poster prize.} The author contributed to all the aspects of the research, including the initial formulation of the scientific topic, development of the analytical model, setup and execution of the numerical simulations on computer clusters, and analysis and interpretation of the simulation data. Furthermore, based on the results obtained the author prepared figures and wrote the bulk of the manuscript text, submitted the manuscript to the journal whereas serving as a corresponding author. Last, the author was communicating with editors and referees concerning the requested revisions of the manuscript until the final publication in the journal.
 
@@ -1687,7 +1690,7 @@ Third, we present the results of research devoted to the sources of coherent sho
 
 In the first part of the paper we exploit the conservation of momentum and energy before and after the interaction of relativistic flying mirror with counter-propagating electromagnetic wave to develop an analytical model describing the factors of amplification and frequency upshift of the relativistic mirror beyond the approximation of a weak incident electromagnetic wave. Furthermore, we define a threshold for the fluence of the incident electromagnetic wave which characterizes the recoil importance in this interaction. In the second part of the paper, we consider a relativistic flying mirror in the form of strongly nonlinear Langmuir wave and estimate the threshold derived before for this particular case of physical realization of relativistic mirror. Finally, in the third part of the paper we investigate the applicability of our model by one-dimensional particle-in-cell simulations and numerically obtain the properties of interest, such as reflection coefficient of the Langmuir wave and factors of the electric field amplification and the frequency upshift of the incident laser pulse.
 
-The main results of the paper can be summarized as follows. We present an analytical model which shows that if the fluence of the electromagnetic wave incident on the relativistic mirror exceeds a certain threshold, the relativistic mirror undergoes a back reaction significantly affecting its amplification and frequency upshift factors. Further, the numerical simulations reveal that the Langmuir wave driven by a short intense laser pulse in uniform plasma decelerates and, therefore, the reflected radiation has a positive chirp. We find that the electric field amplification factor of the reflected radiation reaches its maximum at the moment of wave-breaking. In addition, our results show that for a given intensity of the source pulse there exists an optimal duration of the source pulse; longer-than-optimal pulses have lower reflected-to-incident energy ratio. Moreover, for a given Langmuir wave excited by the driver pulse there exists an optimal intensity of the source pulse which provides the most intense reflected wave with almost the same frequency upshift factor as in the weak-source approximation.
+The main results of the paper can be summarized as follows: We present an analytical model which shows that if the fluence of the electromagnetic wave incident on the relativistic mirror exceeds a certain threshold, the relativistic mirror undergoes a back reaction significantly affecting its amplification and frequency upshift factors. Further, the numerical simulations reveal that the Langmuir wave driven by a short intense laser pulse in uniform plasma decelerates and, therefore, the reflected radiation has a positive chirp. We find that the electric field amplification factor of the reflected radiation reaches its maximum at the moment of wave-breaking. In addition, our results show that for a given intensity of the source pulse there exists an optimal duration of the source pulse; longer-than-optimal pulses have lower reflected-to-incident energy ratio. Moreover, for a given Langmuir wave excited by the driver pulse there exists an optimal intensity of the source pulse which provides the most intense reflected wave with almost the same frequency upshift factor as in the weak-source approximation.
 
 Besides Ref.~\ref{paper_3}, a portion of this work has been also published in Refs.~\citenum{Valenta2020c, Jeong2021b} and presented by the author at \q{OSA High-brightness Sources and Light-driven Interactions Congress 2020,} \q{ELI Summer School 2020,} \q{LeCosPA Cosmology and Particle Astrophysics Seminar,} \q{4$ ^{\mathrm{th}} $ Users' Conference of IT4Innovations,} and \q{28$ ^{\mathrm{th}} $ Symposium on Plasma Physics and Technology.} The author contributed to all the aspects of the research, including the initial formulation of the scientific topic, development of the analytical model, setup and execution of the numerical simulations on computer clusters (requiring significant changes to the source code in this case), and analysis and interpretation of the simulation data. Furthermore, based on the results obtained the author prepared figures, wrote the bulk of the manuscript text, and submitted the manuscript to the journal whereas serving as a corresponding author. Last, the author was communicating with editors and referees concerning the requested revisions of the manuscript until the final publication in the journal.
 
@@ -1703,7 +1706,7 @@ One of the immediate applications of such a diagnostic is control and tuning of 
 
 In the first part of the paper we describe the physical mechanisms underlying the formation of the electron density singularities in laser plasmas and propose a novel scheme in which these singularities act as a relativistic mirror. Furthermore, we develop an analytical model in order to predict the base frequency and direction angle of reflected radiation. In the second part of the paper we present a setup and results of three-dimensional and high-resolution two-dimensional particle-in-cell simulations. We demonstrate the feasibility of the novel scheme and analyze the properties of the reflected electromagnetic wave and its spectrum. Finally, in the third part of the paper we investigate the effects of finite temperature on the proposed scheme.
 
-The main results of the paper can be summarized as follows. We propose a novel scheme for physical realization of relativistic mirrors based on the density singularities in laser plasmas - a relativistic flying forcibly oscillating mirror. The proposed scheme uses the electron density singularity at the joining area of the laser wake and bow waves to reflect the counter-propagating source pulse. Since in this regime the surface of the mirror is modulated and oscillates due to the presence of the strong electromagnetic field of the driving laser pulse, it acts as a reflective diffraction grating and generates boosted high-order harmonics of very high brightness. Compared with the boosted high-order harmonics produced by a high-density plasma slab and a thin electron layer \cite{Kulagin2007, Esirkepov2009, Wu2010}, the regime under consideration has the properties of a relativistic flying mirror \cite{Bulanov2003}, relativistic oscillating mirror \cite{Bulanov1994, Naumova2004}, and it inherits the properties of the laser driven oscillating electron spikes \cite{Pirozhkov2014, Pirozhkov2017}. 
+The main results of the paper can be summarized as follows: We propose a novel scheme for physical realization of relativistic mirrors based on the density singularities in laser plasmas - a relativistic flying forcibly oscillating mirror. The proposed scheme uses the electron density singularity at the joining area of the laser wake and bow waves to reflect the counter-propagating source pulse. Since in this regime the surface of the mirror is modulated and oscillates due to the presence of the strong electromagnetic field of the driving laser pulse, it acts as a reflective diffraction grating and generates boosted high-order harmonics of very high brightness. Compared with the boosted high-order harmonics produced by a high-density plasma slab and a thin electron layer \cite{Kulagin2007, Esirkepov2009, Wu2010}, the regime under consideration has the properties of a relativistic flying mirror \cite{Bulanov2003}, relativistic oscillating mirror \cite{Bulanov1994, Naumova2004}, and it inherits the properties of the laser driven oscillating electron spikes \cite{Pirozhkov2014, Pirozhkov2017}. 
 
 Besides Ref.~\ref{paper_4}, a portion of this work has been also published in Refs.~\citenum{Mu2019, Mu2019b, Esirkepov2020} and presented by the author at \q{SPIE Optics \& Photonics International Congress 2019,} \q{KPSI Scientific Seminar,} and \q{2$ ^{\mathrm{nd}} $ Users' Conference of IT4Innovations.} The author contributed mainly to the setup and execution of three-dimensional numerical simulations on computer clusters and subsequent analysis and interpretation of the simulation data. Based on the results obtained the author prepared figures and wrote the manuscript text corresponding to the part dealing with the three-dimensional numerical simulations. Last, the author also contributed concerning the requested revisions of the manuscript until the final publication in the journal.
 
@@ -1761,53 +1764,7 @@ Concerning the research on relativistic flying mirrors, we plan to work on devel
 \chapter*{Acknowledgements \markboth{Acknowledgements}{Acknowledgements}}
 %\addcontentsline{toc}{chapter}{Acknowledgements}
 
-First and foremost I would like to thank Prof. S. V. Bulanov 
 
-
-and I am extremely grateful for their guidance and support
-
-for all of the support and assistance you’ve given me. It has been a
-pleasure to work with you all and it’s a bonus that I’ve made some great friends
-too. I’d particularly like to single out Stuart, Phil and Alec to who I am especially
-grateful, for being so patient with me, not only during the (long) experiments, but
-during the analysis as well.
-
-Most of the members of the
-Imperial College Plasma Physics group, past and present, have at some stage of my
-PhD provided assistance in some way, discussions, advise and encouragement, so
-many thanks to you all.
-
-provided guidance whenever I needed it,
-and enabled me to build my own scientific career.
-
-Even more importantly, he created
-a fair and productive work environment and through his leadership enabled a group of
-young researchers to grow into an outstanding team that, through its accomplishments
-
-Wim’s profound knowledge of virtually any aspect of
-laser-plasma acceleration, even when it comes to the smallest technical details, has
-always impressed me and struck me as something to strive for.
-
-Second, I would like to thank Dr. O. Klimo for introducing me to this fascinating field of science and for being always around / supporting me since my undergraduate studies.
-
-Through the years, I had the chance to share office space with great people that inspired me a lot and with who I had the chance to spend amazing time in (and sometimes out of) the office! 
-
-newline \\ 
-
-proficient supervision
-
-\noindent This work was supported by the project "High Field Initiative" (Grant No. CZ.02.1.01/0.0/0.0/\\15\_003/0000449) from the European Regional Development Fund.
-
-%SVB, OK
-%LeCosPa: Yen-Ling Lee, Mia Wang, Yung-Kun Liu, Yuan Fang, Pisin Chen 
-%KPSI: Satoshi Orimo, Timur Esirkepov, James Koga, Alexander Pirozhkov, Masaki Kando, Tetsuya Kawachi
-%HIFI: Prokopis Hadjisolomou, Tae-Moon Jeong, David Kolenaty, 
-%ELBA: Grittani, Lazzarini, Lorenz
-%TAE: Necas
-%Office: 
-%Martin Matys, Martin Jirka, Jan Nikl, Jiri Vyskocil, Mariana Kecova, Karel Petranek, Pavel Janecka, Jakub Grosz, Jiri Majer, Sviatoslav Shekhanov, Elizaveta Pulnova, Luke Duthoit, Chao Lu.
-
-with whom I had a chance to share office
 
 
 %\newpage
