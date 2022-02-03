@@ -604,7 +604,7 @@ A number of schemes that lead to the physical generation of relativistic mirrors
 
 The first goal of our work is to develop a theory for the less explored regimes of the laser-wakefield acceleration of electrons. We focus on the evolution of high-power laser pulse in plasma and its effect on the resulting parameters of the accelerated electron beams in the regime of strong interaction between the driver pulse and the electron density spikes of the co-propagating Langmuir wave. Also, we investigate the peculiarities of the laser-wakefield acceleration in the regime of ultrashort laser pulses and near-critical density plasmas, which is of high interest for the acceleration driven by high-repetition-rate laser systems. Our second goal is to extend the theory for the interaction of laser and counter-propagating relativistic mirror in the regime of strong incident electromagnetic wave, where the recoil effects cannot be neglected, as well as to search for novel schemes for physical realization of relativistic flying mirrors in underdense plasmas.
 
-The work presented in this doctoral thesis is conducted on an exclusively theoretical level. Each of the research topics is first approached by a simple (but not trivial) analytical model, which is then confronted with large-scale numerical simulations. Being in a close contact with experimental teams, however, the initial formulations and specifications of the topics to be studied, as well as the achieved results, have always been a subject of long mutual discussions. All the conditions and parameters used in this work are thus tightly connected to the capabilities of experimental devices (either existing or under construction). Overall, the aim of our theoretical work is not only to provide a general description of investigated physical processes but also to explain and interpret the results of ongoing experiments, as well as to suggest new experiments to be carried out in the future.
+The work presented in this doctoral thesis is conducted on an exclusively theoretical level. Each of the research topics is first approached by a simple (but not trivial) analytical model, which is then confronted with large-scale numerical simulations. Being in a close contact with experimental teams, however, the initial formulations and specifications of the topics to be studied, as well as the achieved results, have always been a subject of long mutual discussions. All the conditions and parameters used in this work are thus tightly connected to the capabilities of experimental devices (either existing or under construction). Overall, the aim of our theoretical work is not only to provide a general description of investigated physical processes but also to explain and interpret the results of ongoing experiments, as well as to suggest the setup of new experiments to be carried out in the future.
 
 
 \section{Author's role and contributions}
@@ -954,8 +954,7 @@ Note that if the driver pulse length is shorter than half of the wakefield wavel
 \end{equation}
 Note that there may exist also other separatrices that are not shown in Fig.~\ref{fig:phase_plot} (a), e.g., the confining separatrix which encloses a domain of electron orbits trapped inside the potential well in the first period of the wakefield, or the ponderomotive separatrix which encloses the orbits of electrons being reflected by the ponderomotive force of the driver pulse \cite{Esirkepov2006}.
 
-From Fig.~\ref{fig:phase_plot} (a) we may see that when the initial electron momentum is too low or too high, the electrons are untrapped by the wakefield potential and thus move on open orbits in phase space. In the former case, the electrons slip backward through the Langmuir wave, while in the latter case they eventually outrun the Langmuir wave. Only electrons with initial momentum within the limits given by the condition $ h_0 < h_s $ become trapped (the threshold momentum required for trapping decreases for a lower phase velocity and a larger amplitude of the Langmuir wave \cite{Schroeder2006}). Once trapped, the electrons find themselves on closed orbits as they co-propagate with the Langmuir wave and periodically gain and lose energy. The regions within a single Langmuir wave period where the electrons gain and lose energy (i.e., the accelerating and decelerating regions) are displayed in Fig.~\ref{fig:phase_plot}. 
-
+From Fig.~\ref{fig:phase_plot} (a) we may see that when the initial electron momentum is too low or too high, the electrons are untrapped by the wakefield potential and thus move on open orbits in phase space. In the former case, the electrons slip backward through the Langmuir wave, while in the latter case they eventually outrun the Langmuir wave. Only electrons with initial momentum within the limits given by the condition $ h_0 < h_s $ become trapped (the threshold momentum required for trapping decreases for a lower phase velocity and a larger amplitude of the Langmuir wave \cite{Schroeder2006}). Once trapped, the electrons find themselves on closed orbits as they co-propagate with the Langmuir wave and periodically gain and lose energy. The regions within a single Langmuir wave period where the electrons gain and lose energy (i.e., the accelerating and decelerating regions) are displayed in Fig.~\ref{fig:phase_plot} with green and red colors, respectively. 
 
 \subsection{Limits of laser-wakefield acceleration}
 
@@ -977,7 +976,7 @@ The laboratory frame distance required for the electron to move from $ \zeta_s $
 \end{equation}
 In the limit $ \beta_e \rightarrow 1 $ and $ \gamma_w \gg 1 $, $ l_d \approx \gamma_w^2 \lambda_w $.
 
-As the driver pulse excites the wakefield, it continuously transfers its energy to the plasma; the associated energy loss manifests itself in the change of the driver pulse form (e.g., frequency shifts \cite{Esarey1990, Shadwick2009} and front steepening \cite{Bulanov1992, Esarey2000, Gordon2003}) which makes the pulse front velocity $ \beta_{\mathrm{etch}} $ smaller than $ \beta_g $ (so-called driver etching \cite{Nakajima2011}). This effect may thus also limit $ l_{\mathrm{acc}} $ and $ \mathcal{E}_{\mathrm{max}} $. The characteristic scale length of driver energy deposition into wakefield generation is generally referred to as pump depletion length, $ l_{pd} $. The value of $ l_{pd} $ for the square pulse with initial length $ l_p $ can be estimated as \cite{Bulanov2016}
+As the driver pulse excites the wakefield, it continuously transfers its energy to the plasma; the associated energy loss manifests itself in the changes of the driver pulse form (e.g., frequency shifts \cite{Esarey1990, Shadwick2009} and front steepening \cite{Bulanov1992, Esarey2000, Gordon2003}) which make the pulse front velocity $ \beta_{\mathrm{etch}} $ smaller than $ \beta_g $ (so-called driver etching \cite{Nakajima2011}). This effect may thus also limit $ l_{\mathrm{acc}} $ and $ \mathcal{E}_{\mathrm{max}} $. The characteristic scale length of driver energy deposition into wakefield generation is generally referred to as pump depletion length, $ l_{pd} $. The value of $ l_{pd} $ for the square pulse with initial length $ l_p $ can be estimated as \cite{Bulanov2016}
 \begin{equation}\label{key}
 	l_{pd} \approx \frac{l_p}{\beta_g - \beta_{\mathrm{etch}}}.
 \end{equation}
@@ -1112,7 +1111,7 @@ Finally, since $ x^{\prime \prime} = x $, $ y^{\prime \prime} = y $, $ z^{\prime
 & \times \exp \left[ i \frac{1 + \beta_M}{1 - \beta_M} \omega_0 \left(t - \frac{z - z_0}{c}\right) \right].
 \end{split}
 \end{equation}
-For a Gaussian beam of width $ w_0 $, $ E_0 \left( x, y \right) = E_0 \exp \left[-\left( x^2 + y^2 \right) / 2 w_0^2 \right] $, and thus the total energy and peak intensity of the reflected pulse are given by 
+For a Gaussian beam of width $ w_0 $, $ E_0 \left( x, y \right) = E_0 \exp \left[-\left( x^2 + y^2 \right) / \left( 2 w_0^2 \right) \right] $, and thus the total energy and peak intensity of the reflected pulse are given by 
 \begin{equation}\label{eq:energy_and_intensity}
 \mathcal{E}^{\prime \prime}_r = \left(\frac{1 + \beta_M}{1 - \beta_M}\right) \sqrt{\frac{\pi^3}{4}} \varepsilon_0 c \tau w_0^2 E_0^2 , \quad I^{\prime \prime}_r = \left(\frac{1 + \beta_M}{1 - \beta_M}\right)^2 \frac{\varepsilon_0 c}{2} E_0^2.
 \end{equation}
@@ -1122,7 +1121,7 @@ Note that factor $ \left(1 + \beta_M \right) / \left(1 - \beta_M \right) $ can b
 \end{equation}
 where the last term is obtained using the identities $ \gamma_M + \sqrt{\gamma_M^2 - 1} = ( \gamma_M - \sqrt{\gamma_M^2 - 1} )^{-1} $ and $ \sqrt{\gamma_M^2 - 1} \approx \gamma_M $ and is valid in the relativistic limit, i.e., when $ \gamma_M \gg 1 $.
 
-The above derivation shows that the reflected wave packet in the stationary frame of reference possesses several remarkable features: In the relativistic limit, its electric field is amplified by the factor $ \approx 4 \gamma_M^2 $, its duration is compressed by $ \approx 4 \gamma_M^2 $, and its angular frequency is upshifted by $ \approx 4 \gamma_M^2 $. Furthermore, its energy and intensity are enhanced by $ \approx 4 \gamma_M^2 $ and $ \approx 16 \gamma_M^4 $, respectively. Assuming a laser pulse with parameters corresponding to a typical $ \mathrm{PW} $-class titanium-doped sapphire system, i.e., $ 0.8 \ \mathrm{\mu m} $ wavelength, $ 30 \ \mathrm{fs} $ duration, and $ 10^{18} \ \mathrm{W / cm^2} $ peak intensity, being reflected from an ideal relativistic flying flat mirror with $ \gamma_M = 10 $, one obtains a pulse of wavelength $ 2 \ \mathrm{nm} $, duration $ 75 \ \mathrm{as} $, and the peak intensity $ 1.6 \times 10^{23} \ \mathrm{W / cm^2} $.
+The above derivation shows that the reflected wave packet in the stationary frame of reference possesses several remarkable features: In the relativistic limit, its electric field is amplified by the factor $ \approx 4 \gamma_M^2 $, its duration is compressed by $ \approx 4 \gamma_M^2 $, and its angular frequency is upshifted by $ \approx 4 \gamma_M^2 $. Furthermore, its energy and intensity are enhanced by $ \approx 4 \gamma_M^2 $ and $ \approx 16 \gamma_M^4 $, respectively. Assuming a laser pulse with parameters corresponding to a typical $ \mathrm{TW} $-class titanium-doped sapphire system, i.e., $ 0.8 \ \mathrm{\mu m} $ wavelength, $ 30 \ \mathrm{fs} $ duration, and $ 10^{18} \ \mathrm{W / cm^2} $ peak intensity, being reflected from an ideal relativistic flying flat mirror with $ \gamma_M = 10 $, one obtains a pulse of wavelength $ 2 \ \mathrm{nm} $, duration $ 75 \ \mathrm{as} $, and the peak intensity $ 1.6 \times 10^{23} \ \mathrm{W / cm^2} $.
 
 \subsection{Relativistic flying parabolic mirror\label{sec:rfpm}}
 
@@ -1155,7 +1154,7 @@ S_b \left( \omega^{\prime} \right) = \frac{4}{\pi} j_1 \left( \frac{\omega^{\pri
 \end{equation}
 Here $ j_{n} \left( \cdot \right) $ is the $ n $-th order spherical Bessel function of the first kind, and $ P_n \left( \cdot \right) $ and $ P^m_n \left( \cdot \right) $ are the Legendre and associated Legendre functions, respectively \cite{Gradshteyn1965}.
 
-The resultant expressions for the spatiotemporal distribution of electric and magnetic fields of the radially polarized wave packet in the focal region of the mirror in the stationary frame of reference are obtained through the inverse Lorentz transformation and a Fourier transformation in the frequency domain \cite{Jeong2021},
+The resulting expressions for the spatiotemporal distribution of electric and magnetic fields of the radially polarized wave packet in the focal region of the mirror in the stationary frame of reference are obtained through the inverse Lorentz transformation and a Fourier transformation in the frequency domain \cite{Jeong2021},
 \begin{subequations}
 \begin{equation}\label{eq:reflected_e_lab_frame_parabolic}
 \begin{aligned}
@@ -1247,7 +1246,7 @@ Here, $ a \left( z^{\prime} \right) $ is the vector potential normalized by $ m_
 \begin{equation}\label{eq:vector_potential_form}
 a = b_{-} \left( z^{\prime} \right) \exp \left( -i s z^{\prime} \right) + b_{+} \left( z^{\prime} \right) \exp \left( i s z^{\prime} \right),
 \end{equation}
-and impose the following boundary conditions on the functions $ b_{-} \left( z^{\prime} \right) $ and $ b_{+} \left( z^{\prime} \right) $: In the limit $ z^{\prime} \rightarrow +\infty $, functions $ b_{-} \left( z^{\prime} \right) $ and $ b_{+} \left( z^{\prime} \right) $ represent the amplitudes of the incident and reflected electromagnetic waves, respectively, i.e., we set $ b_{-} \left( +\infty \right) = 1 $ and $ b_{+} \left( +\infty \right) = \rho $. In the opposite limit $ z^{\prime} \rightarrow -\infty $, $ b_{-} \left( z^{\prime} \right) $ is the amplitudes of the transmitted wave and $ b_{+} \left( z^{\prime} \right) $ vanishes, i.e., we set $ b_{-} \left( -\infty \right) = \tau $ and $ b_{+} \left( -\infty \right) = 0 $. We also require the following condition on the derivative of $ a $ to be satisfied,
+and impose the following boundary conditions on the functions $ b_{-} \left( z^{\prime} \right) $ and $ b_{+} \left( z^{\prime} \right) $: In the limit $ z^{\prime} \rightarrow +\infty $, functions $ b_{-} \left( z^{\prime} \right) $ and $ b_{+} \left( z^{\prime} \right) $ represent the amplitudes of the incident and reflected electromagnetic waves, respectively, i.e., we set $ b_{-} \left( +\infty \right) = 1 $ and $ b_{+} \left( +\infty \right) = \rho $. In the opposite limit $ z^{\prime} \rightarrow -\infty $, $ b_{-} \left( z^{\prime} \right) $ is the amplitude of the transmitted wave and $ b_{+} \left( z^{\prime} \right) $ vanishes, i.e., we set $ b_{-} \left( -\infty \right) = \tau $ and $ b_{+} \left( -\infty \right) = 0 $. We also require the following condition on the derivative of $ a $ to be satisfied,
 \begin{equation}\label{eq:boundary_condition_1}
 \diff{a}{z^{\prime}} = -i s b_{-} \exp \left( -i s z^{\prime} \right) + i s b_{+} \exp \left( i s z^{\prime} \right),
 \end{equation}
@@ -1361,11 +1360,11 @@ Here $ \varkappa \ll 1 $, i.e., much less energy than the kinetic energy of the 
 %Individual steps are closer described in several following sections. An extensive study of PIC method can be found in \cite{birdsall, hockney}.
 
 
-In order to investigate various nonlinear phenomena involved in the collective behavior of particles and strong electromagnetic fields in the full three-dimensional geometry, one has to use numerical simulations. In this section we present the particle-in-cell method, which appears to be very convenient (among others) also for the investigations of the interaction of intense laser pulses with underdense plasmas, particularly on the $ \mathrm{\mu m} $ -- $ \mathrm{mm} $ spatial and $ \mathrm{fs} $ -- $ \mathrm{ps} $ temporal scales. We provide a brief description of the particle-in-cell method and discuss the core elements of the algorithm, namely particle pusher, field solver, field weighting, and particle weighting. An extensive study of the method can be found, e.g., in Refs.~\citenum{Dawson1983, Hockney1988, Grigoryev2002, Birdsall2004}.
+In order to investigate various nonlinear phenomena involved in the collective behavior of charged particles and strong electromagnetic fields in the full three-dimensional geometry, one has to use numerical simulations. In this section we present the particle-in-cell method, which appears to be very convenient (among others) also for the investigations of the interaction of intense laser pulses with underdense plasmas, particularly on the $ \mathrm{\mu m} $ -- $ \mathrm{mm} $ spatial and $ \mathrm{fs} $ -- $ \mathrm{ps} $ temporal scales. We provide a brief description of the particle-in-cell method and discuss the core elements of the algorithm, namely particle pusher, field solver, field weighting, and particle weighting. An extensive description of the method can be found, e.g., in Refs.~\citenum{Dawson1983, Hockney1988, Grigoryev2002, Birdsall2004}.
 
 \subsection{General description}
 
-In the particle-in-cell method, the evolution of a system is determined by the motion of individual particles. However, real systems are in general very large in terms of the number of particles they contain. The particle-in-cell method therefore uses a finite set of so-called quasi-particles, each representing a group of physical particles that are near each other in the phase space. A quasi-particle becomes a carrier of certain attributes, e.g., mass, charge, position in space, momentum, etc. As shown below, it is possible to rescale the number of particles in the system, since the Lorentz force acting on the particles depends only on the charge to mass ratio, which is invariant to this transformation. 
+In the particle-in-cell method, the evolution of a system is determined by the motion of individual particles. However, real systems are in general very large in terms of the number of particles they contain. The particle-in-cell method therefore uses a finite set of so-called quasi-particles, each representing a group of physical particles that are close to each other in the phase space. A quasi-particle becomes a carrier of certain attributes, e.g., mass, charge, position in space, momentum, etc. As shown below, it is possible to rescale the number of particles in the system, since the Lorentz force acting on the particles depends only on the charge to mass ratio, which is invariant to this transformation. 
 
 The particle-in-cell algorithm combines the Eulerian and Lagrangian approaches of mathematical description. The electromagnetic fields are calculated on a fixed mesh (Eulerian frame), whereas the quasi-particles can move in a continuous phase space (Lagrangian frame). The algorithm is outlined below for a regularly spaced three-dimensional Cartesian grid; therefore, we can discretize the spatial coordinate as $ \vec{r} \rightarrow \vec{r}_{i, j, k} $, where $ (i, \ j, \ k) \in \mathbb{Z}^{3} $ are the grid indices. If $ \Delta x $, $ \Delta y $, and $ \Delta z $ are spatial steps in each direction, then $ \vec{r}_{i, j, k} = \left( i \Delta x, \ j \Delta y, \ k \Delta z \right) $. The time is discretized as $ t \rightarrow t^{\,n} $, where $ n \in \mathbb{N} $ is the time level index. If $ \Delta t $ is the time step, then $ t^{\,n} = n \Delta t $. Each quantity $ A \left(\vec{r}_{i, j, k}; t^{\,n} \right) $ is hereafter denoted as $ A_{i, j, k}^{\,n} $.
 
@@ -1426,7 +1425,7 @@ with $ \vec{u}_p = \vec{p}_p / m_{\alpha} $.
 %\end{equation}
 %The values of electric and magnetic fields at the quasi-particle position, $ \vec{E}_p \left( t \right) $ and $ \vec{B}_p \left( t \right) $, in Eq.~(\ref{eq:quasi_particle_fields}) are calculated by interpolation from nearest grid points (the form of interpolation is determined by the spatial shape function as closer discussed in Sec.~).
 
-The core elements of the particle-in-cell computational cycle are shown in Fig.~\ref{fig:pic_cycle}. Having the information about the quasi-particle positions, $ \vec{r}_p $, and momenta, $ \vec{p}_p $, at a given time step, we calculate the charge, $ \rho_{i, j, k} $, and current, $ \vec{J}_{i, j, k} $, densities at each grid point (particle weighting). Then, the electric, $ \vec{E}_{i,j,k} $, and magnetic, $ \vec{B}_{i, j, k} $, fields at each grid point are advanced by solving Maxwell's equations (field solver). After that, the new values of the electric and magnetic fields are interpolated back to the quasi-particle positions (field weighting). Finally, we calculate the new quasi-particle positions and momenta by solving the Newton-Lorentz equations of motion (particle pusher). The whole cycle repeats until the end of the simulation. We note that additional operations are usually performed in between these fundamental steps (e.g., current filtering, application of external fields, diagnostics, etc.).
+The core elements of the particle-in-cell computational cycle are shown in Fig.~\ref{fig:pic_cycle}. Having the information about the quasi-particle positions, $ \vec{r}_p $, and momenta, $ \vec{p}_p $, at a given time step, we calculate the charge, $ \rho_{i, j, k} $, and current, $ \vec{J}_{i, j, k} $, densities at each grid point (particle weighting). Then, the electric, $ \vec{E}_{i,j,k} $, and magnetic, $ \vec{B}_{i, j, k} $, fields at each grid point are advanced by solving Maxwell's equations (field solver). Afterwards, the new values of the electric and magnetic fields are interpolated back to the quasi-particle positions (field weighting). Finally, we calculate the new quasi-particle positions and momenta by solving the Newton-Lorentz equations of motion (particle pusher). The whole cycle repeats until the end of the simulation. We note that additional operations are usually performed in between these fundamental steps (e.g., current filtering, application of external fields, diagnostics, etc.).
 
 %The influence of the choice of the time and spatial step on the stability and accuracy of the PIC method will be demonstrated as well.  The PIC code EPOCH \cite{bennett}, which has been used for the simulations within this work, is described in the last section of this chapter.
 
@@ -1477,7 +1476,7 @@ Finally, we substitute the vector $ \vec{u}_{p}^{\:+} $ into Eq.~(\ref{eq:boris_
 
 \subsection{Field solver}
 
-The integration of Maxwell's equations in time on the Cartesian grid is in the particle-in-cell algorithm usually carried out using the standard finite-difference time-domain method \cite{Yee1966}. In this method, the vector components of $ \vec{E}_{i, j, k} $ and $ \vec{B}_{i, j, k} $ fields are spatially staggered about the rectangular cells of the Cartesian grid,
+The integration of Maxwell's equations in time on the Cartesian grid is usually carried out using the standard finite-difference time-domain method \cite{Yee1966} in the particle-in-cell algorithm. In this method, the vector components of $ \vec{E}_{i, j, k} $ and $ \vec{B}_{i, j, k} $ fields are spatially staggered about the rectangular cells of the Cartesian grid,
 \begin{equation}
 	\label{eq:staggered_E}
 	\vec{E}_{i, j, k} \coloneqq \left[\left(E_{x}\right)_{i,\: j + 1/2,\: k + 1/2}, \ \left(E_{y}\right)_{i + 1/2,\: j,\: k + 1/2}, \ \left(E_{z}\right)_{i + 1/2,\: j + 1/2,\: k} \right],
@@ -1486,7 +1485,7 @@ The integration of Maxwell's equations in time on the Cartesian grid is in the p
 	\label{eq:staggered_B}
 	\vec{B}_{i, j, k} \coloneqq \left[\left(B_{x}\right)_{i + 1/2,\: j,\: k}, \ \left(B_{y}\right)_{i,\: j + 1/2,\: k}, \ \left(B_{z}\right)_{i,\: j,\: k + 1/2} \right].
 \end{equation}
-The components of $ \vec{J}_{i, j, k} $ are defined in the same way as the components of $ \vec{E}_{i, j, k} $ and $ \rho_{i, j, k} $ is defined in the middle of the cell,
+The components of $ \vec{J}_{i, j, k} $ are defined in the same way as the components of $ \vec{E}_{i, j, k} $ and $ \rho_{i, j, k} $ is defined in the center of the cell,
 \begin{equation}\label{eq:staggered_J}
 	\vec{J}_{i, j, k} \coloneqq \left[\left(J_{x}\right)_{i,\: j + 1/2,\: k + 1/2}, \ \left(J_{y}\right)_{i + 1/2,\: j,\: k + 1/2}, \ \left(J_{z}\right)_{i + 1/2,\: j + 1/2,\: k} \right],
 \end{equation}
@@ -1595,7 +1594,7 @@ According to Eq.~(\ref{eq:discrete_continuity_eq}) we may write
 \begin{equation}\label{eq:W_weighting}
 \left( W_x \right)_{i, j, k} + \left( W_y \right)_{i, j, k} + \left( W_z \right)_{i, j, k} = S^r \left( \vec{r}_{i, j, k} - \vec{r}_p - \vec{\delta r}_p \right) - S^r \left( \vec{r}_{i, j, k} - \vec{r}_p \right).
 \end{equation}
-The motion of the quasi-particle generates the following 8 functions,
+The motion of the quasi-particle generates the following eight functions,
 \begin{equation}\label{eq:current_density_deposition_functions}
 \begin{aligned}
 & S^r \left( \vec{r}_{i, j, k} - \vec{r}_p \right), \ S^r \left( \vec{r}_{i, j, k} - \vec{r}_p - \delta x_p \vec{e}_x \right), \ S^r \left( \vec{r}_{i, j, k} - \vec{r}_p - \delta y_p \vec{e}_y \right), \\
@@ -1604,7 +1603,7 @@ The motion of the quasi-particle generates the following 8 functions,
 & S^r \left( \vec{r}_{i, j, k} - \vec{r}_p - \vec{\delta r}_p \right).
 \end{aligned}
 \end{equation}
-According to Ref.~\citenum{Esirkepov2001}, only one linear combination of the 8 functions, Eq.~(\ref{eq:current_density_deposition_functions}), satisfies the conditions imposed on $ \vec{W} $,
+According to Ref.~\citenum{Esirkepov2001}, only one linear combination of the eight functions, Eq.~(\ref{eq:current_density_deposition_functions}), satisfies the conditions imposed on $ \vec{W} $,
 \begin{subequations}\label{eq:current_density_deposition_lin_comb}
 \begin{equation}\label{eq:W_x_weighting}
 \begin{aligned}
@@ -1775,12 +1774,94 @@ Concerning the research on relativistic flying mirrors, we plan to work on the d
 \chapter*{Acknowledgements \markboth{Acknowledgements}{Acknowledgements}}
 %\addcontentsline{toc}{chapter}{Acknowledgements}
 
-Throughout the writing of this dissertation I have received a great deal of support and assistance.
+Throughout my postgraduate studies, I have had the privilege to meet and work with a number of highly skilled and inspiring people. In the next few paragraphs, I would like to express my deepest gratitude to these people, and to all the other people who have supported me while writing this thesis and especially while carrying out the work that this thesis presents.
 
-%First and foremost, I would like to express my sincere gratitude to Prof. Sergei Bulanov. 
+First and foremost, I would like to express my sincere gratitude and appreciation to Prof. Sergei Bulanov, not only for giving me the opportunity to join his research group at ELI Beamlines, but also for being a truly exceptional person and an absolute professional in literally every aspect. Without your continual support, guidance, patience, and immense knowledge, the research presented in this thesis and the valuable skills I have learned throughout would have not been possible. 
+
+Second, I would like to thank Dr. Ondřej Klimo for introducing me to this fascinating field of science and for always being around ready to help and solve problems ever since early in my undergraduate studies. Through your leadership and positive motivation you have enabled me to build my own scientific career and to grow both personally and professionally.
+
+As an integral part of my postgraduate education, I had an opportunity to visit and work at two world-class research institutes. I take this occasion to thank Prof. Pisin Chen, his assistant Yen-Ling, and his students Yung-Kun and Yuan, for organizing my stay at Leung Center for Cosmology and Particle Astrophysics, Taipei, Taiwan with ease and efficiency and for their wonderful hospitality. I am equally thankful to Prof. Tetsuya Kawachi, Dr. Timur Esirkepov, Dr. Satoshi Orimo, Dr. James Koga, Dr. Alexander Pirozhkov, and Dr. Masaki Kando for hosting me ... I would particularly like to single out Timur Esirkepov and Tetsuya Kawachi to whom I am especially grateful, for taking care of me and for passionate introduction to Japanese history, culture, language, and cuisine.
 
 
 
+for helping me begin this
+journey and encouraging me throughout. You have consistently challenged me to push
+my boundaries and you have enabled me to grow in ways that I could never imagine.
+Thank you for teaching me to explore the world through my eyes and urging me to take
+greater responsibility for overcoming obstacles.
+
+in ways that I could never imagine.
+
+
+
+
+
+to grow into an outstanding team
+
+and giving me a substantial amount of freedom and responsibility during my scientific activity build my own scientific career.
+
+enabled me to build my own scientific career
+
+
+
+
+ -- Leung Center for Cosmology and Particle Astrophysics, Taipei, Taiwan and Kansai Photon Science Institute, Kyoto, Japan.  
+
+
+... I take this occasion to thankI am thankful to Prof. Tetsuya Kawachi, Dr. Timur Esirkepov, Dr. Satoshi Orimo, Dr. James Koga, Dr. Alexander Pirozhkov, and Dr. Masaki Kando for their. I would particularly like to single out Timur, to who I am especially grateful, for being so patient with me,
+
+My special thanks belong to Dr. Timur Esirkepov who introducing me the Japan history, culture, and cuisine
+
+for hosting me at
+
+
+
+a warm welcome
+
+organizing my visit
+
+ wonderful hospitality during my stay there
+
+
+
+
+
+
+
+absolute professional in virtually every way
+
+has always impressed me and struck me as something to strive for.
+
+I would now like to take this opportunity to express my deepest gratitude to these and all the other people that have contributed to making this thesis possible.
+
+Your knowledge, enthusiasm
+and creativity has been an constant source of inspiration for me. Without
+your guidance and insight I would not be where I am today.
+
+
+Throughout my postgraduate studies I have received a great deal of support and assistance. 
+
+ I have had the privilege to meet and work with a number of highly skilled and influential people.
+
+During the course of my PhD I have had the privilege to meet and work
+with a number of highly skilled and inuential people. I would now like to
+take this opportunity to express my deepest gratitude to these and all the
+other people that have contributed to making this thesis possible.
+
+In the next few paragraphs I would like to acknowledge the people that have supported me while writing this thesis and especially while carrying out the work that this thesis presents. 
+
+ 
+
+
+
+Last but not least I wish to express my gratitude to my friends and
+family.
+
+since back my undergraduate studies.
+
+for his enthusiasm and the interesting and enlightening discussions
+
+for his generous help from the very beginning \\
 
 \noindent This work was supported by the project "High Field Initiative" (Grant No. CZ.02.1.01/0.0/0.0/\\15\_003/0000449) from the European Regional Development Fund.
 
